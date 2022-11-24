@@ -12,7 +12,7 @@ public class Security {
         SpeakeasyHTTPSecurityClient securityClient = new SpeakeasyHTTPSecurityClient(client);
 
         if (security != null) {
-            Field[] fields = security.getClass().getDeclaredFields();
+            Field[] fields = security.getClass().getFields();
 
             for (Field field : fields) {
                 Object value = field.get(security);
@@ -38,7 +38,7 @@ public class Security {
 
     private static void parseSecurityOption(SpeakeasyHTTPSecurityClient client, Object option)
             throws Exception {
-        Field[] fields = option.getClass().getDeclaredFields();
+        Field[] fields = option.getClass().getFields();
 
         for (Field field : fields) {
             Object value = field.get(option);
@@ -59,7 +59,7 @@ public class Security {
             return;
         }
 
-        Field[] fields = scheme.getClass().getDeclaredFields();
+        Field[] fields = scheme.getClass().getFields();
 
         for (Field field : fields) {
             Object value = field.get(scheme);
@@ -69,9 +69,9 @@ public class Security {
                 continue;
             }
 
-            switch (securityMetadata.type) {
+            switch (schemeMetadata.type) {
                 case "apiKey":
-                    switch (securityMetadata.subtype) {
+                    switch (schemeMetadata.subtype) {
                         case "header":
                             client.addHeader(securityMetadata.name, String.valueOf(value));
                             break;
@@ -93,7 +93,7 @@ public class Security {
                     client.addHeader(securityMetadata.name, String.valueOf(value));
                     break;
                 case "http":
-                    switch (securityMetadata.subtype) {
+                    switch (schemeMetadata.subtype) {
                         case "bearer":
                             client.addHeader(securityMetadata.name, String.valueOf(value));
                             break;
@@ -108,7 +108,7 @@ public class Security {
 
     private static void parseBasicAuthScheme(SpeakeasyHTTPSecurityClient client, Object scheme)
             throws IllegalAccessException {
-        Field[] fields = scheme.getClass().getDeclaredFields();
+        Field[] fields = scheme.getClass().getFields();
 
         String username = "";
         String password = "";

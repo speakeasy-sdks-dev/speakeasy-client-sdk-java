@@ -17,7 +17,7 @@ public class QueryParameters {
         if (queryParams != null) {
             List<NameValuePair> allParams = new ArrayList<>();
 
-            Field[] fields = queryParams.getClass().getDeclaredFields();
+            Field[] fields = queryParams.getClass().getFields();
 
             for (Field field : fields) {
                 QueryParamsMetadata queryParamsMetadata = QueryParamsMetadata.parse(field);
@@ -54,6 +54,7 @@ public class QueryParameters {
         switch (queryParamsMetadata.serialization) {
             case "json":
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 String json = mapper.writeValueAsString(value);
 
                 params.add(new BasicNameValuePair(queryParamsMetadata.name, json));
@@ -118,7 +119,7 @@ public class QueryParameters {
                 params.add(new BasicNameValuePair(queryParamsMetadata.name, String.valueOf(value)));
                 break;
             case OBJECT: {
-                Field[] fields = value.getClass().getDeclaredFields();
+                Field[] fields = value.getClass().getFields();
 
                 List<String> items = new ArrayList<>();
 

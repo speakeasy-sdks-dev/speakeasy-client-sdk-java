@@ -65,12 +65,14 @@ public class Requests {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.postmanCollection = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -105,12 +107,14 @@ public class Requests {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.unboundedRequest = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), UnboundedRequest.class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -135,8 +139,10 @@ public class Requests {
         
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         List<NameValuePair> queryParams = Utils.getQueryParams(request.queryParams);
-        for (NameValuePair queryParam : queryParams) {
-            req.addQueryParam(queryParam);
+        if (queryParams != null) {
+            for (NameValuePair queryParam : queryParams) {
+                req.addQueryParam(queryParam);
+            }
         }
         
         HTTPClient client = this._securityClient;
@@ -152,12 +158,14 @@ public class Requests {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.boundedRequests = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), BoundedRequest[].class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }

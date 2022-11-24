@@ -62,6 +62,7 @@ public class Metadata {
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -96,12 +97,14 @@ public class Metadata {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.versionMetadata = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), VersionMetadata[].class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -141,12 +144,14 @@ public class Metadata {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.versionMetadata = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), VersionMetadata.class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }

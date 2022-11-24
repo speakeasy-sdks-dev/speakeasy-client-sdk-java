@@ -1,10 +1,14 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import java.time.Instant;
+import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.Map;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 
 /**
  * BoundedRequest
@@ -17,8 +21,10 @@ public class BoundedRequest {
     @JsonProperty("api_id")
     public String apiId;
 
+    @JsonSerialize(using = DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
-    public Instant createdAt;
+    public OffsetDateTime createdAt;
 
     @JsonProperty("customer_id")
     public String customerId;
@@ -36,14 +42,18 @@ public class BoundedRequest {
     @JsonProperty("path")
     public String path;
 
+    @JsonSerialize(using = DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("request_finish_time")
-    public Instant requestFinishTime;
+    public OffsetDateTime requestFinishTime;
 
     @JsonProperty("request_id")
     public String requestId;
 
+    @JsonSerialize(using = DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("request_start_time")
-    public Instant requestStartTime;
+    public OffsetDateTime requestStartTime;
 
     @JsonProperty("status")
     public long status;

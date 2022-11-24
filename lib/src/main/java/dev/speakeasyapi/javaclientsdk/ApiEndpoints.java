@@ -75,6 +75,7 @@ public class ApiEndpoints {
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -112,12 +113,14 @@ public class ApiEndpoints {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.apiEndpoint = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), ApiEndpoint.class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -155,12 +158,14 @@ public class ApiEndpoints {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.generateOpenApiSpecDiff = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), GenerateOpenApiSpecDiff.class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -197,12 +202,14 @@ public class ApiEndpoints {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.postmanCollection = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -237,12 +244,14 @@ public class ApiEndpoints {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.apiEndpoints = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), ApiEndpoint[].class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -277,12 +286,14 @@ public class ApiEndpoints {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.apiEndpoints = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), ApiEndpoint[].class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -317,12 +328,14 @@ public class ApiEndpoints {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.apiEndpoint = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), ApiEndpoint.class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }
@@ -364,12 +377,14 @@ public class ApiEndpoints {
         if (httpRes.statusCode() == 200) {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.apiEndpoint = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), ApiEndpoint.class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
             }
         }

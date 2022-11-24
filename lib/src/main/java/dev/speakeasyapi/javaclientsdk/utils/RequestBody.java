@@ -42,7 +42,7 @@ public class RequestBody {
             return serializeContentType("request", requestMetadata.mediaType, requestValue);
         }
 
-        Field[] fields = requestValue.getClass().getDeclaredFields();
+        Field[] fields = requestValue.getClass().getFields();
 
         for (Field field : fields) {
             Object val = field.get(requestValue);
@@ -71,6 +71,7 @@ public class RequestBody {
 
         if (jsonPattern.matcher(contentType).matches()) {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.findAndRegisterModules();
 
             body.contentType = contentType;
             body.body = BodyPublishers.ofString(mapper.writeValueAsString(value));
@@ -89,7 +90,7 @@ public class RequestBody {
             throws IllegalArgumentException, IllegalAccessException, UnsupportedOperationException, IOException {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 
-        Field[] fields = value.getClass().getDeclaredFields();
+        Field[] fields = value.getClass().getFields();
 
         for (Field field : fields) {
             Object val = field.get(value);
@@ -107,6 +108,7 @@ public class RequestBody {
                 serializeMultipartFile(builder, val);
             } else if (metadata.json) {
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
                 String json = mapper.writeValueAsString(val);
                 builder.addTextBody(metadata.name, json, ContentType.APPLICATION_JSON);
             } else {
@@ -143,7 +145,7 @@ public class RequestBody {
         String fileName = "";
         byte[] content = null;
 
-        Field[] fields = file.getClass().getDeclaredFields();
+        Field[] fields = file.getClass().getFields();
 
         for (Field field : fields) {
             Object val = field.get(file);
@@ -186,7 +188,7 @@ public class RequestBody {
                 }
                 break;
             case OBJECT:
-                Field[] fields = value.getClass().getDeclaredFields();
+                Field[] fields = value.getClass().getFields();
 
                 for (Field field : fields) {
                     Object val = field.get(value);
@@ -202,12 +204,13 @@ public class RequestBody {
 
                     if (metadata.json) {
                         ObjectMapper mapper = new ObjectMapper();
+                        mapper.findAndRegisterModules();
                         String json = mapper.writeValueAsString(val);
                         params.add(new BasicNameValuePair(metadata.name, json));
                     } else {
                         switch (Types.getType(val.getClass())) {
                             case OBJECT: {
-                                Field[] valFields = val.getClass().getDeclaredFields();
+                                Field[] valFields = val.getClass().getFields();
 
                                 List<String> items = new ArrayList<String>();
 

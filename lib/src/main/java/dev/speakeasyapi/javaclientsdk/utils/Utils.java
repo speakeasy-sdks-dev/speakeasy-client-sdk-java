@@ -30,7 +30,7 @@ public final class Utils {
         Map<String, String> pathParams = new HashMap<>();
 
         if (params != null) {
-            Field[] fields = params.getClass().getDeclaredFields();
+            Field[] fields = params.getClass().getFields();
 
             for (Field field : fields) {
                 PathParamsMetadata pathParamsMetadata = PathParamsMetadata.parse(field);
@@ -38,11 +38,16 @@ public final class Utils {
                     continue;
                 }
 
+                Object value = field.get(params);
+                if (value == null) {
+                    continue;
+                }
+
                 switch (pathParamsMetadata.style) {
                     case "simple":
-                        switch (Types.getType(field.getType())) {
+                        switch (Types.getType(value.getClass())) {
                             case ARRAY:
-                                Object[] array = (Object[]) field.get(params);
+                                Object[] array = (Object[]) value;
                                 if (array.length == 0) {
                                     continue;
                                 }
@@ -52,7 +57,7 @@ public final class Utils {
                                                 Arrays.asList(array).stream().map(v -> String.valueOf(v)).toList()));
                                 break;
                             case MAP:
-                                Map<?, ?> map = (Map<?, ?>) field.get(params);
+                                Map<?, ?> map = (Map<?, ?>) value;
                                 if (map.size() == 0) {
                                     continue;
                                 }
@@ -68,18 +73,12 @@ public final class Utils {
                                             }
                                         }).toList()));
                             case PRIMITIVE:
-                                pathParams.put(pathParamsMetadata.name, String.valueOf(field.get(params)));
+                                pathParams.put(pathParamsMetadata.name, String.valueOf(value));
                                 break;
                             case OBJECT:
-                                Object value = field.get(params);
-
-                                if (value == null) {
-                                    continue;
-                                }
-
                                 List<String> values = new ArrayList<String>();
 
-                                Field[] valueFields = params.getClass().getDeclaredFields();
+                                Field[] valueFields = params.getClass().getFields();
                                 for (Field valueField : valueFields) {
                                     PathParamsMetadata valuePathParamsMetadata = PathParamsMetadata.parse(valueField);
                                     if (valuePathParamsMetadata == null) {
@@ -152,7 +151,7 @@ public final class Utils {
     public static String replaceParameters(String url, Map<String, String> params) {
         StringBuilder sb = new StringBuilder();
 
-        Pattern p = Pattern.compile("({.*?})");
+        Pattern p = Pattern.compile("(\\{.*?\\})");
         Matcher m = p.matcher(url);
 
         while (m.find()) {

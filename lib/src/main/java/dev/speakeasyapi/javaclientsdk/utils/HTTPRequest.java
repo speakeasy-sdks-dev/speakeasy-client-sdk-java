@@ -3,6 +3,7 @@ package dev.speakeasyapi.javaclientsdk.utils;
 import java.net.URI;
 import java.net.http.HttpRequest;
 import java.net.http.HttpRequest.BodyPublisher;
+import java.net.http.HttpRequest.BodyPublishers;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,7 +55,7 @@ public class HTTPRequest {
     public HttpRequest build() {
         HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
 
-        BodyPublisher bodyPublisher = null;
+        BodyPublisher bodyPublisher = BodyPublishers.noBody();
         if (this.body != null) {
             bodyPublisher = this.body.body;
             requestBuilder.header("Content-Type", this.body.contentType);
@@ -73,7 +74,10 @@ public class HTTPRequest {
     }
 
     private URI resolveURL() {
-        String url = this.baseURL + "?" + URLEncodedUtils.format(this.queryParams, StandardCharsets.UTF_8);
+        String url = this.baseURL;
+        if (this.queryParams != null && this.queryParams.size() > 0) {
+            url += "?" + URLEncodedUtils.format(this.queryParams, StandardCharsets.UTF_8);
+        }
         return URI.create(url);
     }
 }

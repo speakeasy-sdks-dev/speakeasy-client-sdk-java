@@ -40,14 +40,14 @@ public class Metadata {
             values.put(key, val);
         }
 
-        Field[] fields = metadata.getClass().getDeclaredFields();
+        Field[] fields = metadata.getClass().getFields();
 
         for (Field f : fields) {
             f.setAccessible(true);
             if (values.containsKey(f.getName())) {
                 String val = values.get(f.getName());
 
-                if (f.getType() == Boolean.class) {
+                if (f.getType().equals(boolean.class) || f.getType().equals(Boolean.class)) {
                     f.set(metadata, val.equals("true") || val.isBlank());
                 } else {
                     f.set(metadata, val);

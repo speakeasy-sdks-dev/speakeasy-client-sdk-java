@@ -1,7 +1,11 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import java.time.Instant;
+import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 
 /**
  * Schema
@@ -11,8 +15,10 @@ public class Schema {
     @JsonProperty("api_id")
     public String apiId;
 
+    @JsonSerialize(using = DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
-    public Instant createdAt;
+    public OffsetDateTime createdAt;
 
     @JsonProperty("description")
     public String description;
