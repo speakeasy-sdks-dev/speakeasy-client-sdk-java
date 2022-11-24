@@ -1,0 +1,4 @@
+java:
+  packagename: dev.speakeasyapi.javaclientsdk
+  version: 0.0.1
+telemetryenabled: true
