@@ -48,30 +48,36 @@ public class SDK {
 		private Builder() {
 		}
 
-		public void setClient(HTTPClient client) {
+		public Builder setClient(HTTPClient client) {
 			this.client = client;
+			return this;
 		}
 		
-		public void setSecurity(Security security) {
+		public Builder setSecurity(Security security) {
 			this.security = security;
+			return this;
 		}
 		
-		public void setServerURL(String serverURL) {
+		public Builder setServerURL(String serverURL) {
 			this.serverURL = serverURL;
+			return this;
 		}
 		
-		public void setServerURL(String serverURL, Map<String, String> params) {
+		public Builder setServerURL(String serverURL, Map<String, String> params) {
 			this.serverURL = serverURL;
 			this.params = params;
+			return this;
 		}
 		
-		public void setServer(Servers server) {
+		public Builder setServer(Servers server) {
 			this.serverURL = SERVERS.get(server);
+			return this;
 		}
 
-		public void setServer(Servers server, Map<String, String> params) {
+		public Builder setServer(Servers server, Map<String, String> params) {
 			this.serverURL = SERVERS.get(server);
 			this.params = params;
+			return this;
 		}
 		
 		public SDK build() throws Exception {

@@ -20,19 +20,22 @@ public class HTTPRequest {
     private List<NameValuePair> queryParams = new ArrayList<NameValuePair>();
     private Map<String, List<String>> headers = new HashMap<String, List<String>>();
 
-    public void setMethod(String method) {
+    public HTTPRequest setMethod(String method) {
         this.method = method;
+        return this;
     }
 
-    public void setURL(String url) {
+    public HTTPRequest setURL(String url) {
         this.baseURL = url;
+        return this;
     }
 
-    public void setBody(SerializedBody body) {
+    public HTTPRequest setBody(SerializedBody body) {
         this.body = body;
+        return this;
     }
 
-    public void addHeader(String key, String value) {
+    public HTTPRequest addHeader(String key, String value) {
         List<String> headerValues = this.headers.get(key);
         if (headerValues == null) {
             headerValues = new ArrayList<String>();
@@ -40,10 +43,12 @@ public class HTTPRequest {
 
         headerValues.add(value);
         this.headers.put(key, headerValues);
+        return this;
     }
 
-    public void addQueryParam(NameValuePair param) {
+    public HTTPRequest addQueryParam(NameValuePair param) {
         this.queryParams.add(param);
+        return this;
     }
 
     public HttpRequest build() {
