@@ -12,39 +12,40 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class QueryParameters {
-    public static List<NameValuePair> parseQueryParams(Object queryParams)
-            throws IllegalAccessException, JsonProcessingException {
-        if (queryParams != null) {
-            List<NameValuePair> allParams = new ArrayList<>();
+    public static List<NameValuePair> parseQueryParams(Object queryParams) throws Exception {
+        if (queryParams == null) {
+            return null;
+        }
 
-            Field[] fields = queryParams.getClass().getFields();
+        List<NameValuePair> allParams = new ArrayList<>();
 
-            for (Field field : fields) {
-                QueryParamsMetadata queryParamsMetadata = QueryParamsMetadata.parse(field);
-                if (queryParamsMetadata == null) {
-                    continue;
-                }
+        Field[] fields = queryParams.getClass().getFields();
 
-                if (queryParamsMetadata.serialization != null && !queryParamsMetadata.serialization.isBlank()) {
-                    List<NameValuePair> params = parseSerializedParams(queryParamsMetadata, field.get(queryParams));
-                    allParams.addAll(params);
-                } else {
-                    switch (queryParamsMetadata.style) {
-                        case "form":
-                            List<NameValuePair> params = parseFormParams(queryParamsMetadata, field.get(queryParams));
-                            allParams.addAll(params);
-                            break;
-                        case "deepObject":
-                            List<NameValuePair> deepObjectParams = parseDeepObjectParams(queryParamsMetadata,
-                                    field.get(queryParams));
-                            allParams.addAll(deepObjectParams);
-                            break;
-                    }
+        for (Field field : fields) {
+            QueryParamsMetadata queryParamsMetadata = QueryParamsMetadata.parse(field);
+            if (queryParamsMetadata == null) {
+                continue;
+            }
+
+            if (queryParamsMetadata.serialization != null && !queryParamsMetadata.serialization.isBlank()) {
+                List<NameValuePair> params = parseSerializedParams(queryParamsMetadata, field.get(queryParams));
+                allParams.addAll(params);
+            } else {
+                switch (queryParamsMetadata.style) {
+                    case "form":
+                        List<NameValuePair> params = parseFormParams(queryParamsMetadata, field.get(queryParams));
+                        allParams.addAll(params);
+                        break;
+                    case "deepObject":
+                        List<NameValuePair> deepObjectParams = parseDeepObjectParams(queryParamsMetadata,
+                                field.get(queryParams));
+                        allParams.addAll(deepObjectParams);
+                        break;
                 }
             }
         }
 
-        return null;
+        return allParams;
     }
 
     private static List<NameValuePair> parseSerializedParams(QueryParamsMetadata queryParamsMetadata, Object value)
@@ -147,46 +148,52 @@ public class QueryParameters {
     }
 
     private static List<NameValuePair> parseDeepObjectParams(QueryParamsMetadata queryParamsMetadata, Object value)
-            throws IllegalArgumentException, IllegalAccessException {
+            throws Exception {
         List<NameValuePair> params = new ArrayList<>();
 
         if (value == null) {
             return params;
         }
 
-        Class<?> type = value.getClass();
-        if (Map.class.isAssignableFrom(type)) {
-            Map<?, ?> map = (Map<?, ?>) value;
+        switch (Types.getType(value.getClass())) {
+            case MAP: {
+                Map<?, ?> map = (Map<?, ?>) value;
 
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                String key = String.valueOf(entry.getKey());
-                Object val = entry.getValue();
+                for (Map.Entry<?, ?> entry : map.entrySet()) {
+                    String key = String.valueOf(entry.getKey());
+                    Object val = entry.getValue();
 
-                if (val.getClass().isArray()) {
-                    for (Object v : (Object[]) val) {
+                    if (val.getClass().isArray()) {
+                        for (Object v : (Object[]) val) {
+                            params.add(new BasicNameValuePair(String.format("%s[%s]", queryParamsMetadata.name, key),
+                                    String.valueOf(v)));
+                        }
+                    } else {
                         params.add(new BasicNameValuePair(String.format("%s[%s]", queryParamsMetadata.name, key),
-                                String.valueOf(v)));
+                                String.valueOf(val)));
                     }
-                } else {
-                    params.add(new BasicNameValuePair(String.format("%s[%s]", queryParamsMetadata.name, key),
+                }
+
+                return params;
+            }
+            case OBJECT: {
+                Field[] fields = value.getClass().getFields();
+
+                for (Field field : fields) {
+                    QueryParamsMetadata metadata = QueryParamsMetadata.parse(field);
+                    if (metadata == null) {
+                        continue;
+                    }
+
+                    Object val = field.get(value);
+                    params.add(new BasicNameValuePair(String.format("%s[%s]", queryParamsMetadata.name, metadata.name),
                             String.valueOf(val)));
                 }
-            }
-        } else {
-            Field[] fields = type.getFields();
 
-            for (Field field : fields) {
-                QueryParamsMetadata metadata = QueryParamsMetadata.parse(field);
-                if (metadata == null) {
-                    continue;
-                }
-
-                Object val = field.get(value);
-                params.add(new BasicNameValuePair(String.format("%s[%s]", queryParamsMetadata.name, metadata.name),
-                        String.valueOf(val)));
+                return params;
             }
+            default:
+                throw new Exception("DeepObject style only supports Map and Object types");
         }
-
-        return params;
     }
 }

@@ -17,7 +17,7 @@ public enum Types {
             return Types.ARRAY;
         } else if (Map.class.isAssignableFrom(clazz)) {
             return Types.MAP;
-        } else if (isPrimitiveWrapperTypes(clazz)) {
+        } else if (isPrimitiveWrapperTypes(clazz) || clazz.isPrimitive() || String.class.isAssignableFrom(clazz)) {
             return Types.PRIMITIVE;
         } else {
             return Types.OBJECT;

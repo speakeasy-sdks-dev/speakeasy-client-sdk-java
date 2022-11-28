@@ -12,10 +12,7 @@ import java.util.regex.Pattern;
 
 import org.apache.http.NameValuePair;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 public final class Utils {
-
     public static String generateURL(String baseURL, String path)
             throws IllegalArgumentException, IllegalAccessException {
         return generateURL(baseURL, path, null);
@@ -139,8 +136,7 @@ public final class Utils {
         return RequestBody.serialize(request);
     }
 
-    public static List<NameValuePair> getQueryParams(Object params)
-            throws JsonProcessingException, IllegalAccessException {
+    public static List<NameValuePair> getQueryParams(Object params) throws Exception {
         return QueryParameters.parseQueryParams(params);
     }
 
@@ -165,6 +161,123 @@ public final class Utils {
         m.appendTail(sb);
 
         return sb.toString();
+    }
+
+    public static Map<String, List<String>> getHeaders(Object headers) throws Exception {
+        if (headers == null) {
+            return null;
+        }
+
+        Map<String, List<String>> result = new HashMap<>();
+
+        Field[] fields = headers.getClass().getFields();
+
+        for (Field field : fields) {
+            HeaderMetadata headerMetadata = HeaderMetadata.parse(field);
+            if (headerMetadata == null) {
+                continue;
+            }
+
+            Object value = field.get(headers);
+            if (value == null) {
+                continue;
+            }
+
+            switch (Types.getType(value.getClass())) {
+                case OBJECT: {
+                    List<String> items = new ArrayList<String>();
+
+                    Field[] valueFields = value.getClass().getFields();
+                    for (Field valueField : valueFields) {
+                        HeaderMetadata valueHeaderMetadata = HeaderMetadata.parse(valueField);
+                        if (valueHeaderMetadata == null || valueHeaderMetadata.name == null
+                                || valueHeaderMetadata.name.isBlank()) {
+                            continue;
+                        }
+
+                        Object valueFieldValue = valueField.get(value);
+                        if (valueFieldValue == null) {
+                            continue;
+                        }
+
+                        if (headerMetadata.explode) {
+                            items.add(
+                                    String.format("%s=%s", valueHeaderMetadata.name, String.valueOf(valueFieldValue)));
+                        } else {
+                            items.add(valueHeaderMetadata.name);
+                            items.add(String.valueOf(valueFieldValue));
+                        }
+                    }
+
+                    if (!result.containsKey(headerMetadata.name)) {
+                        result.put(headerMetadata.name, new ArrayList<String>());
+                    }
+
+                    List<String> values = result.get(headerMetadata.name);
+                    values.add(String.join(",", items));
+
+                    break;
+                }
+                case MAP: {
+                    Map<?, ?> map = (Map<?, ?>) value;
+                    if (map.size() == 0) {
+                        continue;
+                    }
+
+                    List<String> items = new ArrayList<String>();
+
+                    for (Map.Entry<?, ?> entry : map.entrySet()) {
+                        if (headerMetadata.explode) {
+                            items.add(String.format("%s=%s", String.valueOf(entry.getKey()),
+                                    String.valueOf(entry.getValue())));
+                        } else {
+                            items.add(String.valueOf(entry.getKey()));
+                            items.add(String.valueOf(entry.getValue()));
+                        }
+                    }
+
+                    if (!result.containsKey(headerMetadata.name)) {
+                        result.put(headerMetadata.name, new ArrayList<String>());
+                    }
+
+                    List<String> values = result.get(headerMetadata.name);
+                    values.add(String.join(",", items));
+
+                    break;
+                }
+                case ARRAY: {
+                    Object[] array = (Object[]) value;
+
+                    if (array.length == 0) {
+                        continue;
+                    }
+
+                    List<String> items = new ArrayList<String>();
+
+                    for (Object item : array) {
+                        items.add(String.valueOf(item));
+                    }
+
+                    if (!result.containsKey(headerMetadata.name)) {
+                        result.put(headerMetadata.name, new ArrayList<String>());
+                    }
+
+                    List<String> values = result.get(headerMetadata.name);
+                    values.add(String.join(",", items));
+
+                    break;
+                }
+                default:
+                    if (!result.containsKey(headerMetadata.name)) {
+                        result.put(headerMetadata.name, new ArrayList<String>());
+                    }
+
+                    List<String> values = result.get(headerMetadata.name);
+                    values.add(String.valueOf(value));
+            }
+        }
+
+        return result;
     }
 
     private Utils() {

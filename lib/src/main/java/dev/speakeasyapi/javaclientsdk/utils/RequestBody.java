@@ -13,6 +13,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.message.BasicNameValuePair;
 
@@ -89,6 +90,9 @@ public class RequestBody {
     private static SerializedBody serializeMultipart(Object value)
             throws IllegalArgumentException, IllegalAccessException, UnsupportedOperationException, IOException {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+        String boundary = "-------------" + System.currentTimeMillis();
+        builder.setBoundary(boundary);
 
         Field[] fields = value.getClass().getFields();
 

@@ -8,27 +8,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import org.apache.http.NameValuePair;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.EmbedAccessTokenResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.Error;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken;
-import dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse;
 
 public class Embeds {
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
-	private String _serverURL;
+	private String _serverUrl;
 	private String _language;
 	private String _sdkVersion;
 	private String _genVersion;
 
-	public Embeds(HTTPClient defaultClient, HTTPClient securityClient, String serverURL, String language, String sdkVersion, String genVersion) {
+	public Embeds(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
 		this._defaultClient = defaultClient;
 		this._securityClient = securityClient;
-		this._serverURL = serverURL;
+		this._serverUrl = serverUrl;
 		this._language = language;
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
@@ -36,14 +28,14 @@ public class Embeds {
 	
 	
     /**
-     * GetEmbedAccessToken - Get an embed access token for the current workspace.
+     * getEmbedAccessToken - Get an embed access token for the current workspace.
      *
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
      * Filters can be applied allowing views to be filtered to things like particular customerIds.
     **/
-    public GetEmbedAccessTokenResponse GetEmbedAccessToken(GetEmbedAccessTokenRequest request) throws Exception {
-        String baseURL = this._serverURL;
-        String url = Utils.generateURL(baseURL, "/v1/workspace/embed-access-token");
+    public dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse getEmbedAccessToken(dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Utils.generateURL(baseUrl, "/v1/workspace/embed-access-token");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -63,7 +55,7 @@ public class Embeds {
 
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
-        GetEmbedAccessTokenResponse res = new GetEmbedAccessTokenResponse();
+        dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse();
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
@@ -71,14 +63,14 @@ public class Embeds {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.embedAccessTokenResponse = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), EmbedAccessTokenResponse.class);
+                res.embedAccessTokenResponse = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.EmbedAccessTokenResponse.class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
+                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
             }
         }
 
@@ -87,11 +79,11 @@ public class Embeds {
 	
 	
     /**
-     * GetValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
+     * getValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
     **/
-    public GetValidEmbedAccessTokensResponse GetValidEmbedAccessTokens() throws Exception {
-        String baseURL = this._serverURL;
-        String url = Utils.generateURL(baseURL, "/v1/workspace/embed-access-tokens/valid");
+    public dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse getValidEmbedAccessTokens() throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Utils.generateURL(baseUrl, "/v1/workspace/embed-access-tokens/valid");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -105,7 +97,7 @@ public class Embeds {
 
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
-        GetValidEmbedAccessTokensResponse res = new GetValidEmbedAccessTokensResponse();
+        dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse();
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
@@ -113,14 +105,14 @@ public class Embeds {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.embedTokens = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), EmbedToken[].class);
+                res.embedTokens = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[].class);
             }
         }
         else {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
+                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
             }
         }
 
@@ -129,11 +121,11 @@ public class Embeds {
 	
 	
     /**
-     * RevokeEmbedAccessToken - Revoke an embed access EmbedToken.
+     * revokeEmbedAccessToken - Revoke an embed access EmbedToken.
     **/
-    public RevokeEmbedAccessTokenResponse RevokeEmbedAccessToken(RevokeEmbedAccessTokenRequest request) throws Exception {
-        String baseURL = this._serverURL;
-        String url = Utils.generateURL(baseURL, "/v1/workspace/embed-access-tokens/{tokenID}", request.pathParams);
+    public dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse revokeEmbedAccessToken(dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Utils.generateURL(baseUrl, "/v1/workspace/embed-access-tokens/{tokenID}", request.pathParams);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -147,7 +139,7 @@ public class Embeds {
 
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
-        RevokeEmbedAccessTokenResponse res = new RevokeEmbedAccessTokenResponse();
+        dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse();
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
@@ -157,7 +149,7 @@ public class Embeds {
             if (Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Error.class);
+                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
             }
         }
 
