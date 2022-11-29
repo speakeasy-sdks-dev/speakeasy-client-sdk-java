@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import java.util.Map;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 
@@ -30,11 +29,11 @@ public class BoundedRequest {
     public String customerId;
 
     @JsonProperty("latency")
-    public long latency;
+    public Long latency;
 
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
-    public Map<String, String[]> metadata;
+    public java.util.Optional<java.util.Map<String, String[]>> metadata;
 
     @JsonProperty("method")
     public String method;
@@ -56,7 +55,7 @@ public class BoundedRequest {
     public OffsetDateTime requestStartTime;
 
     @JsonProperty("status")
-    public long status;
+    public Long status;
 
     @JsonProperty("version_id")
     public String versionId;

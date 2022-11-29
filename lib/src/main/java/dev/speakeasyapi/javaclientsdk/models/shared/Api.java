@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import java.util.Map;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 
@@ -26,13 +25,13 @@ public class Api {
     @JsonProperty("description")
     public String description;
 
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("matched")
-    public Boolean matched;
+    public java.util.Optional<Boolean> matched;
 
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta_data")
-    public Map<String, String[]> metaData;
+    public java.util.Optional<java.util.Map<String, String[]>> metaData;
 
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)

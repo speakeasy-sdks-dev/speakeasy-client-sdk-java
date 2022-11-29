@@ -36,21 +36,21 @@ public class EmbedToken {
     @JsonProperty("id")
     public String id;
 
-    @JsonInclude(Include.NON_NULL)
-    @JsonSerialize(using = DateTimeSerializer.class)
-    @JsonDeserialize(using = DateTimeDeserializer.class)
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonSerialize(contentUsing = DateTimeSerializer.class)
+    @JsonDeserialize(contentUsing = DateTimeDeserializer.class)
     @JsonProperty("last_used")
-    public OffsetDateTime lastUsed;
+    public java.util.Optional<OffsetDateTime> lastUsed;
 
-    @JsonInclude(Include.NON_NULL)
-    @JsonSerialize(using = DateTimeSerializer.class)
-    @JsonDeserialize(using = DateTimeDeserializer.class)
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonSerialize(contentUsing = DateTimeSerializer.class)
+    @JsonDeserialize(contentUsing = DateTimeDeserializer.class)
     @JsonProperty("revoked_at")
-    public OffsetDateTime revokedAt;
+    public java.util.Optional<OffsetDateTime> revokedAt;
 
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("revoked_by")
-    public String revokedBy;
+    public java.util.Optional<String> revokedBy;
 
     @JsonProperty("workspace_id")
     public String workspaceId;

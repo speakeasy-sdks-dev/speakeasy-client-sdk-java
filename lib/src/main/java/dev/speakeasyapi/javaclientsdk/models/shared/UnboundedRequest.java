@@ -21,7 +21,7 @@ public class UnboundedRequest {
     public String har;
 
     @JsonProperty("har_size_bytes")
-    public long harSizeBytes;
+    public Long harSizeBytes;
 
     @JsonProperty("request_id")
     public String requestId;

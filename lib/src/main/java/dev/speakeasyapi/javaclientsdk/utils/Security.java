@@ -15,7 +15,7 @@ public class Security {
             Field[] fields = security.getClass().getFields();
 
             for (Field field : fields) {
-                Object value = field.get(security);
+                Object value = Types.getValue(field.get(security));
                 if (value == null) {
                     continue;
                 }
@@ -41,7 +41,11 @@ public class Security {
         Field[] fields = option.getClass().getFields();
 
         for (Field field : fields) {
-            Object value = field.get(option);
+            Object value = Types.getValue(field.get(option));
+
+            if (value == null) {
+                continue;
+            }
 
             SecurityMetadata securityMetadata = SecurityMetadata.parse(field);
             if (securityMetadata == null || !securityMetadata.scheme) {
@@ -62,7 +66,11 @@ public class Security {
         Field[] fields = scheme.getClass().getFields();
 
         for (Field field : fields) {
-            Object value = field.get(scheme);
+            Object value = Types.getValue(field.get(scheme));
+
+            if (value == null) {
+                continue;
+            }
 
             SecurityMetadata securityMetadata = SecurityMetadata.parse(field);
             if (securityMetadata == null || securityMetadata.name == "") {
@@ -114,7 +122,11 @@ public class Security {
         String password = "";
 
         for (Field field : fields) {
-            Object value = field.get(scheme);
+            Object value = Types.getValue(field.get(scheme));
+
+            if (value == null) {
+                continue;
+            }
 
             SecurityMetadata securityMetadata = SecurityMetadata.parse(field);
             if (securityMetadata == null || securityMetadata.name == "") {

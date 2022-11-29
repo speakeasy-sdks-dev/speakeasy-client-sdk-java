@@ -5,9 +5,9 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 public class GenerateRequestPostmanCollectionResponse {
     public String contentType;
 
-    public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
+    public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
 
-    public byte[] postmanCollection;
+    public java.util.Optional<byte[]> postmanCollection;
 
-    public long statusCode;
+    public Long statusCode;
 }

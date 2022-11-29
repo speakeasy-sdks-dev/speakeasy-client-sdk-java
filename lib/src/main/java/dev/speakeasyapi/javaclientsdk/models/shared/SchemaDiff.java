@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.Map;
 
 /**
  * SchemaDiff
@@ -15,5 +14,5 @@ public class SchemaDiff {
     public String[] deletions;
 
     @JsonProperty("modifications")
-    public Map<String, SchemaDiffValueChange> modifications;
+    public java.util.Map<String, SchemaDiffValueChange> modifications;
 }

@@ -4,5 +4,5 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetAllApiVersionsOp {
     @SpeakeasyMetadata("queryParam:name=and")
-    public boolean and;
+    public Boolean and;
 }

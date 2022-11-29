@@ -3,11 +3,11 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
 public class GetAllApiVersionsResponse {
-    public dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis;
+    public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.Api[]> apis;
 
     public String contentType;
 
-    public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
+    public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
 
-    public long statusCode;
+    public Long statusCode;
 }

@@ -11,10 +11,10 @@ public class Filters {
     public Filter[] filters;
 
     @JsonProperty("limit")
-    public long limit;
+    public Long limit;
 
     @JsonProperty("offset")
-    public long offset;
+    public Long offset;
 
     @JsonProperty("operator")
     public String operator;

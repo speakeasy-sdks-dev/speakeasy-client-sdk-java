@@ -31,9 +31,9 @@ public class ApiEndpoint {
     @JsonProperty("display_name")
     public String displayName;
 
-    @JsonInclude(Include.NON_NULL)
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("matched")
-    public Boolean matched;
+    public java.util.Optional<Boolean> matched;
 
     @JsonProperty("method")
     public String method;

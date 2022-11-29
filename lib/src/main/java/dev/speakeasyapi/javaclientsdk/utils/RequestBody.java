@@ -23,6 +23,8 @@ public class RequestBody {
     public static SerializedBody serialize(Object request)
             throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException,
             UnsupportedOperationException, IOException {
+        request = Types.getValue(request);
+
         if (request == null) {
             return null;
         }
@@ -32,7 +34,7 @@ public class RequestBody {
             throw new Error("Request object must have a field named 'request'");
         }
 
-        Object requestValue = requestField.get(request);
+        Object requestValue = Types.getValue(requestField.get(request));
 
         if (requestValue == null) {
             return null;
@@ -46,7 +48,7 @@ public class RequestBody {
         Field[] fields = requestValue.getClass().getFields();
 
         for (Field field : fields) {
-            Object val = field.get(requestValue);
+            Object val = Types.getValue(field.get(requestValue));
             if (val == null) {
                 continue;
             }
@@ -97,7 +99,7 @@ public class RequestBody {
         Field[] fields = value.getClass().getFields();
 
         for (Field field : fields) {
-            Object val = field.get(value);
+            Object val = Types.getValue(field.get(value));
 
             if (val == null) {
                 continue;
@@ -152,7 +154,7 @@ public class RequestBody {
         Field[] fields = file.getClass().getFields();
 
         for (Field field : fields) {
-            Object val = field.get(file);
+            Object val = Types.getValue(field.get(file));
 
             if (val == null) {
                 continue;
@@ -195,7 +197,7 @@ public class RequestBody {
                 Field[] fields = value.getClass().getFields();
 
                 for (Field field : fields) {
-                    Object val = field.get(value);
+                    Object val = Types.getValue(field.get(value));
 
                     if (val == null) {
                         continue;
@@ -219,6 +221,11 @@ public class RequestBody {
                                 List<String> items = new ArrayList<String>();
 
                                 for (Field valField : valFields) {
+                                    Object v = Types.getValue(valField.get(val));
+                                    if (v == null) {
+                                        continue;
+                                    }
+
                                     FormMetadata valMetadata = FormMetadata.parse(valField);
                                     if (valMetadata == null) {
                                         continue;
@@ -226,10 +233,10 @@ public class RequestBody {
 
                                     if (metadata.explode) {
                                         params.add(new BasicNameValuePair(valMetadata.name,
-                                                String.valueOf(valField.get(val))));
+                                                String.valueOf(valField.get(v))));
                                     } else {
                                         items.add(String.format("%s,%s", valMetadata.name,
-                                                String.valueOf(valField.get(val))));
+                                                String.valueOf(valField.get(v))));
                                     }
                                 }
 

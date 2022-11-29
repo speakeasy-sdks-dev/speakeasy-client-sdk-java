@@ -35,7 +35,7 @@ public final class Utils {
                     continue;
                 }
 
-                Object value = field.get(params);
+                Object value = Types.getValue(field.get(params));
                 if (value == null) {
                     continue;
                 }
@@ -82,12 +82,18 @@ public final class Utils {
                                         continue;
                                     }
 
+                                    Object val = Types.getValue(valueField.get(params));
+
+                                    if (val == null) {
+                                        continue;
+                                    }
+
                                     if (pathParamsMetadata.explode) {
                                         values.add(String.format("%s=%s", valuePathParamsMetadata.name,
-                                                String.valueOf(valueField.get(value))));
+                                                String.valueOf(val)));
                                     } else {
                                         values.add(String.format("%s,%s", valuePathParamsMetadata.name,
-                                                String.valueOf(valueField.get(value))));
+                                                String.valueOf(val)));
                                     }
                                 }
 
@@ -178,7 +184,7 @@ public final class Utils {
                 continue;
             }
 
-            Object value = field.get(headers);
+            Object value = Types.getValue(field.get(headers));
             if (value == null) {
                 continue;
             }
@@ -195,7 +201,7 @@ public final class Utils {
                             continue;
                         }
 
-                        Object valueFieldValue = valueField.get(value);
+                        Object valueFieldValue = Types.getValue(valueField.get(value));
                         if (valueFieldValue == null) {
                             continue;
                         }

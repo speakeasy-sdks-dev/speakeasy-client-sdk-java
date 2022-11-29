@@ -2,6 +2,7 @@ package dev.speakeasyapi.javaclientsdk.utils;
 
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public enum Types {
@@ -22,6 +23,18 @@ public enum Types {
         } else {
             return Types.OBJECT;
         }
+    }
+
+    public static Object getValue(Object value) {
+        if (value == null) {
+            return null;
+        }
+
+        if (Optional.class.isAssignableFrom(value.getClass())) {
+            return ((Optional<?>) value).orElse(null);
+        }
+
+        return value;
     }
 
     private static boolean isPrimitiveWrapperTypes(Class<?> clazz) {

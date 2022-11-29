@@ -11,5 +11,5 @@ public class Error {
     public String message;
 
     @JsonProperty("status_code")
-    public int statusCode;
+    public Integer statusCode;
 }

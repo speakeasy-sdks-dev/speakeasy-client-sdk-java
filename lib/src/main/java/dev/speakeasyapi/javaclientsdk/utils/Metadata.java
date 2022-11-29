@@ -12,47 +12,61 @@ public class Metadata {
             return null;
         }
 
-        if (md.value() == null || md.value().isBlank()) {
+        String mdValue = md.value();
+
+        if (mdValue == null || mdValue.isBlank()) {
             return null;
         }
 
-        String[] parts = md.value().split(":");
-        if (parts.length != 2) {
-            return null;
-        }
+        String[] groups = mdValue.split(" ");
 
-        if (!parts[0].equals(name)) {
-            return null;
-        }
+        boolean handled = false;
 
-        Map<String, String> values = new HashMap<>();
-
-        String[] pairs = parts[1].split(",");
-        for (String pair : pairs) {
-            String[] keyVal = pair.split("=");
-            String key = keyVal[0];
-
-            String val = "";
-            if (keyVal.length > 1) {
-                val = keyVal[1];
+        for (String group : groups) {
+            String[] parts = group.split(":");
+            if (parts.length != 2) {
+                return null;
             }
 
-            values.put(key, val);
-        }
+            if (!parts[0].equals(name)) {
+                continue;
+            }
 
-        Field[] fields = metadata.getClass().getFields();
+            Map<String, String> values = new HashMap<>();
 
-        for (Field f : fields) {
-            f.setAccessible(true);
-            if (values.containsKey(f.getName())) {
-                String val = values.get(f.getName());
+            String[] pairs = parts[1].split(",");
+            for (String pair : pairs) {
+                String[] keyVal = pair.split("=");
+                String key = keyVal[0];
 
-                if (f.getType().equals(boolean.class) || f.getType().equals(Boolean.class)) {
-                    f.set(metadata, val.equals("true") || val.isBlank());
-                } else {
-                    f.set(metadata, val);
+                String val = "";
+                if (keyVal.length > 1) {
+                    val = keyVal[1];
+                }
+
+                values.put(key, val);
+            }
+
+            Field[] fields = metadata.getClass().getFields();
+
+            for (Field f : fields) {
+                f.setAccessible(true);
+                if (values.containsKey(f.getName())) {
+                    String val = values.get(f.getName());
+
+                    if (f.getType().equals(boolean.class) || f.getType().equals(Boolean.class)) {
+                        f.set(metadata, val.equals("true") || val.isBlank());
+                    } else {
+                        f.set(metadata, val);
+                    }
                 }
             }
+
+            handled = true;
+        }
+
+        if (!handled) {
+            return null;
         }
 
         return metadata;

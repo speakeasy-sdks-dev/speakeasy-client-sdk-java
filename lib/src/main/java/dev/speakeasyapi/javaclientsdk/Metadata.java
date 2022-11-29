@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
-import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
 import java.net.http.HttpResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +30,7 @@ public class Metadata {
     **/
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse deleteVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Utils.generateURL(baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", request.pathParams);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", request.pathParams);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -45,17 +44,20 @@ public class Metadata {
 
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
-        dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse();
-        res.statusCode = httpRes.statusCode();
+        dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse() {{
+            error = java.util.Optional.empty();
+        }};
+        res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
         }
         else {
-            if (Utils.matchContentType(contentType, "application/json")) {
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
+                res.error = java.util.Optional.of(out);
             }
         }
 
@@ -68,7 +70,7 @@ public class Metadata {
     **/
     public dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse getVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Utils.generateURL(baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request.pathParams);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request.pathParams);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -82,22 +84,27 @@ public class Metadata {
 
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse();
-        res.statusCode = httpRes.statusCode();
+        dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse() {{
+            versionMetadata = java.util.Optional.empty();
+            error = java.util.Optional.empty();
+        }};
+        res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
-            if (Utils.matchContentType(contentType, "application/json")) {
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.versionMetadata = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[].class);
+                dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[].class);
+                res.versionMetadata = java.util.Optional.of(out);
             }
         }
         else {
-            if (Utils.matchContentType(contentType, "application/json")) {
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
+                res.error = java.util.Optional.of(out);
             }
         }
 
@@ -110,12 +117,12 @@ public class Metadata {
     **/
     public dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse insertVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Utils.generateURL(baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request.pathParams);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request.pathParams);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = Utils.serializeRequestBody(request);
+        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request);
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }
@@ -129,22 +136,27 @@ public class Metadata {
 
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
-        dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse();
-        res.statusCode = httpRes.statusCode();
+        dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse() {{
+            versionMetadata = java.util.Optional.empty();
+            error = java.util.Optional.empty();
+        }};
+        res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
-            if (Utils.matchContentType(contentType, "application/json")) {
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.versionMetadata = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata.class);
+                dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata.class);
+                res.versionMetadata = java.util.Optional.of(out);
             }
         }
         else {
-            if (Utils.matchContentType(contentType, "application/json")) {
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                res.error = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
+                res.error = java.util.Optional.of(out);
             }
         }
 
