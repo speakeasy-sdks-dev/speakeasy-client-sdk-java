@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 **/
 public class Filters {
     @JsonProperty("filters")
-    public Filter[] filters;
+    public java.util.List<Filter> filters;
 
     @JsonProperty("limit")
     public Long limit;

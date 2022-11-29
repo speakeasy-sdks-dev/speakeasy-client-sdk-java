@@ -8,10 +8,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 **/
 public class SchemaDiff {
     @JsonProperty("additions")
-    public String[] additions;
+    public java.util.List<String> additions;
 
     @JsonProperty("deletions")
-    public String[] deletions;
+    public java.util.List<String> deletions;
 
     @JsonProperty("modifications")
     public java.util.Map<String, SchemaDiffValueChange> modifications;

@@ -4,7 +4,7 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetAllApiVersionsQueryParams {
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=metadata")
-    public java.util.Optional<java.util.Map<String, String[]>> metadata;
+    public java.util.Optional<java.util.Map<String, java.util.List<String>>> metadata;
 
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=op")
     public java.util.Optional<GetAllApiVersionsOp> op;

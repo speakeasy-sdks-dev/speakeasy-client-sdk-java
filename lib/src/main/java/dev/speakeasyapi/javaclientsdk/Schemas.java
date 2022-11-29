@@ -349,7 +349,7 @@ public class Schemas {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                dev.speakeasyapi.javaclientsdk.models.shared.Schema[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Schema[].class);
+                java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Schema> out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), java.util.List.class);
                 res.schemata = java.util.Optional.of(out);
             }
         }

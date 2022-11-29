@@ -7,7 +7,7 @@ public class GetSchemasResponse {
 
     public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
 
-    public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.Schema[]> schemata;
+    public java.util.Optional<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Schema>> schemata;
 
     public Long statusCode;
 }

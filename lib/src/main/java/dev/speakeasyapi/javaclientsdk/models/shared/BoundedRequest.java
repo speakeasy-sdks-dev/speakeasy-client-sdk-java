@@ -33,7 +33,7 @@ public class BoundedRequest {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
-    public java.util.Optional<java.util.Map<String, String[]>> metadata;
+    public java.util.Optional<java.util.Map<String, java.util.List<String>>> metadata;
 
     @JsonProperty("method")
     public String method;

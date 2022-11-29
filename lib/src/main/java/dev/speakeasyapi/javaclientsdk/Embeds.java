@@ -111,7 +111,7 @@ public class Embeds {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[].class);
+                java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken> out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), java.util.List.class);
                 res.embedTokens = java.util.Optional.of(out);
             }
         }

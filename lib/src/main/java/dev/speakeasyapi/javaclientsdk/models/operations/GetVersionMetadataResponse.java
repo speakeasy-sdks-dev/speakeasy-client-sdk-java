@@ -9,5 +9,5 @@ public class GetVersionMetadataResponse {
 
     public Long statusCode;
 
-    public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[]> versionMetadata;
+    public java.util.Optional<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> versionMetadata;
 }

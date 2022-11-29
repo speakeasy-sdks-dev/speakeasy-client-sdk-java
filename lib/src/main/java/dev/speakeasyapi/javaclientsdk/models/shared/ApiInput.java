@@ -17,7 +17,7 @@ public class ApiInput {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta_data")
-    public java.util.Optional<java.util.Map<String, String[]>> metaData;
+    public java.util.Optional<java.util.Map<String, java.util.List<String>>> metaData;
 
     @JsonProperty("version_id")
     public String versionId;

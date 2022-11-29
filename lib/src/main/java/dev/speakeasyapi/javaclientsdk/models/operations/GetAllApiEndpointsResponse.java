@@ -3,7 +3,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
 public class GetAllApiEndpointsResponse {
-    public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint[]> apiEndpoints;
+    public java.util.Optional<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint>> apiEndpoints;
 
     public String contentType;
 
