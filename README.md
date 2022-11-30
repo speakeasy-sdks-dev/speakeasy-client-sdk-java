@@ -1,5 +1,9 @@
 # speakeasy-client-sdk-java
 
+This is the Speakeasy API Client SDK for Java. It is generated from our OpenAPI spec found at https://docs.speakeasyapi.dev/openapi.yaml and used for interacting with the [Speakeasy API](https://docs.speakeasyapi.dev/docs/speakeasy-api/speakeasy-api).
+
+This SDK was generated using Speakeasy's SDK Generator. For more information on how to use the generator to generate your own SDKs, please see the [Speakeasy Client SDK Generator Docs](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks).
+
 <!-- Start SDK Installation -->
 ## SDK Installation
 
@@ -10,14 +14,19 @@ implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:0.0.1'
 ```
 <!-- End SDK Installation -->
 
-<!-- Start SDK Example Usage -->
-## SDK Example Usage
+## Example Usage
 
 ```java
 package hello.world;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisQueryParams;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisOp;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
 
 public class Application {
     public static void main(String[] args) {
@@ -27,31 +36,37 @@ public class Application {
             builder.setSecurity(
                 new Security() {{
                     apiKey = new SchemeApiKey() {{
-                        apiKey = "YOUR_API_KEY_HERE";
+                        apiKey = "YOUR_API_KEY_HERE"; // Replace with your API key from your Speakeasy Workspace
                     }};
                 }}
             );
 
             SDK sdk = builder.build();
 
-            DeleteApiEndpointRequest req = new DeleteApiEndpointRequest() {{
-                pathParams = new DeleteApiEndpointPathParams() {{
-                    apiEndpointId = "sit";
-                    apiId = "voluptas";
-                    versionId = "culpa";
+            GetApisRequest req = new GetApisRequest() {{
+                queryParams = new GetApisQueryParams() {{
+                    metadata = new HashMap<>() {{
+                        put("label", new ArrayList<>() {{
+                            add("1");
+                        }});
+                    }};
+                    op = new GetApisOp() {{
+                        and = true;
+                    }};
                 }};
             }};
 
-            DeleteApiEndpointResponse res = sdk.apiEndpoints.deleteApiEndpoint(req);
+            GetApisResponse res = sdk.apis.getApis(req);
 
-            if (res.statusCode == 200) {
+            if (res.apis.isPresent()) {
                 // handle response
+            } else if (res.error.isPresent()) {
+                // handle error
             }
         } catch (Exception e) {
             // handle exception
         }
 ```
-<!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
 ## SDK Available Operations
