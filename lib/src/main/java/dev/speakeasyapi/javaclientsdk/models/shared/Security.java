@@ -1,0 +1,8 @@
+package dev.speakeasyapi.javaclientsdk.models.shared;
+
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+
+public class Security {
+    @SpeakeasyMetadata("security:scheme=true,type=apiKey,subtype=header")
+    public SchemeApiKey apiKey;
+}
