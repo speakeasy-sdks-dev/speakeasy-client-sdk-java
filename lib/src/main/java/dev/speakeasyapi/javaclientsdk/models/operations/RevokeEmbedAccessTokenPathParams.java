@@ -4,5 +4,9 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class RevokeEmbedAccessTokenPathParams {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=tokenID")
-    public String tokenId;
+    public String tokenID;
+    public RevokeEmbedAccessTokenPathParams withTokenId(String tokenID) {
+        this.tokenID = tokenID;
+        return this;
+    }
 }

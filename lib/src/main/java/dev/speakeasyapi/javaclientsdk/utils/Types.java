@@ -30,9 +30,6 @@ public enum Types {
             return null;
         }
 
-        if (Optional.class.isAssignableFrom(value.getClass())) {
-            return ((Optional<?>) value).orElse(null);
-        }
 
         return value;
     }

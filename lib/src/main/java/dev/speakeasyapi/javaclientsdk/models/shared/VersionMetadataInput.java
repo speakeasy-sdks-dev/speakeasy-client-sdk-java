@@ -9,7 +9,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class VersionMetadataInput {
     @JsonProperty("meta_key")
     public String metaKey;
-
+    public VersionMetadataInput withMetaKey(String metaKey) {
+        this.metaKey = metaKey;
+        return this;
+    }
     @JsonProperty("meta_value")
     public String metaValue;
+    public VersionMetadataInput withMetaValue(String metaValue) {
+        this.metaValue = metaValue;
+        return this;
+    }
 }

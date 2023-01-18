@@ -10,7 +10,7 @@ public class HeaderMetadata extends Metadata {
     // headerParam:style=simple,explode=false,name=apiID
     public static HeaderMetadata parse(Field field) throws IllegalArgumentException, IllegalAccessException {
         HeaderMetadata result = new HeaderMetadata();
-        result = (HeaderMetadata) parse("headerParam", result, field);
+        result = (HeaderMetadata) parse("header", result, field);
         return result;
     }
 

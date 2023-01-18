@@ -69,20 +69,21 @@ public final class Utils {
                                                         String.valueOf(e.getValue()));
                                             }
                                         }).toList()));
+                                break;
                             case PRIMITIVE:
                                 pathParams.put(pathParamsMetadata.name, String.valueOf(value));
                                 break;
                             case OBJECT:
                                 List<String> values = new ArrayList<String>();
 
-                                Field[] valueFields = params.getClass().getFields();
+                                Field[] valueFields = value.getClass().getFields();
                                 for (Field valueField : valueFields) {
                                     PathParamsMetadata valuePathParamsMetadata = PathParamsMetadata.parse(valueField);
                                     if (valuePathParamsMetadata == null) {
                                         continue;
                                     }
 
-                                    Object val = Types.getValue(valueField.get(params));
+                                    Object val = Types.getValue(valueField.get(value));
 
                                     if (val == null) {
                                         continue;

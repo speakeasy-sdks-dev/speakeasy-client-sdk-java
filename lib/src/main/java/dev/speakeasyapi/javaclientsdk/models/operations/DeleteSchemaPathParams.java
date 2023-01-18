@@ -4,11 +4,21 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class DeleteSchemaPathParams {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
-    public String apiId;
-
+    public String apiID;
+    public DeleteSchemaPathParams withApiId(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
-    public String revisionId;
-
+    public String revisionID;
+    public DeleteSchemaPathParams withRevisionId(String revisionID) {
+        this.revisionID = revisionID;
+        return this;
+    }
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
-    public String versionId;
+    public String versionID;
+    public DeleteSchemaPathParams withVersionId(String versionID) {
+        this.versionID = versionID;
+        return this;
+    }
 }

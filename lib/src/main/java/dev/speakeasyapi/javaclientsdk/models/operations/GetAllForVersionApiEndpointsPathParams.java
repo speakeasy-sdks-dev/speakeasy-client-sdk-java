@@ -4,8 +4,15 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetAllForVersionApiEndpointsPathParams {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
-    public String apiId;
-
+    public String apiID;
+    public GetAllForVersionApiEndpointsPathParams withApiId(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
-    public String versionId;
+    public String versionID;
+    public GetAllForVersionApiEndpointsPathParams withVersionId(String versionID) {
+        this.versionID = versionID;
+        return this;
+    }
 }

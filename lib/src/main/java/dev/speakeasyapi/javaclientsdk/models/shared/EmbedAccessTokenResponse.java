@@ -9,4 +9,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EmbedAccessTokenResponse {
     @JsonProperty("access_token")
     public String accessToken;
+    public EmbedAccessTokenResponse withAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+        return this;
+    }
 }

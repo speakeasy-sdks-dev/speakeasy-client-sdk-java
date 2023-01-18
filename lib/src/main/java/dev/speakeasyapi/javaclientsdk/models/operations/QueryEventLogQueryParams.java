@@ -4,5 +4,9 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class QueryEventLogQueryParams {
     @SpeakeasyMetadata("queryParam:serialization=json,name=filters")
-    public java.util.Optional<dev.speakeasyapi.javaclientsdk.models.shared.Filters> filters;
+    public dev.speakeasyapi.javaclientsdk.models.shared.Filters filters;
+    public QueryEventLogQueryParams withFilters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
+        this.filters = filters;
+        return this;
+    }
 }

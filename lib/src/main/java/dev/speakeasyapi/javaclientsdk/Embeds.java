@@ -54,8 +54,8 @@ public class Embeds {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse() {{
-            embedAccessTokenResponse = java.util.Optional.empty();
-            error = java.util.Optional.empty();
+            embedAccessTokenResponse = null;
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -65,7 +65,7 @@ public class Embeds {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.EmbedAccessTokenResponse out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.EmbedAccessTokenResponse.class);
-                res.embedAccessTokenResponse = java.util.Optional.of(out);
+                res.embedAccessTokenResponse = out;
             }
         }
         else {
@@ -73,7 +73,7 @@ public class Embeds {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 
@@ -101,8 +101,8 @@ public class Embeds {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse() {{
-            embedTokens = java.util.Optional.empty();
-            error = java.util.Optional.empty();
+            embedTokens = null;
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -111,8 +111,8 @@ public class Embeds {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken> out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), java.util.List.class);
-                res.embedTokens = java.util.Optional.of(out);
+                dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[].class);
+                res.embedTokens = out;
             }
         }
         else {
@@ -120,7 +120,7 @@ public class Embeds {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 
@@ -148,7 +148,7 @@ public class Embeds {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse() {{
-            error = java.util.Optional.empty();
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -160,7 +160,7 @@ public class Embeds {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 

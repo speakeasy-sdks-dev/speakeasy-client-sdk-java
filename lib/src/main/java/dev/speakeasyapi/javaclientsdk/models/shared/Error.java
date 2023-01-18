@@ -9,7 +9,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Error {
     @JsonProperty("message")
     public String message;
-
+    public Error withMessage(String message) {
+        this.message = message;
+        return this;
+    }
     @JsonProperty("status_code")
     public Integer statusCode;
+    public Error withStatusCode(Integer statusCode) {
+        this.statusCode = statusCode;
+        return this;
+    }
 }

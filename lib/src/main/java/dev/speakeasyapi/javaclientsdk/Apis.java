@@ -48,7 +48,7 @@ public class Apis {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse() {{
-            error = java.util.Optional.empty();
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -60,7 +60,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 
@@ -91,8 +91,8 @@ public class Apis {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecResponse() {{
-            generateOpenApiSpecDiff = java.util.Optional.empty();
-            error = java.util.Optional.empty();
+            generateOpenApiSpecDiff = null;
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -102,7 +102,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.GenerateOpenApiSpecDiff out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.GenerateOpenApiSpecDiff.class);
-                res.generateOpenApiSpecDiff = java.util.Optional.of(out);
+                res.generateOpenApiSpecDiff = out;
             }
         }
         else {
@@ -110,7 +110,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 
@@ -140,8 +140,8 @@ public class Apis {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionResponse() {{
-            postmanCollection = java.util.Optional.empty();
-            error = java.util.Optional.empty();
+            postmanCollection = null;
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -151,7 +151,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 byte[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
-                res.postmanCollection = java.util.Optional.of(out);
+                res.postmanCollection = out;
             }
         }
         else {
@@ -159,7 +159,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 
@@ -196,8 +196,8 @@ public class Apis {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsResponse() {{
-            apis = java.util.Optional.empty();
-            error = java.util.Optional.empty();
+            apis = null;
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -206,8 +206,8 @@ public class Apis {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), java.util.List.class);
-                res.apis = java.util.Optional.of(out);
+                dev.speakeasyapi.javaclientsdk.models.shared.Api[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Api[].class);
+                res.apis = out;
             }
         }
         else {
@@ -215,7 +215,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 
@@ -252,8 +252,8 @@ public class Apis {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse() {{
-            apis = java.util.Optional.empty();
-            error = java.util.Optional.empty();
+            apis = null;
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -262,8 +262,8 @@ public class Apis {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
-                java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), java.util.List.class);
-                res.apis = java.util.Optional.of(out);
+                dev.speakeasyapi.javaclientsdk.models.shared.Api[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Api[].class);
+                res.apis = out;
             }
         }
         else {
@@ -271,7 +271,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 
@@ -307,8 +307,8 @@ public class Apis {
         String contentType = httpRes.headers().allValues("Content-Type").get(0);
 
         dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiResponse() {{
-            api = java.util.Optional.empty();
-            error = java.util.Optional.empty();
+            api = null;
+            error = null;
         }};
         res.statusCode = Long.valueOf(httpRes.statusCode());
         res.contentType = contentType;
@@ -318,7 +318,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Api out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Api.class);
-                res.api = java.util.Optional.of(out);
+                res.api = out;
             }
         }
         else {
@@ -326,7 +326,7 @@ public class Apis {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.findAndRegisterModules();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = java.util.Optional.of(out);
+                res.error = out;
             }
         }
 

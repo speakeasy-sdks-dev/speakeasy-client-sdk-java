@@ -69,10 +69,17 @@ public class RequestBody {
         Pattern jsonPattern = Pattern.compile("(application|text)\\/.*?\\+*json.*");
         Pattern multipartPattern = Pattern.compile("multipart\\/.*");
         Pattern formPattern = Pattern.compile("application\\/x-www-form-urlencoded.*");
+        Pattern textPattern = Pattern.compile("text\\/plain");
 
         SerializedBody body = new SerializedBody();
 
-        if (jsonPattern.matcher(contentType).matches()) {
+        if(textPattern.matcher(contentType).matches()) {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.findAndRegisterModules();
+
+            body.contentType = contentType;
+            body.body = BodyPublishers.ofString(value.toString());
+        } else if (jsonPattern.matcher(contentType).matches()) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.findAndRegisterModules();
 

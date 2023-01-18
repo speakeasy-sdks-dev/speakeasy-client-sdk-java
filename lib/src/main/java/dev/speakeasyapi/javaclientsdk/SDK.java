@@ -4,7 +4,10 @@ package dev.speakeasyapi.javaclientsdk;
 
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
-
+import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
+import java.net.http.HttpResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.nio.charset.StandardCharsets;
 
 /** SDK Documentation: https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation**/
 public class SDK {
@@ -34,8 +37,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "0.0.1";
-	private String _genVersion = "internal";
+	private String _sdkVersion = "0.1.0";
+	private String _genVersion = "0.20.5";
 
 	public static class Builder {
 		private HTTPClient client;
@@ -111,6 +114,7 @@ public class SDK {
 			this._serverUrl = SERVERS.get(Servers.PROD);
 		}
 		
+		
 		this.apiEndpoints = new ApiEndpoints(
 			this._defaultClient,
 			this._securityClient,
@@ -165,5 +169,45 @@ public class SDK {
 			this._genVersion
 		);
 	}
+	
+	
+    /**
+     * validateApiKey - Validate the current api key.
+    **/
+    public dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKey() throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/auth/validate");
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("GET");
+        req.setURL(url);
+        
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+
+        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse() {{
+            error = null;
+        }};
+        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.contentType = contentType;
+        
+        if (httpRes.statusCode() == 200) {
+        }
+        else {
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = new ObjectMapper();
+                mapper.findAndRegisterModules();
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
+                res.error = out;
+            }
+        }
+
+        return res;
+    }
 	
 }
