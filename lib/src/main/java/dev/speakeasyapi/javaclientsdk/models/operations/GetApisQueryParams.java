@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
-
 public class GetApisQueryParams {
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=metadata")
     public java.util.Map<String, String[]> metadata;

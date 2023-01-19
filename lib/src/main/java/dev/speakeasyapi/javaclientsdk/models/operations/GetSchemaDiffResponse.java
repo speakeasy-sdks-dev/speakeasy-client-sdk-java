@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class GetSchemaDiffResponse {
     public String contentType;
     public GetSchemaDiffResponse withContentType(String contentType) {

@@ -10,8 +10,7 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 /**
  * VersionMetadata
  * A set of keys and associated values, attached to a particular version of an Api.
-**/
-public class VersionMetadata {
+**/public class VersionMetadata {
     @JsonProperty("api_id")
     public String apiId;
     public VersionMetadata withApiId(String apiId) {

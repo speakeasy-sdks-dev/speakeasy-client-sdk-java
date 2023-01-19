@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class DownloadSchemaResponse {
     public String contentType;
     public DownloadSchemaResponse withContentType(String contentType) {

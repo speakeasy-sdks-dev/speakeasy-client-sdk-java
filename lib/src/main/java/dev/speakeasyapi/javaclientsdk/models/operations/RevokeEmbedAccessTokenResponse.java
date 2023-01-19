@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class RevokeEmbedAccessTokenResponse {
     public String contentType;
     public RevokeEmbedAccessTokenResponse withContentType(String contentType) {

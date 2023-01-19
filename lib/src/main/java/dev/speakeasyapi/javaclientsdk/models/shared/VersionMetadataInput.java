@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * VersionMetadataInput
  * A set of keys and associated values, attached to a particular version of an Api.
-**/
-public class VersionMetadataInput {
+**/public class VersionMetadataInput {
     @JsonProperty("meta_key")
     public String metaKey;
     public VersionMetadataInput withMetaKey(String metaKey) {

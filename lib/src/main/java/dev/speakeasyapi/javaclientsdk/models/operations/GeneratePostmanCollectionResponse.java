@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class GeneratePostmanCollectionResponse {
     public String contentType;
     public GeneratePostmanCollectionResponse withContentType(String contentType) {

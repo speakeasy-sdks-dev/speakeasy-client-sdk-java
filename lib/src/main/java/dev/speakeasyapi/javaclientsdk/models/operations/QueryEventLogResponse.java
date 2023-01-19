@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class QueryEventLogResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests;
     public QueryEventLogResponse withBoundedRequests(dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests) {

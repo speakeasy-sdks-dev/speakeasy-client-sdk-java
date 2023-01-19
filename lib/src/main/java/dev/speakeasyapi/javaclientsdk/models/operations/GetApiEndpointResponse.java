@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class GetApiEndpointResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint apiEndpoint;
     public GetApiEndpointResponse withApiEndpoint(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint apiEndpoint) {

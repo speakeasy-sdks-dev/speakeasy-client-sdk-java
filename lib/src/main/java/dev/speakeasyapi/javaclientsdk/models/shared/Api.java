@@ -12,8 +12,7 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 /**
  * Api
  * An Api is representation of a API (a collection of API Endpoints) within the Speakeasy Platform.
-**/
-public class Api {
+**/public class Api {
     @JsonProperty("api_id")
     public String apiId;
     public Api withApiId(String apiId) {

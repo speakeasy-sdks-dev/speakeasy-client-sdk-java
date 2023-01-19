@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class UpsertApiEndpointResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint apiEndpoint;
     public UpsertApiEndpointResponse withApiEndpoint(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint apiEndpoint) {

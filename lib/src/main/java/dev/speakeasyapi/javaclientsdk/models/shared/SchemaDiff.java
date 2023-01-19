@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SchemaDiff
  * A SchemaDiff represents a diff of two Schemas.
-**/
-public class SchemaDiff {
+**/public class SchemaDiff {
     @JsonProperty("additions")
     public String[] additions;
     public SchemaDiff withAdditions(String[] additions) {

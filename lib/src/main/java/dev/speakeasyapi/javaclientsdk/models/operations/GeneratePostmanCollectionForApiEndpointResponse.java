@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class GeneratePostmanCollectionForApiEndpointResponse {
     public String contentType;
     public GeneratePostmanCollectionForApiEndpointResponse withContentType(String contentType) {

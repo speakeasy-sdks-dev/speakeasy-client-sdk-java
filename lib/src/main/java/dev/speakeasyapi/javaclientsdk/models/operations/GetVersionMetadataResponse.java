@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class GetVersionMetadataResponse {
     public String contentType;
     public GetVersionMetadataResponse withContentType(String contentType) {

@@ -12,8 +12,7 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 /**
  * EmbedToken
  * A representation of an embed token granted for working with Speakeasy components.
-**/
-public class EmbedToken {
+**/public class EmbedToken {
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")

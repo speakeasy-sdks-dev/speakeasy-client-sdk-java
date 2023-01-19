@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class RegisterSchemaResponse {
     public String contentType;
     public RegisterSchemaResponse withContentType(String contentType) {

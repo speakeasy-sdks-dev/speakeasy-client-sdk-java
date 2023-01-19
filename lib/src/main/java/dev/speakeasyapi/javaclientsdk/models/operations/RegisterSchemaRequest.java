@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
-
 public class RegisterSchemaRequest {
     public RegisterSchemaPathParams pathParams;
     public RegisterSchemaRequest withPathParams(RegisterSchemaPathParams pathParams) {

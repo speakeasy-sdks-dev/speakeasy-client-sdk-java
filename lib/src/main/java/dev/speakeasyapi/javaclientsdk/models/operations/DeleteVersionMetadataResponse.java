@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class DeleteVersionMetadataResponse {
     public String contentType;
     public DeleteVersionMetadataResponse withContentType(String contentType) {

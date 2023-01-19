@@ -10,8 +10,7 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 /**
  * Schema
  * A Schema represents an API schema for a particular Api and Version.
-**/
-public class Schema {
+**/public class Schema {
     @JsonProperty("api_id")
     public String apiId;
     public Schema withApiId(String apiId) {

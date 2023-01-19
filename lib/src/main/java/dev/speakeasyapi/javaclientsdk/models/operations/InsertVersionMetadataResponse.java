@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class InsertVersionMetadataResponse {
     public String contentType;
     public InsertVersionMetadataResponse withContentType(String contentType) {

@@ -12,8 +12,7 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 /**
  * ApiEndpoint
  * An ApiEndpoint is a description of an Endpoint for an API.
-**/
-public class ApiEndpoint {
+**/public class ApiEndpoint {
     @JsonProperty("api_endpoint_id")
     public String apiEndpointId;
     public ApiEndpoint withApiEndpointId(String apiEndpointId) {

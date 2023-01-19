@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class GetAllApiVersionsRequest {
     public GetAllApiVersionsPathParams pathParams;
     public GetAllApiVersionsRequest withPathParams(GetAllApiVersionsPathParams pathParams) {

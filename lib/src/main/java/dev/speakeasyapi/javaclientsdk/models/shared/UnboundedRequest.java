@@ -10,8 +10,7 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 /**
  * UnboundedRequest
  * An UnboundedRequest represents the HAR content capture by Speakeasy when logging a request.
-**/
-public class UnboundedRequest {
+**/public class UnboundedRequest {
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")

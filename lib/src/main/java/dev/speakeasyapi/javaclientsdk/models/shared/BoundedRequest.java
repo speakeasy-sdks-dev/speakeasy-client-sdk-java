@@ -12,8 +12,7 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
 /**
  * BoundedRequest
  * A BoundedRequest is a request that has been logged by the Speakeasy without the contents of the request.
-**/
-public class BoundedRequest {
+**/public class BoundedRequest {
     @JsonProperty("api_endpoint_id")
     public String apiEndpointId;
     public BoundedRequest withApiEndpointId(String apiEndpointId) {

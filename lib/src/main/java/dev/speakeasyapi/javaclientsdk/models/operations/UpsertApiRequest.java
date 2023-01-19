@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
-
 public class UpsertApiRequest {
     public UpsertApiPathParams pathParams;
     public UpsertApiRequest withPathParams(UpsertApiPathParams pathParams) {

@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
-
 public class GetAllApiVersionsResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis;
     public GetAllApiVersionsResponse withApis(dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis) {

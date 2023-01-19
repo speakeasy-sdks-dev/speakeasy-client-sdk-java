@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Filters
  * Filters are used to query requests.
-**/
-public class Filters {
+**/public class Filters {
     @JsonProperty("filters")
     public Filter[] filters;
     public Filters withFilters(Filter[] filters) {
