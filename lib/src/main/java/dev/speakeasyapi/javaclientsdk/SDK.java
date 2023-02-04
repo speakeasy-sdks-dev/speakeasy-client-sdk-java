@@ -29,6 +29,7 @@ public class SDK {
   	public Apis apis;
   	public Embeds embeds;
   	public Metadata metadata;
+  	public Plugins plugins;
   	public Requests requests;
   	public Schemas schemas;	
 
@@ -37,8 +38,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "0.3.0";
-	private String _genVersion = "0.22.0";
+	private String _sdkVersion = "0.3.1";
+	private String _genVersion = "0.22.1";
 
 	public static class Builder {
 		private HTTPClient client;
@@ -143,6 +144,15 @@ public class SDK {
 		);
 		
 		this.metadata = new Metadata(
+			this._defaultClient,
+			this._securityClient,
+			this._serverUrl,
+			this._language,
+			this._sdkVersion,
+			this._genVersion
+		);
+		
+		this.plugins = new Plugins(
 			this._defaultClient,
 			this._securityClient,
 			this._serverUrl,

@@ -47,8 +47,8 @@ import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
     }
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
-    public java.util.Map<String, String[]> metadata;
-    public BoundedRequest withMetadata(java.util.Map<String, String[]> metadata) {
+    public RequestMetadata[] metadata;
+    public BoundedRequest withMetadata(RequestMetadata[] metadata) {
         this.metadata = metadata;
         return this;
     }

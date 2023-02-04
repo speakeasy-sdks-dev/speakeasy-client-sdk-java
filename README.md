@@ -10,7 +10,7 @@ This SDK was generated using Speakeasy's SDK Generator. For more information on 
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:0.3.0'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:0.3.1'
 ```
 <!-- End SDK Installation -->
 
@@ -106,6 +106,12 @@ public class Application {
 * `deleteVersionMetadata` - Delete metadata for a particular apiID and versionID.
 * `getVersionMetadata` - Get all metadata for a particular apiID and versionID.
 * `insertVersionMetadata` - Insert metadata for a particular apiID and versionID.
+
+### Plugins
+
+* `getPlugins` - Get all plugins for the current workspace.
+* `runPlugin` - Run a plugin
+* `upsertPlugin` - Upsert a plugin
 
 ### Requests
 
