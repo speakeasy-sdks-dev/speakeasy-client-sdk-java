@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class DeleteApiResponse {
     public String contentType;
     public DeleteApiResponse withContentType(String contentType) {

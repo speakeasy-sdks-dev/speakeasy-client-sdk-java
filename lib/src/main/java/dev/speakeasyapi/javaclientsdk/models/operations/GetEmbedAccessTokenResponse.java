@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class GetEmbedAccessTokenResponse {
     public String contentType;
     public GetEmbedAccessTokenResponse withContentType(String contentType) {

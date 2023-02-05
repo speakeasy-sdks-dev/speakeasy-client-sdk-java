@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+
 public class InsertVersionMetadataRequest {
     public InsertVersionMetadataPathParams pathParams;
     public InsertVersionMetadataRequest withPathParams(InsertVersionMetadataPathParams pathParams) {

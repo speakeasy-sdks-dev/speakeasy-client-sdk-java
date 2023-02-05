@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Error
  * The `Status` type defines a logical error model
-**/public class Error {
+**/
+public class Error {
     @JsonProperty("message")
     public String message;
     public Error withMessage(String message) {

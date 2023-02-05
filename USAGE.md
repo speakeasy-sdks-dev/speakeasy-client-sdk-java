@@ -12,7 +12,7 @@ public class Application {
 
             builder.setSecurity(
                 new Security() {{
-                    apiKey = new SchemeApiKey() {{
+                    apiKey = new SchemeAPIKey() {{
                         apiKey = "YOUR_API_KEY_HERE";
                     }};
                 }}
@@ -23,9 +23,20 @@ public class Application {
             GetApisRequest req = new GetApisRequest() {{
                 queryParams = new GetApisQueryParams() {{
                     metadata = new java.util.HashMap<String, String[]>() {{
-                        put("voluptas", new String[]() {{
-                            add("expedita"),
-                            add("consequuntur"),
+                        put("deserunt", new String[]() {{
+                            add("nulla"),
+                            add("id"),
+                            add("vero"),
+                        }});
+                        put("perspiciatis", new String[]() {{
+                            add("nihil"),
+                            add("fuga"),
+                            add("facilis"),
+                            add("eum"),
+                        }});
+                        put("iusto", new String[]() {{
+                            add("saepe"),
+                            add("inventore"),
                         }});
                     }};
                     op = new GetApisOp() {{

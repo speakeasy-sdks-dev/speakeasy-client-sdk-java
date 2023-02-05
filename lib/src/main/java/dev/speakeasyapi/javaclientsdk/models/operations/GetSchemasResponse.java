@@ -1,5 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import java.time.OffsetDateTime;
 
 public class GetSchemasResponse {
     public String contentType;

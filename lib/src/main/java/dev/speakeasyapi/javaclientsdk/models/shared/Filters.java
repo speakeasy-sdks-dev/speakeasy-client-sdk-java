@@ -1,11 +1,13 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.OffsetDateTime;
 
 /**
  * Filters
  * Filters are used to query requests.
-**/public class Filters {
+**/
+public class Filters {
     @JsonProperty("filters")
     public Filter[] filters;
     public Filters withFilters(Filter[] filters) {

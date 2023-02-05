@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+
 public class GetEmbedAccessTokenQueryParams {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=description")
     public String description;

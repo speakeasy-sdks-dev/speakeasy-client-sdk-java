@@ -1,10 +1,11 @@
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
 import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 public class Embeds {
@@ -23,8 +24,7 @@ public class Embeds {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
-	
-	
+    
     /**
      * getEmbedAccessToken - Get an embed access token for the current workspace.
      *
@@ -79,8 +79,7 @@ public class Embeds {
 
         return res;
     }
-	
-	
+    
     /**
      * getValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
     **/
@@ -126,8 +125,7 @@ public class Embeds {
 
         return res;
     }
-	
-	
+    
     /**
      * revokeEmbedAccessToken - Revoke an embed access EmbedToken.
     **/
@@ -166,5 +164,4 @@ public class Embeds {
 
         return res;
     }
-	
 }

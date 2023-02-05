@@ -1,18 +1,19 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import java.time.OffsetDateTime;
 
 /**
  * Api
  * An Api is representation of a API (a collection of API Endpoints) within the Speakeasy Platform.
-**/public class Api {
+**/
+public class Api {
     @JsonProperty("api_id")
     public String apiId;
     public Api withApiId(String apiId) {

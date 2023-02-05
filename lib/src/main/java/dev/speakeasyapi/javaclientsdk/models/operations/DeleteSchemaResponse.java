@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class DeleteSchemaResponse {
     public String contentType;
     public DeleteSchemaResponse withContentType(String contentType) {

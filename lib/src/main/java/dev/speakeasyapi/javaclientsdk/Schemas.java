@@ -1,11 +1,12 @@
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
-import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.nio.charset.StandardCharsets;
 import dev.speakeasyapi.javaclientsdk.utils.SerializedBody;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 
 public class Schemas {
 	private HTTPClient _defaultClient;
@@ -23,8 +24,7 @@ public class Schemas {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
-	
-	
+    
     /**
      * deleteSchema - Delete a particular schema revision for an Api.
     **/
@@ -63,8 +63,7 @@ public class Schemas {
 
         return res;
     }
-	
-	
+    
     /**
      * downloadSchema - Download the latest schema for a particular apiID.
     **/
@@ -115,8 +114,7 @@ public class Schemas {
 
         return res;
     }
-	
-	
+    
     /**
      * downloadSchemaRevision - Download a particular schema revision for an Api.
     **/
@@ -167,8 +165,7 @@ public class Schemas {
 
         return res;
     }
-	
-	
+    
     /**
      * getSchema - Get information about the latest schema.
      *
@@ -217,8 +214,7 @@ public class Schemas {
 
         return res;
     }
-	
-	
+    
     /**
      * getSchemaDiff - Get a diff of two schema revisions for an Api.
     **/
@@ -264,8 +260,7 @@ public class Schemas {
 
         return res;
     }
-	
-	
+    
     /**
      * getSchemaRevision - Get information about a particular schema revision for an Api.
      *
@@ -314,8 +309,7 @@ public class Schemas {
 
         return res;
     }
-	
-	
+    
     /**
      * getSchemas - Get information about all schemas associated with a particular apiID.
      *
@@ -364,8 +358,7 @@ public class Schemas {
 
         return res;
     }
-	
-	
+    
     /**
      * registerSchema - Register a schema.
      *
@@ -412,5 +405,4 @@ public class Schemas {
 
         return res;
     }
-	
 }

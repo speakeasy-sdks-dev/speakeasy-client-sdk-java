@@ -1,10 +1,11 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+
 public class FindApiEndpointPathParams {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
-    public FindApiEndpointPathParams withApiId(String apiID) {
+    public FindApiEndpointPathParams withApiID(String apiID) {
         this.apiID = apiID;
         return this;
     }
@@ -16,7 +17,7 @@ public class FindApiEndpointPathParams {
     }
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
-    public FindApiEndpointPathParams withVersionId(String versionID) {
+    public FindApiEndpointPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }

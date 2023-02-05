@@ -1,5 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import java.time.OffsetDateTime;
 
 public class GetApisResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis;

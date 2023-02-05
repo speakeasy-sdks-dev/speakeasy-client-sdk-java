@@ -1,10 +1,11 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+
 public class DeleteVersionMetadataPathParams {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
-    public DeleteVersionMetadataPathParams withApiId(String apiID) {
+    public DeleteVersionMetadataPathParams withApiID(String apiID) {
         this.apiID = apiID;
         return this;
     }
@@ -22,7 +23,7 @@ public class DeleteVersionMetadataPathParams {
     }
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
-    public DeleteVersionMetadataPathParams withVersionId(String versionID) {
+    public DeleteVersionMetadataPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }

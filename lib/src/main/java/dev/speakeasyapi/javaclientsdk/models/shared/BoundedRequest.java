@@ -1,18 +1,19 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import java.time.OffsetDateTime;
 
 /**
  * BoundedRequest
  * A BoundedRequest is a request that has been logged by the Speakeasy without the contents of the request.
-**/public class BoundedRequest {
+**/
+public class BoundedRequest {
     @JsonProperty("api_endpoint_id")
     public String apiEndpointId;
     public BoundedRequest withApiEndpointId(String apiEndpointId) {

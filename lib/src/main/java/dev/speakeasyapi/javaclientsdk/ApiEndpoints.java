@@ -1,11 +1,12 @@
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
-import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.nio.charset.StandardCharsets;
 import dev.speakeasyapi.javaclientsdk.utils.SerializedBody;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 
 public class ApiEndpoints {
 	private HTTPClient _defaultClient;
@@ -23,8 +24,7 @@ public class ApiEndpoints {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
-	
-	
+    
     /**
      * deleteApiEndpoint - Delete an ApiEndpoint.
      *
@@ -65,8 +65,7 @@ public class ApiEndpoints {
 
         return res;
     }
-	
-	
+    
     /**
      * findApiEndpoint - Find an ApiEndpoint via its displayName.
      *
@@ -115,8 +114,7 @@ public class ApiEndpoints {
 
         return res;
     }
-	
-	
+    
     /**
      * generateOpenApiSpecForApiEndpoint - Generate an OpenAPI specification for a particular ApiEndpoint.
      *
@@ -165,8 +163,7 @@ public class ApiEndpoints {
 
         return res;
     }
-	
-	
+    
     /**
      * generatePostmanCollectionForApiEndpoint - Generate a Postman collection for a particular ApiEndpoint.
      *
@@ -214,8 +211,7 @@ public class ApiEndpoints {
 
         return res;
     }
-	
-	
+    
     /**
      * getAllApiEndpoints - Get all Api endpoints for a particular apiID.
     **/
@@ -261,8 +257,7 @@ public class ApiEndpoints {
 
         return res;
     }
-	
-	
+    
     /**
      * getAllForVersionApiEndpoints - Get all ApiEndpoints for a particular apiID and versionID.
     **/
@@ -308,8 +303,7 @@ public class ApiEndpoints {
 
         return res;
     }
-	
-	
+    
     /**
      * getApiEndpoint - Get an ApiEndpoint.
     **/
@@ -355,8 +349,7 @@ public class ApiEndpoints {
 
         return res;
     }
-	
-	
+    
     /**
      * upsertApiEndpoint - Upsert an ApiEndpoint.
      *
@@ -409,5 +402,4 @@ public class ApiEndpoints {
 
         return res;
     }
-	
 }

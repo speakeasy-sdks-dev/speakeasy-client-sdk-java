@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class UpsertPluginResponse {
     public String contentType;
     public UpsertPluginResponse withContentType(String contentType) {

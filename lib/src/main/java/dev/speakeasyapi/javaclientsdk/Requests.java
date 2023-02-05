@@ -1,10 +1,11 @@
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
 import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 public class Requests {
@@ -23,8 +24,7 @@ public class Requests {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
-	
-	
+    
     /**
      * generateRequestPostmanCollection - Generate a Postman collection for a particular request.
      *
@@ -73,8 +73,7 @@ public class Requests {
 
         return res;
     }
-	
-	
+    
     /**
      * getRequestFromEventLog - Get information about a particular request.
     **/
@@ -120,8 +119,7 @@ public class Requests {
 
         return res;
     }
-	
-	
+    
     /**
      * queryEventLog - Query the event log to retrieve a list of requests.
      *
@@ -176,5 +174,4 @@ public class Requests {
 
         return res;
     }
-	
 }

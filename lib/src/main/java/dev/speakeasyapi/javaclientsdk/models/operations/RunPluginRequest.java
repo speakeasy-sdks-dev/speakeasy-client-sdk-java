@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class RunPluginRequest {
     public RunPluginPathParams pathParams;
     public RunPluginRequest withPathParams(RunPluginPathParams pathParams) {

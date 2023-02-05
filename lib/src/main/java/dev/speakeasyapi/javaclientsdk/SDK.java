@@ -1,12 +1,10 @@
-
-
 package dev.speakeasyapi.javaclientsdk;
 
-import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
-import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
-import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
-import java.net.http.HttpResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
+import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 /** SDK Documentation: https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation**/
@@ -38,8 +36,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "0.3.1";
-	private String _genVersion = "0.22.1";
+	private String _sdkVersion = "1.0.0";
+	private String _genVersion = "1.0.0";
 
 	public static class Builder {
 		private HTTPClient client;
@@ -115,7 +113,6 @@ public class SDK {
 			this._serverUrl = SERVERS.get(Servers.PROD);
 		}
 		
-		
 		this.apiEndpoints = new ApiEndpoints(
 			this._defaultClient,
 			this._securityClient,
@@ -179,8 +176,7 @@ public class SDK {
 			this._genVersion
 		);
 	}
-	
-	
+    
     /**
      * validateApiKey - Validate the current api key.
     **/
@@ -219,5 +215,4 @@ public class SDK {
 
         return res;
     }
-	
 }

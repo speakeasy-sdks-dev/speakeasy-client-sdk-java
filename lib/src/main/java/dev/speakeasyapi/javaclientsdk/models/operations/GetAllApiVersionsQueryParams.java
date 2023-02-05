@@ -1,6 +1,8 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+import java.time.OffsetDateTime;
+
 public class GetAllApiVersionsQueryParams {
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=metadata")
     public java.util.Map<String, String[]> metadata;

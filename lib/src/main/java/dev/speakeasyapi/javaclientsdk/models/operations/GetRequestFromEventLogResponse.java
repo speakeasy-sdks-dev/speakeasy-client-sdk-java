@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class GetRequestFromEventLogResponse {
     public String contentType;
     public GetRequestFromEventLogResponse withContentType(String contentType) {

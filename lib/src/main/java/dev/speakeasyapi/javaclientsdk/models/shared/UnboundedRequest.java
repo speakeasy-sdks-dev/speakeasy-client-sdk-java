@@ -1,16 +1,17 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import java.time.OffsetDateTime;
 
 /**
  * UnboundedRequest
  * An UnboundedRequest represents the HAR content capture by Speakeasy when logging a request.
-**/public class UnboundedRequest {
+**/
+public class UnboundedRequest {
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")

@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ApiEndpointInput
  * An ApiEndpoint is a description of an Endpoint for an API.
-**/public class ApiEndpointInput {
+**/
+public class ApiEndpointInput {
     @JsonProperty("api_endpoint_id")
     public String apiEndpointId;
     public ApiEndpointInput withApiEndpointId(String apiEndpointId) {

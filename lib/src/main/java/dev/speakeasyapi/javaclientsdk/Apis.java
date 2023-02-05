@@ -1,11 +1,12 @@
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
-import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.nio.charset.StandardCharsets;
 import dev.speakeasyapi.javaclientsdk.utils.SerializedBody;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 public class Apis {
@@ -24,8 +25,7 @@ public class Apis {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
-	
-	
+    
     /**
      * deleteApi - Delete an Api.
      *
@@ -66,8 +66,7 @@ public class Apis {
 
         return res;
     }
-	
-	
+    
     /**
      * generateOpenApiSpec - Generate an OpenAPI specification for a particular Api.
      *
@@ -116,8 +115,7 @@ public class Apis {
 
         return res;
     }
-	
-	
+    
     /**
      * generatePostmanCollection - Generate a Postman collection for a particular Api.
      *
@@ -165,8 +163,7 @@ public class Apis {
 
         return res;
     }
-	
-	
+    
     /**
      * getAllApiVersions - Get all Api versions for a particular ApiEndpoint.
      *
@@ -221,8 +218,7 @@ public class Apis {
 
         return res;
     }
-	
-	
+    
     /**
      * getApis - Get a list of Apis for a given workspace
      *
@@ -277,8 +273,7 @@ public class Apis {
 
         return res;
     }
-	
-	
+    
     /**
      * upsertApi - Upsert an Api
      *
@@ -332,5 +327,4 @@ public class Apis {
 
         return res;
     }
-	
 }

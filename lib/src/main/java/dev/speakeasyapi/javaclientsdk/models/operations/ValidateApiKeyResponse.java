@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class ValidateApiKeyResponse {
     public String contentType;
     public ValidateApiKeyResponse withContentType(String contentType) {

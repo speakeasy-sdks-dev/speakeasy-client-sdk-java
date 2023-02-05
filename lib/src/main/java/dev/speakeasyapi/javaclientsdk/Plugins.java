@@ -1,11 +1,12 @@
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
-import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.nio.charset.StandardCharsets;
 import dev.speakeasyapi.javaclientsdk.utils.SerializedBody;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 public class Plugins {
@@ -24,8 +25,7 @@ public class Plugins {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
-	
-	
+    
     /**
      * getPlugins - Get all plugins for the current workspace.
     **/
@@ -71,8 +71,7 @@ public class Plugins {
 
         return res;
     }
-	
-	
+    
     /**
      * runPlugin - Run a plugin
     **/
@@ -124,8 +123,7 @@ public class Plugins {
 
         return res;
     }
-	
-	
+    
     /**
      * upsertPlugin - Upsert a plugin
     **/
@@ -176,5 +174,4 @@ public class Plugins {
 
         return res;
     }
-	
 }

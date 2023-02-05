@@ -1,18 +1,19 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import java.time.OffsetDateTime;
 
 /**
  * ApiEndpoint
  * An ApiEndpoint is a description of an Endpoint for an API.
-**/public class ApiEndpoint {
+**/
+public class ApiEndpoint {
     @JsonProperty("api_endpoint_id")
     public String apiEndpointId;
     public ApiEndpoint withApiEndpointId(String apiEndpointId) {

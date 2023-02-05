@@ -1,18 +1,19 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
+import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import java.time.OffsetDateTime;
 
 /**
  * Plugin
  * A plugin is a short script that is run against ingested requests
-**/public class Plugin {
+**/
+public class Plugin {
     @JsonProperty("code")
     public String code;
     public Plugin withCode(String code) {

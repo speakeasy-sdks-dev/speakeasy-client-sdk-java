@@ -1,11 +1,12 @@
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
-import java.net.http.HttpResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.nio.charset.StandardCharsets;
 import dev.speakeasyapi.javaclientsdk.utils.SerializedBody;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 
 public class Metadata {
 	private HTTPClient _defaultClient;
@@ -23,8 +24,7 @@ public class Metadata {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
-	
-	
+    
     /**
      * deleteVersionMetadata - Delete metadata for a particular apiID and versionID.
     **/
@@ -63,8 +63,7 @@ public class Metadata {
 
         return res;
     }
-	
-	
+    
     /**
      * getVersionMetadata - Get all metadata for a particular apiID and versionID.
     **/
@@ -110,8 +109,7 @@ public class Metadata {
 
         return res;
     }
-	
-	
+    
     /**
      * insertVersionMetadata - Insert metadata for a particular apiID and versionID.
     **/
@@ -162,5 +160,4 @@ public class Metadata {
 
         return res;
     }
-	
 }

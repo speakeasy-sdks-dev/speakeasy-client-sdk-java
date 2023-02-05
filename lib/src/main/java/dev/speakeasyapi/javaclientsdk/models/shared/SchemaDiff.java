@@ -1,11 +1,13 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.OffsetDateTime;
 
 /**
  * SchemaDiff
  * A SchemaDiff represents a diff of two Schemas.
-**/public class SchemaDiff {
+**/
+public class SchemaDiff {
     @JsonProperty("additions")
     public String[] additions;
     public SchemaDiff withAdditions(String[] additions) {

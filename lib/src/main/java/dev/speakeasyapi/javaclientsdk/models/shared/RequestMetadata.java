@@ -1,13 +1,14 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * RequestMetadata
  * Key-Value pairs associated with a request
-**/public class RequestMetadata {
+**/
+public class RequestMetadata {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("key")
     public String key;

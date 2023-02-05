@@ -1,6 +1,7 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
 
+
 public class GenerateOpenApiSpecForApiEndpointResponse {
     public String contentType;
     public GenerateOpenApiSpecForApiEndpointResponse withContentType(String contentType) {
