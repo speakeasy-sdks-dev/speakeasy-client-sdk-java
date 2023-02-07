@@ -1,6 +1,6 @@
 
 
-## Version 1.0.0
+## Version 1.0.1
 ### Changes
 Based on:
 - OpenAPI Doc 0.2.0 https://docs.speakeasyapi.dev/openapi.yaml

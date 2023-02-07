@@ -77,7 +77,7 @@ public class Plugins {
     **/
     public dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse runPlugin(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/plugin/{pluginID}", request.pathParams);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/plugins/{pluginID}", request.pathParams);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
@@ -129,7 +129,7 @@ public class Plugins {
     **/
     public dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse upsertPlugin(dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/plugin");
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/plugins");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");
