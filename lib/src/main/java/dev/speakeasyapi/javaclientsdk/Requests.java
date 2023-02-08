@@ -55,10 +55,8 @@ public class Requests {
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
-            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
-                byte[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
+                byte[] out = httpRes.body();
                 res.postmanCollection = out;
             }
         }
