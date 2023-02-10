@@ -36,8 +36,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.1.1";
-	private String _genVersion = "1.1.2";
+	private String _sdkVersion = "1.2.0";
+	private String _genVersion = "1.2.0";
 
 	public static class Builder {
 		private HTTPClient client;
