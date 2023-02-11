@@ -6,6 +6,7 @@ lib/src/main/java/dev/speakeasyapi/javaclientsdk/Plugins.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/Requests.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/Schemas.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/SDK.java
+lib/build.gradle
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/DateTimeDeserializer.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/DateTimeSerializer.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/FormMetadata.java
