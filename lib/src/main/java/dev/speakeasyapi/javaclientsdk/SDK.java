@@ -38,7 +38,7 @@ public class SDK {
 	private String _serverUrl;
 	private String _language = "java";
 	private String _sdkVersion = "1.3.1";
-	private String _genVersion = "1.3.2";
+	private String _genVersion = "internal";
 
 	public static class Builder {
 		private HTTPClient client;
