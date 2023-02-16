@@ -8,4 +8,5 @@ public class GeneratePostmanCollectionRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

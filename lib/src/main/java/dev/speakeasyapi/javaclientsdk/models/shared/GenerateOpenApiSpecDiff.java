@@ -9,10 +9,12 @@ public class GenerateOpenApiSpecDiff {
         this.currentSchema = currentSchema;
         return this;
     }
+    
     @JsonProperty("new_schema")
     public String newSchema;
     public GenerateOpenApiSpecDiff withNewSchema(String newSchema) {
         this.newSchema = newSchema;
         return this;
     }
+    
 }

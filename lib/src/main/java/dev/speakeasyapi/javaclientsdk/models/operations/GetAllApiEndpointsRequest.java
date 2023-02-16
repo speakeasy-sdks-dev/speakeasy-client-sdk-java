@@ -8,4 +8,5 @@ public class GetAllApiEndpointsRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

@@ -1,7 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.OffsetDateTime;
 
 /**
  * SchemaDiff
@@ -14,16 +13,19 @@ public class SchemaDiff {
         this.additions = additions;
         return this;
     }
+    
     @JsonProperty("deletions")
     public String[] deletions;
     public SchemaDiff withDeletions(String[] deletions) {
         this.deletions = deletions;
         return this;
     }
+    
     @JsonProperty("modifications")
     public java.util.Map<String, SchemaDiffValueChange> modifications;
     public SchemaDiff withModifications(java.util.Map<String, SchemaDiffValueChange> modifications) {
         this.modifications = modifications;
         return this;
     }
+    
 }

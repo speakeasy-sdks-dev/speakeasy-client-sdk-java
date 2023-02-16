@@ -9,4 +9,5 @@ public class GetRequestFromEventLogPathParams {
         this.requestID = requestID;
         return this;
     }
+    
 }

@@ -8,10 +8,12 @@ public class RegisterSchemaRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
     @SpeakeasyMetadata("request:mediaType=multipart/form-data")
     public RegisterSchemaRequestBody request;
     public RegisterSchemaRequest withRequest(RegisterSchemaRequestBody request) {
         this.request = request;
         return this;
     }
+    
 }

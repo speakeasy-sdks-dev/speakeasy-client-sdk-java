@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import java.time.OffsetDateTime;
+
 
 public class GetApisResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis;
@@ -8,19 +8,23 @@ public class GetApisResponse {
         this.apis = apis;
         return this;
     }
+    
     public String contentType;
     public GetApisResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public GetApisResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public GetApisResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public GetApisResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

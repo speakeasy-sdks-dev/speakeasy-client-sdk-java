@@ -8,14 +8,17 @@ public class DeleteApiEndpointResponse {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public DeleteApiEndpointResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public DeleteApiEndpointResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public DeleteApiEndpointResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

@@ -3,7 +3,6 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.OffsetDateTime;
 
 /**
  * ApiInput
@@ -16,12 +15,14 @@ public class ApiInput {
         this.apiId = apiId;
         return this;
     }
+    
     @JsonProperty("description")
     public String description;
     public ApiInput withDescription(String description) {
         this.description = description;
         return this;
     }
+    
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta_data")
     public java.util.Map<String, String[]> metaData;
@@ -29,10 +30,12 @@ public class ApiInput {
         this.metaData = metaData;
         return this;
     }
+    
     @JsonProperty("version_id")
     public String versionId;
     public ApiInput withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
     }
+    
 }

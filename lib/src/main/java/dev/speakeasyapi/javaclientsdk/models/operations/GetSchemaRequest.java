@@ -8,4 +8,5 @@ public class GetSchemaRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

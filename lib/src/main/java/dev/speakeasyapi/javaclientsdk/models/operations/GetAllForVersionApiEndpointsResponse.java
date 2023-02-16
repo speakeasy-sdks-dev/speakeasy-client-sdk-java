@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import java.time.OffsetDateTime;
+
 
 public class GetAllForVersionApiEndpointsResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint[] apiEndpoints;
@@ -8,19 +8,23 @@ public class GetAllForVersionApiEndpointsResponse {
         this.apiEndpoints = apiEndpoints;
         return this;
     }
+    
     public String contentType;
     public GetAllForVersionApiEndpointsResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public GetAllForVersionApiEndpointsResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public GetAllForVersionApiEndpointsResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public GetAllForVersionApiEndpointsResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

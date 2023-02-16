@@ -8,4 +8,5 @@ public class RevokeEmbedAccessTokenRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

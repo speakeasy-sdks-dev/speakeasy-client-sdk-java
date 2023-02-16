@@ -8,14 +8,17 @@ public class RevokeEmbedAccessTokenResponse {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public RevokeEmbedAccessTokenResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public RevokeEmbedAccessTokenResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public RevokeEmbedAccessTokenResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

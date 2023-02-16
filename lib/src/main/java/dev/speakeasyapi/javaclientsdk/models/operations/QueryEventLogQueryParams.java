@@ -9,4 +9,5 @@ public class QueryEventLogQueryParams {
         this.filters = filters;
         return this;
     }
+    
 }

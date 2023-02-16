@@ -8,4 +8,5 @@ public class GenerateOpenApiSpecForApiEndpointRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

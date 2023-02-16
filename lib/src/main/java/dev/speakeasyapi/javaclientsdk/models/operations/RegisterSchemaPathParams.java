@@ -9,10 +9,12 @@ public class RegisterSchemaPathParams {
         this.apiID = apiID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
     public RegisterSchemaPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }
+    
 }

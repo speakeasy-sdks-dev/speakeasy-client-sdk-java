@@ -13,10 +13,12 @@ public class Error {
         this.message = message;
         return this;
     }
+    
     @JsonProperty("status_code")
     public Integer statusCode;
     public Error withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

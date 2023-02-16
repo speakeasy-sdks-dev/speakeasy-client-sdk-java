@@ -8,9 +8,11 @@ public class GetAllApiVersionsRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
     public GetAllApiVersionsQueryParams queryParams;
     public GetAllApiVersionsRequest withQueryParams(GetAllApiVersionsQueryParams queryParams) {
         this.queryParams = queryParams;
         return this;
     }
+    
 }

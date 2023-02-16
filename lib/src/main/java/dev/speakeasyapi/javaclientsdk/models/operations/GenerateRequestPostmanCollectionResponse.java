@@ -8,19 +8,23 @@ public class GenerateRequestPostmanCollectionResponse {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public GenerateRequestPostmanCollectionResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
+    
     public byte[] postmanCollection;
     public GenerateRequestPostmanCollectionResponse withPostmanCollection(byte[] postmanCollection) {
         this.postmanCollection = postmanCollection;
         return this;
     }
-    public Long statusCode;
-    public GenerateRequestPostmanCollectionResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public GenerateRequestPostmanCollectionResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

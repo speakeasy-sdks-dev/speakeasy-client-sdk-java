@@ -9,4 +9,5 @@ public class RegisterSchemaRequestBody {
         this.file = file;
         return this;
     }
+    
 }

@@ -13,4 +13,5 @@ public class EmbedAccessTokenResponse {
         this.accessToken = accessToken;
         return this;
     }
+    
 }

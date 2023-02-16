@@ -9,4 +9,5 @@ public class RunPluginQueryParams {
         this.filters = filters;
         return this;
     }
+    
 }

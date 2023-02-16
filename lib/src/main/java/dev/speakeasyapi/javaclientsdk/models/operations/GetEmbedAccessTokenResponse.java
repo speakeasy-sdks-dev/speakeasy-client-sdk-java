@@ -8,19 +8,23 @@ public class GetEmbedAccessTokenResponse {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.EmbedAccessTokenResponse embedAccessTokenResponse;
     public GetEmbedAccessTokenResponse withEmbedAccessTokenResponse(dev.speakeasyapi.javaclientsdk.models.shared.EmbedAccessTokenResponse embedAccessTokenResponse) {
         this.embedAccessTokenResponse = embedAccessTokenResponse;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public GetEmbedAccessTokenResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public GetEmbedAccessTokenResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public GetEmbedAccessTokenResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

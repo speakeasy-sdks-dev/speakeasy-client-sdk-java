@@ -8,19 +8,23 @@ public class GetSchemaDiffResponse {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public GetSchemaDiffResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.SchemaDiff schemaDiff;
     public GetSchemaDiffResponse withSchemaDiff(dev.speakeasyapi.javaclientsdk.models.shared.SchemaDiff schemaDiff) {
         this.schemaDiff = schemaDiff;
         return this;
     }
-    public Long statusCode;
-    public GetSchemaDiffResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public GetSchemaDiffResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

@@ -13,16 +13,19 @@ public class Filter {
         this.key = key;
         return this;
     }
+    
     @JsonProperty("operator")
     public String operator;
     public Filter withOperator(String operator) {
         this.operator = operator;
         return this;
     }
+    
     @JsonProperty("value")
     public String value;
     public Filter withValue(String value) {
         this.value = value;
         return this;
     }
+    
 }

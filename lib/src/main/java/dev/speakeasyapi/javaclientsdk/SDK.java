@@ -3,6 +3,7 @@ package dev.speakeasyapi.javaclientsdk;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
+import dev.speakeasyapi.javaclientsdk.utils.JSON;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
@@ -36,8 +37,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.3.0";
-	private String _genVersion = "1.3.1";
+	private String _sdkVersion = "1.3.1";
+	private String _genVersion = "1.3.2";
 
 	public static class Builder {
 		private HTTPClient client;
@@ -194,20 +195,19 @@ public class SDK {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse() {{
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }

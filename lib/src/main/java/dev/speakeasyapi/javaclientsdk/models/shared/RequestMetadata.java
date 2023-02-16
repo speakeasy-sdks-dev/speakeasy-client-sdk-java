@@ -16,6 +16,7 @@ public class RequestMetadata {
         this.key = key;
         return this;
     }
+    
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("value")
     public String value;
@@ -23,4 +24,5 @@ public class RequestMetadata {
         this.value = value;
         return this;
     }
+    
 }

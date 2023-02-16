@@ -9,16 +9,19 @@ public class GetSchemaRevisionPathParams {
         this.apiID = apiID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
     public String revisionID;
     public GetSchemaRevisionPathParams withRevisionID(String revisionID) {
         this.revisionID = revisionID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
     public GetSchemaRevisionPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }
+    
 }

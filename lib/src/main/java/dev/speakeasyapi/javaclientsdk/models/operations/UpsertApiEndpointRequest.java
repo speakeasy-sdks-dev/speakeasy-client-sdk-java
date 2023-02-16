@@ -8,10 +8,12 @@ public class UpsertApiEndpointRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
     @SpeakeasyMetadata("request:mediaType=application/json")
     public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput request;
     public UpsertApiEndpointRequest withRequest(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput request) {
         this.request = request;
         return this;
     }
+    
 }

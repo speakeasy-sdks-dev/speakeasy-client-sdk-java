@@ -20,12 +20,14 @@ public class BoundedRequest {
         this.apiEndpointId = apiEndpointId;
         return this;
     }
+    
     @JsonProperty("api_id")
     public String apiId;
     public BoundedRequest withApiId(String apiId) {
         this.apiId = apiId;
         return this;
     }
+    
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
@@ -34,18 +36,21 @@ public class BoundedRequest {
         this.createdAt = createdAt;
         return this;
     }
+    
     @JsonProperty("customer_id")
     public String customerId;
     public BoundedRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
     }
+    
     @JsonProperty("latency")
     public Long latency;
     public BoundedRequest withLatency(Long latency) {
         this.latency = latency;
         return this;
     }
+    
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
     public RequestMetadata[] metadata;
@@ -53,18 +58,21 @@ public class BoundedRequest {
         this.metadata = metadata;
         return this;
     }
+    
     @JsonProperty("method")
     public String method;
     public BoundedRequest withMethod(String method) {
         this.method = method;
         return this;
     }
+    
     @JsonProperty("path")
     public String path;
     public BoundedRequest withPath(String path) {
         this.path = path;
         return this;
     }
+    
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("request_finish_time")
@@ -73,12 +81,14 @@ public class BoundedRequest {
         this.requestFinishTime = requestFinishTime;
         return this;
     }
+    
     @JsonProperty("request_id")
     public String requestId;
     public BoundedRequest withRequestId(String requestId) {
         this.requestId = requestId;
         return this;
     }
+    
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("request_start_time")
@@ -87,22 +97,26 @@ public class BoundedRequest {
         this.requestStartTime = requestStartTime;
         return this;
     }
+    
     @JsonProperty("status")
     public Long status;
     public BoundedRequest withStatus(Long status) {
         this.status = status;
         return this;
     }
+    
     @JsonProperty("version_id")
     public String versionId;
     public BoundedRequest withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
     }
+    
     @JsonProperty("workspace_id")
     public String workspaceId;
     public BoundedRequest withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;
     }
+    
 }

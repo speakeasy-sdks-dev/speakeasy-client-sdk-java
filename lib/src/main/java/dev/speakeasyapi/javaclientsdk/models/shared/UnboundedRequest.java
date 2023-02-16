@@ -20,28 +20,33 @@ public class UnboundedRequest {
         this.createdAt = createdAt;
         return this;
     }
+    
     @JsonProperty("har")
     public String har;
     public UnboundedRequest withHar(String har) {
         this.har = har;
         return this;
     }
+    
     @JsonProperty("har_size_bytes")
     public Long harSizeBytes;
     public UnboundedRequest withHarSizeBytes(Long harSizeBytes) {
         this.harSizeBytes = harSizeBytes;
         return this;
     }
+    
     @JsonProperty("request_id")
     public String requestId;
     public UnboundedRequest withRequestId(String requestId) {
         this.requestId = requestId;
         return this;
     }
+    
     @JsonProperty("workspace_id")
     public String workspaceId;
     public UnboundedRequest withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;
     }
+    
 }

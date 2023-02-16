@@ -8,10 +8,12 @@ public class InsertVersionMetadataRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
     @SpeakeasyMetadata("request:mediaType=application/json")
     public dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput request;
     public InsertVersionMetadataRequest withRequest(dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput request) {
         this.request = request;
         return this;
     }
+    
 }

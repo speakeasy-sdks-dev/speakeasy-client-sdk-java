@@ -8,4 +8,5 @@ public class GetSchemaDiffRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

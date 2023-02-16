@@ -8,9 +8,11 @@ public class RunPluginRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
     public RunPluginQueryParams queryParams;
     public RunPluginRequest withQueryParams(RunPluginQueryParams queryParams) {
         this.queryParams = queryParams;
         return this;
     }
+    
 }

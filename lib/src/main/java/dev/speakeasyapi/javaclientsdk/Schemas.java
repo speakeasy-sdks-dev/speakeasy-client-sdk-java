@@ -3,6 +3,7 @@ package dev.speakeasyapi.javaclientsdk;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
+import dev.speakeasyapi.javaclientsdk.utils.JSON;
 import dev.speakeasyapi.javaclientsdk.utils.SerializedBody;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
@@ -42,20 +43,19 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse() {{
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }
@@ -81,20 +81,19 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse() {{
             schema = null;
             schema = null;
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 byte[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
                 res.schema = out;
             }
@@ -105,8 +104,7 @@ public class Schemas {
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }
@@ -132,20 +130,19 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse() {{
             schema = null;
             schema = null;
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 byte[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
                 res.schema = out;
             }
@@ -156,8 +153,7 @@ public class Schemas {
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }
@@ -186,27 +182,25 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse() {{
             schema = null;
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Schema out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Schema.class);
                 res.schema = out;
             }
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }
@@ -232,27 +226,25 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse() {{
             schemaDiff = null;
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.SchemaDiff out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.SchemaDiff.class);
                 res.schemaDiff = out;
             }
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }
@@ -281,27 +273,25 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse() {{
             schema = null;
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Schema out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Schema.class);
                 res.schema = out;
             }
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }
@@ -330,27 +320,25 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse() {{
             schemata = null;
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Schema[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Schema[].class);
                 res.schemata = out;
             }
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }
@@ -384,20 +372,19 @@ public class Schemas {
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().allValues("Content-Type").get(0);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse() {{
             error = null;
         }};
-        res.statusCode = Long.valueOf(httpRes.statusCode());
+        res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
         
         if (httpRes.statusCode() == 200) {
         }
         else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = new ObjectMapper();
-                mapper.findAndRegisterModules();
+                ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
                 res.error = out;
             }

@@ -8,4 +8,5 @@ public class GetEmbedAccessTokenRequest {
         this.queryParams = queryParams;
         return this;
     }
+    
 }

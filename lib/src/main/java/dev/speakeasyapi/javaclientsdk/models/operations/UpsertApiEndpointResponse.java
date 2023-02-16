@@ -8,19 +8,23 @@ public class UpsertApiEndpointResponse {
         this.apiEndpoint = apiEndpoint;
         return this;
     }
+    
     public String contentType;
     public UpsertApiEndpointResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public UpsertApiEndpointResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public UpsertApiEndpointResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public UpsertApiEndpointResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

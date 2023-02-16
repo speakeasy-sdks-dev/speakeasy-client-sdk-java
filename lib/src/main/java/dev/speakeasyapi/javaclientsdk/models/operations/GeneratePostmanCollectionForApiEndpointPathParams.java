@@ -9,16 +9,19 @@ public class GeneratePostmanCollectionForApiEndpointPathParams {
         this.apiEndpointID = apiEndpointID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
     public GeneratePostmanCollectionForApiEndpointPathParams withApiID(String apiID) {
         this.apiID = apiID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
     public GeneratePostmanCollectionForApiEndpointPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }
+    
 }

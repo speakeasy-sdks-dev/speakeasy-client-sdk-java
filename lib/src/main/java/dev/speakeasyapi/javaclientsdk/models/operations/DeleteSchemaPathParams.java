@@ -9,16 +9,19 @@ public class DeleteSchemaPathParams {
         this.apiID = apiID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
     public String revisionID;
     public DeleteSchemaPathParams withRevisionID(String revisionID) {
         this.revisionID = revisionID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
     public DeleteSchemaPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }
+    
 }

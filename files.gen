@@ -13,6 +13,7 @@ lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/FormMetadata.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/HTTPClient.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/HTTPRequest.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/HeaderMetadata.java
+lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/JSON.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/Metadata.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/MultipartFormMetadata.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/PathParamsMetadata.java

@@ -9,10 +9,12 @@ public class DeleteApiPathParams {
         this.apiID = apiID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
     public DeleteApiPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }
+    
 }

@@ -8,19 +8,23 @@ public class GetSchemaResponse {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public GetSchemaResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Schema schema;
     public GetSchemaResponse withSchema(dev.speakeasyapi.javaclientsdk.models.shared.Schema schema) {
         this.schema = schema;
         return this;
     }
-    public Long statusCode;
-    public GetSchemaResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public GetSchemaResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

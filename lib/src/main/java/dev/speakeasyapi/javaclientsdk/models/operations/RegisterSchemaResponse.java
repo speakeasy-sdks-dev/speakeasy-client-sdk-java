@@ -8,14 +8,17 @@ public class RegisterSchemaResponse {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public RegisterSchemaResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public RegisterSchemaResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public RegisterSchemaResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

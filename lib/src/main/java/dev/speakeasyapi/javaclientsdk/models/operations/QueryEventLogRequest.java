@@ -8,4 +8,5 @@ public class QueryEventLogRequest {
         this.queryParams = queryParams;
         return this;
     }
+    
 }

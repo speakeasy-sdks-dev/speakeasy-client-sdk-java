@@ -8,4 +8,5 @@ public class DownloadSchemaRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

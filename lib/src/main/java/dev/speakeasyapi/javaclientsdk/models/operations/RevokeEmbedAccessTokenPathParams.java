@@ -9,4 +9,5 @@ public class RevokeEmbedAccessTokenPathParams {
         this.tokenID = tokenID;
         return this;
     }
+    
 }

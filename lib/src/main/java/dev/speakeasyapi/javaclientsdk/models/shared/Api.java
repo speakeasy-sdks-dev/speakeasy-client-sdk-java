@@ -20,6 +20,7 @@ public class Api {
         this.apiId = apiId;
         return this;
     }
+    
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
@@ -28,12 +29,14 @@ public class Api {
         this.createdAt = createdAt;
         return this;
     }
+    
     @JsonProperty("description")
     public String description;
     public Api withDescription(String description) {
         this.description = description;
         return this;
     }
+    
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("matched")
     public Boolean matched;
@@ -41,6 +44,7 @@ public class Api {
         this.matched = matched;
         return this;
     }
+    
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta_data")
     public java.util.Map<String, String[]> metaData;
@@ -48,6 +52,7 @@ public class Api {
         this.metaData = metaData;
         return this;
     }
+    
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("updated_at")
@@ -56,16 +61,19 @@ public class Api {
         this.updatedAt = updatedAt;
         return this;
     }
+    
     @JsonProperty("version_id")
     public String versionId;
     public Api withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
     }
+    
     @JsonProperty("workspace_id")
     public String workspaceId;
     public Api withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;
     }
+    
 }

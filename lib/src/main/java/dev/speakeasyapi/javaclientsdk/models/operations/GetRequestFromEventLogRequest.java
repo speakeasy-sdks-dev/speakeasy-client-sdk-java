@@ -8,4 +8,5 @@ public class GetRequestFromEventLogRequest {
         this.pathParams = pathParams;
         return this;
     }
+    
 }

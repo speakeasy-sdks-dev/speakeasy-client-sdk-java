@@ -13,10 +13,12 @@ public class VersionMetadataInput {
         this.metaKey = metaKey;
         return this;
     }
+    
     @JsonProperty("meta_value")
     public String metaValue;
     public VersionMetadataInput withMetaValue(String metaValue) {
         this.metaValue = metaValue;
         return this;
     }
+    
 }

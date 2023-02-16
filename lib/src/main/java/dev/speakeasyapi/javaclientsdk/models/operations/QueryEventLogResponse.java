@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import java.time.OffsetDateTime;
+
 
 public class QueryEventLogResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests;
@@ -8,19 +8,23 @@ public class QueryEventLogResponse {
         this.boundedRequests = boundedRequests;
         return this;
     }
+    
     public String contentType;
     public QueryEventLogResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
     }
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public QueryEventLogResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
-    public Long statusCode;
-    public QueryEventLogResponse withStatusCode(Long statusCode) {
+    
+    public Integer statusCode;
+    public QueryEventLogResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
 }

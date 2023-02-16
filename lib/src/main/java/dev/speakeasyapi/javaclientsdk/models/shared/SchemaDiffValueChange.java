@@ -9,10 +9,12 @@ public class SchemaDiffValueChange {
         this.from = from;
         return this;
     }
+    
     @JsonProperty("To")
     public String to;
     public SchemaDiffValueChange withTo(String to) {
         this.to = to;
         return this;
     }
+    
 }

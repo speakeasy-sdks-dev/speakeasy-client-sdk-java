@@ -9,10 +9,12 @@ public class RegisterSchemaRequestBodyFile {
         this.content = content;
         return this;
     }
+    
     @SpeakeasyMetadata("multipartForm:name=file")
     public String file;
     public RegisterSchemaRequestBodyFile withFile(String file) {
         this.file = file;
         return this;
     }
+    
 }

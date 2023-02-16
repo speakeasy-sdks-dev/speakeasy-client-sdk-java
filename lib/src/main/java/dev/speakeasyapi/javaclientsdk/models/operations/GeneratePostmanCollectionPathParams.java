@@ -9,10 +9,12 @@ public class GeneratePostmanCollectionPathParams {
         this.apiID = apiID;
         return this;
     }
+    
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
     public GeneratePostmanCollectionPathParams withVersionID(String versionID) {
         this.versionID = versionID;
         return this;
     }
+    
 }
