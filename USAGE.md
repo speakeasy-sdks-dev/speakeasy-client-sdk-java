@@ -2,8 +2,8 @@
 ```java
 package hello.world;
 
-import .SDK;
-import .models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 
 public class Application {
     public static void main(String[] args) {

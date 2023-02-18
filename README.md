@@ -10,7 +10,7 @@ This SDK was generated using Speakeasy's SDK Generator. For more information on 
 ### Gradle
 
 ```groovy
-implementation ':openapi:1.4.0'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.3.2'
 ```
 <!-- End SDK Installation -->
 
