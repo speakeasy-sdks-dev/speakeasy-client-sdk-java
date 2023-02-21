@@ -1,8 +1,4 @@
-# speakeasy-client-sdk-java
-
-This is the Speakeasy API Client SDK for Java. It is generated from our OpenAPI spec found at https://docs.speakeasyapi.dev/openapi.yaml and used for interacting with the [Speakeasy API](https://docs.speakeasyapi.dev/docs/speakeasy-api/speakeasy-api).
-
-This SDK was generated using Speakeasy's SDK Generator. For more information on how to use the generator to generate your own SDKs, please see the [Speakeasy Client SDK Generator Docs](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks).
+# <no value>
 
 <!-- Start SDK Installation -->
 ## SDK Installation
@@ -10,23 +6,17 @@ This SDK was generated using Speakeasy's SDK Generator. For more information on 
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.3.2'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:<no value>'
 ```
 <!-- End SDK Installation -->
 
-## Example Usage
-
+## SDK Example Usage
+<!-- Start SDK Example Usage -->
 ```java
 package hello.world;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisQueryParams;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisOp;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
 
 public class Application {
     public static void main(String[] args) {
@@ -35,8 +25,8 @@ public class Application {
 
             builder.setSecurity(
                 new Security() {{
-                    apiKey = new SchemeApiKey() {{
-                        apiKey = "YOUR_API_KEY_HERE"; // Replace with your API key from your Speakeasy Workspace
+                    apiKey = new SchemeAPIKey() {{
+                        apiKey = "YOUR_API_KEY_HERE";
                     }};
                 }}
             );
@@ -45,13 +35,25 @@ public class Application {
 
             GetApisRequest req = new GetApisRequest() {{
                 queryParams = new GetApisQueryParams() {{
-                    metadata = new HashMap<>() {{
-                        put("label", new ArrayList<>() {{
-                            add("1");
+                    metadata = new java.util.HashMap<String, String[]>() {{
+                        put("deserunt", new String[]() {{
+                            add("nulla"),
+                            add("id"),
+                            add("vero"),
+                        }});
+                        put("perspiciatis", new String[]() {{
+                            add("nihil"),
+                            add("fuga"),
+                            add("facilis"),
+                            add("eum"),
+                        }});
+                        put("iusto", new String[]() {{
+                            add("saepe"),
+                            add("inventore"),
                         }});
                     }};
                     op = new GetApisOp() {{
-                        and = true;
+                        and = false;
                     }};
                 }};
             }};
@@ -60,13 +62,12 @@ public class Application {
 
             if (res.apis.isPresent()) {
                 // handle response
-            } else if (res.error.isPresent()) {
-                // handle error
             }
         } catch (Exception e) {
             // handle exception
         }
 ```
+<!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
 ## SDK Available Operations
