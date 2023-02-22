@@ -22,6 +22,7 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           languages: |-
             - java
+          publish_java: true
           speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
           force: ${{ github.event.inputs.force }}
           ossrh_username: ${{ secrets.SONATYPE_USERNAME }}

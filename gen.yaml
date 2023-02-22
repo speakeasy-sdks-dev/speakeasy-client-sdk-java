@@ -11,3 +11,4 @@ java:
     artifactID: javaclientsdk
     groupID: dev.speakeasyapi
     projectName: speakeasy-client-sdk-java
+    ossrhURL: https://oss.sonatype.org/service/local/staging/deploy/maven2/
