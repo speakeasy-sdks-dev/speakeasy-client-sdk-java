@@ -10,5 +10,5 @@ java:
     version: 1.4.14
     artifactID: javaclientsdk
     groupID: io.github.openapi-sdks
-    ossrhURL: https://oss.sonatype.org/service/local/staging/deploy/maven2/
+    ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
     projectName: speakeasy-client-sdk-java
