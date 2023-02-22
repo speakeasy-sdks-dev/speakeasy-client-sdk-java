@@ -37,7 +37,7 @@ public class SDK {
 	private io.github.openapi_sdks.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.4.12";
+	private String _sdkVersion = "1.4.13";
 	private String _genVersion = "1.4.8";
 
 	public static class Builder {
