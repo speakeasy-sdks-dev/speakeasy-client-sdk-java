@@ -35,7 +35,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'dev.speakeasyapi'
             artifactId = 'javaclientsdk'
-            version = '1.4.3'
+            version = '1.4.4'
 
             from components.java
         }
