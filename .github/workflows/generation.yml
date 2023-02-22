@@ -19,11 +19,12 @@ jobs:
         with:
           speakeasy_version: latest
           openapi_doc_location: https://docs.speakeasyapi.dev/openapi.yaml
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
           languages: |-
             - java
           publish_java: true
-          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
           force: ${{ github.event.inputs.force }}
+        secrets:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
           ossrh_username: ${{ secrets.SONATYPE_USERNAME }}
           ossrh_password: ${{ secrets.SONATYPE_PASSWORD }}
