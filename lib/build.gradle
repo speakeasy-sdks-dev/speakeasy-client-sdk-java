@@ -35,7 +35,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'io.github.openapi-sdks'
             artifactId = 'javaclientsdk'
-            version = '1.4.13'
+            version = '1.4.14'
 
             from components.java
         }
