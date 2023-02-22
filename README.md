@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.openapi-sdks.javaclientsdk:speakeasy-client-sdk-java:1.4.10'
+implementation 'io.github.openapi_sdks.javaclientsdk:speakeasy-client-sdk-java:1.4.11'
 ```
 <!-- End SDK Installation -->
 
@@ -15,8 +15,8 @@ implementation 'io.github.openapi-sdks.javaclientsdk:speakeasy-client-sdk-java:1
 ```java
 package hello.world;
 
-import io.github.openapi-sdks.javaclientsdk.SDK;
-import io.github.openapi-sdks.javaclientsdk.models.shared.Security;
+import io.github.openapi_sdks.javaclientsdk.SDK;
+import io.github.openapi_sdks.javaclientsdk.models.shared.Security;
 
 public class Application {
     public static void main(String[] args) {
