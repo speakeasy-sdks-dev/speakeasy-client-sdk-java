@@ -2,12 +2,12 @@ configVersion: 1.0.0
 management:
     docChecksum: 2bba3b8f9d211b02569b3f9aff0d34b4
     docVersion: 0.3.0
-    speakeasyVersion: 1.5.1
+    speakeasyVersion: 1.5.2
 generation:
     telemetryEnabled: true
     sdkClassName: SDK
 java:
-    version: 1.5.2
+    version: 1.5.3
     artifactID: javaclientsdk
     groupID: dev.speakeasyapi
     ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
