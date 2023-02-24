@@ -23,18 +23,18 @@ public class Application {
             GetApisRequest req = new GetApisRequest() {{
                 queryParams = new GetApisQueryParams() {{
                     metadata = new java.util.HashMap<String, String[]>() {{
-                        put("deserunt", new String[]() {{
+                        put("deserunt", new String[]{{
                             add("nulla"),
                             add("id"),
                             add("vero"),
                         }});
-                        put("perspiciatis", new String[]() {{
+                        put("perspiciatis", new String[]{{
                             add("nihil"),
                             add("fuga"),
                             add("facilis"),
                             add("eum"),
                         }});
-                        put("iusto", new String[]() {{
+                        put("iusto", new String[]{{
                             add("saepe"),
                             add("inventore"),
                         }});
