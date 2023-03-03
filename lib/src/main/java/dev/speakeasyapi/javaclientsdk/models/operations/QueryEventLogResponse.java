@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class QueryEventLogResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests;
@@ -24,6 +24,12 @@ public class QueryEventLogResponse {
     public Integer statusCode;
     public QueryEventLogResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public QueryEventLogResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     

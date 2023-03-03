@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class UpsertApiResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.Api api;
@@ -24,6 +24,12 @@ public class UpsertApiResponse {
     public Integer statusCode;
     public UpsertApiResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public UpsertApiResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     

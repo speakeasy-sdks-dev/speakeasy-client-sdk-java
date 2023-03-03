@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class GenerateOpenApiSpecResponse {
     public String contentType;
@@ -24,6 +24,12 @@ public class GenerateOpenApiSpecResponse {
     public Integer statusCode;
     public GenerateOpenApiSpecResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public GenerateOpenApiSpecResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     

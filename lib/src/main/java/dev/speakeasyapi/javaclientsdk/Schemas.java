@@ -10,6 +10,14 @@ import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
 
 public class Schemas {
+	
+	
+	
+	
+	
+	
+	
+	
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
 	private String _serverUrl;
@@ -25,6 +33,7 @@ public class Schemas {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
+	
     
     /**
      * deleteSchema - Delete a particular schema revision for an Api.
@@ -50,6 +59,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
         }
@@ -63,6 +73,7 @@ public class Schemas {
 
         return res;
     }
+	
     
     /**
      * downloadSchema - Download the latest schema for a particular apiID.
@@ -90,6 +101,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -112,6 +124,7 @@ public class Schemas {
 
         return res;
     }
+	
     
     /**
      * downloadSchemaRevision - Download a particular schema revision for an Api.
@@ -139,6 +152,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -161,6 +175,7 @@ public class Schemas {
 
         return res;
     }
+	
     
     /**
      * getSchema - Get information about the latest schema.
@@ -190,6 +205,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -208,6 +224,7 @@ public class Schemas {
 
         return res;
     }
+	
     
     /**
      * getSchemaDiff - Get a diff of two schema revisions for an Api.
@@ -234,6 +251,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -252,6 +270,7 @@ public class Schemas {
 
         return res;
     }
+	
     
     /**
      * getSchemaRevision - Get information about a particular schema revision for an Api.
@@ -281,6 +300,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -299,6 +319,7 @@ public class Schemas {
 
         return res;
     }
+	
     
     /**
      * getSchemas - Get information about all schemas associated with a particular apiID.
@@ -328,6 +349,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -346,6 +368,7 @@ public class Schemas {
 
         return res;
     }
+	
     
     /**
      * registerSchema - Register a schema.
@@ -379,6 +402,7 @@ public class Schemas {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
         }

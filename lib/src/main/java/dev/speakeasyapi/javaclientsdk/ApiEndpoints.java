@@ -10,6 +10,14 @@ import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
 
 public class ApiEndpoints {
+	
+	
+	
+	
+	
+	
+	
+	
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
 	private String _serverUrl;
@@ -25,6 +33,7 @@ public class ApiEndpoints {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
+	
     
     /**
      * deleteApiEndpoint - Delete an ApiEndpoint.
@@ -52,6 +61,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
         }
@@ -65,6 +75,7 @@ public class ApiEndpoints {
 
         return res;
     }
+	
     
     /**
      * findApiEndpoint - Find an ApiEndpoint via its displayName.
@@ -94,6 +105,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -112,6 +124,7 @@ public class ApiEndpoints {
 
         return res;
     }
+	
     
     /**
      * generateOpenApiSpecForApiEndpoint - Generate an OpenAPI specification for a particular ApiEndpoint.
@@ -141,6 +154,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -159,6 +173,7 @@ public class ApiEndpoints {
 
         return res;
     }
+	
     
     /**
      * generatePostmanCollectionForApiEndpoint - Generate a Postman collection for a particular ApiEndpoint.
@@ -187,6 +202,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
@@ -204,6 +220,7 @@ public class ApiEndpoints {
 
         return res;
     }
+	
     
     /**
      * getAllApiEndpoints - Get all Api endpoints for a particular apiID.
@@ -230,6 +247,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -248,6 +266,7 @@ public class ApiEndpoints {
 
         return res;
     }
+	
     
     /**
      * getAllForVersionApiEndpoints - Get all ApiEndpoints for a particular apiID and versionID.
@@ -274,6 +293,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -292,6 +312,7 @@ public class ApiEndpoints {
 
         return res;
     }
+	
     
     /**
      * getApiEndpoint - Get an ApiEndpoint.
@@ -318,6 +339,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -336,6 +358,7 @@ public class ApiEndpoints {
 
         return res;
     }
+	
     
     /**
      * upsertApiEndpoint - Upsert an ApiEndpoint.
@@ -369,6 +392,7 @@ public class ApiEndpoints {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {

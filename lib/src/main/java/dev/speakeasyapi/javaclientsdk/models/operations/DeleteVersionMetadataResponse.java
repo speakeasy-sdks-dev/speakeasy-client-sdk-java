@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class DeleteVersionMetadataResponse {
     public String contentType;
@@ -18,6 +18,12 @@ public class DeleteVersionMetadataResponse {
     public Integer statusCode;
     public DeleteVersionMetadataResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public DeleteVersionMetadataResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     

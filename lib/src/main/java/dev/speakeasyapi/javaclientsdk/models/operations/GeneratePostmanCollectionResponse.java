@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class GeneratePostmanCollectionResponse {
     public String contentType;
@@ -24,6 +24,12 @@ public class GeneratePostmanCollectionResponse {
     public Integer statusCode;
     public GeneratePostmanCollectionResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public GeneratePostmanCollectionResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     

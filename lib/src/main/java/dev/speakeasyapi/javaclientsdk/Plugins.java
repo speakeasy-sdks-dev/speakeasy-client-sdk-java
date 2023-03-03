@@ -11,6 +11,9 @@ import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 public class Plugins {
+	
+	
+	
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
 	private String _serverUrl;
@@ -26,6 +29,7 @@ public class Plugins {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
+	
     
     /**
      * getPlugins - Get all plugins for the current workspace.
@@ -52,6 +56,7 @@ public class Plugins {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -70,6 +75,7 @@ public class Plugins {
 
         return res;
     }
+	
     
     /**
      * runPlugin - Run a plugin
@@ -102,6 +108,7 @@ public class Plugins {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -120,6 +127,7 @@ public class Plugins {
 
         return res;
     }
+	
     
     /**
      * upsertPlugin - Upsert a plugin
@@ -151,6 +159,7 @@ public class Plugins {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {

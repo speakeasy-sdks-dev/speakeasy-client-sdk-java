@@ -10,6 +10,9 @@ import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
 
 public class Metadata {
+	
+	
+	
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
 	private String _serverUrl;
@@ -25,6 +28,7 @@ public class Metadata {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
+	
     
     /**
      * deleteVersionMetadata - Delete metadata for a particular apiID and versionID.
@@ -50,6 +54,7 @@ public class Metadata {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
         }
@@ -63,6 +68,7 @@ public class Metadata {
 
         return res;
     }
+	
     
     /**
      * getVersionMetadata - Get all metadata for a particular apiID and versionID.
@@ -89,6 +95,7 @@ public class Metadata {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -107,6 +114,7 @@ public class Metadata {
 
         return res;
     }
+	
     
     /**
      * insertVersionMetadata - Insert metadata for a particular apiID and versionID.
@@ -138,6 +146,7 @@ public class Metadata {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {

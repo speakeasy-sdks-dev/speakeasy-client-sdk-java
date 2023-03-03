@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class GetAllApiVersionsResponse {
     public dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis;
@@ -24,6 +24,12 @@ public class GetAllApiVersionsResponse {
     public Integer statusCode;
     public GetAllApiVersionsResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public GetAllApiVersionsResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     

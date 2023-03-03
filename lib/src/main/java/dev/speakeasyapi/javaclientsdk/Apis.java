@@ -11,6 +11,12 @@ import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 public class Apis {
+	
+	
+	
+	
+	
+	
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
 	private String _serverUrl;
@@ -26,6 +32,7 @@ public class Apis {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
+	
     
     /**
      * deleteApi - Delete an Api.
@@ -53,6 +60,7 @@ public class Apis {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
         }
@@ -66,6 +74,7 @@ public class Apis {
 
         return res;
     }
+	
     
     /**
      * generateOpenApiSpec - Generate an OpenAPI specification for a particular Api.
@@ -95,6 +104,7 @@ public class Apis {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -113,6 +123,7 @@ public class Apis {
 
         return res;
     }
+	
     
     /**
      * generatePostmanCollection - Generate a Postman collection for a particular Api.
@@ -141,6 +152,7 @@ public class Apis {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
@@ -158,6 +170,7 @@ public class Apis {
 
         return res;
     }
+	
     
     /**
      * getAllApiVersions - Get all Api versions for a particular ApiEndpoint.
@@ -193,6 +206,7 @@ public class Apis {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -211,6 +225,7 @@ public class Apis {
 
         return res;
     }
+	
     
     /**
      * getApis - Get a list of Apis for a given workspace
@@ -246,6 +261,7 @@ public class Apis {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -264,6 +280,7 @@ public class Apis {
 
         return res;
     }
+	
     
     /**
      * upsertApi - Upsert an Api
@@ -298,6 +315,7 @@ public class Apis {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {

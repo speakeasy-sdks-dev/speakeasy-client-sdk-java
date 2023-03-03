@@ -9,6 +9,9 @@ import java.nio.charset.StandardCharsets;
 import org.apache.http.NameValuePair;
 
 public class Embeds {
+	
+	
+	
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
 	private String _serverUrl;
@@ -24,6 +27,7 @@ public class Embeds {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
+	
     
     /**
      * getEmbedAccessToken - Get an embed access token for the current workspace.
@@ -59,6 +63,7 @@ public class Embeds {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -77,6 +82,7 @@ public class Embeds {
 
         return res;
     }
+	
     
     /**
      * getValidEmbedAccessTokens - Get all valid embed access tokens for the current workspace.
@@ -103,6 +109,7 @@ public class Embeds {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -121,6 +128,7 @@ public class Embeds {
 
         return res;
     }
+	
     
     /**
      * revokeEmbedAccessToken - Revoke an embed access EmbedToken.
@@ -146,6 +154,7 @@ public class Embeds {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
         }

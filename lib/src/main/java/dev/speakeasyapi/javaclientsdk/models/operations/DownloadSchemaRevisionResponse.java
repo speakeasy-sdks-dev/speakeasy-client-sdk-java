@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class DownloadSchemaRevisionResponse {
     public String contentType;
@@ -24,6 +24,12 @@ public class DownloadSchemaRevisionResponse {
     public Integer statusCode;
     public DownloadSchemaRevisionResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public DownloadSchemaRevisionResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     

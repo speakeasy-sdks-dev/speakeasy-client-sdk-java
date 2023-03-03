@@ -8,7 +8,8 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
-/** SDK Documentation: https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation**/
+/** SDK Documentation: The Speakeasy API allows teams to manage common operations with their APIs
+ * https://docs.speakeasyapi.dev - The Speakeasy Platform Documentation**/
 public class SDK {
 	public enum Servers {
 		PROD("prod");
@@ -23,6 +24,7 @@ public class SDK {
 	public static final java.util.Map<Servers, String> SERVERS = new java.util.HashMap<Servers, String>() {{
 		put(Servers.PROD, "https://api.prod.speakeasyapi.dev");
 	}};
+	
   	
   	public ApiEndpoints apiEndpoints;
   	public Apis apis;
@@ -37,8 +39,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.7.0";
-	private String _genVersion = "1.7.1";
+	private String _sdkVersion = "1.8.0";
+	private String _genVersion = "1.8.2";
 
 	public static class Builder {
 		private HTTPClient client;
@@ -107,7 +109,7 @@ public class SDK {
 		}
 
 		if (serverUrl != null && !serverUrl.isBlank()) {
-			this._serverUrl = dev.speakeasyapi.javaclientsdk.utils.Utils.replaceParameters(serverUrl, params);
+			this._serverUrl = dev.speakeasyapi.javaclientsdk.utils.Utils.templateUrl(serverUrl, params);
 		}
 		
 		if (this._serverUrl == null) {
@@ -202,6 +204,7 @@ public class SDK {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
         }

@@ -10,6 +10,9 @@ import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 public class Requests {
+	
+	
+	
 	private HTTPClient _defaultClient;
 	private HTTPClient _securityClient;
 	private String _serverUrl;
@@ -25,6 +28,7 @@ public class Requests {
 		this._sdkVersion = sdkVersion;
 		this._genVersion = genVersion;
 	}
+	
     
     /**
      * generateRequestPostmanCollection - Generate a Postman collection for a particular request.
@@ -54,6 +58,7 @@ public class Requests {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
@@ -71,6 +76,7 @@ public class Requests {
 
         return res;
     }
+	
     
     /**
      * getRequestFromEventLog - Get information about a particular request.
@@ -97,6 +103,7 @@ public class Requests {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -115,6 +122,7 @@ public class Requests {
 
         return res;
     }
+	
     
     /**
      * queryEventLog - Query the event log to retrieve a list of requests.
@@ -150,6 +158,7 @@ public class Requests {
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;
+        res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {

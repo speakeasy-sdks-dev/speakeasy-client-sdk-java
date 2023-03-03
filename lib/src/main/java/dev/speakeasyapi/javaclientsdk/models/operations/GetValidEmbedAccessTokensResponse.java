@@ -1,6 +1,6 @@
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import java.net.http.HttpResponse;
 
 public class GetValidEmbedAccessTokensResponse {
     public String contentType;
@@ -24,6 +24,12 @@ public class GetValidEmbedAccessTokensResponse {
     public Integer statusCode;
     public GetValidEmbedAccessTokensResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
+        return this;
+    }
+    
+    public HttpResponse<byte[]> rawResponse;
+    public GetValidEmbedAccessTokensResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+        this.rawResponse = rawResponse;
         return this;
     }
     
