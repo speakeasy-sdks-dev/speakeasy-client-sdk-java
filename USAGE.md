@@ -4,6 +4,10 @@ package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisOp;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisQueryParams;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
 
 public class Application {
     public static void main(String[] args) {
