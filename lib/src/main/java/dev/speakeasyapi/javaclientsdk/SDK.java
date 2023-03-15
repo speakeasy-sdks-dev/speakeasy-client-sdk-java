@@ -39,9 +39,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.9.1";
-	private String _genVersion = "1.9.2";
-
+	private String _sdkVersion = "1.10.0";
+	private String _genVersion = "1.11.0";
 	public static class Builder {
 		private HTTPClient client;
 		private dev.speakeasyapi.javaclientsdk.models.shared.Security security;
@@ -115,6 +114,7 @@ public class SDK {
 		if (this._serverUrl == null) {
 			this._serverUrl = SERVERS.get(Servers.PROD);
 		}
+		
 		
 		this.apiEndpoints = new ApiEndpoints(
 			this._defaultClient,

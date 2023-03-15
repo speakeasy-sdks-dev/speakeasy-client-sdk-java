@@ -12,17 +12,13 @@ import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
 public class Application {
     public static void main(String[] args) {
         try {
-            SDK.Builder builder = SDK.builder();
-
-            builder.setSecurity(
-                new Security() {{
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security() {{
                     apiKey = new SchemeAPIKey() {{
                         apiKey = "YOUR_API_KEY_HERE";
                     }};
-                }}
-            );
-
-            SDK sdk = builder.build();
+                }})
+                .build();
 
             GetApisRequest req = new GetApisRequest() {{
                 queryParams = new GetApisQueryParams() {{
@@ -47,7 +43,7 @@ public class Application {
                         and = false;
                     }};
                 }};
-            }};
+            }};            
 
             GetApisResponse res = sdk.apis.getApis(req);
 
