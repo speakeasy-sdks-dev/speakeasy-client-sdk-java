@@ -2,6 +2,10 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
+/**
+ * GetApisOp
+ * Configuration for filter operations
+**/
 public class GetApisOp {
     @SpeakeasyMetadata("queryParam:name=and")
     public Boolean and;
