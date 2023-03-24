@@ -37,7 +37,7 @@ public class Apis {
 
     /**
      * Delete an Api.
-     * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas & Request Logs (if using a Postgres datastore).
+     * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas and Request Logs (if using a Postgres datastore).
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
