@@ -26,4 +26,4 @@ jobs:
       ossrh_username: ${{ secrets.SONATYPE_USERNAME }}
       ossrh_password: ${{ secrets.SONATYPE_PASSWORD }}
       java_gpg_secret_key: ${{ secrets.PGP_SECRET_KEY }}
-      java_passphrase: ${{ secrets.PGP_PASSPHRASE }}
+      java_gpg_passphrase: ${{ secrets.PGP_PASSPHRASE }}
