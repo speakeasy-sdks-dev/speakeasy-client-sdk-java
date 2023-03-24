@@ -41,17 +41,17 @@ publishing {
         maven(MavenPublication) {
             groupId = 'dev.speakeasyapi'
             artifactId = 'javaclientsdk'
-            version = '1.14.1'
+            version = '1.14.2'
 
             from components.java
 
             pom {
-                name = 'My Company Java SDK'
-                description = 'SDK enabling Java developers to easily integrate with the My Company API.'
-                url = 'https://github.com/owner/repo'
+                name = 'Speakeasy Java SDK'
+                description = 'SDK enabling Java developers to easily integrate with the Speakeasy API.'
+                url = 'https://github.com/speakeasy-api/speakeasy-client-sdk-java'
                 scm {
-                    url = 'github.com/owner/repo'
-                    connection = 'scm:git:ssh://git@github.com/owner/repo.git'
+                    url = 'github.com/speakeasy-api/speakeasy-client-sdk-java'
+                    connection = 'scm:git:ssh://git@github.com/speakeasy-api/speakeasy-client-sdk-java.git'
                 }
                 licenses {
                     license {
@@ -61,14 +61,14 @@ publishing {
                 }
                 developers {
                     developer {
-                        name = 'My Company'
-                        organization = 'My Company'
-                        email = 'info@mycompany.com'
+                        name = 'Speakeasy'
+                        organization = 'Speakeasy'
+                        email = 'chase@speakeasyapi.dev'
                     }
                 }
                 organization {
-                    name = 'My Company'
-                    url = 'www.mycompany.com'
+                    name = 'Speakeasy'
+                    url = 'www.speakeasyapi.dev'
                 }
             }
         }
