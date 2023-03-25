@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.14.3'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.14.4'
 ```
 <!-- End SDK Installation -->
 
