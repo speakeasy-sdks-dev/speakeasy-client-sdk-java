@@ -4,12 +4,46 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class DeleteVersionMetadataRequest {
-    public DeleteVersionMetadataPathParams pathParams;
-    public DeleteVersionMetadataRequest withPathParams(DeleteVersionMetadataPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to delete metadata for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public DeleteVersionMetadataRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The key of the metadata to delete.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=metaKey")
+    public String metaKey;
+    public DeleteVersionMetadataRequest withMetaKey(String metaKey) {
+        this.metaKey = metaKey;
+        return this;
+    }
+    
+    /**
+     * The value of the metadata to delete.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=metaValue")
+    public String metaValue;
+    public DeleteVersionMetadataRequest withMetaValue(String metaValue) {
+        this.metaValue = metaValue;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to delete metadata for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public DeleteVersionMetadataRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

@@ -37,14 +37,14 @@ public class Apis {
 
     /**
      * Delete an Api.
-     * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas and Request Logs (if using a Postgres datastore).
+     * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas &amp; Request Logs (if using a Postgres datastore).
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse deleteApi(dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -88,7 +88,7 @@ public class Apis {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecResponse generateOpenApiSpec(dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/generate/openapi", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/generate/openapi", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -137,7 +137,7 @@ public class Apis {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionResponse generatePostmanCollection(dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/generate/postman", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/generate/postman", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -186,14 +186,14 @@ public class Apis {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsResponse getAllApiVersions(dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsPathParams.class, baseUrl, "/v1/apis/{apiID}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, baseUrl, "/v1/apis/{apiID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
         
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsQueryParams.class, request.queryParams, null);
+        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -249,7 +249,7 @@ public class Apis {
         req.setURL(url);
         
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.GetApisQueryParams.class, request.queryParams, null);
+        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -298,12 +298,12 @@ public class Apis {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiResponse upsertApi(dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiPathParams.class, baseUrl, "/v1/apis/{apiID}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiRequest.class, baseUrl, "/v1/apis/{apiID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");
         req.setURL(url);
-        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "request", "json");
+        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "apiInput", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }

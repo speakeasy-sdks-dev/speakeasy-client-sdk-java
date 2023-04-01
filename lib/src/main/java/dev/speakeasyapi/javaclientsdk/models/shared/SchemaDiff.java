@@ -13,7 +13,8 @@ public class SchemaDiff {
     /**
      * Holds every addition change in the diff.
      */
-    @JsonProperty("additions")public String[] additions;
+    @JsonProperty("additions")
+    public String[] additions;
     public SchemaDiff withAdditions(String[] additions) {
         this.additions = additions;
         return this;
@@ -22,7 +23,8 @@ public class SchemaDiff {
     /**
      * Holds every deletion change in the diff.
      */
-    @JsonProperty("deletions")public String[] deletions;
+    @JsonProperty("deletions")
+    public String[] deletions;
     public SchemaDiff withDeletions(String[] deletions) {
         this.deletions = deletions;
         return this;
@@ -31,7 +33,8 @@ public class SchemaDiff {
     /**
      * Holds every modification change in the diff.
      */
-    @JsonProperty("modifications")public java.util.Map<String, SchemaDiffValueChange> modifications;
+    @JsonProperty("modifications")
+    public java.util.Map<String, SchemaDiffValueChange> modifications;
     public SchemaDiff withModifications(java.util.Map<String, SchemaDiffValueChange> modifications) {
         this.modifications = modifications;
         return this;

@@ -10,11 +10,13 @@ public class GetAllApiVersionsResponse {
     /**
      * OK
      */
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis;
     public GetAllApiVersionsResponse withApis(dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis) {
         this.apis = apis;
         return this;
     }
+    
     
     public String contentType;
     public GetAllApiVersionsResponse withContentType(String contentType) {
@@ -25,17 +27,20 @@ public class GetAllApiVersionsResponse {
     /**
      * Default error response
      */
+    
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
     public GetAllApiVersionsResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
     }
     
+    
     public Integer statusCode;
     public GetAllApiVersionsResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
+    
     
     public HttpResponse<byte[]> rawResponse;
     public GetAllApiVersionsResponse withRawResponse(HttpResponse<byte[]> rawResponse) {

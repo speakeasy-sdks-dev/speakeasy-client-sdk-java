@@ -4,12 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class DownloadSchemaRevisionRequest {
-    public DownloadSchemaRevisionPathParams pathParams;
-    public DownloadSchemaRevisionRequest withPathParams(DownloadSchemaRevisionPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to retrieve schemas for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public DownloadSchemaRevisionRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The revision ID of the schema to retrieve.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
+    public String revisionID;
+    public DownloadSchemaRevisionRequest withRevisionID(String revisionID) {
+        this.revisionID = revisionID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to delete metadata for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public DownloadSchemaRevisionRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

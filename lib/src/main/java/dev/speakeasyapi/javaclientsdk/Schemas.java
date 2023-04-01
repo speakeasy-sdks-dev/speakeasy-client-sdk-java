@@ -42,7 +42,7 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse deleteSchema(dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -84,7 +84,7 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse downloadSchema(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/download", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/download", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -137,7 +137,7 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse downloadSchemaRevision(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -192,7 +192,7 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse getSchema(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -240,7 +240,7 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse getSchemaDiff(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -290,7 +290,7 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse getSchemaRevision(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -340,7 +340,7 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse getSchemas(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schemas", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schemas", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -390,12 +390,12 @@ public class Schemas {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse registerSchema(dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "request", "multipart");
+        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "requestBody", "multipart");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }

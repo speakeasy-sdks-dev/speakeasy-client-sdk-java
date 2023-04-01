@@ -4,12 +4,16 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetRequestFromEventLogRequest {
-    public GetRequestFromEventLogPathParams pathParams;
-    public GetRequestFromEventLogRequest withPathParams(GetRequestFromEventLogPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the request to retrieve.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=requestID")
+    public String requestID;
+    public GetRequestFromEventLogRequest withRequestID(String requestID) {
+        this.requestID = requestID;
         return this;
     }
     

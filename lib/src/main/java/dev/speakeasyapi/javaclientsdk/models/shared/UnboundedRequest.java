@@ -20,7 +20,8 @@ public class UnboundedRequest {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("created_at")public OffsetDateTime createdAt;
+    @JsonProperty("created_at")
+    public OffsetDateTime createdAt;
     public UnboundedRequest withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -29,7 +30,8 @@ public class UnboundedRequest {
     /**
      * The HAR content of the request.
      */
-    @JsonProperty("har")public String har;
+    @JsonProperty("har")
+    public String har;
     public UnboundedRequest withHar(String har) {
         this.har = har;
         return this;
@@ -38,7 +40,8 @@ public class UnboundedRequest {
     /**
      * The size of the HAR content in bytes.
      */
-    @JsonProperty("har_size_bytes")public Long harSizeBytes;
+    @JsonProperty("har_size_bytes")
+    public Long harSizeBytes;
     public UnboundedRequest withHarSizeBytes(Long harSizeBytes) {
         this.harSizeBytes = harSizeBytes;
         return this;
@@ -47,7 +50,8 @@ public class UnboundedRequest {
     /**
      * The ID of this request.
      */
-    @JsonProperty("request_id")public String requestId;
+    @JsonProperty("request_id")
+    public String requestId;
     public UnboundedRequest withRequestId(String requestId) {
         this.requestId = requestId;
         return this;
@@ -56,7 +60,8 @@ public class UnboundedRequest {
     /**
      * The workspace ID this request was made to.
      */
-    @JsonProperty("workspace_id")public String workspaceId;
+    @JsonProperty("workspace_id")
+    public String workspaceId;
     public UnboundedRequest withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

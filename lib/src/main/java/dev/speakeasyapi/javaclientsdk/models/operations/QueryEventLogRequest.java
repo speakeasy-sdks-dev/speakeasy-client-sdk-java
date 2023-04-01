@@ -4,12 +4,16 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class QueryEventLogRequest {
-    public QueryEventLogQueryParams queryParams;
-    public QueryEventLogRequest withQueryParams(QueryEventLogQueryParams queryParams) {
-        this.queryParams = queryParams;
+    /**
+     * The filter to apply to the query.
+     */
+    @SpeakeasyMetadata("queryParam:serialization=json,name=filters")
+    public dev.speakeasyapi.javaclientsdk.models.shared.Filters filters;
+    public QueryEventLogRequest withFilters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
+        this.filters = filters;
         return this;
     }
     

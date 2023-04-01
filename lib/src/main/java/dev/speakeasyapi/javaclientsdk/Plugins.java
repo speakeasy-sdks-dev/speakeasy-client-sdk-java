@@ -90,14 +90,14 @@ public class Plugins {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse runPlugin(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginPathParams.class, baseUrl, "/v1/plugins/{pluginID}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest.class, baseUrl, "/v1/plugins/{pluginID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
         
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginQueryParams.class, request.queryParams, null);
+        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -142,7 +142,7 @@ public class Plugins {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse upsertPlugin(dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginRequest request) throws Exception {
+    public dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse upsertPlugin(dev.speakeasyapi.javaclientsdk.models.shared.Plugin request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/plugins");
         

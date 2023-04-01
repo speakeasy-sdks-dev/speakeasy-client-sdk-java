@@ -13,7 +13,8 @@ public class Filter {
     /**
      * The key of the filter.
      */
-    @JsonProperty("key")public String key;
+    @JsonProperty("key")
+    public String key;
     public Filter withKey(String key) {
         this.key = key;
         return this;
@@ -22,7 +23,8 @@ public class Filter {
     /**
      * The operator of the filter.
      */
-    @JsonProperty("operator")public String operator;
+    @JsonProperty("operator")
+    public String operator;
     public Filter withOperator(String operator) {
         this.operator = operator;
         return this;
@@ -31,7 +33,8 @@ public class Filter {
     /**
      * The value of the filter.
      */
-    @JsonProperty("value")public String value;
+    @JsonProperty("value")
+    public String value;
     public Filter withValue(String value) {
         this.value = value;
         return this;

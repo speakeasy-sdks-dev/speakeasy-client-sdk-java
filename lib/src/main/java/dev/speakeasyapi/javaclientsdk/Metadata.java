@@ -42,7 +42,7 @@ public class Metadata {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse deleteVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -84,7 +84,7 @@ public class Metadata {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse getVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -132,12 +132,12 @@ public class Metadata {
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse insertVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataPathParams.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request.pathParams, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "request", "json");
+        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "versionMetadataInput", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }

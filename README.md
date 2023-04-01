@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.14.6'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.14.7'
 ```
 <!-- End SDK Installation -->
 
@@ -18,7 +18,6 @@ package hello.world;
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisOp;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisQueryParams;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
 
@@ -27,36 +26,32 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security() {{
-                    apiKey = new SchemeAPIKey() {{
-                        apiKey = "YOUR_API_KEY_HERE";
-                    }};
+                    apiKey = "YOUR_API_KEY_HERE";
                 }})
                 .build();
 
             GetApisRequest req = new GetApisRequest() {{
-                queryParams = new GetApisQueryParams() {{
-                    metadata = new java.util.HashMap<String, String[]>() {{
-                        put("deserunt", new String[]{{
-                            add("nulla"),
-                            add("id"),
-                            add("vero"),
-                        }});
-                        put("perspiciatis", new String[]{{
-                            add("nihil"),
-                            add("fuga"),
-                            add("facilis"),
-                            add("eum"),
-                        }});
-                        put("iusto", new String[]{{
-                            add("saepe"),
-                            add("inventore"),
-                        }});
-                    }};
-                    op = new GetApisOp() {{
-                        and = false;
-                    }};
+                metadata = new java.util.HashMap<String, String[]>() {{
+                    put("provident", new String[]{{
+                        add("quibusdam"),
+                        add("unde"),
+                        add("nulla"),
+                    }});
+                    put("corrupti", new String[]{{
+                        add("vel"),
+                        add("error"),
+                        add("deserunt"),
+                        add("suscipit"),
+                    }});
+                    put("iure", new String[]{{
+                        add("debitis"),
+                        add("ipsa"),
+                    }});
                 }};
-            }};            
+                op = new GetApisOp() {{
+                    and = false;
+                }};
+            }}            
 
             GetApisResponse res = sdk.apis.getApis(req);
 
@@ -70,7 +65,7 @@ public class Application {
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 ### SDK SDK
 

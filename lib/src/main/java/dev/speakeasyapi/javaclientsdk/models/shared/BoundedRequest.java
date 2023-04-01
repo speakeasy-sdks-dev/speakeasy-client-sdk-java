@@ -20,7 +20,8 @@ public class BoundedRequest {
     /**
      * The ID of the ApiEndpoint this request was made to.
      */
-    @JsonProperty("api_endpoint_id")public String apiEndpointId;
+    @JsonProperty("api_endpoint_id")
+    public String apiEndpointId;
     public BoundedRequest withApiEndpointId(String apiEndpointId) {
         this.apiEndpointId = apiEndpointId;
         return this;
@@ -29,7 +30,8 @@ public class BoundedRequest {
     /**
      * The ID of the Api this request was made to.
      */
-    @JsonProperty("api_id")public String apiId;
+    @JsonProperty("api_id")
+    public String apiId;
     public BoundedRequest withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -40,7 +42,8 @@ public class BoundedRequest {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("created_at")public OffsetDateTime createdAt;
+    @JsonProperty("created_at")
+    public OffsetDateTime createdAt;
     public BoundedRequest withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -49,7 +52,8 @@ public class BoundedRequest {
     /**
      * The ID of the customer that made this request.
      */
-    @JsonProperty("customer_id")public String customerId;
+    @JsonProperty("customer_id")
+    public String customerId;
     public BoundedRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -58,7 +62,8 @@ public class BoundedRequest {
     /**
      * The latency of the request.
      */
-    @JsonProperty("latency")public Long latency;
+    @JsonProperty("latency")
+    public Long latency;
     public BoundedRequest withLatency(Long latency) {
         this.latency = latency;
         return this;
@@ -68,7 +73,8 @@ public class BoundedRequest {
      * Metadata associated with this request
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("metadata")public RequestMetadata[] metadata;
+    @JsonProperty("metadata")
+    public RequestMetadata[] metadata;
     public BoundedRequest withMetadata(RequestMetadata[] metadata) {
         this.metadata = metadata;
         return this;
@@ -77,7 +83,8 @@ public class BoundedRequest {
     /**
      * HTTP verb.
      */
-    @JsonProperty("method")public String method;
+    @JsonProperty("method")
+    public String method;
     public BoundedRequest withMethod(String method) {
         this.method = method;
         return this;
@@ -86,7 +93,8 @@ public class BoundedRequest {
     /**
      * The path of the request.
      */
-    @JsonProperty("path")public String path;
+    @JsonProperty("path")
+    public String path;
     public BoundedRequest withPath(String path) {
         this.path = path;
         return this;
@@ -97,7 +105,8 @@ public class BoundedRequest {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("request_finish_time")public OffsetDateTime requestFinishTime;
+    @JsonProperty("request_finish_time")
+    public OffsetDateTime requestFinishTime;
     public BoundedRequest withRequestFinishTime(OffsetDateTime requestFinishTime) {
         this.requestFinishTime = requestFinishTime;
         return this;
@@ -106,7 +115,8 @@ public class BoundedRequest {
     /**
      * The ID of this request.
      */
-    @JsonProperty("request_id")public String requestId;
+    @JsonProperty("request_id")
+    public String requestId;
     public BoundedRequest withRequestId(String requestId) {
         this.requestId = requestId;
         return this;
@@ -117,7 +127,8 @@ public class BoundedRequest {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("request_start_time")public OffsetDateTime requestStartTime;
+    @JsonProperty("request_start_time")
+    public OffsetDateTime requestStartTime;
     public BoundedRequest withRequestStartTime(OffsetDateTime requestStartTime) {
         this.requestStartTime = requestStartTime;
         return this;
@@ -126,7 +137,8 @@ public class BoundedRequest {
     /**
      * The status code of the request.
      */
-    @JsonProperty("status")public Long status;
+    @JsonProperty("status")
+    public Long status;
     public BoundedRequest withStatus(Long status) {
         this.status = status;
         return this;
@@ -135,7 +147,8 @@ public class BoundedRequest {
     /**
      * The version ID of the Api this request was made to.
      */
-    @JsonProperty("version_id")public String versionId;
+    @JsonProperty("version_id")
+    public String versionId;
     public BoundedRequest withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
@@ -144,7 +157,8 @@ public class BoundedRequest {
     /**
      * The workspace ID this request was made to.
      */
-    @JsonProperty("workspace_id")public String workspaceId;
+    @JsonProperty("workspace_id")
+    public String workspaceId;
     public BoundedRequest withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

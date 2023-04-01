@@ -4,12 +4,26 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GenerateOpenApiSpecRequest {
-    public GenerateOpenApiSpecPathParams pathParams;
-    public GenerateOpenApiSpecRequest withPathParams(GenerateOpenApiSpecPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to generate an OpenAPI specification for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public GenerateOpenApiSpecRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to generate an OpenAPI specification for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public GenerateOpenApiSpecRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

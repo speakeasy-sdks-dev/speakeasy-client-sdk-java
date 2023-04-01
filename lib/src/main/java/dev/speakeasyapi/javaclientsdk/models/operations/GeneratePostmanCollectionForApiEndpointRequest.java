@@ -4,12 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GeneratePostmanCollectionForApiEndpointRequest {
-    public GeneratePostmanCollectionForApiEndpointPathParams pathParams;
-    public GeneratePostmanCollectionForApiEndpointRequest withPathParams(GeneratePostmanCollectionForApiEndpointPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the ApiEndpoint to generate a Postman collection for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiEndpointID")
+    public String apiEndpointID;
+    public GeneratePostmanCollectionForApiEndpointRequest withApiEndpointID(String apiEndpointID) {
+        this.apiEndpointID = apiEndpointID;
+        return this;
+    }
+    
+    /**
+     * The ID of the Api to generate a Postman collection for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public GeneratePostmanCollectionForApiEndpointRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to generate a Postman collection for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public GeneratePostmanCollectionForApiEndpointRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

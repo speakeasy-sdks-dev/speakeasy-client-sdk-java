@@ -4,12 +4,16 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetAllApiEndpointsRequest {
-    public GetAllApiEndpointsPathParams pathParams;
-    public GetAllApiEndpointsRequest withPathParams(GetAllApiEndpointsPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to retrieve ApiEndpoints for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public GetAllApiEndpointsRequest withApiID(String apiID) {
+        this.apiID = apiID;
         return this;
     }
     

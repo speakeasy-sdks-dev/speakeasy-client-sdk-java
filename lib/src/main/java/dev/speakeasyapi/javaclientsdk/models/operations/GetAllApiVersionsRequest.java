@@ -4,18 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetAllApiVersionsRequest {
-    public GetAllApiVersionsPathParams pathParams;
-    public GetAllApiVersionsRequest withPathParams(GetAllApiVersionsPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to retrieve.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public GetAllApiVersionsRequest withApiID(String apiID) {
+        this.apiID = apiID;
         return this;
     }
     
-    public GetAllApiVersionsQueryParams queryParams;
-    public GetAllApiVersionsRequest withQueryParams(GetAllApiVersionsQueryParams queryParams) {
-        this.queryParams = queryParams;
+    /**
+     * Metadata to filter Apis on
+     */
+    @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=metadata")
+    public java.util.Map<String, String[]> metadata;
+    public GetAllApiVersionsRequest withMetadata(java.util.Map<String, String[]> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+    
+    /**
+     * Configuration for filter operations
+     */
+    @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=op")
+    public GetAllApiVersionsOp op;
+    public GetAllApiVersionsRequest withOp(GetAllApiVersionsOp op) {
+        this.op = op;
         return this;
     }
     

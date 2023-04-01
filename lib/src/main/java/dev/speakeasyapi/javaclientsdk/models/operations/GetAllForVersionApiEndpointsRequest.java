@@ -4,12 +4,26 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetAllForVersionApiEndpointsRequest {
-    public GetAllForVersionApiEndpointsPathParams pathParams;
-    public GetAllForVersionApiEndpointsRequest withPathParams(GetAllForVersionApiEndpointsPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to retrieve ApiEndpoints for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public GetAllForVersionApiEndpointsRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to retrieve ApiEndpoints for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public GetAllForVersionApiEndpointsRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

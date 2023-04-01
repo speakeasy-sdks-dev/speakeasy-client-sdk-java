@@ -4,12 +4,26 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class DownloadSchemaRequest {
-    public DownloadSchemaPathParams pathParams;
-    public DownloadSchemaRequest withPathParams(DownloadSchemaPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to download the schema for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public DownloadSchemaRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to delete metadata for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public DownloadSchemaRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

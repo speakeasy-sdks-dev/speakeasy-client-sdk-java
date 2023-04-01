@@ -10,7 +10,8 @@ public class SchemaDiffValueChange {
     /**
      * Represents the previous value of the element.
      */
-    @JsonProperty("From")public String from;
+    @JsonProperty("From")
+    public String from;
     public SchemaDiffValueChange withFrom(String from) {
         this.from = from;
         return this;
@@ -19,7 +20,8 @@ public class SchemaDiffValueChange {
     /**
      * Represents the current value of the element.
      */
-    @JsonProperty("To")public String to;
+    @JsonProperty("To")
+    public String to;
     public SchemaDiffValueChange withTo(String to) {
         this.to = to;
         return this;

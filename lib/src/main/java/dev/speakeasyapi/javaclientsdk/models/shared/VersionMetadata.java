@@ -18,7 +18,8 @@ public class VersionMetadata {
     /**
      * The ID of the Api this Metadata belongs to.
      */
-    @JsonProperty("api_id")public String apiId;
+    @JsonProperty("api_id")
+    public String apiId;
     public VersionMetadata withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -29,7 +30,8 @@ public class VersionMetadata {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("created_at")public OffsetDateTime createdAt;
+    @JsonProperty("created_at")
+    public OffsetDateTime createdAt;
     public VersionMetadata withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -38,7 +40,8 @@ public class VersionMetadata {
     /**
      * The key for this metadata.
      */
-    @JsonProperty("meta_key")public String metaKey;
+    @JsonProperty("meta_key")
+    public String metaKey;
     public VersionMetadata withMetaKey(String metaKey) {
         this.metaKey = metaKey;
         return this;
@@ -47,7 +50,8 @@ public class VersionMetadata {
     /**
      * One of the values for this metadata.
      */
-    @JsonProperty("meta_value")public String metaValue;
+    @JsonProperty("meta_value")
+    public String metaValue;
     public VersionMetadata withMetaValue(String metaValue) {
         this.metaValue = metaValue;
         return this;
@@ -56,7 +60,8 @@ public class VersionMetadata {
     /**
      * The version ID of the Api this Metadata belongs to.
      */
-    @JsonProperty("version_id")public String versionId;
+    @JsonProperty("version_id")
+    public String versionId;
     public VersionMetadata withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
@@ -65,7 +70,8 @@ public class VersionMetadata {
     /**
      * The workspace ID this Metadata belongs to.
      */
-    @JsonProperty("workspace_id")public String workspaceId;
+    @JsonProperty("workspace_id")
+    public String workspaceId;
     public VersionMetadata withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

@@ -18,7 +18,8 @@ public class Schema {
     /**
      * The ID of the Api this Schema belongs to.
      */
-    @JsonProperty("api_id")public String apiId;
+    @JsonProperty("api_id")
+    public String apiId;
     public Schema withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -29,7 +30,8 @@ public class Schema {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("created_at")public OffsetDateTime createdAt;
+    @JsonProperty("created_at")
+    public OffsetDateTime createdAt;
     public Schema withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -38,7 +40,8 @@ public class Schema {
     /**
      * A detailed description of the Schema.
      */
-    @JsonProperty("description")public String description;
+    @JsonProperty("description")
+    public String description;
     public Schema withDescription(String description) {
         this.description = description;
         return this;
@@ -47,7 +50,8 @@ public class Schema {
     /**
      * An ID referencing this particular revision of the Schema.
      */
-    @JsonProperty("revision_id")public String revisionId;
+    @JsonProperty("revision_id")
+    public String revisionId;
     public Schema withRevisionId(String revisionId) {
         this.revisionId = revisionId;
         return this;
@@ -56,7 +60,8 @@ public class Schema {
     /**
      * The version ID of the Api this Schema belongs to.
      */
-    @JsonProperty("version_id")public String versionId;
+    @JsonProperty("version_id")
+    public String versionId;
     public Schema withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
@@ -65,7 +70,8 @@ public class Schema {
     /**
      * The workspace ID this Schema belongs to.
      */
-    @JsonProperty("workspace_id")public String workspaceId;
+    @JsonProperty("workspace_id")
+    public String workspaceId;
     public Schema withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

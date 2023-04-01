@@ -4,12 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetEmbedAccessTokenRequest {
-    public GetEmbedAccessTokenQueryParams queryParams;
-    public GetEmbedAccessTokenRequest withQueryParams(GetEmbedAccessTokenQueryParams queryParams) {
-        this.queryParams = queryParams;
+    /**
+     * The description of the embed access token.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=description")
+    public String description;
+    public GetEmbedAccessTokenRequest withDescription(String description) {
+        this.description = description;
+        return this;
+    }
+    
+    /**
+     * The duration (in minutes) of the embed access token.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=duration")
+    public Long duration;
+    public GetEmbedAccessTokenRequest withDuration(Long duration) {
+        this.duration = duration;
+        return this;
+    }
+    
+    /**
+     * The filter to apply to the query.
+     */
+    @SpeakeasyMetadata("queryParam:serialization=json,name=filters")
+    public dev.speakeasyapi.javaclientsdk.models.shared.Filters filters;
+    public GetEmbedAccessTokenRequest withFilters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
+        this.filters = filters;
         return this;
     }
     

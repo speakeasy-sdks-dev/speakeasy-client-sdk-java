@@ -4,12 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class DeleteSchemaRequest {
-    public DeleteSchemaPathParams pathParams;
-    public DeleteSchemaRequest withPathParams(DeleteSchemaPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api to delete schemas for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public DeleteSchemaRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The revision ID of the schema to delete.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
+    public String revisionID;
+    public DeleteSchemaRequest withRevisionID(String revisionID) {
+        this.revisionID = revisionID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to delete metadata for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public DeleteSchemaRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

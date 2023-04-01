@@ -4,12 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetApiEndpointRequest {
-    public GetApiEndpointPathParams pathParams;
-    public GetApiEndpointRequest withPathParams(GetApiEndpointPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the ApiEndpoint to retrieve.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiEndpointID")
+    public String apiEndpointID;
+    public GetApiEndpointRequest withApiEndpointID(String apiEndpointID) {
+        this.apiEndpointID = apiEndpointID;
+        return this;
+    }
+    
+    /**
+     * The ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public GetApiEndpointRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public GetApiEndpointRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

@@ -4,12 +4,16 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class RevokeEmbedAccessTokenRequest {
-    public RevokeEmbedAccessTokenPathParams pathParams;
-    public RevokeEmbedAccessTokenRequest withPathParams(RevokeEmbedAccessTokenPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the EmbedToken to revoke.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=tokenID")
+    public String tokenID;
+    public RevokeEmbedAccessTokenRequest withTokenID(String tokenID) {
+        this.tokenID = tokenID;
         return this;
     }
     

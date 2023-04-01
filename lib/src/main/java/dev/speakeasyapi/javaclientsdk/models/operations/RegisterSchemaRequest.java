@@ -7,18 +7,33 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class RegisterSchemaRequest {
-    public RegisterSchemaPathParams pathParams;
-    public RegisterSchemaRequest withPathParams(RegisterSchemaPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The schema file to upload provided as a multipart/form-data file segment.
+     */
+    @SpeakeasyMetadata("request:mediaType=multipart/form-data")
+    public RegisterSchemaRequestBody requestBody;
+    public RegisterSchemaRequest withRequestBody(RegisterSchemaRequestBody requestBody) {
+        this.requestBody = requestBody;
         return this;
     }
     
     /**
-     * The schema file to upload provided as a multipart/form-data file segment.
+     * The ID of the Api to get the schema for.
      */
-    @SpeakeasyMetadata("request:mediaType=multipart/form-data")public RegisterSchemaRequestBody request;
-    public RegisterSchemaRequest withRequest(RegisterSchemaRequestBody request) {
-        this.request = request;
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public RegisterSchemaRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to delete metadata for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public RegisterSchemaRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

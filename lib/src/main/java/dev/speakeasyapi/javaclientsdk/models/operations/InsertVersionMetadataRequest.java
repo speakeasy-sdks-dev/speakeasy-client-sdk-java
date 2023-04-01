@@ -7,18 +7,33 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class InsertVersionMetadataRequest {
-    public InsertVersionMetadataPathParams pathParams;
-    public InsertVersionMetadataRequest withPathParams(InsertVersionMetadataPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * A JSON representation of the metadata to insert.
+     */
+    @SpeakeasyMetadata("request:mediaType=application/json")
+    public dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadataInput;
+    public InsertVersionMetadataRequest withVersionMetadataInput(dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadataInput) {
+        this.versionMetadataInput = versionMetadataInput;
         return this;
     }
     
     /**
-     * A JSON representation of the metadata to insert.
+     * The ID of the Api to insert metadata for.
      */
-    @SpeakeasyMetadata("request:mediaType=application/json")public dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput request;
-    public InsertVersionMetadataRequest withRequest(dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput request) {
-        this.request = request;
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public InsertVersionMetadataRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api to insert metadata for.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public InsertVersionMetadataRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

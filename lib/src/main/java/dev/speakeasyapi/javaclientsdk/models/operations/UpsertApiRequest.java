@@ -7,18 +7,23 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class UpsertApiRequest {
-    public UpsertApiPathParams pathParams;
-    public UpsertApiRequest withPathParams(UpsertApiPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * A JSON representation of the Api to upsert
+     */
+    @SpeakeasyMetadata("request:mediaType=application/json")
+    public dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput;
+    public UpsertApiRequest withApiInput(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput) {
+        this.apiInput = apiInput;
         return this;
     }
     
     /**
-     * A JSON representation of the Api to upsert
+     * The ID of the Api to upsert.
      */
-    @SpeakeasyMetadata("request:mediaType=application/json")public dev.speakeasyapi.javaclientsdk.models.shared.ApiInput request;
-    public UpsertApiRequest withRequest(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput request) {
-        this.request = request;
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public UpsertApiRequest withApiID(String apiID) {
+        this.apiID = apiID;
         return this;
     }
     

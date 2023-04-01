@@ -13,7 +13,8 @@ public class GetAllApiVersionsOp {
     /**
      * Whether to AND or OR the filters
      */
-    @SpeakeasyMetadata("queryParam:name=and")public Boolean and;
+    @SpeakeasyMetadata("queryParam:name=and")
+    public Boolean and;
     public GetAllApiVersionsOp withAnd(Boolean and) {
         this.and = and;
         return this;

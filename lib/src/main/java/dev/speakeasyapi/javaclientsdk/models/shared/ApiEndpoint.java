@@ -20,7 +20,8 @@ public class ApiEndpoint {
     /**
      * The ID of this ApiEndpoint. This is a hash of the method and path.
      */
-    @JsonProperty("api_endpoint_id")public String apiEndpointId;
+    @JsonProperty("api_endpoint_id")
+    public String apiEndpointId;
     public ApiEndpoint withApiEndpointId(String apiEndpointId) {
         this.apiEndpointId = apiEndpointId;
         return this;
@@ -29,7 +30,8 @@ public class ApiEndpoint {
     /**
      * The ID of the Api this ApiEndpoint belongs to.
      */
-    @JsonProperty("api_id")public String apiId;
+    @JsonProperty("api_id")
+    public String apiId;
     public ApiEndpoint withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -40,7 +42,8 @@ public class ApiEndpoint {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("created_at")public OffsetDateTime createdAt;
+    @JsonProperty("created_at")
+    public OffsetDateTime createdAt;
     public ApiEndpoint withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -49,7 +52,8 @@ public class ApiEndpoint {
     /**
      * A detailed description of the ApiEndpoint.
      */
-    @JsonProperty("description")public String description;
+    @JsonProperty("description")
+    public String description;
     public ApiEndpoint withDescription(String description) {
         this.description = description;
         return this;
@@ -58,7 +62,8 @@ public class ApiEndpoint {
     /**
      * A human-readable name for the ApiEndpoint.
      */
-    @JsonProperty("display_name")public String displayName;
+    @JsonProperty("display_name")
+    public String displayName;
     public ApiEndpoint withDisplayName(String displayName) {
         this.displayName = displayName;
         return this;
@@ -68,7 +73,8 @@ public class ApiEndpoint {
      * Determines if the endpoint was found in the OpenAPI spec associated with the parent Api.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("matched")public Boolean matched;
+    @JsonProperty("matched")
+    public Boolean matched;
     public ApiEndpoint withMatched(Boolean matched) {
         this.matched = matched;
         return this;
@@ -77,7 +83,8 @@ public class ApiEndpoint {
     /**
      * HTTP verb.
      */
-    @JsonProperty("method")public String method;
+    @JsonProperty("method")
+    public String method;
     public ApiEndpoint withMethod(String method) {
         this.method = method;
         return this;
@@ -86,7 +93,8 @@ public class ApiEndpoint {
     /**
      * Path that handles this Api.
      */
-    @JsonProperty("path")public String path;
+    @JsonProperty("path")
+    public String path;
     public ApiEndpoint withPath(String path) {
         this.path = path;
         return this;
@@ -97,7 +105,8 @@ public class ApiEndpoint {
      */
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("updated_at")public OffsetDateTime updatedAt;
+    @JsonProperty("updated_at")
+    public OffsetDateTime updatedAt;
     public ApiEndpoint withUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
@@ -106,7 +115,8 @@ public class ApiEndpoint {
     /**
      * The version ID of the Api this ApiEndpoint belongs to.
      */
-    @JsonProperty("version_id")public String versionId;
+    @JsonProperty("version_id")
+    public String versionId;
     public ApiEndpoint withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
@@ -115,7 +125,8 @@ public class ApiEndpoint {
     /**
      * The workspace ID this ApiEndpoint belongs to.
      */
-    @JsonProperty("workspace_id")public String workspaceId;
+    @JsonProperty("workspace_id")
+    public String workspaceId;
     public ApiEndpoint withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

@@ -7,18 +7,43 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class UpsertApiEndpointRequest {
-    public UpsertApiEndpointPathParams pathParams;
-    public UpsertApiEndpointRequest withPathParams(UpsertApiEndpointPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * A JSON representation of the ApiEndpoint to upsert.
+     */
+    @SpeakeasyMetadata("request:mediaType=application/json")
+    public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput;
+    public UpsertApiEndpointRequest withApiEndpointInput(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput) {
+        this.apiEndpointInput = apiEndpointInput;
         return this;
     }
     
     /**
-     * A JSON representation of the ApiEndpoint to upsert.
+     * The ID of the ApiEndpoint to upsert.
      */
-    @SpeakeasyMetadata("request:mediaType=application/json")public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput request;
-    public UpsertApiEndpointRequest withRequest(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput request) {
-        this.request = request;
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiEndpointID")
+    public String apiEndpointID;
+    public UpsertApiEndpointRequest withApiEndpointID(String apiEndpointID) {
+        this.apiEndpointID = apiEndpointID;
+        return this;
+    }
+    
+    /**
+     * The ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public UpsertApiEndpointRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public UpsertApiEndpointRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

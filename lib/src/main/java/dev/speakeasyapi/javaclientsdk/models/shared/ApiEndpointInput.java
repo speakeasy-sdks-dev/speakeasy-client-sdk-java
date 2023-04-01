@@ -13,7 +13,8 @@ public class ApiEndpointInput {
     /**
      * The ID of this ApiEndpoint. This is a hash of the method and path.
      */
-    @JsonProperty("api_endpoint_id")public String apiEndpointId;
+    @JsonProperty("api_endpoint_id")
+    public String apiEndpointId;
     public ApiEndpointInput withApiEndpointId(String apiEndpointId) {
         this.apiEndpointId = apiEndpointId;
         return this;
@@ -22,7 +23,8 @@ public class ApiEndpointInput {
     /**
      * A detailed description of the ApiEndpoint.
      */
-    @JsonProperty("description")public String description;
+    @JsonProperty("description")
+    public String description;
     public ApiEndpointInput withDescription(String description) {
         this.description = description;
         return this;
@@ -31,7 +33,8 @@ public class ApiEndpointInput {
     /**
      * A human-readable name for the ApiEndpoint.
      */
-    @JsonProperty("display_name")public String displayName;
+    @JsonProperty("display_name")
+    public String displayName;
     public ApiEndpointInput withDisplayName(String displayName) {
         this.displayName = displayName;
         return this;
@@ -40,7 +43,8 @@ public class ApiEndpointInput {
     /**
      * HTTP verb.
      */
-    @JsonProperty("method")public String method;
+    @JsonProperty("method")
+    public String method;
     public ApiEndpointInput withMethod(String method) {
         this.method = method;
         return this;
@@ -49,7 +53,8 @@ public class ApiEndpointInput {
     /**
      * Path that handles this Api.
      */
-    @JsonProperty("path")public String path;
+    @JsonProperty("path")
+    public String path;
     public ApiEndpointInput withPath(String path) {
         this.path = path;
         return this;
@@ -58,7 +63,8 @@ public class ApiEndpointInput {
     /**
      * The version ID of the Api this ApiEndpoint belongs to.
      */
-    @JsonProperty("version_id")public String versionId;
+    @JsonProperty("version_id")
+    public String versionId;
     public ApiEndpointInput withVersionId(String versionId) {
         this.versionId = versionId;
         return this;

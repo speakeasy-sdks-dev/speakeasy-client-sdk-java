@@ -4,12 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class DeleteApiEndpointRequest {
-    public DeleteApiEndpointPathParams pathParams;
-    public DeleteApiEndpointRequest withPathParams(DeleteApiEndpointPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the ApiEndpoint to delete.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiEndpointID")
+    public String apiEndpointID;
+    public DeleteApiEndpointRequest withApiEndpointID(String apiEndpointID) {
+        this.apiEndpointID = apiEndpointID;
+        return this;
+    }
+    
+    /**
+     * The ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public DeleteApiEndpointRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public DeleteApiEndpointRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

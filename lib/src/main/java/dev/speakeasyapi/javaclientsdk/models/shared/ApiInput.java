@@ -15,7 +15,8 @@ public class ApiInput {
     /**
      * The ID of this Api. This is a human-readable name (subject to change).
      */
-    @JsonProperty("api_id")public String apiId;
+    @JsonProperty("api_id")
+    public String apiId;
     public ApiInput withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -24,7 +25,8 @@ public class ApiInput {
     /**
      * A detailed description of the Api.
      */
-    @JsonProperty("description")public String description;
+    @JsonProperty("description")
+    public String description;
     public ApiInput withDescription(String description) {
         this.description = description;
         return this;
@@ -34,7 +36,8 @@ public class ApiInput {
      * A set of values associated with a meta_data key. This field is only set on get requests.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("meta_data")public java.util.Map<String, String[]> metaData;
+    @JsonProperty("meta_data")
+    public java.util.Map<String, String[]> metaData;
     public ApiInput withMetaData(java.util.Map<String, String[]> metaData) {
         this.metaData = metaData;
         return this;
@@ -43,7 +46,8 @@ public class ApiInput {
     /**
      * The version ID of this Api. This is semantic version identifier.
      */
-    @JsonProperty("version_id")public String versionId;
+    @JsonProperty("version_id")
+    public String versionId;
     public ApiInput withVersionId(String versionId) {
         this.versionId = versionId;
         return this;

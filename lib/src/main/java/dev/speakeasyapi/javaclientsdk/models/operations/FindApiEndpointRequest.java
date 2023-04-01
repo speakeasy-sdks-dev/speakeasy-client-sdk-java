@@ -4,12 +4,36 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-
+import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class FindApiEndpointRequest {
-    public FindApiEndpointPathParams pathParams;
-    public FindApiEndpointRequest withPathParams(FindApiEndpointPathParams pathParams) {
-        this.pathParams = pathParams;
+    /**
+     * The ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
+    public String apiID;
+    public FindApiEndpointRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
+    /**
+     * The displayName of the ApiEndpoint to find (set by operationId from OpenAPI schema).
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=displayName")
+    public String displayName;
+    public FindApiEndpointRequest withDisplayName(String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+    
+    /**
+     * The version ID of the Api the ApiEndpoint belongs to.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
+    public String versionID;
+    public FindApiEndpointRequest withVersionID(String versionID) {
+        this.versionID = versionID;
         return this;
     }
     

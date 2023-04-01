@@ -13,7 +13,8 @@ public class Filters {
     /**
      * A list of filters to apply to the query.
      */
-    @JsonProperty("filters")public Filter[] filters;
+    @JsonProperty("filters")
+    public Filter[] filters;
     public Filters withFilters(Filter[] filters) {
         this.filters = filters;
         return this;
@@ -22,7 +23,8 @@ public class Filters {
     /**
      * The maximum number of results to return.
      */
-    @JsonProperty("limit")public Long limit;
+    @JsonProperty("limit")
+    public Long limit;
     public Filters withLimit(Long limit) {
         this.limit = limit;
         return this;
@@ -31,7 +33,8 @@ public class Filters {
     /**
      * The offset to start the query from.
      */
-    @JsonProperty("offset")public Long offset;
+    @JsonProperty("offset")
+    public Long offset;
     public Filters withOffset(Long offset) {
         this.offset = offset;
         return this;
@@ -40,7 +43,8 @@ public class Filters {
     /**
      * The operator to use when combining filters.
      */
-    @JsonProperty("operator")public String operator;
+    @JsonProperty("operator")
+    public String operator;
     public Filters withOperator(String operator) {
         this.operator = operator;
         return this;
