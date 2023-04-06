@@ -109,8 +109,7 @@ public class Schemas {
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                byte[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
+                byte[] out = httpRes.body();
                 res.schema = out;
             }
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/x-yaml")) {
@@ -162,8 +161,7 @@ public class Schemas {
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                byte[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), byte[].class);
+                byte[] out = httpRes.body();
                 res.schema = out;
             }
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/x-yaml")) {
