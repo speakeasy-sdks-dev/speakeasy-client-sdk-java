@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.net.http.HttpResponse;
 
 public class QueryEventLogResponse {
@@ -48,4 +49,9 @@ public class QueryEventLogResponse {
         return this;
     }
     
+
+    public QueryEventLogResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode) {
+    this.contentType = contentType;
+this.statusCode = statusCode;
+  }
 }

@@ -30,4 +30,9 @@ public class VersionMetadataInput {
         return this;
     }
     
+
+    public VersionMetadataInput(@JsonProperty("meta_key") String metaKey, @JsonProperty("meta_value") String metaValue) {
+    this.metaKey = metaKey;
+this.metaValue = metaValue;
+  }
 }

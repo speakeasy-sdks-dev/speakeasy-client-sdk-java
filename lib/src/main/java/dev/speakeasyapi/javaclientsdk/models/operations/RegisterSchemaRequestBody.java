@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 /**
@@ -17,4 +18,8 @@ public class RegisterSchemaRequestBody {
         return this;
     }
     
+
+    public RegisterSchemaRequestBody(@JsonProperty("file") RegisterSchemaRequestBodyFile file) {
+    this.file = file;
+  }
 }

@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetSchemaDiffRequest {
@@ -47,4 +48,11 @@ public class GetSchemaDiffRequest {
         return this;
     }
     
+
+    public GetSchemaDiffRequest(@JsonProperty("apiID") String apiID, @JsonProperty("baseRevisionID") String baseRevisionID, @JsonProperty("targetRevisionID") String targetRevisionID, @JsonProperty("versionID") String versionID) {
+    this.apiID = apiID;
+this.baseRevisionID = baseRevisionID;
+this.targetRevisionID = targetRevisionID;
+this.versionID = versionID;
+  }
 }

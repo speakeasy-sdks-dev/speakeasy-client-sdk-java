@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.17.0'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.18.0'
 ```
 <!-- End SDK Installation -->
 
@@ -25,33 +25,32 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security() {{
+                .setSecurity(new Security("corrupti") {{
                     apiKey = "YOUR_API_KEY_HERE";
                 }})
                 .build();
 
             GetApisRequest req = new GetApisRequest() {{
                 metadata = new java.util.HashMap<String, String[]>() {{
-                    put("provident", new String[]{{
-                        add("quibusdam"),
+                    put("distinctio", new String[]{{
                         add("unde"),
                         add("nulla"),
+                        add("corrupti"),
+                        add("illum"),
                     }});
-                    put("corrupti", new String[]{{
-                        add("vel"),
-                        add("error"),
+                    put("vel", new String[]{{
                         add("deserunt"),
                         add("suscipit"),
+                        add("iure"),
                     }});
-                    put("iure", new String[]{{
-                        add("debitis"),
+                    put("magnam", new String[]{{
                         add("ipsa"),
+                        add("delectus"),
+                        add("tempora"),
+                        add("suscipit"),
                     }});
                 }};
-                op = new GetApisOp() {{
-                    and = false;
-                }};
-            }}            
+            }};            
 
             GetApisResponse res = sdk.apis.getApis(req);
 

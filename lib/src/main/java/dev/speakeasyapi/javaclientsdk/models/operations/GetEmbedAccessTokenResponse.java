@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.net.http.HttpResponse;
 
 public class GetEmbedAccessTokenResponse {
@@ -48,4 +49,9 @@ public class GetEmbedAccessTokenResponse {
         return this;
     }
     
+
+    public GetEmbedAccessTokenResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode) {
+    this.contentType = contentType;
+this.statusCode = statusCode;
+  }
 }

@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class UpsertApiEndpointRequest {
@@ -47,4 +48,11 @@ public class UpsertApiEndpointRequest {
         return this;
     }
     
+
+    public UpsertApiEndpointRequest(@JsonProperty("ApiEndpointInput") dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput, @JsonProperty("apiEndpointID") String apiEndpointID, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
+    this.apiEndpointInput = apiEndpointInput;
+this.apiEndpointID = apiEndpointID;
+this.apiID = apiID;
+this.versionID = versionID;
+  }
 }

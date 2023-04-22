@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class Security {
@@ -14,4 +15,8 @@ public class Security {
         return this;
     }
     
+
+    public Security(@JsonProperty("APIKey") String apiKey) {
+    this.apiKey = apiKey;
+  }
 }

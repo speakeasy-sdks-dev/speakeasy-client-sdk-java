@@ -73,4 +73,11 @@ public class Plugin {
         return this;
     }
     
+
+    public Plugin(@JsonProperty("code") String code, @JsonProperty("plugin_id") String pluginId, @JsonProperty("title") String title, @JsonProperty("workspace_id") String workspaceId) {
+    this.code = code;
+this.pluginId = pluginId;
+this.title = title;
+this.workspaceId = workspaceId;
+  }
 }

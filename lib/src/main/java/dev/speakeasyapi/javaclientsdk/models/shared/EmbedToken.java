@@ -128,4 +128,14 @@ public class EmbedToken {
         return this;
     }
     
+
+    public EmbedToken(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("created_by") String createdBy, @JsonProperty("description") String description, @JsonProperty("expires_at") OffsetDateTime expiresAt, @JsonProperty("filters") String filters, @JsonProperty("id") String id, @JsonProperty("workspace_id") String workspaceId) {
+    this.createdAt = createdAt;
+this.createdBy = createdBy;
+this.description = description;
+this.expiresAt = expiresAt;
+this.filters = filters;
+this.id = id;
+this.workspaceId = workspaceId;
+  }
 }

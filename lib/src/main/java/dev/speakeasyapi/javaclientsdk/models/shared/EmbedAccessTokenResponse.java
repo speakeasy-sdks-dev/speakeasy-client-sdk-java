@@ -17,4 +17,8 @@ public class EmbedAccessTokenResponse {
         return this;
     }
     
+
+    public EmbedAccessTokenResponse(@JsonProperty("access_token") String accessToken) {
+    this.accessToken = accessToken;
+  }
 }

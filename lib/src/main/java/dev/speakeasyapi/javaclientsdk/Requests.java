@@ -58,12 +58,10 @@ public class Requests {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse(contentType, httpRes.statusCode()) {{
             postmanCollection = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -105,12 +103,10 @@ public class Requests {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse(contentType, httpRes.statusCode()) {{
             unboundedRequest = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -161,12 +157,10 @@ public class Requests {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse(contentType, httpRes.statusCode()) {{
             boundedRequests = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

@@ -77,4 +77,13 @@ public class Schema {
         return this;
     }
     
+
+    public Schema(@JsonProperty("api_id") String apiId, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("revision_id") String revisionId, @JsonProperty("version_id") String versionId, @JsonProperty("workspace_id") String workspaceId) {
+    this.apiId = apiId;
+this.createdAt = createdAt;
+this.description = description;
+this.revisionId = revisionId;
+this.versionId = versionId;
+this.workspaceId = workspaceId;
+  }
 }

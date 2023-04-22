@@ -56,11 +56,9 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse(contentType, httpRes.statusCode()) {{
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -98,13 +96,11 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse(contentType, httpRes.statusCode()) {{
             schema = null;
             schema = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -150,13 +146,11 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse(contentType, httpRes.statusCode()) {{
             schema = null;
             schema = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -204,12 +198,10 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse(contentType, httpRes.statusCode()) {{
             schema = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -252,12 +244,10 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse(contentType, httpRes.statusCode()) {{
             schemaDiff = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -302,12 +292,10 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse(contentType, httpRes.statusCode()) {{
             schema = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -352,12 +340,10 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse(contentType, httpRes.statusCode()) {{
             schemata = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -407,11 +393,9 @@ public class Schemas {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse(contentType, httpRes.statusCode()) {{
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

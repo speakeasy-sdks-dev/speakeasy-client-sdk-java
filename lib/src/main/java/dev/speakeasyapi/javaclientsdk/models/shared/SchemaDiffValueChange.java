@@ -27,4 +27,9 @@ public class SchemaDiffValueChange {
         return this;
     }
     
+
+    public SchemaDiffValueChange(@JsonProperty("From") String from, @JsonProperty("To") String to) {
+    this.from = from;
+this.to = to;
+  }
 }

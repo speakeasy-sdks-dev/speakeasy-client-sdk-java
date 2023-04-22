@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class RunPluginRequest {
@@ -27,4 +28,8 @@ public class RunPluginRequest {
         return this;
     }
     
+
+    public RunPluginRequest(@JsonProperty("pluginID") String pluginID) {
+    this.pluginID = pluginID;
+  }
 }

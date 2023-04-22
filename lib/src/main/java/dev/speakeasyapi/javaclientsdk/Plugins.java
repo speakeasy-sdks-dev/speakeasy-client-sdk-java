@@ -56,12 +56,10 @@ public class Plugins {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse(contentType, httpRes.statusCode()) {{
             plugins = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -110,12 +108,10 @@ public class Plugins {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse(contentType, httpRes.statusCode()) {{
             boundedRequests = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -163,12 +159,10 @@ public class Plugins {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse(contentType, httpRes.statusCode()) {{
             plugin = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

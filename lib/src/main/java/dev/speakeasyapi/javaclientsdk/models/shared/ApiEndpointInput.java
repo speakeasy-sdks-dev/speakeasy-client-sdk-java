@@ -70,4 +70,13 @@ public class ApiEndpointInput {
         return this;
     }
     
+
+    public ApiEndpointInput(@JsonProperty("api_endpoint_id") String apiEndpointId, @JsonProperty("description") String description, @JsonProperty("display_name") String displayName, @JsonProperty("method") String method, @JsonProperty("path") String path, @JsonProperty("version_id") String versionId) {
+    this.apiEndpointId = apiEndpointId;
+this.description = description;
+this.displayName = displayName;
+this.method = method;
+this.path = path;
+this.versionId = versionId;
+  }
 }

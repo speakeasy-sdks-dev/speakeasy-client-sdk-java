@@ -67,4 +67,12 @@ public class UnboundedRequest {
         return this;
     }
     
+
+    public UnboundedRequest(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("har") String har, @JsonProperty("har_size_bytes") Long harSizeBytes, @JsonProperty("request_id") String requestId, @JsonProperty("workspace_id") String workspaceId) {
+    this.createdAt = createdAt;
+this.har = har;
+this.harSizeBytes = harSizeBytes;
+this.requestId = requestId;
+this.workspaceId = workspaceId;
+  }
 }

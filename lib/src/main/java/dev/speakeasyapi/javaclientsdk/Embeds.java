@@ -63,12 +63,10 @@ public class Embeds {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse(contentType, httpRes.statusCode()) {{
             embedAccessTokenResponse = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -110,12 +108,10 @@ public class Embeds {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse(contentType, httpRes.statusCode()) {{
             embedTokens = null;
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -158,11 +154,9 @@ public class Embeds {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse() {{
+        dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse(contentType, httpRes.statusCode()) {{
             error = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

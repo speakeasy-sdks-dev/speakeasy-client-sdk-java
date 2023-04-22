@@ -30,4 +30,9 @@ public class Error {
         return this;
     }
     
+
+    public Error(@JsonProperty("message") String message, @JsonProperty("status_code") Integer statusCode) {
+    this.message = message;
+this.statusCode = statusCode;
+  }
 }

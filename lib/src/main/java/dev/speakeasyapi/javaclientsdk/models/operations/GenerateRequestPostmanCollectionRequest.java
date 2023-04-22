@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GenerateRequestPostmanCollectionRequest {
@@ -17,4 +18,8 @@ public class GenerateRequestPostmanCollectionRequest {
         return this;
     }
     
+
+    public GenerateRequestPostmanCollectionRequest(@JsonProperty("requestID") String requestID) {
+    this.requestID = requestID;
+  }
 }

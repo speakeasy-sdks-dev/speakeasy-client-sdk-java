@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 /**
@@ -20,4 +21,8 @@ public class GetApisOp {
         return this;
     }
     
+
+    public GetApisOp(@JsonProperty("and") Boolean and) {
+    this.and = and;
+  }
 }

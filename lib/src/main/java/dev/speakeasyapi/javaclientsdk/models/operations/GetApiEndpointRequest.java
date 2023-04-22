@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class GetApiEndpointRequest {
@@ -37,4 +38,10 @@ public class GetApiEndpointRequest {
         return this;
     }
     
+
+    public GetApiEndpointRequest(@JsonProperty("apiEndpointID") String apiEndpointID, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
+    this.apiEndpointID = apiEndpointID;
+this.apiID = apiID;
+this.versionID = versionID;
+  }
 }

@@ -4,6 +4,7 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class RegisterSchemaRequest {
@@ -37,4 +38,10 @@ public class RegisterSchemaRequest {
         return this;
     }
     
+
+    public RegisterSchemaRequest(@JsonProperty("RequestBody") RegisterSchemaRequestBody requestBody, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
+    this.requestBody = requestBody;
+this.apiID = apiID;
+this.versionID = versionID;
+  }
 }
