@@ -21,8 +21,7 @@ public class GetAllApiVersionsOp {
         return this;
     }
     
-
     public GetAllApiVersionsOp(@JsonProperty("and") Boolean and) {
-    this.and = and;
+        this.and = and;
   }
 }

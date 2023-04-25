@@ -21,8 +21,7 @@ public class GetApisOp {
         return this;
     }
     
-
     public GetApisOp(@JsonProperty("and") Boolean and) {
-    this.and = and;
+        this.and = and;
   }
 }

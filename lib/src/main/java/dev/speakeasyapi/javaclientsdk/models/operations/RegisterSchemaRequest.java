@@ -38,10 +38,9 @@ public class RegisterSchemaRequest {
         return this;
     }
     
-
     public RegisterSchemaRequest(@JsonProperty("RequestBody") RegisterSchemaRequestBody requestBody, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
-    this.requestBody = requestBody;
-this.apiID = apiID;
-this.versionID = versionID;
+        this.requestBody = requestBody;
+        this.apiID = apiID;
+        this.versionID = versionID;
   }
 }

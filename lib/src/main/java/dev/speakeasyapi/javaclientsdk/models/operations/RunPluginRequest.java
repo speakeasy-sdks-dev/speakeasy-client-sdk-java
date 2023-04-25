@@ -28,8 +28,7 @@ public class RunPluginRequest {
         return this;
     }
     
-
     public RunPluginRequest(@JsonProperty("pluginID") String pluginID) {
-    this.pluginID = pluginID;
+        this.pluginID = pluginID;
   }
 }

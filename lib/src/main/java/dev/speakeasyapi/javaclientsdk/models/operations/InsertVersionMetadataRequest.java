@@ -38,10 +38,9 @@ public class InsertVersionMetadataRequest {
         return this;
     }
     
-
     public InsertVersionMetadataRequest(@JsonProperty("VersionMetadataInput") dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadataInput, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
-    this.versionMetadataInput = versionMetadataInput;
-this.apiID = apiID;
-this.versionID = versionID;
+        this.versionMetadataInput = versionMetadataInput;
+        this.apiID = apiID;
+        this.versionID = versionID;
   }
 }

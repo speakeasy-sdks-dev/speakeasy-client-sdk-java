@@ -18,8 +18,7 @@ public class GenerateRequestPostmanCollectionRequest {
         return this;
     }
     
-
     public GenerateRequestPostmanCollectionRequest(@JsonProperty("requestID") String requestID) {
-    this.requestID = requestID;
+        this.requestID = requestID;
   }
 }

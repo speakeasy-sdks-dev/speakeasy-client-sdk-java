@@ -15,8 +15,7 @@ public class Security {
         return this;
     }
     
-
     public Security(@JsonProperty("APIKey") String apiKey) {
-    this.apiKey = apiKey;
+        this.apiKey = apiKey;
   }
 }

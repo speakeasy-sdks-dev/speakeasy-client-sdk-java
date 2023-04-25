@@ -50,11 +50,10 @@ public class Filters {
         return this;
     }
     
-
     public Filters(@JsonProperty("filters") Filter[] filters, @JsonProperty("limit") Long limit, @JsonProperty("offset") Long offset, @JsonProperty("operator") String operator) {
-    this.filters = filters;
-this.limit = limit;
-this.offset = offset;
-this.operator = operator;
+        this.filters = filters;
+        this.limit = limit;
+        this.offset = offset;
+        this.operator = operator;
   }
 }

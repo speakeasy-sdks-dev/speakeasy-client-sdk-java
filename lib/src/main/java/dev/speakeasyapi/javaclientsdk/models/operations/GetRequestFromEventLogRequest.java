@@ -18,8 +18,7 @@ public class GetRequestFromEventLogRequest {
         return this;
     }
     
-
     public GetRequestFromEventLogRequest(@JsonProperty("requestID") String requestID) {
-    this.requestID = requestID;
+        this.requestID = requestID;
   }
 }

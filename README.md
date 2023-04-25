@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.18.0'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.19.0'
 ```
 <!-- End SDK Installation -->
 
@@ -16,10 +16,10 @@ implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.18.0'
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisOp;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 
 public class Application {
     public static void main(String[] args) {
@@ -50,80 +50,83 @@ public class Application {
                         add("suscipit"),
                     }});
                 }};
+                op = new GetApisOp(false);;
             }};            
 
             GetApisResponse res = sdk.apis.getApis(req);
 
-            if (res.apis.isPresent()) {
+            if (res.apis != null) {
                 // handle response
             }
         } catch (Exception e) {
             // handle exception
         }
+    }
+}
 ```
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
-### SDK SDK
+### [SDK](docs/sdk/README.md)
 
-* `validateApiKey` - Validate the current api key.
+* [validateApiKey](docs/sdk/validateapikey.md) - Validate the current api key.
 
-### apiEndpoints
+### [apiEndpoints](docs/apiendpoints/README.md)
 
-* `deleteApiEndpoint` - Delete an ApiEndpoint.
-* `findApiEndpoint` - Find an ApiEndpoint via its displayName.
-* `generateOpenApiSpecForApiEndpoint` - Generate an OpenAPI specification for a particular ApiEndpoint.
-* `generatePostmanCollectionForApiEndpoint` - Generate a Postman collection for a particular ApiEndpoint.
-* `getAllApiEndpoints` - Get all Api endpoints for a particular apiID.
-* `getAllForVersionApiEndpoints` - Get all ApiEndpoints for a particular apiID and versionID.
-* `getApiEndpoint` - Get an ApiEndpoint.
-* `upsertApiEndpoint` - Upsert an ApiEndpoint.
+* [deleteApiEndpoint](docs/apiendpoints/deleteapiendpoint.md) - Delete an ApiEndpoint.
+* [findApiEndpoint](docs/apiendpoints/findapiendpoint.md) - Find an ApiEndpoint via its displayName.
+* [generateOpenApiSpecForApiEndpoint](docs/apiendpoints/generateopenapispecforapiendpoint.md) - Generate an OpenAPI specification for a particular ApiEndpoint.
+* [generatePostmanCollectionForApiEndpoint](docs/apiendpoints/generatepostmancollectionforapiendpoint.md) - Generate a Postman collection for a particular ApiEndpoint.
+* [getAllApiEndpoints](docs/apiendpoints/getallapiendpoints.md) - Get all Api endpoints for a particular apiID.
+* [getAllForVersionApiEndpoints](docs/apiendpoints/getallforversionapiendpoints.md) - Get all ApiEndpoints for a particular apiID and versionID.
+* [getApiEndpoint](docs/apiendpoints/getapiendpoint.md) - Get an ApiEndpoint.
+* [upsertApiEndpoint](docs/apiendpoints/upsertapiendpoint.md) - Upsert an ApiEndpoint.
 
-### apis
+### [apis](docs/apis/README.md)
 
-* `deleteApi` - Delete an Api.
-* `generateOpenApiSpec` - Generate an OpenAPI specification for a particular Api.
-* `generatePostmanCollection` - Generate a Postman collection for a particular Api.
-* `getAllApiVersions` - Get all Api versions for a particular ApiEndpoint.
-* `getApis` - Get a list of Apis for a given workspace
-* `upsertApi` - Upsert an Api
+* [deleteApi](docs/apis/deleteapi.md) - Delete an Api.
+* [generateOpenApiSpec](docs/apis/generateopenapispec.md) - Generate an OpenAPI specification for a particular Api.
+* [generatePostmanCollection](docs/apis/generatepostmancollection.md) - Generate a Postman collection for a particular Api.
+* [getAllApiVersions](docs/apis/getallapiversions.md) - Get all Api versions for a particular ApiEndpoint.
+* [getApis](docs/apis/getapis.md) - Get a list of Apis for a given workspace
+* [upsertApi](docs/apis/upsertapi.md) - Upsert an Api
 
-### embeds
+### [embeds](docs/embeds/README.md)
 
-* `getEmbedAccessToken` - Get an embed access token for the current workspace.
-* `getValidEmbedAccessTokens` - Get all valid embed access tokens for the current workspace.
-* `revokeEmbedAccessToken` - Revoke an embed access EmbedToken.
+* [getEmbedAccessToken](docs/embeds/getembedaccesstoken.md) - Get an embed access token for the current workspace.
+* [getValidEmbedAccessTokens](docs/embeds/getvalidembedaccesstokens.md) - Get all valid embed access tokens for the current workspace.
+* [revokeEmbedAccessToken](docs/embeds/revokeembedaccesstoken.md) - Revoke an embed access EmbedToken.
 
-### metadata
+### [metadata](docs/metadata/README.md)
 
-* `deleteVersionMetadata` - Delete metadata for a particular apiID and versionID.
-* `getVersionMetadata` - Get all metadata for a particular apiID and versionID.
-* `insertVersionMetadata` - Insert metadata for a particular apiID and versionID.
+* [deleteVersionMetadata](docs/metadata/deleteversionmetadata.md) - Delete metadata for a particular apiID and versionID.
+* [getVersionMetadata](docs/metadata/getversionmetadata.md) - Get all metadata for a particular apiID and versionID.
+* [insertVersionMetadata](docs/metadata/insertversionmetadata.md) - Insert metadata for a particular apiID and versionID.
 
-### plugins
+### [plugins](docs/plugins/README.md)
 
-* `getPlugins` - Get all plugins for the current workspace.
-* `runPlugin` - Run a plugin
-* `upsertPlugin` - Upsert a plugin
+* [getPlugins](docs/plugins/getplugins.md) - Get all plugins for the current workspace.
+* [runPlugin](docs/plugins/runplugin.md) - Run a plugin
+* [upsertPlugin](docs/plugins/upsertplugin.md) - Upsert a plugin
 
-### requests
+### [requests](docs/requests/README.md)
 
-* `generateRequestPostmanCollection` - Generate a Postman collection for a particular request.
-* `getRequestFromEventLog` - Get information about a particular request.
-* `queryEventLog` - Query the event log to retrieve a list of requests.
+* [generateRequestPostmanCollection](docs/requests/generaterequestpostmancollection.md) - Generate a Postman collection for a particular request.
+* [getRequestFromEventLog](docs/requests/getrequestfromeventlog.md) - Get information about a particular request.
+* [queryEventLog](docs/requests/queryeventlog.md) - Query the event log to retrieve a list of requests.
 
-### schemas
+### [schemas](docs/schemas/README.md)
 
-* `deleteSchema` - Delete a particular schema revision for an Api.
-* `downloadSchema` - Download the latest schema for a particular apiID.
-* `downloadSchemaRevision` - Download a particular schema revision for an Api.
-* `getSchema` - Get information about the latest schema.
-* `getSchemaDiff` - Get a diff of two schema revisions for an Api.
-* `getSchemaRevision` - Get information about a particular schema revision for an Api.
-* `getSchemas` - Get information about all schemas associated with a particular apiID.
-* `registerSchema` - Register a schema.
+* [deleteSchema](docs/schemas/deleteschema.md) - Delete a particular schema revision for an Api.
+* [downloadSchema](docs/schemas/downloadschema.md) - Download the latest schema for a particular apiID.
+* [downloadSchemaRevision](docs/schemas/downloadschemarevision.md) - Download a particular schema revision for an Api.
+* [getSchema](docs/schemas/getschema.md) - Get information about the latest schema.
+* [getSchemaDiff](docs/schemas/getschemadiff.md) - Get a diff of two schema revisions for an Api.
+* [getSchemaRevision](docs/schemas/getschemarevision.md) - Get information about a particular schema revision for an Api.
+* [getSchemas](docs/schemas/getschemas.md) - Get information about all schemas associated with a particular apiID.
+* [registerSchema](docs/schemas/registerschema.md) - Register a schema.
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)

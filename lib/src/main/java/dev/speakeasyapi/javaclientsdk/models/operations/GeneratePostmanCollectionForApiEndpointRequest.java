@@ -38,10 +38,9 @@ public class GeneratePostmanCollectionForApiEndpointRequest {
         return this;
     }
     
-
     public GeneratePostmanCollectionForApiEndpointRequest(@JsonProperty("apiEndpointID") String apiEndpointID, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
-    this.apiEndpointID = apiEndpointID;
-this.apiID = apiID;
-this.versionID = versionID;
+        this.apiEndpointID = apiEndpointID;
+        this.apiID = apiID;
+        this.versionID = versionID;
   }
 }

@@ -164,20 +164,19 @@ public class BoundedRequest {
         return this;
     }
     
-
     public BoundedRequest(@JsonProperty("api_endpoint_id") String apiEndpointId, @JsonProperty("api_id") String apiId, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer_id") String customerId, @JsonProperty("latency") Long latency, @JsonProperty("method") String method, @JsonProperty("path") String path, @JsonProperty("request_finish_time") OffsetDateTime requestFinishTime, @JsonProperty("request_id") String requestId, @JsonProperty("request_start_time") OffsetDateTime requestStartTime, @JsonProperty("status") Long status, @JsonProperty("version_id") String versionId, @JsonProperty("workspace_id") String workspaceId) {
-    this.apiEndpointId = apiEndpointId;
-this.apiId = apiId;
-this.createdAt = createdAt;
-this.customerId = customerId;
-this.latency = latency;
-this.method = method;
-this.path = path;
-this.requestFinishTime = requestFinishTime;
-this.requestId = requestId;
-this.requestStartTime = requestStartTime;
-this.status = status;
-this.versionId = versionId;
-this.workspaceId = workspaceId;
+        this.apiEndpointId = apiEndpointId;
+        this.apiId = apiId;
+        this.createdAt = createdAt;
+        this.customerId = customerId;
+        this.latency = latency;
+        this.method = method;
+        this.path = path;
+        this.requestFinishTime = requestFinishTime;
+        this.requestId = requestId;
+        this.requestStartTime = requestStartTime;
+        this.status = status;
+        this.versionId = versionId;
+        this.workspaceId = workspaceId;
   }
 }

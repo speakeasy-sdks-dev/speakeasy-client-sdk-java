@@ -48,11 +48,10 @@ public class GetSchemaDiffRequest {
         return this;
     }
     
-
     public GetSchemaDiffRequest(@JsonProperty("apiID") String apiID, @JsonProperty("baseRevisionID") String baseRevisionID, @JsonProperty("targetRevisionID") String targetRevisionID, @JsonProperty("versionID") String versionID) {
-    this.apiID = apiID;
-this.baseRevisionID = baseRevisionID;
-this.targetRevisionID = targetRevisionID;
-this.versionID = versionID;
+        this.apiID = apiID;
+        this.baseRevisionID = baseRevisionID;
+        this.targetRevisionID = targetRevisionID;
+        this.versionID = versionID;
   }
 }

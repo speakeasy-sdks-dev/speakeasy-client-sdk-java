@@ -18,8 +18,7 @@ public class RegisterSchemaRequestBody {
         return this;
     }
     
-
     public RegisterSchemaRequestBody(@JsonProperty("file") RegisterSchemaRequestBodyFile file) {
-    this.file = file;
+        this.file = file;
   }
 }

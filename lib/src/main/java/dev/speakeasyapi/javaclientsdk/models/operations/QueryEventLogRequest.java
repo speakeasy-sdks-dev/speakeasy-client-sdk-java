@@ -17,6 +17,5 @@ public class QueryEventLogRequest {
         return this;
     }
     
-
     public QueryEventLogRequest(){}
 }

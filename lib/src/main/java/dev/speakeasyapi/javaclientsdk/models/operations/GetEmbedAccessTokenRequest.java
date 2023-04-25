@@ -37,6 +37,5 @@ public class GetEmbedAccessTokenRequest {
         return this;
     }
     
-
     public GetEmbedAccessTokenRequest(){}
 }

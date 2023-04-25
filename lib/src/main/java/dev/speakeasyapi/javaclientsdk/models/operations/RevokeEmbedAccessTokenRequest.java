@@ -18,8 +18,7 @@ public class RevokeEmbedAccessTokenRequest {
         return this;
     }
     
-
     public RevokeEmbedAccessTokenRequest(@JsonProperty("tokenID") String tokenID) {
-    this.tokenID = tokenID;
+        this.tokenID = tokenID;
   }
 }

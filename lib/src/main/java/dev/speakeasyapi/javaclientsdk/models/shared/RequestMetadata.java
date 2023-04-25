@@ -28,6 +28,5 @@ public class RequestMetadata {
         return this;
     }
     
-
     public RequestMetadata(){}
 }

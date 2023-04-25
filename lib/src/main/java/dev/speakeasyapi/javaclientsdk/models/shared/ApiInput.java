@@ -53,10 +53,9 @@ public class ApiInput {
         return this;
     }
     
-
     public ApiInput(@JsonProperty("api_id") String apiId, @JsonProperty("description") String description, @JsonProperty("version_id") String versionId) {
-    this.apiId = apiId;
-this.description = description;
-this.versionId = versionId;
+        this.apiId = apiId;
+        this.description = description;
+        this.versionId = versionId;
   }
 }

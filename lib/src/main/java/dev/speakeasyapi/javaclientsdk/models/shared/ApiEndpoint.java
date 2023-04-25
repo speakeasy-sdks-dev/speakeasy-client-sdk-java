@@ -132,17 +132,16 @@ public class ApiEndpoint {
         return this;
     }
     
-
     public ApiEndpoint(@JsonProperty("api_endpoint_id") String apiEndpointId, @JsonProperty("api_id") String apiId, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("display_name") String displayName, @JsonProperty("method") String method, @JsonProperty("path") String path, @JsonProperty("updated_at") OffsetDateTime updatedAt, @JsonProperty("version_id") String versionId, @JsonProperty("workspace_id") String workspaceId) {
-    this.apiEndpointId = apiEndpointId;
-this.apiId = apiId;
-this.createdAt = createdAt;
-this.description = description;
-this.displayName = displayName;
-this.method = method;
-this.path = path;
-this.updatedAt = updatedAt;
-this.versionId = versionId;
-this.workspaceId = workspaceId;
+        this.apiEndpointId = apiEndpointId;
+        this.apiId = apiId;
+        this.createdAt = createdAt;
+        this.description = description;
+        this.displayName = displayName;
+        this.method = method;
+        this.path = path;
+        this.updatedAt = updatedAt;
+        this.versionId = versionId;
+        this.workspaceId = workspaceId;
   }
 }

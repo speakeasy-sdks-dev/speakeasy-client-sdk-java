@@ -103,13 +103,12 @@ public class Api {
         return this;
     }
     
-
     public Api(@JsonProperty("api_id") String apiId, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("updated_at") OffsetDateTime updatedAt, @JsonProperty("version_id") String versionId, @JsonProperty("workspace_id") String workspaceId) {
-    this.apiId = apiId;
-this.createdAt = createdAt;
-this.description = description;
-this.updatedAt = updatedAt;
-this.versionId = versionId;
-this.workspaceId = workspaceId;
+        this.apiId = apiId;
+        this.createdAt = createdAt;
+        this.description = description;
+        this.updatedAt = updatedAt;
+        this.versionId = versionId;
+        this.workspaceId = workspaceId;
   }
 }

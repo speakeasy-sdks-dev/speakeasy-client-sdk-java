@@ -38,10 +38,9 @@ public class DeleteSchemaRequest {
         return this;
     }
     
-
     public DeleteSchemaRequest(@JsonProperty("apiID") String apiID, @JsonProperty("revisionID") String revisionID, @JsonProperty("versionID") String versionID) {
-    this.apiID = apiID;
-this.revisionID = revisionID;
-this.versionID = versionID;
+        this.apiID = apiID;
+        this.revisionID = revisionID;
+        this.versionID = versionID;
   }
 }

@@ -38,8 +38,7 @@ public class GetAllApiVersionsRequest {
         return this;
     }
     
-
     public GetAllApiVersionsRequest(@JsonProperty("apiID") String apiID) {
-    this.apiID = apiID;
+        this.apiID = apiID;
   }
 }

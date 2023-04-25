@@ -18,8 +18,7 @@ public class GetAllApiEndpointsRequest {
         return this;
     }
     
-
     public GetAllApiEndpointsRequest(@JsonProperty("apiID") String apiID) {
-    this.apiID = apiID;
+        this.apiID = apiID;
   }
 }

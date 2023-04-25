@@ -28,9 +28,8 @@ public class GetSchemaRequest {
         return this;
     }
     
-
     public GetSchemaRequest(@JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
-    this.apiID = apiID;
-this.versionID = versionID;
+        this.apiID = apiID;
+        this.versionID = versionID;
   }
 }

@@ -48,11 +48,10 @@ public class DeleteVersionMetadataRequest {
         return this;
     }
     
-
     public DeleteVersionMetadataRequest(@JsonProperty("apiID") String apiID, @JsonProperty("metaKey") String metaKey, @JsonProperty("metaValue") String metaValue, @JsonProperty("versionID") String versionID) {
-    this.apiID = apiID;
-this.metaKey = metaKey;
-this.metaValue = metaValue;
-this.versionID = versionID;
+        this.apiID = apiID;
+        this.metaKey = metaKey;
+        this.metaValue = metaValue;
+        this.versionID = versionID;
   }
 }

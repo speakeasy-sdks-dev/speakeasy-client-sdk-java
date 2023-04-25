@@ -40,10 +40,9 @@ public class Filter {
         return this;
     }
     
-
     public Filter(@JsonProperty("key") String key, @JsonProperty("operator") String operator, @JsonProperty("value") String value) {
-    this.key = key;
-this.operator = operator;
-this.value = value;
+        this.key = key;
+        this.operator = operator;
+        this.value = value;
   }
 }

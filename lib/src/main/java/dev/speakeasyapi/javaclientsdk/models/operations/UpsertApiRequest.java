@@ -28,9 +28,8 @@ public class UpsertApiRequest {
         return this;
     }
     
-
     public UpsertApiRequest(@JsonProperty("ApiInput") dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput, @JsonProperty("apiID") String apiID) {
-    this.apiInput = apiInput;
-this.apiID = apiID;
+        this.apiInput = apiInput;
+        this.apiID = apiID;
   }
 }

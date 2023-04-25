@@ -40,10 +40,9 @@ public class SchemaDiff {
         return this;
     }
     
-
     public SchemaDiff(@JsonProperty("additions") String[] additions, @JsonProperty("deletions") String[] deletions, @JsonProperty("modifications") java.util.Map<String, SchemaDiffValueChange> modifications) {
-    this.additions = additions;
-this.deletions = deletions;
-this.modifications = modifications;
+        this.additions = additions;
+        this.deletions = deletions;
+        this.modifications = modifications;
   }
 }

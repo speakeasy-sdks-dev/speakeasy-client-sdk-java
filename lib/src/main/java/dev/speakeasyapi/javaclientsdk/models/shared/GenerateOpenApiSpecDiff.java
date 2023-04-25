@@ -24,9 +24,8 @@ public class GenerateOpenApiSpecDiff {
         return this;
     }
     
-
     public GenerateOpenApiSpecDiff(@JsonProperty("current_schema") String currentSchema, @JsonProperty("new_schema") String newSchema) {
-    this.currentSchema = currentSchema;
-this.newSchema = newSchema;
+        this.currentSchema = currentSchema;
+        this.newSchema = newSchema;
   }
 }

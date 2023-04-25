@@ -77,13 +77,12 @@ public class VersionMetadata {
         return this;
     }
     
-
     public VersionMetadata(@JsonProperty("api_id") String apiId, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("meta_key") String metaKey, @JsonProperty("meta_value") String metaValue, @JsonProperty("version_id") String versionId, @JsonProperty("workspace_id") String workspaceId) {
-    this.apiId = apiId;
-this.createdAt = createdAt;
-this.metaKey = metaKey;
-this.metaValue = metaValue;
-this.versionId = versionId;
-this.workspaceId = workspaceId;
+        this.apiId = apiId;
+        this.createdAt = createdAt;
+        this.metaKey = metaKey;
+        this.metaValue = metaValue;
+        this.versionId = versionId;
+        this.workspaceId = workspaceId;
   }
 }
