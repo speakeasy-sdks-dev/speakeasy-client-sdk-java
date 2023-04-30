@@ -72,8 +72,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.21.1";
-	private String _genVersion = "2.23.3";
+	private String _sdkVersion = "1.21.2";
+	private String _genVersion = "2.23.4";
 	/**
 	 * The Builder class allows the configuration of a new instance of the SDK.
 	 */
