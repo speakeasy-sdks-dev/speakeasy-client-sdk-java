@@ -72,8 +72,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.21.2";
-	private String _genVersion = "2.23.4";
+	private String _sdkVersion = "1.21.3";
+	private String _genVersion = "2.23.6";
 	/**
 	 * The Builder class allows the configuration of a new instance of the SDK.
 	 */
@@ -190,6 +190,11 @@ public class SDK {
 		if (this._serverUrl == null) {
 			this._serverUrl = SERVERS.get(Servers.PROD);
 		}
+
+		if (this._serverUrl.endsWith("/")) {
+            this._serverUrl = this._serverUrl.substring(0, this._serverUrl.length() - 1);
+        }
+
 		
 		
 		this.apiEndpoints = new ApiEndpoints(
