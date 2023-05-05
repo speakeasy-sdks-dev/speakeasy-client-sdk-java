@@ -34,12 +34,6 @@ public class Schemas {
 		this._genVersion = genVersion;
 	}
 
-    /**
-     * Delete a particular schema revision for an Api.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse deleteSchema(dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request, null);
@@ -74,12 +68,6 @@ public class Schemas {
         return res;
     }
 
-    /**
-     * Download the latest schema for a particular apiID.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse downloadSchema(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/download", request, null);
@@ -124,12 +112,6 @@ public class Schemas {
         return res;
     }
 
-    /**
-     * Download a particular schema revision for an Api.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse downloadSchemaRevision(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download", request, null);
@@ -174,14 +156,6 @@ public class Schemas {
         return res;
     }
 
-    /**
-     * Get information about the latest schema.
-     * Returns information about the last uploaded schema for a particular API version. 
-     * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse getSchema(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request, null);
@@ -222,12 +196,6 @@ public class Schemas {
         return res;
     }
 
-    /**
-     * Get a diff of two schema revisions for an Api.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse getSchemaDiff(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}", request, null);
@@ -268,14 +236,6 @@ public class Schemas {
         return res;
     }
 
-    /**
-     * Get information about a particular schema revision for an Api.
-     * Returns information about the last uploaded schema for a particular schema revision. 
-     * This won't include the schema itself, that can be retrieved via the downloadSchema operation.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse getSchemaRevision(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request, null);
@@ -316,14 +276,6 @@ public class Schemas {
         return res;
     }
 
-    /**
-     * Get information about all schemas associated with a particular apiID.
-     * Returns information the schemas associated with a particular apiID. 
-     * This won't include the schemas themselves, they can be retrieved via the downloadSchema operation.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse getSchemas(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schemas", request, null);
@@ -364,14 +316,6 @@ public class Schemas {
         return res;
     }
 
-    /**
-     * Register a schema.
-     * Allows uploading a schema for a particular API version.
-     * This will be used to populate ApiEndpoints and used as a base for any schema generation if present.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse registerSchema(dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request, null);

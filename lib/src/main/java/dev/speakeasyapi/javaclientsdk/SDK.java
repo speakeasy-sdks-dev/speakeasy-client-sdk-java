@@ -72,8 +72,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.22.0";
-	private String _genVersion = "2.24.0";
+	private String _sdkVersion = "1.23.0";
+	private String _genVersion = "2.26.0";
 	/**
 	 * The Builder class allows the configuration of a new instance of the SDK.
 	 */
@@ -261,11 +261,6 @@ public class SDK {
 		);
 	}
 
-    /**
-     * Validate the current api key.
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKey() throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/auth/validate");

@@ -35,11 +35,6 @@ public class Plugins {
 		this._genVersion = genVersion;
 	}
 
-    /**
-     * Get all plugins for the current workspace.
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse getPlugins() throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/plugins");
@@ -80,12 +75,6 @@ public class Plugins {
         return res;
     }
 
-    /**
-     * Run a plugin
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse runPlugin(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest.class, baseUrl, "/v1/plugins/{pluginID}", request, null);
@@ -132,12 +121,6 @@ public class Plugins {
         return res;
     }
 
-    /**
-     * Upsert a plugin
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse upsertPlugin(dev.speakeasyapi.javaclientsdk.models.shared.Plugin request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/plugins");

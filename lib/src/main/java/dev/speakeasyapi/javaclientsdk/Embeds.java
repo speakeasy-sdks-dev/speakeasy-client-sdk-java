@@ -33,14 +33,6 @@ public class Embeds {
 		this._genVersion = genVersion;
 	}
 
-    /**
-     * Get an embed access token for the current workspace.
-     * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
-     * Filters can be applied allowing views to be filtered to things like particular customerIds.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse getEmbedAccessToken(dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/workspace/embed-access-token");
@@ -87,11 +79,6 @@ public class Embeds {
         return res;
     }
 
-    /**
-     * Get all valid embed access tokens for the current workspace.
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse getValidEmbedAccessTokens() throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/workspace/embed-access-tokens/valid");
@@ -132,12 +119,6 @@ public class Embeds {
         return res;
     }
 
-    /**
-     * Revoke an embed access EmbedToken.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse revokeEmbedAccessToken(dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest.class, baseUrl, "/v1/workspace/embed-access-tokens/{tokenID}", request, null);

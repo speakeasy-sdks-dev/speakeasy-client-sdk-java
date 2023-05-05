@@ -34,12 +34,6 @@ public class Metadata {
 		this._genVersion = genVersion;
 	}
 
-    /**
-     * Delete metadata for a particular apiID and versionID.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse deleteVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", request, null);
@@ -74,12 +68,6 @@ public class Metadata {
         return res;
     }
 
-    /**
-     * Get all metadata for a particular apiID and versionID.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse getVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request, null);
@@ -120,12 +108,6 @@ public class Metadata {
         return res;
     }
 
-    /**
-     * Insert metadata for a particular apiID and versionID.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse insertVersionMetadata(dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request, null);
