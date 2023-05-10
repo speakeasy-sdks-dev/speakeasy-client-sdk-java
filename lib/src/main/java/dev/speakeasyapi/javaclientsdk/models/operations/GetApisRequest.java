@@ -12,6 +12,7 @@ public class GetApisRequest {
      */
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=metadata")
     public java.util.Map<String, String[]> metadata;
+
     public GetApisRequest withMetadata(java.util.Map<String, String[]> metadata) {
         this.metadata = metadata;
         return this;
@@ -22,6 +23,7 @@ public class GetApisRequest {
      */
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=op")
     public GetApisOp op;
+
     public GetApisRequest withOp(GetApisOp op) {
         this.op = op;
         return this;

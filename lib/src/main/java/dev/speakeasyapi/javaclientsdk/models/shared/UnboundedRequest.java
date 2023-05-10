@@ -22,6 +22,7 @@ public class UnboundedRequest {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public UnboundedRequest withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -32,6 +33,7 @@ public class UnboundedRequest {
      */
     @JsonProperty("har")
     public String har;
+
     public UnboundedRequest withHar(String har) {
         this.har = har;
         return this;
@@ -42,6 +44,7 @@ public class UnboundedRequest {
      */
     @JsonProperty("har_size_bytes")
     public Long harSizeBytes;
+
     public UnboundedRequest withHarSizeBytes(Long harSizeBytes) {
         this.harSizeBytes = harSizeBytes;
         return this;
@@ -52,6 +55,7 @@ public class UnboundedRequest {
      */
     @JsonProperty("request_id")
     public String requestId;
+
     public UnboundedRequest withRequestId(String requestId) {
         this.requestId = requestId;
         return this;
@@ -62,6 +66,7 @@ public class UnboundedRequest {
      */
     @JsonProperty("workspace_id")
     public String workspaceId;
+
     public UnboundedRequest withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

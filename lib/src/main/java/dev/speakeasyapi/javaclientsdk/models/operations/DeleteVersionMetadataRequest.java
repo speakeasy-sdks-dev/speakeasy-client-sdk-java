@@ -13,6 +13,7 @@ public class DeleteVersionMetadataRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public DeleteVersionMetadataRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -23,6 +24,7 @@ public class DeleteVersionMetadataRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=metaKey")
     public String metaKey;
+
     public DeleteVersionMetadataRequest withMetaKey(String metaKey) {
         this.metaKey = metaKey;
         return this;
@@ -33,6 +35,7 @@ public class DeleteVersionMetadataRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=metaValue")
     public String metaValue;
+
     public DeleteVersionMetadataRequest withMetaValue(String metaValue) {
         this.metaValue = metaValue;
         return this;
@@ -43,6 +46,7 @@ public class DeleteVersionMetadataRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public DeleteVersionMetadataRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

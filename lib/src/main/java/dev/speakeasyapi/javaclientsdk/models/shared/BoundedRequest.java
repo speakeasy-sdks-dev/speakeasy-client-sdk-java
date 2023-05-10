@@ -22,6 +22,7 @@ public class BoundedRequest {
      */
     @JsonProperty("api_endpoint_id")
     public String apiEndpointId;
+
     public BoundedRequest withApiEndpointId(String apiEndpointId) {
         this.apiEndpointId = apiEndpointId;
         return this;
@@ -32,6 +33,7 @@ public class BoundedRequest {
      */
     @JsonProperty("api_id")
     public String apiId;
+
     public BoundedRequest withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -44,6 +46,7 @@ public class BoundedRequest {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public BoundedRequest withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -54,6 +57,7 @@ public class BoundedRequest {
      */
     @JsonProperty("customer_id")
     public String customerId;
+
     public BoundedRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -64,6 +68,7 @@ public class BoundedRequest {
      */
     @JsonProperty("latency")
     public Long latency;
+
     public BoundedRequest withLatency(Long latency) {
         this.latency = latency;
         return this;
@@ -75,6 +80,7 @@ public class BoundedRequest {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
     public RequestMetadata[] metadata;
+
     public BoundedRequest withMetadata(RequestMetadata[] metadata) {
         this.metadata = metadata;
         return this;
@@ -85,6 +91,7 @@ public class BoundedRequest {
      */
     @JsonProperty("method")
     public String method;
+
     public BoundedRequest withMethod(String method) {
         this.method = method;
         return this;
@@ -95,6 +102,7 @@ public class BoundedRequest {
      */
     @JsonProperty("path")
     public String path;
+
     public BoundedRequest withPath(String path) {
         this.path = path;
         return this;
@@ -107,6 +115,7 @@ public class BoundedRequest {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("request_finish_time")
     public OffsetDateTime requestFinishTime;
+
     public BoundedRequest withRequestFinishTime(OffsetDateTime requestFinishTime) {
         this.requestFinishTime = requestFinishTime;
         return this;
@@ -117,6 +126,7 @@ public class BoundedRequest {
      */
     @JsonProperty("request_id")
     public String requestId;
+
     public BoundedRequest withRequestId(String requestId) {
         this.requestId = requestId;
         return this;
@@ -129,6 +139,7 @@ public class BoundedRequest {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("request_start_time")
     public OffsetDateTime requestStartTime;
+
     public BoundedRequest withRequestStartTime(OffsetDateTime requestStartTime) {
         this.requestStartTime = requestStartTime;
         return this;
@@ -139,6 +150,7 @@ public class BoundedRequest {
      */
     @JsonProperty("status")
     public Long status;
+
     public BoundedRequest withStatus(Long status) {
         this.status = status;
         return this;
@@ -149,6 +161,7 @@ public class BoundedRequest {
      */
     @JsonProperty("version_id")
     public String versionId;
+
     public BoundedRequest withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
@@ -159,6 +172,7 @@ public class BoundedRequest {
      */
     @JsonProperty("workspace_id")
     public String workspaceId;
+
     public BoundedRequest withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

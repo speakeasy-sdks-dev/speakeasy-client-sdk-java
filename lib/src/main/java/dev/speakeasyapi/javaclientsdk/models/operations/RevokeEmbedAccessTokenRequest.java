@@ -13,6 +13,7 @@ public class RevokeEmbedAccessTokenRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=tokenID")
     public String tokenID;
+
     public RevokeEmbedAccessTokenRequest withTokenID(String tokenID) {
         this.tokenID = tokenID;
         return this;

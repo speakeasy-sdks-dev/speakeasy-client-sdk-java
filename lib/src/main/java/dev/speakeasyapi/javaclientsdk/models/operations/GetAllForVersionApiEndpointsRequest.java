@@ -13,6 +13,7 @@ public class GetAllForVersionApiEndpointsRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public GetAllForVersionApiEndpointsRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -23,6 +24,7 @@ public class GetAllForVersionApiEndpointsRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public GetAllForVersionApiEndpointsRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

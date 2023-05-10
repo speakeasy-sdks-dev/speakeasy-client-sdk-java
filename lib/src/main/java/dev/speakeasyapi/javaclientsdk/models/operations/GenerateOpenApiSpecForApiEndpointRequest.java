@@ -13,6 +13,7 @@ public class GenerateOpenApiSpecForApiEndpointRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiEndpointID")
     public String apiEndpointID;
+
     public GenerateOpenApiSpecForApiEndpointRequest withApiEndpointID(String apiEndpointID) {
         this.apiEndpointID = apiEndpointID;
         return this;
@@ -23,6 +24,7 @@ public class GenerateOpenApiSpecForApiEndpointRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public GenerateOpenApiSpecForApiEndpointRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -33,6 +35,7 @@ public class GenerateOpenApiSpecForApiEndpointRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public GenerateOpenApiSpecForApiEndpointRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

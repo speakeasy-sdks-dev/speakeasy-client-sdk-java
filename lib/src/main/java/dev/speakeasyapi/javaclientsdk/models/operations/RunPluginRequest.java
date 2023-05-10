@@ -13,6 +13,7 @@ public class RunPluginRequest {
      */
     @SpeakeasyMetadata("queryParam:serialization=json,name=filters")
     public dev.speakeasyapi.javaclientsdk.models.shared.Filters filters;
+
     public RunPluginRequest withFilters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
         this.filters = filters;
         return this;
@@ -23,6 +24,7 @@ public class RunPluginRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=pluginID")
     public String pluginID;
+
     public RunPluginRequest withPluginID(String pluginID) {
         this.pluginID = pluginID;
         return this;

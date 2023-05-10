@@ -12,6 +12,7 @@ public class QueryEventLogRequest {
      */
     @SpeakeasyMetadata("queryParam:serialization=json,name=filters")
     public dev.speakeasyapi.javaclientsdk.models.shared.Filters filters;
+
     public QueryEventLogRequest withFilters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
         this.filters = filters;
         return this;

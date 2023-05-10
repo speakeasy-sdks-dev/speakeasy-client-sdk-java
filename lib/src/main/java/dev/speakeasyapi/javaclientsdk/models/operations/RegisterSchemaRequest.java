@@ -13,6 +13,7 @@ public class RegisterSchemaRequest {
      */
     @SpeakeasyMetadata("request:mediaType=multipart/form-data")
     public RegisterSchemaRequestBody requestBody;
+
     public RegisterSchemaRequest withRequestBody(RegisterSchemaRequestBody requestBody) {
         this.requestBody = requestBody;
         return this;
@@ -23,6 +24,7 @@ public class RegisterSchemaRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public RegisterSchemaRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -33,6 +35,7 @@ public class RegisterSchemaRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public RegisterSchemaRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

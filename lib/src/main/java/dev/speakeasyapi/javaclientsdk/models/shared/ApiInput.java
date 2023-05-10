@@ -17,6 +17,7 @@ public class ApiInput {
      */
     @JsonProperty("api_id")
     public String apiId;
+
     public ApiInput withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -27,6 +28,7 @@ public class ApiInput {
      */
     @JsonProperty("description")
     public String description;
+
     public ApiInput withDescription(String description) {
         this.description = description;
         return this;
@@ -38,6 +40,7 @@ public class ApiInput {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("meta_data")
     public java.util.Map<String, String[]> metaData;
+
     public ApiInput withMetaData(java.util.Map<String, String[]> metaData) {
         this.metaData = metaData;
         return this;
@@ -48,6 +51,7 @@ public class ApiInput {
      */
     @JsonProperty("version_id")
     public String versionId;
+
     public ApiInput withVersionId(String versionId) {
         this.versionId = versionId;
         return this;

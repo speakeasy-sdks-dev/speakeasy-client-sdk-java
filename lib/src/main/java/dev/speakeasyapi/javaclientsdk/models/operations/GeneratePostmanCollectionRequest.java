@@ -13,6 +13,7 @@ public class GeneratePostmanCollectionRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public GeneratePostmanCollectionRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -23,6 +24,7 @@ public class GeneratePostmanCollectionRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public GeneratePostmanCollectionRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

@@ -13,6 +13,7 @@ public class GetSchemaRevisionRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public GetSchemaRevisionRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -23,6 +24,7 @@ public class GetSchemaRevisionRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
     public String revisionID;
+
     public GetSchemaRevisionRequest withRevisionID(String revisionID) {
         this.revisionID = revisionID;
         return this;
@@ -33,6 +35,7 @@ public class GetSchemaRevisionRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public GetSchemaRevisionRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

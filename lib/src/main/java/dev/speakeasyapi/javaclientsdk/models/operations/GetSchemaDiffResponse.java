@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetSchemaDiffResponse {
     
     public String contentType;
+
     public GetSchemaDiffResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -20,6 +21,7 @@ public class GetSchemaDiffResponse {
      */
     
     public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
+
     public GetSchemaDiffResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
         return this;
@@ -30,6 +32,7 @@ public class GetSchemaDiffResponse {
      */
     
     public dev.speakeasyapi.javaclientsdk.models.shared.SchemaDiff schemaDiff;
+
     public GetSchemaDiffResponse withSchemaDiff(dev.speakeasyapi.javaclientsdk.models.shared.SchemaDiff schemaDiff) {
         this.schemaDiff = schemaDiff;
         return this;
@@ -37,6 +40,7 @@ public class GetSchemaDiffResponse {
     
     
     public Integer statusCode;
+
     public GetSchemaDiffResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -44,6 +48,7 @@ public class GetSchemaDiffResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetSchemaDiffResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;

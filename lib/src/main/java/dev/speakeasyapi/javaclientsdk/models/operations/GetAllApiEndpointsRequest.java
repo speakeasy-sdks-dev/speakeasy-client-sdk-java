@@ -13,6 +13,7 @@ public class GetAllApiEndpointsRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public GetAllApiEndpointsRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;

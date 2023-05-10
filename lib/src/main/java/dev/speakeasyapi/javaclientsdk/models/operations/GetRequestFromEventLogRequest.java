@@ -13,6 +13,7 @@ public class GetRequestFromEventLogRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=requestID")
     public String requestID;
+
     public GetRequestFromEventLogRequest withRequestID(String requestID) {
         this.requestID = requestID;
         return this;

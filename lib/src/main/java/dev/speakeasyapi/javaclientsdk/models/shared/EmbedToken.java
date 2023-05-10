@@ -24,6 +24,7 @@ public class EmbedToken {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public EmbedToken withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -34,6 +35,7 @@ public class EmbedToken {
      */
     @JsonProperty("created_by")
     public String createdBy;
+
     public EmbedToken withCreatedBy(String createdBy) {
         this.createdBy = createdBy;
         return this;
@@ -44,6 +46,7 @@ public class EmbedToken {
      */
     @JsonProperty("description")
     public String description;
+
     public EmbedToken withDescription(String description) {
         this.description = description;
         return this;
@@ -56,6 +59,7 @@ public class EmbedToken {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("expires_at")
     public OffsetDateTime expiresAt;
+
     public EmbedToken withExpiresAt(OffsetDateTime expiresAt) {
         this.expiresAt = expiresAt;
         return this;
@@ -66,6 +70,7 @@ public class EmbedToken {
      */
     @JsonProperty("filters")
     public String filters;
+
     public EmbedToken withFilters(String filters) {
         this.filters = filters;
         return this;
@@ -76,6 +81,7 @@ public class EmbedToken {
      */
     @JsonProperty("id")
     public String id;
+
     public EmbedToken withId(String id) {
         this.id = id;
         return this;
@@ -89,6 +95,7 @@ public class EmbedToken {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("last_used")
     public OffsetDateTime lastUsed;
+
     public EmbedToken withLastUsed(OffsetDateTime lastUsed) {
         this.lastUsed = lastUsed;
         return this;
@@ -102,6 +109,7 @@ public class EmbedToken {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("revoked_at")
     public OffsetDateTime revokedAt;
+
     public EmbedToken withRevokedAt(OffsetDateTime revokedAt) {
         this.revokedAt = revokedAt;
         return this;
@@ -113,6 +121,7 @@ public class EmbedToken {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("revoked_by")
     public String revokedBy;
+
     public EmbedToken withRevokedBy(String revokedBy) {
         this.revokedBy = revokedBy;
         return this;
@@ -123,6 +132,7 @@ public class EmbedToken {
      */
     @JsonProperty("workspace_id")
     public String workspaceId;
+
     public EmbedToken withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

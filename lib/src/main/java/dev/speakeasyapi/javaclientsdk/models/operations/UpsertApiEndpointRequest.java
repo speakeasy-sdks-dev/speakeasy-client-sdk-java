@@ -13,6 +13,7 @@ public class UpsertApiEndpointRequest {
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput;
+
     public UpsertApiEndpointRequest withApiEndpointInput(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput) {
         this.apiEndpointInput = apiEndpointInput;
         return this;
@@ -23,6 +24,7 @@ public class UpsertApiEndpointRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiEndpointID")
     public String apiEndpointID;
+
     public UpsertApiEndpointRequest withApiEndpointID(String apiEndpointID) {
         this.apiEndpointID = apiEndpointID;
         return this;
@@ -33,6 +35,7 @@ public class UpsertApiEndpointRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public UpsertApiEndpointRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -43,6 +46,7 @@ public class UpsertApiEndpointRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public UpsertApiEndpointRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

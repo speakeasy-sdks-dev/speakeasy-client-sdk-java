@@ -13,6 +13,7 @@ public class DeleteSchemaRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public DeleteSchemaRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -23,6 +24,7 @@ public class DeleteSchemaRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
     public String revisionID;
+
     public DeleteSchemaRequest withRevisionID(String revisionID) {
         this.revisionID = revisionID;
         return this;
@@ -33,6 +35,7 @@ public class DeleteSchemaRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public DeleteSchemaRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

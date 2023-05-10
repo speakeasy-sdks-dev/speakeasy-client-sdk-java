@@ -20,6 +20,7 @@ public class Schema {
      */
     @JsonProperty("api_id")
     public String apiId;
+
     public Schema withApiId(String apiId) {
         this.apiId = apiId;
         return this;
@@ -32,6 +33,7 @@ public class Schema {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public Schema withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -42,6 +44,7 @@ public class Schema {
      */
     @JsonProperty("description")
     public String description;
+
     public Schema withDescription(String description) {
         this.description = description;
         return this;
@@ -52,6 +55,7 @@ public class Schema {
      */
     @JsonProperty("revision_id")
     public String revisionId;
+
     public Schema withRevisionId(String revisionId) {
         this.revisionId = revisionId;
         return this;
@@ -62,6 +66,7 @@ public class Schema {
      */
     @JsonProperty("version_id")
     public String versionId;
+
     public Schema withVersionId(String versionId) {
         this.versionId = versionId;
         return this;
@@ -72,6 +77,7 @@ public class Schema {
      */
     @JsonProperty("workspace_id")
     public String workspaceId;
+
     public Schema withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;

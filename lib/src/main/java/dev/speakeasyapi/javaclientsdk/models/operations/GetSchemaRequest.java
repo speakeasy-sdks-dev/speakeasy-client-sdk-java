@@ -13,6 +13,7 @@ public class GetSchemaRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public GetSchemaRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -23,6 +24,7 @@ public class GetSchemaRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
     public String versionID;
+
     public GetSchemaRequest withVersionID(String versionID) {
         this.versionID = versionID;
         return this;

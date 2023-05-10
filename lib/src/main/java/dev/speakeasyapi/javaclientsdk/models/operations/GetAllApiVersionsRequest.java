@@ -13,6 +13,7 @@ public class GetAllApiVersionsRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public GetAllApiVersionsRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;
@@ -23,6 +24,7 @@ public class GetAllApiVersionsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=metadata")
     public java.util.Map<String, String[]> metadata;
+
     public GetAllApiVersionsRequest withMetadata(java.util.Map<String, String[]> metadata) {
         this.metadata = metadata;
         return this;
@@ -33,6 +35,7 @@ public class GetAllApiVersionsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=op")
     public GetAllApiVersionsOp op;
+
     public GetAllApiVersionsRequest withOp(GetAllApiVersionsOp op) {
         this.op = op;
         return this;

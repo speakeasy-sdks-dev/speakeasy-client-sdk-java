@@ -15,6 +15,7 @@ public class Filters {
      */
     @JsonProperty("filters")
     public Filter[] filters;
+
     public Filters withFilters(Filter[] filters) {
         this.filters = filters;
         return this;
@@ -25,6 +26,7 @@ public class Filters {
      */
     @JsonProperty("limit")
     public Long limit;
+
     public Filters withLimit(Long limit) {
         this.limit = limit;
         return this;
@@ -35,6 +37,7 @@ public class Filters {
      */
     @JsonProperty("offset")
     public Long offset;
+
     public Filters withOffset(Long offset) {
         this.offset = offset;
         return this;
@@ -45,6 +48,7 @@ public class Filters {
      */
     @JsonProperty("operator")
     public String operator;
+
     public Filters withOperator(String operator) {
         this.operator = operator;
         return this;

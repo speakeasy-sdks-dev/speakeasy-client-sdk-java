@@ -13,6 +13,7 @@ public class UpsertApiRequest {
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
     public dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput;
+
     public UpsertApiRequest withApiInput(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput) {
         this.apiInput = apiInput;
         return this;
@@ -23,6 +24,7 @@ public class UpsertApiRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
     public String apiID;
+
     public UpsertApiRequest withApiID(String apiID) {
         this.apiID = apiID;
         return this;

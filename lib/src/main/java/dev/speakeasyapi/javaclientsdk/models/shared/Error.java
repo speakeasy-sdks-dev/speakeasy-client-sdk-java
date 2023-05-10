@@ -15,6 +15,7 @@ public class Error {
      */
     @JsonProperty("message")
     public String message;
+
     public Error withMessage(String message) {
         this.message = message;
         return this;
@@ -25,6 +26,7 @@ public class Error {
      */
     @JsonProperty("status_code")
     public Integer statusCode;
+
     public Error withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;

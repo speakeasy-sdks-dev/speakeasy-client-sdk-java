@@ -15,6 +15,7 @@ public class Filter {
      */
     @JsonProperty("key")
     public String key;
+
     public Filter withKey(String key) {
         this.key = key;
         return this;
@@ -25,6 +26,7 @@ public class Filter {
      */
     @JsonProperty("operator")
     public String operator;
+
     public Filter withOperator(String operator) {
         this.operator = operator;
         return this;
@@ -35,6 +37,7 @@ public class Filter {
      */
     @JsonProperty("value")
     public String value;
+
     public Filter withValue(String value) {
         this.value = value;
         return this;

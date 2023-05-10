@@ -19,6 +19,7 @@ import java.time.OffsetDateTime;
 public class Plugin {
     @JsonProperty("code")
     public String code;
+
     public Plugin withCode(String code) {
         this.code = code;
         return this;
@@ -29,6 +30,7 @@ public class Plugin {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public Plugin withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -37,6 +39,7 @@ public class Plugin {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("eval_hash")
     public String evalHash;
+
     public Plugin withEvalHash(String evalHash) {
         this.evalHash = evalHash;
         return this;
@@ -44,6 +47,7 @@ public class Plugin {
     
     @JsonProperty("plugin_id")
     public String pluginId;
+
     public Plugin withPluginId(String pluginId) {
         this.pluginId = pluginId;
         return this;
@@ -51,6 +55,7 @@ public class Plugin {
     
     @JsonProperty("title")
     public String title;
+
     public Plugin withTitle(String title) {
         this.title = title;
         return this;
@@ -61,6 +66,7 @@ public class Plugin {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("updated_at")
     public OffsetDateTime updatedAt;
+
     public Plugin withUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
@@ -68,6 +74,7 @@ public class Plugin {
     
     @JsonProperty("workspace_id")
     public String workspaceId;
+
     public Plugin withWorkspaceId(String workspaceId) {
         this.workspaceId = workspaceId;
         return this;
