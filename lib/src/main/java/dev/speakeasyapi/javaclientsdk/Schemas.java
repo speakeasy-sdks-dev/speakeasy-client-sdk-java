@@ -47,7 +47,8 @@ public class Schemas {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -87,7 +88,8 @@ public class Schemas {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0.7, application/x-yaml;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -137,7 +139,8 @@ public class Schemas {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0.7, application/x-yaml;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -189,7 +192,8 @@ public class Schemas {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -235,7 +239,8 @@ public class Schemas {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -283,7 +288,8 @@ public class Schemas {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -331,7 +337,8 @@ public class Schemas {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -384,7 +391,8 @@ public class Schemas {
             throw new Exception("Request body is required");
         }
         req.setBody(serializedRequestBody);
-        
+
+        req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;

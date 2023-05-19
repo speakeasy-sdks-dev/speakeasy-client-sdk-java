@@ -47,7 +47,8 @@ public class Plugins {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -93,7 +94,8 @@ public class Plugins {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest.class, request, null);
         if (queryParams != null) {
@@ -150,7 +152,8 @@ public class Plugins {
             throw new Exception("Request body is required");
         }
         req.setBody(serializedRequestBody);
-        
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;

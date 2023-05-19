@@ -72,8 +72,8 @@ public class SDK {
 	private dev.speakeasyapi.javaclientsdk.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.27.0";
-	private String _genVersion = "2.30.0";
+	private String _sdkVersion = "1.28.0";
+	private String _genVersion = "2.31.0";
 	/**
 	 * The Builder class allows the configuration of a new instance of the SDK.
 	 */
@@ -273,7 +273,8 @@ public class SDK {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
