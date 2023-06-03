@@ -1,3 +1,4 @@
+lib/src/main/java/dev/speakeasyapi/javaclientsdk/SDKConfiguration.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/ApiEndpoints.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/Apis.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/Embeds.java

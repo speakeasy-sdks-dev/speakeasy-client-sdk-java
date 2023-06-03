@@ -18,20 +18,10 @@ import java.time.OffsetDateTime;
  */
 public class Schemas {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Schemas(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Schemas(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -41,7 +31,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse deleteSchema(dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -49,9 +39,9 @@ public class Schemas {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -82,7 +72,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse downloadSchema(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/download", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -90,9 +80,9 @@ public class Schemas {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0.7, application/x-yaml;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -133,7 +123,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse downloadSchemaRevision(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -141,9 +131,9 @@ public class Schemas {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0.7, application/x-yaml;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -186,7 +176,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse getSchema(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -194,9 +184,9 @@ public class Schemas {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -233,7 +223,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse getSchemaDiff(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -241,9 +231,9 @@ public class Schemas {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -282,7 +272,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse getSchemaRevision(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -290,9 +280,9 @@ public class Schemas {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -331,7 +321,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse getSchemas(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schemas", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -339,9 +329,9 @@ public class Schemas {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -380,7 +370,7 @@ public class Schemas {
      * @throws Exception if the API call fails
      */
     public dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse registerSchema(dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/schema", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -393,9 +383,9 @@ public class Schemas {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
