@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.31.1'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.32.0'
 ```
 <!-- End SDK Installation -->
 
@@ -26,7 +26,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("corrupti") {{
-                    apiKey = "YOUR_API_KEY_HERE";
+                    apiKey = "";
                 }})
                 .build();
 
