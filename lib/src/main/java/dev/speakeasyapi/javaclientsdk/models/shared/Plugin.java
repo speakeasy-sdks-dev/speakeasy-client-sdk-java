@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 /**
  * Plugin - A plugin is a short script that is run against ingested requests
  */
+
 public class Plugin {
     @JsonProperty("code")
     public String code;

@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 /**
  * BoundedRequest - A BoundedRequest is a request that has been logged by the Speakeasy without the contents of the request.
  */
+
 public class BoundedRequest {
     /**
      * The ID of the ApiEndpoint this request was made to.

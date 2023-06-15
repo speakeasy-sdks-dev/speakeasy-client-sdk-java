@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 /**
  * ApiEndpoint - An ApiEndpoint is a description of an Endpoint for an API.
  */
+
 public class ApiEndpoint {
     /**
      * The ID of this ApiEndpoint. This is a hash of the method and path.

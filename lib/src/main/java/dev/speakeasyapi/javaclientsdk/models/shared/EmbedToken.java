@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 /**
  * EmbedToken - A representation of an embed token granted for working with Speakeasy components.
  */
+
 public class EmbedToken {
     /**
      * Creation timestamp.

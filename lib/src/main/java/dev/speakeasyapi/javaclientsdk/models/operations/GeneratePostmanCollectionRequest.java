@@ -7,6 +7,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
+
 public class GeneratePostmanCollectionRequest {
     /**
      * The ID of the Api to generate a Postman collection for.

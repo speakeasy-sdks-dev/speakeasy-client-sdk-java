@@ -7,6 +7,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
+
 public class RegisterSchemaRequest {
     /**
      * The schema file to upload provided as a multipart/form-data file segment.

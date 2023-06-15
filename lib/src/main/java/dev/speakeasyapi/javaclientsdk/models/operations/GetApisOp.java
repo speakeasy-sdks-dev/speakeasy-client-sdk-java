@@ -10,6 +10,7 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 /**
  * GetApisOp - Configuration for filter operations
  */
+
 public class GetApisOp {
     /**
      * Whether to AND or OR the filters

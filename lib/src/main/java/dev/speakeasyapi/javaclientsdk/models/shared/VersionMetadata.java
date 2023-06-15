@@ -14,6 +14,7 @@ import java.time.OffsetDateTime;
 /**
  * VersionMetadata - A set of keys and associated values, attached to a particular version of an Api.
  */
+
 public class VersionMetadata {
     /**
      * The ID of the Api this Metadata belongs to.

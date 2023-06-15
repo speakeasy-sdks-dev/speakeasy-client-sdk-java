@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ApiInput - An Api is representation of a API (a collection of API Endpoints) within the Speakeasy Platform.
  */
+
 public class ApiInput {
     /**
      * The ID of this Api. This is a human-readable name (subject to change).

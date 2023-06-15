@@ -7,6 +7,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.net.http.HttpResponse;
 
+
 public class InsertVersionMetadataResponse {
     
     public String contentType;

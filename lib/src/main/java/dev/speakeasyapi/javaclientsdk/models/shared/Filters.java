@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Filters - Filters are used to query requests.
  */
+
 public class Filters {
     /**
      * A list of filters to apply to the query.

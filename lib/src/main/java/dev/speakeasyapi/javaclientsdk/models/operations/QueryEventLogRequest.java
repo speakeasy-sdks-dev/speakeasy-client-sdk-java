@@ -6,6 +6,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
+
 public class QueryEventLogRequest {
     /**
      * The filter to apply to the query.

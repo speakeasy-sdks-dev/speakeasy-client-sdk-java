@@ -10,6 +10,7 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 /**
  * GetAllApiVersionsOp - Configuration for filter operations
  */
+
 public class GetAllApiVersionsOp {
     /**
      * Whether to AND or OR the filters

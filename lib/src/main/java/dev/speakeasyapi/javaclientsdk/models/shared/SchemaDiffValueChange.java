@@ -6,6 +6,7 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class SchemaDiffValueChange {
     /**
      * Represents the previous value of the element.

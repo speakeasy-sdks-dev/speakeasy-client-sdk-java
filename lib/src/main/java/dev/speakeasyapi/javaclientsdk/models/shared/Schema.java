@@ -14,6 +14,7 @@ import java.time.OffsetDateTime;
 /**
  * Schema - A Schema represents an API schema for a particular Api and Version.
  */
+
 public class Schema {
     /**
      * The ID of the Api this Schema belongs to.

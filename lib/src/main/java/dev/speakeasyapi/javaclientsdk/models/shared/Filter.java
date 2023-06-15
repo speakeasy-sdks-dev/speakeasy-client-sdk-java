@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Filter - A filter is a key-value pair that can be used to filter a list of requests.
  */
+
 public class Filter {
     /**
      * The key of the filter.

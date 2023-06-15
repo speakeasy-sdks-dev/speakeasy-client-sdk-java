@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Error - The `Status` type defines a logical error model
  */
+
 public class Error {
     /**
      * A developer-facing error message.

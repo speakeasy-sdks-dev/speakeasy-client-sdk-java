@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ApiEndpointInput - An ApiEndpoint is a description of an Endpoint for an API.
  */
+
 public class ApiEndpointInput {
     /**
      * The ID of this ApiEndpoint. This is a hash of the method and path.

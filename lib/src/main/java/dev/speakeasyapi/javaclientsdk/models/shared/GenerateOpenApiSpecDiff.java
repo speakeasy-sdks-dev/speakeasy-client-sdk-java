@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * GenerateOpenApiSpecDiff - OK
  */
+
 public class GenerateOpenApiSpecDiff {
     @JsonProperty("current_schema")
     public String currentSchema;
