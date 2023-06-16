@@ -8,7 +8,6 @@ lib/src/main/java/dev/speakeasyapi/javaclientsdk/Requests.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/Schemas.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/SDK.java
 .gitattributes
-.gitignore
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
