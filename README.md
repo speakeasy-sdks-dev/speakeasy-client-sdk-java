@@ -6,12 +6,14 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.43.0'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.44.0'
 ```
 <!-- End SDK Installation -->
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```java
 package hello.world;
 
