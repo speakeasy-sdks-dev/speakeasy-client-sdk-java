@@ -873,3 +873,11 @@ Based on:
 - Speakeasy CLI 1.62.1 (2.70.2) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [Maven Central v1.45.1] https://central.sonatype.com/artifact/dev.speakeasyapi/javaclientsdk/1.45.1 - .
+
+## 2023-07-25 00:11:41
+### Changes
+Based on:
+- OpenAPI Doc 0.3.0 https://docs.speakeasyapi.dev/openapi.yaml
+- Speakeasy CLI 1.64.1 (2.71.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [Maven Central v1.46.0] https://central.sonatype.com/artifact/dev.speakeasyapi/javaclientsdk/1.46.0 - .
