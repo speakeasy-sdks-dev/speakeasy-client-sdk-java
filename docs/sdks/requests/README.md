@@ -29,12 +29,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("incidunt") {{
+                .setSecurity(new Security("mollitia") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GenerateRequestPostmanCollectionRequest req = new GenerateRequestPostmanCollectionRequest("enim");            
+            GenerateRequestPostmanCollectionRequest req = new GenerateRequestPostmanCollectionRequest("occaecati");            
 
             GenerateRequestPostmanCollectionResponse res = sdk.requests.generateRequestPostmanCollection(req);
 
@@ -78,12 +78,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("consequatur") {{
+                .setSecurity(new Security("numquam") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetRequestFromEventLogRequest req = new GetRequestFromEventLogRequest("est");            
+            GetRequestFromEventLogRequest req = new GetRequestFromEventLogRequest("commodi");            
 
             GetRequestFromEventLogResponse res = sdk.requests.getRequestFromEventLog(req);
 
@@ -130,19 +130,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("quibusdam") {{
+                .setSecurity(new Security("quam") {{
                     apiKey = "";
                 }})
                 .build();
 
             QueryEventLogRequest req = new QueryEventLogRequest() {{
                 filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("labore", "modi", "qui") {{
-                                        key = "deserunt";
-                                        operator = "distinctio";
-                                        value = "quibusdam";
+                                    add(new Filter("quia", "quis", "vitae") {{
+                                        key = "molestiae";
+                                        operator = "velit";
+                                        value = "error";
                                     }}),
-                                }}, 397821L, 586513L, "quos");;
+                                }}, 674752L, 656330L, "enim");;
             }};            
 
             QueryEventLogResponse res = sdk.requests.queryEventLog(req);

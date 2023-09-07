@@ -21,22 +21,8 @@ public class Application {
 
             GetApisRequest req = new GetApisRequest() {{
                 metadata = new java.util.HashMap<String, String[]>() {{
-                    put("distinctio", new String[]{{
-                        add("unde"),
-                        add("nulla"),
-                        add("corrupti"),
-                        add("illum"),
-                    }});
-                    put("vel", new String[]{{
-                        add("deserunt"),
-                        add("suscipit"),
-                        add("iure"),
-                    }});
-                    put("magnam", new String[]{{
-                        add("ipsa"),
-                        add("delectus"),
-                        add("tempora"),
-                        add("suscipit"),
+                    put("provident", new String[]{{
+                        add("distinctio"),
                     }});
                 }};
                 op = new GetApisOp(false);;

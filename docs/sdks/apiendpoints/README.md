@@ -33,12 +33,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("minus") {{
+                .setSecurity(new Security("unde") {{
                     apiKey = "";
                 }})
                 .build();
 
-            DeleteApiEndpointRequest req = new DeleteApiEndpointRequest("placeat", "voluptatum", "iusto");            
+            DeleteApiEndpointRequest req = new DeleteApiEndpointRequest("nulla", "corrupti", "illum");            
 
             DeleteApiEndpointResponse res = sdk.apiEndpoints.deleteApiEndpoint(req);
 
@@ -83,12 +83,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("excepturi") {{
+                .setSecurity(new Security("vel") {{
                     apiKey = "";
                 }})
                 .build();
 
-            FindApiEndpointRequest req = new FindApiEndpointRequest("nisi", "recusandae", "temporibus");            
+            FindApiEndpointRequest req = new FindApiEndpointRequest("error", "deserunt", "suscipit");            
 
             FindApiEndpointResponse res = sdk.apiEndpoints.findApiEndpoint(req);
 
@@ -133,12 +133,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("ab") {{
+                .setSecurity(new Security("iure") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GenerateOpenApiSpecForApiEndpointRequest req = new GenerateOpenApiSpecForApiEndpointRequest("quis", "veritatis", "deserunt");            
+            GenerateOpenApiSpecForApiEndpointRequest req = new GenerateOpenApiSpecForApiEndpointRequest("magnam", "debitis", "ipsa");            
 
             GenerateOpenApiSpecForApiEndpointResponse res = sdk.apiEndpoints.generateOpenApiSpecForApiEndpoint(req);
 
@@ -182,12 +182,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("perferendis") {{
+                .setSecurity(new Security("delectus") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GeneratePostmanCollectionForApiEndpointRequest req = new GeneratePostmanCollectionForApiEndpointRequest("ipsam", "repellendus", "sapiente");            
+            GeneratePostmanCollectionForApiEndpointRequest req = new GeneratePostmanCollectionForApiEndpointRequest("tempora", "suscipit", "molestiae");            
 
             GeneratePostmanCollectionForApiEndpointResponse res = sdk.apiEndpoints.generatePostmanCollectionForApiEndpoint(req);
 
@@ -231,12 +231,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("quo") {{
+                .setSecurity(new Security("minus") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetAllApiEndpointsRequest req = new GetAllApiEndpointsRequest("odit");            
+            GetAllApiEndpointsRequest req = new GetAllApiEndpointsRequest("placeat");            
 
             GetAllApiEndpointsResponse res = sdk.apiEndpoints.getAllApiEndpoints(req);
 
@@ -280,12 +280,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("at") {{
+                .setSecurity(new Security("voluptatum") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetAllForVersionApiEndpointsRequest req = new GetAllForVersionApiEndpointsRequest("at", "maiores");            
+            GetAllForVersionApiEndpointsRequest req = new GetAllForVersionApiEndpointsRequest("iusto", "excepturi");            
 
             GetAllForVersionApiEndpointsResponse res = sdk.apiEndpoints.getAllForVersionApiEndpoints(req);
 
@@ -329,12 +329,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("molestiae") {{
+                .setSecurity(new Security("nisi") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetApiEndpointRequest req = new GetApiEndpointRequest("quod", "quod", "esse");            
+            GetApiEndpointRequest req = new GetApiEndpointRequest("recusandae", "temporibus", "ab");            
 
             GetApiEndpointResponse res = sdk.apiEndpoints.getApiEndpoint(req);
 
@@ -379,12 +379,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("totam") {{
+                .setSecurity(new Security("quis") {{
                     apiKey = "";
                 }})
                 .build();
 
-            UpsertApiEndpointRequest req = new UpsertApiEndpointRequest(                new ApiEndpointInput("porro", "dolorum", "dicta", "nam", "officia", "occaecati");, "fugit", "deleniti", "hic");            
+            UpsertApiEndpointRequest req = new UpsertApiEndpointRequest(                new ApiEndpointInput("veritatis", "deserunt", "perferendis", "ipsam", "repellendus", "sapiente");, "quo", "odit", "at");            
 
             UpsertApiEndpointResponse res = sdk.apiEndpoints.upsertApiEndpoint(req);
 

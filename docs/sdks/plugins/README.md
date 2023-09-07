@@ -27,7 +27,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("quasi") {{
+                .setSecurity(new Security("laborum") {{
                     apiKey = "";
                 }})
                 .build();
@@ -70,34 +70,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("reiciendis") {{
+                .setSecurity(new Security("dolores") {{
                     apiKey = "";
                 }})
                 .build();
 
-            RunPluginRequest req = new RunPluginRequest("voluptatibus") {{
+            RunPluginRequest req = new RunPluginRequest("dolorem") {{
                 filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("ipsa", "omnis", "voluptate") {{
-                                        key = "nihil";
-                                        operator = "praesentium";
-                                        value = "voluptatibus";
+                                    add(new Filter("enim", "omnis", "nemo") {{
+                                        key = "corporis";
+                                        operator = "explicabo";
+                                        value = "nobis";
                                     }}),
-                                    add(new Filter("reprehenderit", "ut", "maiores") {{
-                                        key = "cum";
-                                        operator = "perferendis";
-                                        value = "doloremque";
-                                    }}),
-                                    add(new Filter("iusto", "dicta", "harum") {{
-                                        key = "dicta";
-                                        operator = "corporis";
-                                        value = "dolore";
-                                    }}),
-                                    add(new Filter("repudiandae", "quae", "ipsum") {{
-                                        key = "enim";
-                                        operator = "accusamus";
-                                        value = "commodi";
-                                    }}),
-                                }}, 692472L, 565189L, "excepturi");;
+                                }}, 325047L, 570197L, "accusantium");;
             }};            
 
             RunPluginResponse res = sdk.plugins.runPlugin(req);
@@ -143,15 +128,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("pariatur") {{
+                .setSecurity(new Security("iure") {{
                     apiKey = "";
                 }})
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("modi", "praesentium", "rem", "voluptates") {{
-                createdAt = OffsetDateTime.parse("2022-01-29T18:39:33.469Z");
-                evalHash = "sint";
-                updatedAt = OffsetDateTime.parse("2022-01-26T19:21:55.034Z");
+            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("culpa", "doloribus", "sapiente", "architecto") {{
+                createdAt = OffsetDateTime.parse("2022-08-01T12:28:44.292Z");
+                evalHash = "culpa";
+                updatedAt = OffsetDateTime.parse("2022-01-02T17:10:32.894Z");
             }};            
 
             UpsertPluginResponse res = sdk.plugins.upsertPlugin(req);

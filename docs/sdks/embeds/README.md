@@ -31,31 +31,21 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("omnis") {{
+                .setSecurity(new Security("impedit") {{
                     apiKey = "";
                 }})
                 .build();
 
             GetEmbedAccessTokenRequest req = new GetEmbedAccessTokenRequest() {{
-                description = "nemo";
-                duration = 325047L;
+                description = "cum";
+                duration = 456150L;
                 filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("doloribus", "sapiente", "architecto") {{
-                                        key = "accusantium";
-                                        operator = "iure";
-                                        value = "culpa";
+                                    add(new Filter("perferendis", "ad", "natus") {{
+                                        key = "ipsum";
+                                        operator = "excepturi";
+                                        value = "aspernatur";
                                     }}),
-                                    add(new Filter("consequuntur", "repellat", "mollitia") {{
-                                        key = "mollitia";
-                                        operator = "dolorem";
-                                        value = "culpa";
-                                    }}),
-                                    add(new Filter("quam", "molestiae", "velit") {{
-                                        key = "occaecati";
-                                        operator = "numquam";
-                                        value = "commodi";
-                                    }}),
-                                }}, 623510L, 158969L, "quis");;
+                                }}, 149675L, 612096L, "dolor");;
             }};            
 
             GetEmbedAccessTokenResponse res = sdk.embeds.getEmbedAccessToken(req);
@@ -99,7 +89,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("vitae") {{
+                .setSecurity(new Security("natus") {{
                     apiKey = "";
                 }})
                 .build();
@@ -140,12 +130,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("laborum") {{
+                .setSecurity(new Security("laboriosam") {{
                     apiKey = "";
                 }})
                 .build();
 
-            RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest("animi");            
+            RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest("hic");            
 
             RevokeEmbedAccessTokenResponse res = sdk.embeds.revokeEmbedAccessToken(req);
 

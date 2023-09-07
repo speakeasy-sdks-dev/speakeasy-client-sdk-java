@@ -33,12 +33,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("perferendis") {{
+                .setSecurity(new Security("odit") {{
                     apiKey = "";
                 }})
                 .build();
 
-            DeleteSchemaRequest req = new DeleteSchemaRequest("magni", "assumenda", "ipsam");            
+            DeleteSchemaRequest req = new DeleteSchemaRequest("quo", "sequi", "tenetur");            
 
             DeleteSchemaResponse res = sdk.schemas.deleteSchema(req);
 
@@ -82,12 +82,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("alias") {{
+                .setSecurity(new Security("ipsam") {{
                     apiKey = "";
                 }})
                 .build();
 
-            DownloadSchemaRequest req = new DownloadSchemaRequest("fugit", "dolorum");            
+            DownloadSchemaRequest req = new DownloadSchemaRequest("id", "possimus");            
 
             DownloadSchemaResponse res = sdk.schemas.downloadSchema(req);
 
@@ -131,12 +131,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("excepturi") {{
+                .setSecurity(new Security("aut") {{
                     apiKey = "";
                 }})
                 .build();
 
-            DownloadSchemaRevisionRequest req = new DownloadSchemaRevisionRequest("tempora", "facilis", "tempore");            
+            DownloadSchemaRevisionRequest req = new DownloadSchemaRevisionRequest("quasi", "error", "temporibus");            
 
             DownloadSchemaRevisionResponse res = sdk.schemas.downloadSchemaRevision(req);
 
@@ -181,12 +181,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("labore") {{
+                .setSecurity(new Security("laborum") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetSchemaRequest req = new GetSchemaRequest("delectus", "eum");            
+            GetSchemaRequest req = new GetSchemaRequest("quasi", "reiciendis");            
 
             GetSchemaResponse res = sdk.schemas.getSchema(req);
 
@@ -230,12 +230,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("non") {{
+                .setSecurity(new Security("voluptatibus") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetSchemaDiffRequest req = new GetSchemaDiffRequest("eligendi", "sint", "aliquid", "provident");            
+            GetSchemaDiffRequest req = new GetSchemaDiffRequest("vero", "nihil", "praesentium", "voluptatibus");            
 
             GetSchemaDiffResponse res = sdk.schemas.getSchemaDiff(req);
 
@@ -280,12 +280,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("necessitatibus") {{
+                .setSecurity(new Security("ipsa") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetSchemaRevisionRequest req = new GetSchemaRevisionRequest("sint", "officia", "dolor");            
+            GetSchemaRevisionRequest req = new GetSchemaRevisionRequest("omnis", "voluptate", "cum");            
 
             GetSchemaRevisionResponse res = sdk.schemas.getSchemaRevision(req);
 
@@ -330,12 +330,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("debitis") {{
+                .setSecurity(new Security("perferendis") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetSchemasRequest req = new GetSchemasRequest("a", "dolorum");            
+            GetSchemasRequest req = new GetSchemasRequest("doloremque", "reprehenderit");            
 
             GetSchemasResponse res = sdk.schemas.getSchemas(req);
 
@@ -382,12 +382,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("in") {{
+                .setSecurity(new Security("ut") {{
                     apiKey = "";
                 }})
                 .build();
 
-            RegisterSchemaRequest req = new RegisterSchemaRequest(                new RegisterSchemaRequestBody(                new RegisterSchemaRequestBodyFile("in".getBytes(), "illum"););, "maiores", "rerum");            
+            RegisterSchemaRequest req = new RegisterSchemaRequest(                new RegisterSchemaRequestBody(                new RegisterSchemaRequestBodyFile("maiores".getBytes(), "dicta"););, "corporis", "dolore");            
 
             RegisterSchemaResponse res = sdk.schemas.registerSchema(req);
 

@@ -31,12 +31,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("optio") {{
+                .setSecurity(new Security("at") {{
                     apiKey = "";
                 }})
                 .build();
 
-            DeleteApiRequest req = new DeleteApiRequest("totam", "beatae");            
+            DeleteApiRequest req = new DeleteApiRequest("maiores", "molestiae");            
 
             DeleteApiResponse res = sdk.apis.deleteApi(req);
 
@@ -81,12 +81,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("commodi") {{
+                .setSecurity(new Security("quod") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GenerateOpenApiSpecRequest req = new GenerateOpenApiSpecRequest("molestiae", "modi");            
+            GenerateOpenApiSpecRequest req = new GenerateOpenApiSpecRequest("quod", "esse");            
 
             GenerateOpenApiSpecResponse res = sdk.apis.generateOpenApiSpec(req);
 
@@ -130,12 +130,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("qui") {{
+                .setSecurity(new Security("totam") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GeneratePostmanCollectionRequest req = new GeneratePostmanCollectionRequest("impedit", "cum");            
+            GeneratePostmanCollectionRequest req = new GeneratePostmanCollectionRequest("porro", "dolorum");            
 
             GeneratePostmanCollectionResponse res = sdk.apis.generatePostmanCollection(req);
 
@@ -181,23 +181,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("esse") {{
+                .setSecurity(new Security("dicta") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetAllApiVersionsRequest req = new GetAllApiVersionsRequest("ipsum") {{
+            GetAllApiVersionsRequest req = new GetAllApiVersionsRequest("nam") {{
                 metadata = new java.util.HashMap<String, String[]>() {{
-                    put("aspernatur", new String[]{{
-                        add("ad"),
-                    }});
-                    put("natus", new String[]{{
-                        add("iste"),
-                    }});
-                    put("dolor", new String[]{{
-                        add("laboriosam"),
-                        add("hic"),
-                        add("saepe"),
+                    put("officia", new String[]{{
+                        add("occaecati"),
                     }});
                 }};
                 op = new GetAllApiVersionsOp(false);;
@@ -247,20 +239,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("fuga") {{
+                .setSecurity(new Security("fugit") {{
                     apiKey = "";
                 }})
                 .build();
 
             GetApisRequest req = new GetApisRequest() {{
                 metadata = new java.util.HashMap<String, String[]>() {{
-                    put("corporis", new String[]{{
-                        add("iure"),
-                        add("saepe"),
-                        add("quidem"),
-                    }});
-                    put("architecto", new String[]{{
-                        add("reiciendis"),
+                    put("deleniti", new String[]{{
+                        add("hic"),
                     }});
                 }};
                 op = new GetApisOp(false);;
@@ -310,18 +297,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("est") {{
+                .setSecurity(new Security("optio") {{
                     apiKey = "";
                 }})
                 .build();
 
-            UpsertApiRequest req = new UpsertApiRequest(                new ApiInput("mollitia", "laborum", "dolores") {{
+            UpsertApiRequest req = new UpsertApiRequest(                new ApiInput("totam", "beatae", "commodi") {{
                                 metaData = new java.util.HashMap<String, String[]>() {{
-                                    put("corporis", new String[]{{
-                                        add("nobis"),
+                                    put("molestiae", new String[]{{
+                                        add("modi"),
                                     }});
                                 }};
-                            }};, "enim");            
+                            }};, "qui");            
 
             UpsertApiResponse res = sdk.apis.upsertApi(req);
 
