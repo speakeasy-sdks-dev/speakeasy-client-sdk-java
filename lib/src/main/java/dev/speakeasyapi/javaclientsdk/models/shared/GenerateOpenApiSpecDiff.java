@@ -6,9 +6,6 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * GenerateOpenApiSpecDiff - OK
- */
 
 public class GenerateOpenApiSpecDiff {
     @JsonProperty("current_schema")
