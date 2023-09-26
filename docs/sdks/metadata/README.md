@@ -28,12 +28,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("saepe") {{
+                .setSecurity(new Security("corporis") {{
                     apiKey = "";
                 }})
                 .build();
 
-            DeleteVersionMetadataRequest req = new DeleteVersionMetadataRequest("fuga", "in", "corporis", "iste");            
+            DeleteVersionMetadataRequest req = new DeleteVersionMetadataRequest("iste", "iure", "saepe", "quidem");            
 
             DeleteVersionMetadataResponse res = sdk.metadata.deleteVersionMetadata(req);
 
@@ -77,12 +77,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("iure") {{
+                .setSecurity(new Security("architecto") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetVersionMetadataRequest req = new GetVersionMetadataRequest("saepe", "quidem");            
+            GetVersionMetadataRequest req = new GetVersionMetadataRequest("ipsa", "reiciendis");            
 
             GetVersionMetadataResponse res = sdk.metadata.getVersionMetadata(req);
 
@@ -127,12 +127,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("architecto") {{
+                .setSecurity(new Security("est") {{
                     apiKey = "";
                 }})
                 .build();
 
-            InsertVersionMetadataRequest req = new InsertVersionMetadataRequest(                new VersionMetadataInput("ipsa", "reiciendis");, "est", "mollitia");            
+            InsertVersionMetadataRequest req = new InsertVersionMetadataRequest(                new VersionMetadataInput("mollitia", "laborum");, "dolores", "dolorem");            
 
             InsertVersionMetadataResponse res = sdk.metadata.insertVersionMetadata(req);
 

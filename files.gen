@@ -126,14 +126,6 @@ lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/Schema.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/SchemaDiffValueChange.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/SchemaDiff.java
 lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/Security.java
-docs/sdks/sdk/README.md
-docs/sdks/apiendpoints/README.md
-docs/sdks/apis/README.md
-docs/sdks/embeds/README.md
-docs/sdks/metadata/README.md
-docs/sdks/plugins/README.md
-docs/sdks/requests/README.md
-docs/sdks/schemas/README.md
 USAGE.md
 docs/models/operations/DeleteApiEndpointRequest.md
 docs/models/operations/DeleteApiEndpointResponse.md
@@ -225,3 +217,11 @@ docs/models/shared/Schema.md
 docs/models/shared/SchemaDiffValueChange.md
 docs/models/shared/SchemaDiff.md
 docs/models/shared/Security.md
+docs/sdks/sdk/README.md
+docs/sdks/apiendpoints/README.md
+docs/sdks/apis/README.md
+docs/sdks/embeds/README.md
+docs/sdks/metadata/README.md
+docs/sdks/plugins/README.md
+docs/sdks/requests/README.md
+docs/sdks/schemas/README.md

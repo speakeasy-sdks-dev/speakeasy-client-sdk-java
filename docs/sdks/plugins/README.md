@@ -27,7 +27,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("laborum") {{
+                .setSecurity(new Security("corporis") {{
                     apiKey = "";
                 }})
                 .build();
@@ -70,19 +70,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("dolores") {{
+                .setSecurity(new Security("explicabo") {{
                     apiKey = "";
                 }})
                 .build();
 
-            RunPluginRequest req = new RunPluginRequest("dolorem") {{
+            RunPluginRequest req = new RunPluginRequest("nobis") {{
                 filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("enim", "omnis", "nemo") {{
-                                        key = "corporis";
-                                        operator = "explicabo";
-                                        value = "nobis";
+                                    add(new Filter("minima", "excepturi", "accusantium") {{
+                                        key = "enim";
+                                        operator = "omnis";
+                                        value = "nemo";
                                     }}),
-                                }}, 325047L, 570197L, "accusantium");;
+                                }}, 438601L, 634274L, "doloribus");;
             }};            
 
             RunPluginResponse res = sdk.plugins.runPlugin(req);
@@ -128,15 +128,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("iure") {{
+                .setSecurity(new Security("sapiente") {{
                     apiKey = "";
                 }})
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("culpa", "doloribus", "sapiente", "architecto") {{
-                createdAt = OffsetDateTime.parse("2022-08-01T12:28:44.292Z");
-                evalHash = "culpa";
-                updatedAt = OffsetDateTime.parse("2022-01-02T17:10:32.894Z");
+            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("architecto", "mollitia", "dolorem", "culpa") {{
+                createdAt = OffsetDateTime.parse("2022-01-02T17:10:32.894Z");
+                evalHash = "mollitia";
+                updatedAt = OffsetDateTime.parse("2022-06-30T02:19:51.375Z");
             }};            
 
             UpsertPluginResponse res = sdk.plugins.upsertPlugin(req);

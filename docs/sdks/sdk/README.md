@@ -27,7 +27,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("quibusdam") {{
+                .setSecurity(new Security("corrupti") {{
                     apiKey = "";
                 }})
                 .build();
