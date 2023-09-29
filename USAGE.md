@@ -14,15 +14,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("corrupti") {{
+                .setSecurity(new Security("South") {{
                     apiKey = "";
                 }})
                 .build();
 
             GetApisRequest req = new GetApisRequest() {{
                 metadata = new java.util.HashMap<String, String[]>() {{
-                    put("provident", new String[]{{
-                        add("distinctio"),
+                    put("beatae", new String[]{{
+                        add("feedback"),
                     }});
                 }};
                 op = new GetApisOp(false);;

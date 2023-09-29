@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.56.1'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:1.57.0'
 ```
 <!-- End SDK Installation -->
 
@@ -25,15 +25,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("quibusdam") {{
+                .setSecurity(new Security("South") {{
                     apiKey = "";
                 }})
                 .build();
 
             GetApisRequest req = new GetApisRequest() {{
                 metadata = new java.util.HashMap<String, String[]>() {{
-                    put("unde", new String[]{{
-                        add("nulla"),
+                    put("beatae", new String[]{{
+                        add("feedback"),
                     }});
                 }};
                 op = new GetApisOp(false);;

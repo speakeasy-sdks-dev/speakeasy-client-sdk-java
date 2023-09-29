@@ -30,12 +30,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("commodi") {{
+                .setSecurity(new Security("Architect") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GenerateRequestPostmanCollectionRequest req = new GenerateRequestPostmanCollectionRequest("quam");            
+            GenerateRequestPostmanCollectionRequest req = new GenerateRequestPostmanCollectionRequest("calculating");            
 
             GenerateRequestPostmanCollectionResponse res = sdk.requests.generateRequestPostmanCollection(req);
 
@@ -79,12 +79,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("molestiae") {{
+                .setSecurity(new Security("Chevrolet") {{
                     apiKey = "";
                 }})
                 .build();
 
-            GetRequestFromEventLogRequest req = new GetRequestFromEventLogRequest("velit");            
+            GetRequestFromEventLogRequest req = new GetRequestFromEventLogRequest("Future");            
 
             GetRequestFromEventLogResponse res = sdk.requests.getRequestFromEventLog(req);
 
@@ -131,19 +131,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("error") {{
+                .setSecurity(new Security("Cotton") {{
                     apiKey = "";
                 }})
                 .build();
 
             QueryEventLogRequest req = new QueryEventLogRequest() {{
                 filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("laborum", "animi", "enim") {{
-                                        key = "quia";
-                                        operator = "quis";
-                                        value = "vitae";
+                                    add(new Filter("empower", "Northeast", "convergence") {{
+                                        key = "<key>";
+                                        operator = "after white";
+                                        value = "port Lanthanum";
                                     }}),
-                                }}, 138183L, 778346L, "sequi");;
+                                }}, 32744L, 855045L, "East");;
             }};            
 
             QueryEventLogResponse res = sdk.requests.queryEventLog(req);

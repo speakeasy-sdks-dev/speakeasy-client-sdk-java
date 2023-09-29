@@ -32,21 +32,21 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("ipsum") {{
+                .setSecurity(new Security("along") {{
                     apiKey = "";
                 }})
                 .build();
 
             GetEmbedAccessTokenRequest req = new GetEmbedAccessTokenRequest() {{
-                description = "excepturi";
-                duration = 135218L;
+                description = "Organized intermediate data-warehouse";
+                duration = 411277L;
                 filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("sed", "iste", "dolor") {{
-                                        key = "perferendis";
-                                        operator = "ad";
-                                        value = "natus";
+                                    add(new Filter("kilogram", "innovative", "Virginia") {{
+                                        key = "<key>";
+                                        operator = "which unless to";
+                                        value = "regional Tala";
                                     }}),
-                                }}, 616934L, 386489L, "hic");;
+                                }}, 896882L, 838482L, "Beauty");;
             }};            
 
             GetEmbedAccessTokenResponse res = sdk.embeds.getEmbedAccessToken(req);
@@ -90,7 +90,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("saepe") {{
+                .setSecurity(new Security("Diesel") {{
                     apiKey = "";
                 }})
                 .build();
@@ -131,12 +131,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("fuga") {{
+                .setSecurity(new Security("Ball") {{
                     apiKey = "";
                 }})
                 .build();
 
-            RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest("in");            
+            RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest("Beavercreek");            
 
             RevokeEmbedAccessTokenResponse res = sdk.embeds.revokeEmbedAccessToken(req);
 
