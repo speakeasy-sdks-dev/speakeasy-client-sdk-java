@@ -34,7 +34,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("West") {{
+                .setSecurity(new Security("West"){{
                     apiKey = "";
                 }})
                 .build();
@@ -83,7 +83,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("SMTP") {{
+                .setSecurity(new Security("SMTP"){{
                     apiKey = "";
                 }})
                 .build();
@@ -132,7 +132,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Cargo") {{
+                .setSecurity(new Security("Cargo"){{
                     apiKey = "";
                 }})
                 .build();
@@ -182,7 +182,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Handcrafted") {{
+                .setSecurity(new Security("Handcrafted"){{
                     apiKey = "";
                 }})
                 .build();
@@ -231,7 +231,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("North") {{
+                .setSecurity(new Security("North"){{
                     apiKey = "";
                 }})
                 .build();
@@ -281,7 +281,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("City") {{
+                .setSecurity(new Security("City"){{
                     apiKey = "";
                 }})
                 .build();
@@ -331,7 +331,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("indigo") {{
+                .setSecurity(new Security("indigo"){{
                     apiKey = "";
                 }})
                 .build();
@@ -383,12 +383,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Polestar") {{
+                .setSecurity(new Security("Polestar"){{
                     apiKey = "";
                 }})
                 .build();
 
-            RegisterSchemaRequest req = new RegisterSchemaRequest(                new RegisterSchemaRequestBody(                new RegisterSchemaRequestBodyFile("|mf\".]!\q:".getBytes(), "Avon"););, "Pants", "Table");            
+            RegisterSchemaRequest req = new RegisterSchemaRequest(new RegisterSchemaRequestBody(new RegisterSchemaRequestBodyFile("|mf\".]!\q:".getBytes(), "Avon")), "Pants", "Table");            
 
             RegisterSchemaResponse res = sdk.schemas.registerSchema(req);
 

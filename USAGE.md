@@ -14,18 +14,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("South") {{
+                .setSecurity(new Security("South"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GetApisRequest req = new GetApisRequest() {{
-                metadata = new java.util.HashMap<String, String[]>() {{
-                    put("beatae", new String[]{{
-                        add("feedback"),
+            GetApisRequest req = new GetApisRequest(){{
+                metadata = new java.util.HashMap<String, String[]>(){{
+                    put("Southwest", new String[]{{
+                        add("Orleans"),
                     }});
                 }};
-                op = new GetApisOp(false);;
+                op = new GetApisOp(false);
             }};            
 
             GetApisResponse res = sdk.apis.getApis(req);

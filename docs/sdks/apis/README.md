@@ -32,7 +32,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("plaintive") {{
+                .setSecurity(new Security("plaintive"){{
                     apiKey = "";
                 }})
                 .build();
@@ -82,7 +82,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("fixed") {{
+                .setSecurity(new Security("fixed"){{
                     apiKey = "";
                 }})
                 .build();
@@ -131,7 +131,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Paradigm") {{
+                .setSecurity(new Security("Paradigm"){{
                     apiKey = "";
                 }})
                 .build();
@@ -182,18 +182,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("azure") {{
+                .setSecurity(new Security("azure"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GetAllApiVersionsRequest req = new GetAllApiVersionsRequest("enhance") {{
-                metadata = new java.util.HashMap<String, String[]>() {{
-                    put("fugit", new String[]{{
-                        add("Berkshire"),
+            GetAllApiVersionsRequest req = new GetAllApiVersionsRequest("enhance"){{
+                metadata = new java.util.HashMap<String, String[]>(){{
+                    put("Garrison", new String[]{{
+                        add("Salad"),
                     }});
                 }};
-                op = new GetAllApiVersionsOp(false);;
+                op = new GetAllApiVersionsOp(false);
             }};            
 
             GetAllApiVersionsResponse res = sdk.apis.getAllApiVersions(req);
@@ -240,18 +240,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("South") {{
+                .setSecurity(new Security("South"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GetApisRequest req = new GetApisRequest() {{
-                metadata = new java.util.HashMap<String, String[]>() {{
-                    put("beatae", new String[]{{
-                        add("feedback"),
+            GetApisRequest req = new GetApisRequest(){{
+                metadata = new java.util.HashMap<String, String[]>(){{
+                    put("Southwest", new String[]{{
+                        add("Orleans"),
                     }});
                 }};
-                op = new GetApisOp(false);;
+                op = new GetApisOp(false);
             }};            
 
             GetApisResponse res = sdk.apis.getApis(req);
@@ -298,18 +298,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Van") {{
+                .setSecurity(new Security("Van"){{
                     apiKey = "";
                 }})
                 .build();
 
-            UpsertApiRequest req = new UpsertApiRequest(                new ApiInput("redefine", "Garland", "Andorra") {{
-                                metaData = new java.util.HashMap<String, String[]>() {{
-                                    put("reiciendis", new String[]{{
-                                        add("pixel"),
-                                    }});
-                                }};
-                            }};, "Buckinghamshire");            
+            UpsertApiRequest req = new UpsertApiRequest(new ApiInput("redefine", "Garland", "Andorra"){{
+metaData = new java.util.HashMap<String, String[]>(){{
+    put("lest", new String[]{{
+        add("male"),
+    }});
+}};
+}}, "Course");            
 
             UpsertApiResponse res = sdk.apis.upsertApi(req);
 

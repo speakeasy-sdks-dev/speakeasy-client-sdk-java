@@ -32,21 +32,21 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("along") {{
+                .setSecurity(new Security("along"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GetEmbedAccessTokenRequest req = new GetEmbedAccessTokenRequest() {{
+            GetEmbedAccessTokenRequest req = new GetEmbedAccessTokenRequest(){{
                 description = "Organized intermediate data-warehouse";
                 duration = 411277L;
-                filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("kilogram", "innovative", "Virginia") {{
-                                        key = "<key>";
-                                        operator = "which unless to";
-                                        value = "regional Tala";
-                                    }}),
-                                }}, 896882L, 838482L, "Beauty");;
+                filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
+                    add(new Filter("kilogram", "innovative", "Virginia"){{
+                        key = "<key>";
+                        operator = "which unless to";
+                        value = "regional Tala";
+                    }}),
+                }}, 896882L, 838482L, "Beauty");
             }};            
 
             GetEmbedAccessTokenResponse res = sdk.embeds.getEmbedAccessToken(req);
@@ -90,7 +90,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Diesel") {{
+                .setSecurity(new Security("Diesel"){{
                     apiKey = "";
                 }})
                 .build();
@@ -131,7 +131,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Ball") {{
+                .setSecurity(new Security("Ball"){{
                     apiKey = "";
                 }})
                 .build();

@@ -34,7 +34,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("blue") {{
+                .setSecurity(new Security("blue"){{
                     apiKey = "";
                 }})
                 .build();
@@ -84,7 +84,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Cotton") {{
+                .setSecurity(new Security("Cotton"){{
                     apiKey = "";
                 }})
                 .build();
@@ -134,7 +134,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Mazda") {{
+                .setSecurity(new Security("Mazda"){{
                     apiKey = "";
                 }})
                 .build();
@@ -183,7 +183,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("indigo") {{
+                .setSecurity(new Security("indigo"){{
                     apiKey = "";
                 }})
                 .build();
@@ -232,7 +232,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("unless") {{
+                .setSecurity(new Security("unless"){{
                     apiKey = "";
                 }})
                 .build();
@@ -281,7 +281,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("now") {{
+                .setSecurity(new Security("now"){{
                     apiKey = "";
                 }})
                 .build();
@@ -330,7 +330,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("flog") {{
+                .setSecurity(new Security("flog"){{
                     apiKey = "";
                 }})
                 .build();
@@ -380,12 +380,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Facilitator") {{
+                .setSecurity(new Security("Facilitator"){{
                     apiKey = "";
                 }})
                 .build();
 
-            UpsertApiEndpointRequest req = new UpsertApiEndpointRequest(                new ApiEndpointInput("Northeast", "azure", "ASCII", "Cotton", "what", "Trans");, "Kia", "Electronic", "Northwest");            
+            UpsertApiEndpointRequest req = new UpsertApiEndpointRequest(new ApiEndpointInput("Northeast", "azure", "ASCII", "Cotton", "what", "Trans"), "Kia", "Electronic", "Northwest");            
 
             UpsertApiEndpointResponse res = sdk.apiEndpoints.upsertApiEndpoint(req);
 

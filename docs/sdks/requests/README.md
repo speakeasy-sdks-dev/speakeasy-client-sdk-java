@@ -30,7 +30,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Architect") {{
+                .setSecurity(new Security("Architect"){{
                     apiKey = "";
                 }})
                 .build();
@@ -79,7 +79,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Chevrolet") {{
+                .setSecurity(new Security("Chevrolet"){{
                     apiKey = "";
                 }})
                 .build();
@@ -131,19 +131,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Cotton") {{
+                .setSecurity(new Security("Cotton"){{
                     apiKey = "";
                 }})
                 .build();
 
-            QueryEventLogRequest req = new QueryEventLogRequest() {{
-                filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("empower", "Northeast", "convergence") {{
-                                        key = "<key>";
-                                        operator = "after white";
-                                        value = "port Lanthanum";
-                                    }}),
-                                }}, 32744L, 855045L, "East");;
+            QueryEventLogRequest req = new QueryEventLogRequest(){{
+                filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
+                    add(new Filter("empower", "Northeast", "convergence"){{
+                        key = "<key>";
+                        operator = "after white";
+                        value = "port Lanthanum";
+                    }}),
+                }}, 32744L, 855045L, "East");
             }};            
 
             QueryEventLogResponse res = sdk.requests.queryEventLog(req);

@@ -28,7 +28,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Corporate") {{
+                .setSecurity(new Security("Corporate"){{
                     apiKey = "";
                 }})
                 .build();
@@ -71,19 +71,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Designer") {{
+                .setSecurity(new Security("Designer"){{
                     apiKey = "";
                 }})
                 .build();
 
-            RunPluginRequest req = new RunPluginRequest("Pickup") {{
-                filters = new Filters(                new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                                    add(new Filter("Metal", "ex", "The") {{
-                                        key = "<key>";
-                                        operator = "purple Pants";
-                                        value = "Ball JSON Botswana";
-                                    }}),
-                                }}, 133070L, 352837L, "withdrawal");;
+            RunPluginRequest req = new RunPluginRequest("Pickup"){{
+                filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
+                    add(new Filter("Metal", "ex", "The"){{
+                        key = "<key>";
+                        operator = "purple Pants";
+                        value = "Ball JSON Botswana";
+                    }}),
+                }}, 133070L, 352837L, "withdrawal");
             }};            
 
             RunPluginResponse res = sdk.plugins.runPlugin(req);
@@ -129,12 +129,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Fish") {{
+                .setSecurity(new Security("Fish"){{
                     apiKey = "";
                 }})
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("Rock", "North", "exuding", "Soul") {{
+            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("Rock", "North", "exuding", "Soul"){{
                 createdAt = OffsetDateTime.parse("2022-04-23T05:10:17.359Z");
                 evalHash = "Tandem";
                 updatedAt = OffsetDateTime.parse("2022-02-25T08:00:31.599Z");

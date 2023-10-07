@@ -29,7 +29,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Hydrogen") {{
+                .setSecurity(new Security("Hydrogen"){{
                     apiKey = "";
                 }})
                 .build();
@@ -78,7 +78,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Bronze") {{
+                .setSecurity(new Security("Bronze"){{
                     apiKey = "";
                 }})
                 .build();
@@ -128,12 +128,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Borders") {{
+                .setSecurity(new Security("Borders"){{
                     apiKey = "";
                 }})
                 .build();
 
-            InsertVersionMetadataRequest req = new InsertVersionMetadataRequest(                new VersionMetadataInput("Potassium", "Bedfordshire");, "Dram", "Northeast");            
+            InsertVersionMetadataRequest req = new InsertVersionMetadataRequest(new VersionMetadataInput("Potassium", "Bedfordshire"), "Dram", "Northeast");            
 
             InsertVersionMetadataResponse res = sdk.metadata.insertVersionMetadata(req);
 
