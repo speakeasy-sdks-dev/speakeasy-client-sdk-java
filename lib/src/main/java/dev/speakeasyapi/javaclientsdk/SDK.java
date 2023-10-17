@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
- * https://speakeasyapi.dev/docs/ - The Speakeasy Platform Documentation
+ * /docs - The Speakeasy Platform Documentation
  */
 public class SDK {
 	/**
