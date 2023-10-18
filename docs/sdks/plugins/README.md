@@ -78,12 +78,12 @@ public class Application {
 
             RunPluginRequest req = new RunPluginRequest("Pickup"){{
                 filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                    add(new Filter("Metal", "ex", "The"){{
+                    add(new Filter("Chrysler", "Seamless", "dope"){{
                         key = "<key>";
-                        operator = "purple Pants";
-                        value = "Ball JSON Botswana";
+                        operator = "deposit";
+                        value = "Indiana";
                     }}),
-                }}, 133070L, 352837L, "withdrawal");
+                }}, 457348L, 78940L, "Refined");
             }};            
 
             RunPluginResponse res = sdk.plugins.runPlugin(req);
@@ -136,8 +136,8 @@ public class Application {
 
             dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("Rock", "North", "exuding", "Soul"){{
                 createdAt = OffsetDateTime.parse("2022-04-23T05:10:17.359Z");
-                evalHash = "Tandem";
-                updatedAt = OffsetDateTime.parse("2022-02-25T08:00:31.599Z");
+                evalHash = "schemas";
+                updatedAt = OffsetDateTime.parse("2023-04-04T11:23:14.895Z");
             }};            
 
             UpsertPluginResponse res = sdk.plugins.upsertPlugin(req);

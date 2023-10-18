@@ -41,12 +41,12 @@ public class Application {
                 description = "Organized intermediate data-warehouse";
                 duration = 411277L;
                 filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                    add(new Filter("kilogram", "innovative", "Virginia"){{
+                    add(new Filter("Strategist", "Cab", "violet"){{
                         key = "<key>";
-                        operator = "which unless to";
-                        value = "regional Tala";
+                        operator = "male";
+                        value = "used";
                     }}),
-                }}, 896882L, 838482L, "Beauty");
+                }}, 874598L, 755135L, "Elegant");
             }};            
 
             GetEmbedAccessTokenResponse res = sdk.embeds.getEmbedAccessToken(req);

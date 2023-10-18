@@ -138,12 +138,12 @@ public class Application {
 
             QueryEventLogRequest req = new QueryEventLogRequest(){{
                 filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                    add(new Filter("empower", "Northeast", "convergence"){{
+                    add(new Filter("Practical", "port", "Lanthanum"){{
                         key = "<key>";
-                        operator = "after white";
-                        value = "port Lanthanum";
+                        operator = "Interactions";
+                        value = "West";
                     }}),
-                }}, 32744L, 855045L, "East");
+                }}, 307262L, 291168L, "Northeast");
             }};            
 
             QueryEventLogResponse res = sdk.requests.queryEventLog(req);
