@@ -32,12 +32,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("plaintive"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            DeleteApiRequest req = new DeleteApiRequest("THX", "Senior");            
+            DeleteApiRequest req = new DeleteApiRequest("string", "string");            
 
             DeleteApiResponse res = sdk.apis.deleteApi(req);
 
@@ -82,12 +82,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("fixed"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GenerateOpenApiSpecRequest req = new GenerateOpenApiSpecRequest("bandwidth", "ADP");            
+            GenerateOpenApiSpecRequest req = new GenerateOpenApiSpecRequest("string", "string");            
 
             GenerateOpenApiSpecResponse res = sdk.apis.generateOpenApiSpec(req);
 
@@ -131,12 +131,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Paradigm"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GeneratePostmanCollectionRequest req = new GeneratePostmanCollectionRequest("olive", "evolve");            
+            GeneratePostmanCollectionRequest req = new GeneratePostmanCollectionRequest("string", "string");            
 
             GeneratePostmanCollectionResponse res = sdk.apis.generatePostmanCollection(req);
 
@@ -182,15 +182,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("azure"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GetAllApiVersionsRequest req = new GetAllApiVersionsRequest("enhance"){{
+            GetAllApiVersionsRequest req = new GetAllApiVersionsRequest("string"){{
                 metadata = new java.util.HashMap<String, String[]>(){{
-                    put("Garrison", new String[]{{
-                        add("Salad"),
+                    put("key", new String[]{{
+                        add("string"),
                     }});
                 }};
                 op = new GetAllApiVersionsOp(false);
@@ -240,15 +240,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("South"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
             GetApisRequest req = new GetApisRequest(){{
                 metadata = new java.util.HashMap<String, String[]>(){{
-                    put("Southwest", new String[]{{
-                        add("Orleans"),
+                    put("key", new String[]{{
+                        add("string"),
                     }});
                 }};
                 op = new GetApisOp(false);
@@ -298,18 +298,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Van"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            UpsertApiRequest req = new UpsertApiRequest(new ApiInput("redefine", "Garland", "Andorra"){{
+            UpsertApiRequest req = new UpsertApiRequest(new ApiInput("string", "string", "string"){{
 metaData = new java.util.HashMap<String, String[]>(){{
-    put("lest", new String[]{{
-        add("male"),
+    put("key", new String[]{{
+        add("string"),
     }});
 }};
-}}, "Course");            
+}}, "string");            
 
             UpsertApiResponse res = sdk.apis.upsertApi(req);
 

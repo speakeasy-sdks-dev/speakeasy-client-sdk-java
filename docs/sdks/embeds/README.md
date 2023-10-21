@@ -32,21 +32,21 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("along"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
             GetEmbedAccessTokenRequest req = new GetEmbedAccessTokenRequest(){{
-                description = "Organized intermediate data-warehouse";
-                duration = 411277L;
+                description = "Versatile asynchronous leverage";
+                duration = 554373L;
                 filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                    add(new Filter("Strategist", "Cab", "violet"){{
+                    add(new Filter("string", "string", "string"){{
                         key = "<key>";
-                        operator = "male";
-                        value = "used";
+                        operator = "string";
+                        value = "string";
                     }}),
-                }}, 874598L, 755135L, "Elegant");
+                }}, 263313L, 411277L, "string");
             }};            
 
             GetEmbedAccessTokenResponse res = sdk.embeds.getEmbedAccessToken(req);
@@ -90,7 +90,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Diesel"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
@@ -131,12 +131,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Ball"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest("Beavercreek");            
+            RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest("string");            
 
             RevokeEmbedAccessTokenResponse res = sdk.embeds.revokeEmbedAccessToken(req);
 

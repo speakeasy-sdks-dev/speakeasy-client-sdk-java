@@ -30,12 +30,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Architect"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GenerateRequestPostmanCollectionRequest req = new GenerateRequestPostmanCollectionRequest("calculating");            
+            GenerateRequestPostmanCollectionRequest req = new GenerateRequestPostmanCollectionRequest("string");            
 
             GenerateRequestPostmanCollectionResponse res = sdk.requests.generateRequestPostmanCollection(req);
 
@@ -79,12 +79,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Chevrolet"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            GetRequestFromEventLogRequest req = new GetRequestFromEventLogRequest("Future");            
+            GetRequestFromEventLogRequest req = new GetRequestFromEventLogRequest("string");            
 
             GetRequestFromEventLogResponse res = sdk.requests.getRequestFromEventLog(req);
 
@@ -131,19 +131,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Cotton"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
             QueryEventLogRequest req = new QueryEventLogRequest(){{
                 filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                    add(new Filter("Practical", "port", "Lanthanum"){{
+                    add(new Filter("string", "string", "string"){{
                         key = "<key>";
-                        operator = "Interactions";
-                        value = "West";
+                        operator = "string";
+                        value = "string";
                     }}),
-                }}, 307262L, 291168L, "Northeast");
+                }}, 241978L, 451388L, "string");
             }};            
 
             QueryEventLogResponse res = sdk.requests.queryEventLog(req);

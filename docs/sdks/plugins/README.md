@@ -28,7 +28,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Corporate"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
@@ -71,19 +71,19 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Designer"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            RunPluginRequest req = new RunPluginRequest("Pickup"){{
+            RunPluginRequest req = new RunPluginRequest("string"){{
                 filters = new Filters(new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                    add(new Filter("Chrysler", "Seamless", "dope"){{
+                    add(new Filter("string", "string", "string"){{
                         key = "<key>";
-                        operator = "deposit";
-                        value = "Indiana";
+                        operator = "string";
+                        value = "string";
                     }}),
-                }}, 457348L, 78940L, "Refined");
+                }}, 669298L, 94585L, "string");
             }};            
 
             RunPluginResponse res = sdk.plugins.runPlugin(req);
@@ -129,15 +129,15 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("Fish"){{
+                .setSecurity(new Security("string"){{
                     apiKey = "";
                 }})
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("Rock", "North", "exuding", "Soul"){{
-                createdAt = OffsetDateTime.parse("2022-04-23T05:10:17.359Z");
-                evalHash = "schemas";
-                updatedAt = OffsetDateTime.parse("2023-04-04T11:23:14.895Z");
+            dev.speakeasyapi.javaclientsdk.models.shared.Plugin req = new Plugin("string", "string", "string", "string"){{
+                createdAt = OffsetDateTime.parse("2021-12-29T22:47:21.364Z");
+                evalHash = "string";
+                updatedAt = OffsetDateTime.parse("2023-08-18T05:20:47.765Z");
             }};            
 
             UpsertPluginResponse res = sdk.plugins.upsertPlugin(req);
