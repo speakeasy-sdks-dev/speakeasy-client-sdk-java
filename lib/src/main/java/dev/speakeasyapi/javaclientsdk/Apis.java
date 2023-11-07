@@ -195,7 +195,7 @@ public class Apis {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsResponse(contentType, httpRes.statusCode()) {{
-            apis = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -204,7 +204,7 @@ public class Apis {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Api[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Api[].class);
-                res.apis = out;
+                res.classes = out;
             }
         }
         else {
@@ -250,7 +250,7 @@ public class Apis {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse(contentType, httpRes.statusCode()) {{
-            apis = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -259,7 +259,7 @@ public class Apis {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Api[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Api[].class);
-                res.apis = out;
+                res.classes = out;
             }
         }
         else {
@@ -288,7 +288,7 @@ public class Apis {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");
         req.setURL(url);
-        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "apiInput", "json");
+        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "api", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }

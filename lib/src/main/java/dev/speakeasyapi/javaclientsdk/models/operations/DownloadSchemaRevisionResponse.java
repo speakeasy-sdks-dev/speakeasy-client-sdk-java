@@ -10,6 +10,28 @@ import java.net.http.HttpResponse;
 
 public class DownloadSchemaRevisionResponse {
     /**
+     * OK
+     */
+    
+    public byte[] twoHundredApplicationJsonSchema;
+
+    public DownloadSchemaRevisionResponse withTwoHundredApplicationJsonSchema(byte[] twoHundredApplicationJsonSchema) {
+        this.twoHundredApplicationJsonSchema = twoHundredApplicationJsonSchema;
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    
+    public byte[] twoHundredApplicationXYamlSchema;
+
+    public DownloadSchemaRevisionResponse withTwoHundredApplicationXYamlSchema(byte[] twoHundredApplicationXYamlSchema) {
+        this.twoHundredApplicationXYamlSchema = twoHundredApplicationXYamlSchema;
+        return this;
+    }
+    
+    /**
      * HTTP response content type for this operation
      */
     
@@ -28,17 +50,6 @@ public class DownloadSchemaRevisionResponse {
 
     public DownloadSchemaRevisionResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
         this.error = error;
-        return this;
-    }
-    
-    /**
-     * OK
-     */
-    
-    public byte[] schema;
-
-    public DownloadSchemaRevisionResponse withSchema(byte[] schema) {
-        this.schema = schema;
         return this;
     }
     

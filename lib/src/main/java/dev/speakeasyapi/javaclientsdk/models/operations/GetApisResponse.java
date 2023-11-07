@@ -10,17 +10,6 @@ import java.net.http.HttpResponse;
 
 public class GetApisResponse {
     /**
-     * OK
-     */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis;
-
-    public GetApisResponse withApis(dev.speakeasyapi.javaclientsdk.models.shared.Api[] apis) {
-        this.apis = apis;
-        return this;
-    }
-    
-    /**
      * HTTP response content type for this operation
      */
     
@@ -61,6 +50,17 @@ public class GetApisResponse {
 
     public GetApisResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    
+    public dev.speakeasyapi.javaclientsdk.models.shared.Api[] classes;
+
+    public GetApisResponse withClasses(dev.speakeasyapi.javaclientsdk.models.shared.Api[] classes) {
+        this.classes = classes;
         return this;
     }
     

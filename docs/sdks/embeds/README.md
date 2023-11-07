@@ -1,5 +1,5 @@
 # Embeds
-(*embeds*)
+(*.embeds*)
 
 ## Overview
 
@@ -97,7 +97,7 @@ public class Application {
 
             GetValidEmbedAccessTokensResponse res = sdk.embeds.getValidEmbedAccessTokens();
 
-            if (res.embedTokens != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {

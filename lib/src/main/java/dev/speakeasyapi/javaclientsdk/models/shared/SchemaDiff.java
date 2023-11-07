@@ -37,14 +37,14 @@ public class SchemaDiff {
      * Holds every modification change in the diff.
      */
     @JsonProperty("modifications")
-    public java.util.Map<String, SchemaDiffValueChange> modifications;
+    public java.util.Map<String, ValueChange> modifications;
 
-    public SchemaDiff withModifications(java.util.Map<String, SchemaDiffValueChange> modifications) {
+    public SchemaDiff withModifications(java.util.Map<String, ValueChange> modifications) {
         this.modifications = modifications;
         return this;
     }
     
-    public SchemaDiff(@JsonProperty("additions") String[] additions, @JsonProperty("deletions") String[] deletions, @JsonProperty("modifications") java.util.Map<String, SchemaDiffValueChange> modifications) {
+    public SchemaDiff(@JsonProperty("additions") String[] additions, @JsonProperty("deletions") String[] deletions, @JsonProperty("modifications") java.util.Map<String, ValueChange> modifications) {
         this.additions = additions;
         this.deletions = deletions;
         this.modifications = modifications;

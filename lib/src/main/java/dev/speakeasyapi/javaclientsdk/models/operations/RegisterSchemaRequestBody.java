@@ -13,14 +13,14 @@ import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 public class RegisterSchemaRequestBody {
     @SpeakeasyMetadata("multipartForm:file")
-    public RegisterSchemaRequestBodyFile file;
+    public File file;
 
-    public RegisterSchemaRequestBody withFile(RegisterSchemaRequestBodyFile file) {
+    public RegisterSchemaRequestBody withFile(File file) {
         this.file = file;
         return this;
     }
     
-    public RegisterSchemaRequestBody(@JsonProperty("file") RegisterSchemaRequestBodyFile file) {
+    public RegisterSchemaRequestBody(@JsonProperty("file") File file) {
         this.file = file;
   }
 }

@@ -151,7 +151,7 @@ public class Requests {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse(contentType, httpRes.statusCode()) {{
-            boundedRequests = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -160,7 +160,7 @@ public class Requests {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[].class);
-                res.boundedRequests = out;
+                res.classes = out;
             }
         }
         else {

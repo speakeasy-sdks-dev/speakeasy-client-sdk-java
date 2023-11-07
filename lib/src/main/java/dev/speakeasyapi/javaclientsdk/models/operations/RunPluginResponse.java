@@ -10,17 +10,6 @@ import java.net.http.HttpResponse;
 
 public class RunPluginResponse {
     /**
-     * OK
-     */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests;
-
-    public RunPluginResponse withBoundedRequests(dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests) {
-        this.boundedRequests = boundedRequests;
-        return this;
-    }
-    
-    /**
      * HTTP response content type for this operation
      */
     
@@ -61,6 +50,17 @@ public class RunPluginResponse {
 
     public RunPluginResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    
+    public dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] classes;
+
+    public RunPluginResponse withClasses(dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] classes) {
+        this.classes = classes;
         return this;
     }
     

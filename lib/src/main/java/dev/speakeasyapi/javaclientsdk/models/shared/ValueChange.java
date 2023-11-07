@@ -7,14 +7,14 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
-public class SchemaDiffValueChange {
+public class ValueChange {
     /**
      * Represents the previous value of the element.
      */
     @JsonProperty("From")
     public String from;
 
-    public SchemaDiffValueChange withFrom(String from) {
+    public ValueChange withFrom(String from) {
         this.from = from;
         return this;
     }
@@ -25,12 +25,12 @@ public class SchemaDiffValueChange {
     @JsonProperty("To")
     public String to;
 
-    public SchemaDiffValueChange withTo(String to) {
+    public ValueChange withTo(String to) {
         this.to = to;
         return this;
     }
     
-    public SchemaDiffValueChange(@JsonProperty("From") String from, @JsonProperty("To") String to) {
+    public ValueChange(@JsonProperty("From") String from, @JsonProperty("To") String to) {
         this.from = from;
         this.to = to;
   }

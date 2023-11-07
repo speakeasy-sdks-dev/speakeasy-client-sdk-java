@@ -8,22 +8,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 /**
- * GetApisOp - Configuration for filter operations
+ * Op - Configuration for filter operations
  */
 
-public class GetApisOp {
+public class Op {
     /**
      * Whether to AND or OR the filters
      */
     @SpeakeasyMetadata("queryParam:name=and")
     public Boolean and;
 
-    public GetApisOp withAnd(Boolean and) {
+    public Op withAnd(Boolean and) {
         this.and = and;
         return this;
     }
     
-    public GetApisOp(@JsonProperty("and") Boolean and) {
+    public Op(@JsonProperty("and") Boolean and) {
         this.and = and;
   }
 }

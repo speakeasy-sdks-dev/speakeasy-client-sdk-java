@@ -1,5 +1,5 @@
 # ApiEndpoints
-(*apiEndpoints*)
+(*.apiEndpoints*)
 
 ## Overview
 
@@ -241,7 +241,7 @@ public class Application {
 
             GetAllApiEndpointsResponse res = sdk.apiEndpoints.getAllApiEndpoints(req);
 
-            if (res.apiEndpoints != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -290,7 +290,7 @@ public class Application {
 
             GetAllForVersionApiEndpointsResponse res = sdk.apiEndpoints.getAllForVersionApiEndpoints(req);
 
-            if (res.apiEndpoints != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {

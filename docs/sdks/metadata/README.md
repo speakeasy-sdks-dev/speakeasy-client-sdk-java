@@ -1,5 +1,5 @@
 # Metadata
-(*metadata*)
+(*.metadata*)
 
 ## Overview
 
@@ -87,7 +87,7 @@ public class Application {
 
             GetVersionMetadataResponse res = sdk.metadata.getVersionMetadata(req);
 
-            if (res.versionMetadata != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {

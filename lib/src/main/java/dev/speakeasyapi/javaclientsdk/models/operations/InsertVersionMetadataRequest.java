@@ -13,10 +13,10 @@ public class InsertVersionMetadataRequest {
      * A JSON representation of the metadata to insert.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    public dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadataInput;
+    public dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadata;
 
-    public InsertVersionMetadataRequest withVersionMetadataInput(dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadataInput) {
-        this.versionMetadataInput = versionMetadataInput;
+    public InsertVersionMetadataRequest withVersionMetadata(dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadata) {
+        this.versionMetadata = versionMetadata;
         return this;
     }
     
@@ -42,8 +42,8 @@ public class InsertVersionMetadataRequest {
         return this;
     }
     
-    public InsertVersionMetadataRequest(@JsonProperty("VersionMetadataInput") dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadataInput, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
-        this.versionMetadataInput = versionMetadataInput;
+    public InsertVersionMetadataRequest(@JsonProperty("VersionMetadata") dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput versionMetadata, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
+        this.versionMetadata = versionMetadata;
         this.apiID = apiID;
         this.versionID = versionID;
   }

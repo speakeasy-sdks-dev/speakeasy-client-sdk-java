@@ -21,17 +21,6 @@ public class GetValidEmbedAccessTokensResponse {
     }
     
     /**
-     * OK
-     */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[] embedTokens;
-
-    public GetValidEmbedAccessTokensResponse withEmbedTokens(dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[] embedTokens) {
-        this.embedTokens = embedTokens;
-        return this;
-    }
-    
-    /**
      * Default error response
      */
     
@@ -61,6 +50,17 @@ public class GetValidEmbedAccessTokensResponse {
 
     public GetValidEmbedAccessTokensResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    
+    public dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[] classes;
+
+    public GetValidEmbedAccessTokensResponse withClasses(dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[] classes) {
+        this.classes = classes;
         return this;
     }
     

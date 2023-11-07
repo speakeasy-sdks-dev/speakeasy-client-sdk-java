@@ -39,33 +39,33 @@ public class SDK {
 	
   	
     /**
-     * REST APIs for managing ApiEndpoint entities
-     */
-    public ApiEndpoints apiEndpoints;
-    /**
      * REST APIs for managing Api entities
      */
     public Apis apis;
     /**
-     * REST APIs for managing embeds
+     * REST APIs for managing ApiEndpoint entities
      */
-    public Embeds embeds;
+    public ApiEndpoints apiEndpoints;
     /**
      * REST APIs for managing Version Metadata entities
      */
     public Metadata metadata;
     /**
-     * REST APIs for managing and running plugins
+     * REST APIs for managing Schema entities
      */
-    public Plugins plugins;
+    public Schemas schemas;
     /**
      * REST APIs for retrieving request information
      */
     public Requests requests;
     /**
-     * REST APIs for managing Schema entities
+     * REST APIs for managing and running plugins
      */
-    public Schemas schemas;	
+    public Plugins plugins;
+    /**
+     * REST APIs for managing embeds
+     */
+    public Embeds embeds;	
 
 	private SDKConfiguration sdkConfiguration;
 
@@ -172,19 +172,19 @@ public class SDK {
 	private SDK(SDKConfiguration sdkConfiguration) throws Exception {
 		this.sdkConfiguration = sdkConfiguration;
 		
-		this.apiEndpoints = new ApiEndpoints(this.sdkConfiguration);
-		
 		this.apis = new Apis(this.sdkConfiguration);
 		
-		this.embeds = new Embeds(this.sdkConfiguration);
+		this.apiEndpoints = new ApiEndpoints(this.sdkConfiguration);
 		
 		this.metadata = new Metadata(this.sdkConfiguration);
 		
-		this.plugins = new Plugins(this.sdkConfiguration);
+		this.schemas = new Schemas(this.sdkConfiguration);
 		
 		this.requests = new Requests(this.sdkConfiguration);
 		
-		this.schemas = new Schemas(this.sdkConfiguration);
+		this.plugins = new Plugins(this.sdkConfiguration);
+		
+		this.embeds = new Embeds(this.sdkConfiguration);
 	}
 
     /**

@@ -48,7 +48,7 @@ public class Plugins {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse(contentType, httpRes.statusCode()) {{
-            plugins = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -57,7 +57,7 @@ public class Plugins {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Plugin[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Plugin[].class);
-                res.plugins = out;
+                res.classes = out;
             }
         }
         else {
@@ -101,7 +101,7 @@ public class Plugins {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse(contentType, httpRes.statusCode()) {{
-            boundedRequests = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -110,7 +110,7 @@ public class Plugins {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[].class);
-                res.boundedRequests = out;
+                res.classes = out;
             }
         }
         else {

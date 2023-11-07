@@ -235,7 +235,7 @@ public class ApiEndpoints {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse(contentType, httpRes.statusCode()) {{
-            apiEndpoints = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -244,7 +244,7 @@ public class ApiEndpoints {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint[].class);
-                res.apiEndpoints = out;
+                res.classes = out;
             }
         }
         else {
@@ -282,7 +282,7 @@ public class ApiEndpoints {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse(contentType, httpRes.statusCode()) {{
-            apiEndpoints = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -291,7 +291,7 @@ public class ApiEndpoints {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint[].class);
-                res.apiEndpoints = out;
+                res.classes = out;
             }
         }
         else {
@@ -366,7 +366,7 @@ public class ApiEndpoints {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");
         req.setURL(url);
-        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "apiEndpointInput", "json");
+        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "apiEndpoint", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }

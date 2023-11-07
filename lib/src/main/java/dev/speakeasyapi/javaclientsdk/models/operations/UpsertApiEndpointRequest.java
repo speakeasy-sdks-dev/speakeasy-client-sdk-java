@@ -13,10 +13,10 @@ public class UpsertApiEndpointRequest {
      * A JSON representation of the ApiEndpoint to upsert.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput;
+    public dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpoint;
 
-    public UpsertApiEndpointRequest withApiEndpointInput(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput) {
-        this.apiEndpointInput = apiEndpointInput;
+    public UpsertApiEndpointRequest withApiEndpoint(dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpoint) {
+        this.apiEndpoint = apiEndpoint;
         return this;
     }
     
@@ -53,8 +53,8 @@ public class UpsertApiEndpointRequest {
         return this;
     }
     
-    public UpsertApiEndpointRequest(@JsonProperty("ApiEndpointInput") dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpointInput, @JsonProperty("apiEndpointID") String apiEndpointID, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
-        this.apiEndpointInput = apiEndpointInput;
+    public UpsertApiEndpointRequest(@JsonProperty("ApiEndpoint") dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput apiEndpoint, @JsonProperty("apiEndpointID") String apiEndpointID, @JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
+        this.apiEndpoint = apiEndpoint;
         this.apiEndpointID = apiEndpointID;
         this.apiID = apiID;
         this.versionID = versionID;

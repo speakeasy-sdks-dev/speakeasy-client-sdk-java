@@ -101,7 +101,7 @@ public class Embeds {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse(contentType, httpRes.statusCode()) {{
-            embedTokens = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -110,7 +110,7 @@ public class Embeds {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken[].class);
-                res.embedTokens = out;
+                res.classes = out;
             }
         }
         else {

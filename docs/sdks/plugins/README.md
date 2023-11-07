@@ -1,5 +1,5 @@
 # Plugins
-(*plugins*)
+(*.plugins*)
 
 ## Overview
 
@@ -35,7 +35,7 @@ public class Application {
 
             GetPluginsResponse res = sdk.plugins.getPlugins();
 
-            if (res.plugins != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class Application {
 
             RunPluginResponse res = sdk.plugins.runPlugin(req);
 
-            if (res.boundedRequests != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {

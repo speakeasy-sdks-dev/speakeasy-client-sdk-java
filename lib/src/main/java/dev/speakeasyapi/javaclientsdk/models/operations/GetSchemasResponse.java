@@ -32,17 +32,6 @@ public class GetSchemasResponse {
     }
     
     /**
-     * OK
-     */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.Schema[] schemata;
-
-    public GetSchemasResponse withSchemata(dev.speakeasyapi.javaclientsdk.models.shared.Schema[] schemata) {
-        this.schemata = schemata;
-        return this;
-    }
-    
-    /**
      * HTTP response status code for this operation
      */
     
@@ -61,6 +50,17 @@ public class GetSchemasResponse {
 
     public GetSchemasResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    
+    public dev.speakeasyapi.javaclientsdk.models.shared.Schema[] classes;
+
+    public GetSchemasResponse withClasses(dev.speakeasyapi.javaclientsdk.models.shared.Schema[] classes) {
+        this.classes = classes;
         return this;
     }
     

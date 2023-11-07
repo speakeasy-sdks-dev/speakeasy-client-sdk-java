@@ -13,10 +13,10 @@ public class UpsertApiRequest {
      * A JSON representation of the Api to upsert
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    public dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput;
+    public dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api;
 
-    public UpsertApiRequest withApiInput(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput) {
-        this.apiInput = apiInput;
+    public UpsertApiRequest withApi(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api) {
+        this.api = api;
         return this;
     }
     
@@ -31,8 +31,8 @@ public class UpsertApiRequest {
         return this;
     }
     
-    public UpsertApiRequest(@JsonProperty("ApiInput") dev.speakeasyapi.javaclientsdk.models.shared.ApiInput apiInput, @JsonProperty("apiID") String apiID) {
-        this.apiInput = apiInput;
+    public UpsertApiRequest(@JsonProperty("Api") dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api, @JsonProperty("apiID") String apiID) {
+        this.api = api;
         this.apiID = apiID;
   }
 }

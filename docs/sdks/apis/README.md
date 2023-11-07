@@ -1,5 +1,5 @@
 # Apis
-(*apis*)
+(*.apis*)
 
 ## Overview
 
@@ -173,9 +173,9 @@ Supports filtering the versions based on metadata attributes.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsOp;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.Op;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 
 public class Application {
@@ -193,12 +193,12 @@ public class Application {
                         add("string"),
                     }});
                 }};
-                op = new GetAllApiVersionsOp(false);
+                op = new Op(false);
             }};            
 
             GetAllApiVersionsResponse res = sdk.apis.getAllApiVersions(req);
 
-            if (res.apis != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -231,9 +231,9 @@ Supports filtering the APIs based on metadata attributes.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisOp;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.QueryParamOp;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 
 public class Application {
@@ -251,12 +251,12 @@ public class Application {
                         add("string"),
                     }});
                 }};
-                op = new GetApisOp(false);
+                op = new QueryParamOp(false);
             }};            
 
             GetApisResponse res = sdk.apis.getApis(req);
 
-            if (res.apis != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {

@@ -10,17 +10,6 @@ import java.net.http.HttpResponse;
 
 public class QueryEventLogResponse {
     /**
-     * OK
-     */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests;
-
-    public QueryEventLogResponse withBoundedRequests(dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] boundedRequests) {
-        this.boundedRequests = boundedRequests;
-        return this;
-    }
-    
-    /**
      * HTTP response content type for this operation
      */
     
@@ -61,6 +50,17 @@ public class QueryEventLogResponse {
 
     public QueryEventLogResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    
+    public dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] classes;
+
+    public QueryEventLogResponse withClasses(dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] classes) {
+        this.classes = classes;
         return this;
     }
     

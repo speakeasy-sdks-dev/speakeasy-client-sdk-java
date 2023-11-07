@@ -1,5 +1,5 @@
 # Requests
-(*requests*)
+(*.requests*)
 
 ## Overview
 
@@ -148,7 +148,7 @@ public class Application {
 
             QueryEventLogResponse res = sdk.requests.queryEventLog(req);
 
-            if (res.boundedRequests != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {

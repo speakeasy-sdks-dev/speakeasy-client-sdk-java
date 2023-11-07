@@ -89,7 +89,7 @@ public class Metadata {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse(contentType, httpRes.statusCode()) {{
-            versionMetadata = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -98,7 +98,7 @@ public class Metadata {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[].class);
-                res.versionMetadata = out;
+                res.classes = out;
             }
         }
         else {
@@ -125,7 +125,7 @@ public class Metadata {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "versionMetadataInput", "json");
+        SerializedBody serializedRequestBody = dev.speakeasyapi.javaclientsdk.utils.Utils.serializeRequestBody(request, "versionMetadata", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }

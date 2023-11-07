@@ -33,7 +33,7 @@ public class Application {
                 }})
                 .build();
 
-            ValidateApiKeyResponse res = sdk.sdk.validateApiKey();
+            ValidateApiKeyResponse res = sdk.validateApiKey();
 
             if (res.statusCode == 200) {
                 // handle response

@@ -89,8 +89,8 @@ public class Schemas {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse(contentType, httpRes.statusCode()) {{
-            schema = null;
-            schema = null;
+            twoHundredApplicationJsonSchema = null;
+            twoHundredApplicationXYamlSchema = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -98,11 +98,11 @@ public class Schemas {
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 byte[] out = httpRes.body();
-                res.schema = out;
+                res.twoHundredApplicationJsonSchema = out;
             }
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/x-yaml")) {
                 byte[] out = httpRes.body();
-                res.schema = out;
+                res.twoHundredApplicationXYamlSchema = out;
             }
         }
         else {
@@ -140,8 +140,8 @@ public class Schemas {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse(contentType, httpRes.statusCode()) {{
-            schema = null;
-            schema = null;
+            twoHundredApplicationJsonSchema = null;
+            twoHundredApplicationXYamlSchema = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -149,11 +149,11 @@ public class Schemas {
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 byte[] out = httpRes.body();
-                res.schema = out;
+                res.twoHundredApplicationJsonSchema = out;
             }
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/x-yaml")) {
                 byte[] out = httpRes.body();
-                res.schema = out;
+                res.twoHundredApplicationXYamlSchema = out;
             }
         }
         else {
@@ -338,7 +338,7 @@ public class Schemas {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse(contentType, httpRes.statusCode()) {{
-            schemata = null;
+            classes = null;
             error = null;
         }};
         res.rawResponse = httpRes;
@@ -347,7 +347,7 @@ public class Schemas {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
                 dev.speakeasyapi.javaclientsdk.models.shared.Schema[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Schema[].class);
-                res.schemata = out;
+                res.classes = out;
             }
         }
         else {

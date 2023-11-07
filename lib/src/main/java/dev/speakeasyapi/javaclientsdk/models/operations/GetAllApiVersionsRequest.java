@@ -35,9 +35,9 @@ public class GetAllApiVersionsRequest {
      * Configuration for filter operations
      */
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=op")
-    public GetAllApiVersionsOp op;
+    public Op op;
 
-    public GetAllApiVersionsRequest withOp(GetAllApiVersionsOp op) {
+    public GetAllApiVersionsRequest withOp(Op op) {
         this.op = op;
         return this;
     }

@@ -32,17 +32,6 @@ public class GetPluginsResponse {
     }
     
     /**
-     * OK
-     */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.Plugin[] plugins;
-
-    public GetPluginsResponse withPlugins(dev.speakeasyapi.javaclientsdk.models.shared.Plugin[] plugins) {
-        this.plugins = plugins;
-        return this;
-    }
-    
-    /**
      * HTTP response status code for this operation
      */
     
@@ -61,6 +50,17 @@ public class GetPluginsResponse {
 
     public GetPluginsResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    
+    public dev.speakeasyapi.javaclientsdk.models.shared.Plugin[] classes;
+
+    public GetPluginsResponse withClasses(dev.speakeasyapi.javaclientsdk.models.shared.Plugin[] classes) {
+        this.classes = classes;
         return this;
     }
     

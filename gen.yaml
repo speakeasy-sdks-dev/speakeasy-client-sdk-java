@@ -2,29 +2,36 @@ configVersion: 1.0.0
 management:
   docChecksum: ba638b2ad28966c596e28321a2003686
   docVersion: 0.3.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.114.1
+  generationVersion: 2.181.1
 generation:
-  repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
+  comments: {}
   sdkClassName: SDK
-  singleTagPerOp: false
-  telemetryEnabled: true
+  repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
 features:
   java:
-    core: 2.94.0
+    core: 3.0.1
     examples: 2.81.3
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     inputOutputModels: 2.81.1
     serverIDs: 2.81.1
 java:
-  version: 1.62.0
+  version: 2.0.0
   artifactID: javaclientsdk
   companyEmail: chase@speakeasyapi.dev
   companyName: Speakeasy
   companyURL: www.speakeasyapi.dev
   githubURL: github.com/speakeasy-api/speakeasy-client-sdk-java
   groupID: dev.speakeasyapi
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/shared
+      webhooks: models/webhooks
   maxMethodParams: 0
   ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
   projectName: speakeasy-client-sdk-java

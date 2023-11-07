@@ -1,5 +1,5 @@
 # Schemas
-(*schemas*)
+(*.schemas*)
 
 ## Overview
 
@@ -92,7 +92,7 @@ public class Application {
 
             DownloadSchemaResponse res = sdk.schemas.downloadSchema(req);
 
-            if (res.schema != null) {
+            if (res.twoHundredApplicationJsonSchema != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -141,7 +141,7 @@ public class Application {
 
             DownloadSchemaRevisionResponse res = sdk.schemas.downloadSchemaRevision(req);
 
-            if (res.schema != null) {
+            if (res.twoHundredApplicationJsonSchema != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -340,7 +340,7 @@ public class Application {
 
             GetSchemasResponse res = sdk.schemas.getSchemas(req);
 
-            if (res.schemata != null) {
+            if (res.classes != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -373,9 +373,9 @@ This will be used to populate ApiEndpoints and used as a base for any schema gen
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.File;
 import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequestBody;
-import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequestBodyFile;
 import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 
@@ -388,7 +388,7 @@ public class Application {
                 }})
                 .build();
 
-            RegisterSchemaRequest req = new RegisterSchemaRequest(new RegisterSchemaRequestBody(new RegisterSchemaRequestBodyFile("mg|mf\".]!\".getBytes(), "string")), "string", "string");            
+            RegisterSchemaRequest req = new RegisterSchemaRequest(new RegisterSchemaRequestBody(new File("0xCAFCA03e0e".getBytes(), "string")), "string", "string");            
 
             RegisterSchemaResponse res = sdk.schemas.registerSchema(req);
 

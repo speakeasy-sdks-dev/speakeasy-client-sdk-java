@@ -23,9 +23,9 @@ public class GetApisRequest {
      * Configuration for filter operations
      */
     @SpeakeasyMetadata("queryParam:style=deepObject,explode=true,name=op")
-    public GetApisOp op;
+    public QueryParamOp op;
 
-    public GetApisRequest withOp(GetApisOp op) {
+    public GetApisRequest withOp(QueryParamOp op) {
         this.op = op;
         return this;
     }

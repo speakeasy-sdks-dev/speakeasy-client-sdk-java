@@ -8,25 +8,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 
 
-public class RegisterSchemaRequestBodyFile {
+public class File {
     @SpeakeasyMetadata("multipartForm:content")
     public byte[] content;
 
-    public RegisterSchemaRequestBodyFile withContent(byte[] content) {
+    public File withContent(byte[] content) {
         this.content = content;
         return this;
     }
     
     @SpeakeasyMetadata("multipartForm:name=file")
-    public String file;
+    public String fileName;
 
-    public RegisterSchemaRequestBodyFile withFile(String file) {
-        this.file = file;
+    public File withFileName(String fileName) {
+        this.fileName = fileName;
         return this;
     }
     
-    public RegisterSchemaRequestBodyFile(@JsonProperty("content") byte[] content, @JsonProperty("file") String file) {
+    public File(@JsonProperty("content") byte[] content, @JsonProperty("fileName") String fileName) {
         this.content = content;
-        this.file = file;
+        this.fileName = fileName;
   }
 }

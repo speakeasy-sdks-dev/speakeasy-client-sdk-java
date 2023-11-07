@@ -57,10 +57,10 @@ public class GetVersionMetadataResponse {
      * OK
      */
     
-    public dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[] versionMetadata;
+    public dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[] classes;
 
-    public GetVersionMetadataResponse withVersionMetadata(dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[] versionMetadata) {
-        this.versionMetadata = versionMetadata;
+    public GetVersionMetadataResponse withClasses(dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata[] classes) {
+        this.classes = classes;
         return this;
     }
     
