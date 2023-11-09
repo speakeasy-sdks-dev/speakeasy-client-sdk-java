@@ -1,5 +1,5 @@
 # Metadata
-(*.metadata*)
+(*metadata*)
 
 ## Overview
 

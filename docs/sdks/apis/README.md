@@ -1,5 +1,5 @@
 # Apis
-(*.apis*)
+(*apis*)
 
 ## Overview
 

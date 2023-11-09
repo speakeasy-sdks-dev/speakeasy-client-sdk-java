@@ -1,5 +1,5 @@
 # Schemas
-(*.schemas*)
+(*schemas*)
 
 ## Overview
 

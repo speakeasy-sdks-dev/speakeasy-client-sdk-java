@@ -1,5 +1,5 @@
 # ApiEndpoints
-(*.apiEndpoints*)
+(*apiEndpoints*)
 
 ## Overview
 
