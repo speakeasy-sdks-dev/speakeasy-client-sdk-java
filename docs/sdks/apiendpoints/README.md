@@ -1,5 +1,5 @@
 # ApiEndpoints
-(*apiEndpoints*)
+(*apiEndpoints()*)
 
 ## Overview
 
@@ -26,30 +26,39 @@ Delete an ApiEndpoint. This will also delete all associated Request Logs (if usi
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointRequest req = new DeleteApiEndpointRequest(
-                "string",
-                "string",
-                "string");
+            DeleteApiEndpointRequest req = DeleteApiEndpointRequest.builder()
+                .apiEndpointID("string")
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointResponse res = sdk.apiEndpoints.deleteApiEndpoint(req);
+            DeleteApiEndpointResponse res = sdk.apiEndpoints().deleteApiEndpoint()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -66,8 +75,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointResponse](../../models/operations/DeleteApiEndpointResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointResponse>](../../models/operations/DeleteApiEndpointResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## findApiEndpoint
 
@@ -80,30 +93,41 @@ This is useful for finding the ID of an ApiEndpoint to use in the /v1/apis/{apiI
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointRequest req = new FindApiEndpointRequest(
-                "string",
-                "string",
-                "string");
+            FindApiEndpointRequest req = FindApiEndpointRequest.builder()
+                .apiID("string")
+                .displayName("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointResponse res = sdk.apiEndpoints.findApiEndpoint(req);
+            FindApiEndpointResponse res = sdk.apiEndpoints().findApiEndpoint()
+                .request(req)
+                .call();
 
-            if (res.apiEndpoint != null) {
+            if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -120,8 +144,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointResponse](../../models/operations/FindApiEndpointResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointResponse>](../../models/operations/FindApiEndpointResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## generateOpenApiSpecForApiEndpoint
 
@@ -134,30 +162,41 @@ Returns the original document and the newly generated document allowing a diff t
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest req = new GenerateOpenApiSpecForApiEndpointRequest(
-                "string",
-                "string",
-                "string");
+            GenerateOpenApiSpecForApiEndpointRequest req = GenerateOpenApiSpecForApiEndpointRequest.builder()
+                .apiEndpointID("string")
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse res = sdk.apiEndpoints.generateOpenApiSpecForApiEndpoint(req);
+            GenerateOpenApiSpecForApiEndpointResponse res = sdk.apiEndpoints().generateOpenApiSpecForApiEndpoint()
+                .request(req)
+                .call();
 
-            if (res.generateOpenApiSpecDiff != null) {
+            if (res.generateOpenApiSpecDiff().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -174,8 +213,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse](../../models/operations/GenerateOpenApiSpecForApiEndpointResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse>](../../models/operations/GenerateOpenApiSpecForApiEndpointResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## generatePostmanCollectionForApiEndpoint
 
@@ -187,30 +230,41 @@ Generates a postman collection that allows the endpoint to be called from postma
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest req = new GeneratePostmanCollectionForApiEndpointRequest(
-                "string",
-                "string",
-                "string");
+            GeneratePostmanCollectionForApiEndpointRequest req = GeneratePostmanCollectionForApiEndpointRequest.builder()
+                .apiEndpointID("string")
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse res = sdk.apiEndpoints.generatePostmanCollectionForApiEndpoint(req);
+            GeneratePostmanCollectionForApiEndpointResponse res = sdk.apiEndpoints().generatePostmanCollectionForApiEndpoint()
+                .request(req)
+                .call();
 
-            if (res.postmanCollection != null) {
+            if (res.postmanCollection().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -227,8 +281,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse](../../models/operations/GeneratePostmanCollectionForApiEndpointResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse>](../../models/operations/GeneratePostmanCollectionForApiEndpointResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getAllApiEndpoints
 
@@ -240,28 +298,39 @@ Get all Api endpoints for a particular apiID.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsRequest req = new GetAllApiEndpointsRequest(
-                "string");
+            GetAllApiEndpointsRequest req = GetAllApiEndpointsRequest.builder()
+                .apiID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse res = sdk.apiEndpoints.getAllApiEndpoints(req);
+            GetAllApiEndpointsResponse res = sdk.apiEndpoints().getAllApiEndpoints()
+                .request(req)
+                .call();
 
-            if (res.classes != null) {
+            if (res.classes().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -278,8 +347,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse](../../models/operations/GetAllApiEndpointsResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse>](../../models/operations/GetAllApiEndpointsResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getAllForVersionApiEndpoints
 
@@ -291,29 +364,40 @@ Get all ApiEndpoints for a particular apiID and versionID.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest req = new GetAllForVersionApiEndpointsRequest(
-                "string",
-                "string");
+            GetAllForVersionApiEndpointsRequest req = GetAllForVersionApiEndpointsRequest.builder()
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse res = sdk.apiEndpoints.getAllForVersionApiEndpoints(req);
+            GetAllForVersionApiEndpointsResponse res = sdk.apiEndpoints().getAllForVersionApiEndpoints()
+                .request(req)
+                .call();
 
-            if (res.classes != null) {
+            if (res.classes().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -330,8 +414,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse](../../models/operations/GetAllForVersionApiEndpointsResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse>](../../models/operations/GetAllForVersionApiEndpointsResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getApiEndpoint
 
@@ -343,30 +431,41 @@ Get an ApiEndpoint.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointRequest req = new GetApiEndpointRequest(
-                "string",
-                "string",
-                "string");
+            GetApiEndpointRequest req = GetApiEndpointRequest.builder()
+                .apiEndpointID("string")
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointResponse res = sdk.apiEndpoints.getApiEndpoint(req);
+            GetApiEndpointResponse res = sdk.apiEndpoints().getApiEndpoint()
+                .request(req)
+                .call();
 
-            if (res.apiEndpoint != null) {
+            if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -383,8 +482,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointResponse](../../models/operations/GetApiEndpointResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointResponse>](../../models/operations/GetApiEndpointResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## upsertApiEndpoint
 
@@ -396,38 +499,50 @@ Upsert an ApiEndpoint. If the ApiEndpoint does not exist it will be created, oth
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointRequest req = new UpsertApiEndpointRequest(
-                new ApiEndpointInput(
-                    "string",
-                    "string",
-                    "string",
-                    "string",
-                    "string",
-                    "string"),
-                "string",
-                "string",
-                "string");
+            UpsertApiEndpointRequest req = UpsertApiEndpointRequest.builder()
+                .apiEndpoint(ApiEndpointInput.builder()
+                        .apiEndpointId("string")
+                        .description("string")
+                        .displayName("string")
+                        .method("string")
+                        .path("string")
+                        .versionId("string")
+                        .build())
+                .apiEndpointID("string")
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointResponse res = sdk.apiEndpoints.upsertApiEndpoint(req);
+            UpsertApiEndpointResponse res = sdk.apiEndpoints().upsertApiEndpoint()
+                .request(req)
+                .call();
 
-            if (res.apiEndpoint != null) {
+            if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -444,5 +559,9 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointResponse](../../models/operations/UpsertApiEndpointResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointResponse>](../../models/operations/UpsertApiEndpointResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

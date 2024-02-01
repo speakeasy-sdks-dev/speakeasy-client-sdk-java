@@ -7,8 +7,8 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 import java.time.OffsetDateTime;
 
 /**
@@ -16,68 +16,245 @@ import java.time.OffsetDateTime;
  */
 
 public class UnboundedRequest {
+
     /**
      * Creation timestamp.
      */
-    @JsonSerialize(using = DateTimeSerializer.class)
-    @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
-    public OffsetDateTime createdAt;
+    private OffsetDateTime createdAt;
 
-    public UnboundedRequest withCreatedAt(OffsetDateTime createdAt) {
-        this.createdAt = createdAt;
-        return this;
-    }
-    
     /**
      * The HAR content of the request.
      */
     @JsonProperty("har")
-    public String har;
+    private String har;
 
-    public UnboundedRequest withHar(String har) {
-        this.har = har;
-        return this;
-    }
-    
     /**
      * The size of the HAR content in bytes.
      */
     @JsonProperty("har_size_bytes")
-    public Long harSizeBytes;
+    private long harSizeBytes;
 
-    public UnboundedRequest withHarSizeBytes(Long harSizeBytes) {
-        this.harSizeBytes = harSizeBytes;
-        return this;
-    }
-    
     /**
      * The ID of this request.
      */
     @JsonProperty("request_id")
-    public String requestId;
+    private String requestId;
 
-    public UnboundedRequest withRequestId(String requestId) {
-        this.requestId = requestId;
-        return this;
-    }
-    
     /**
      * The workspace ID this request was made to.
      */
     @JsonProperty("workspace_id")
-    public String workspaceId;
+    private String workspaceId;
 
-    public UnboundedRequest withWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-        return this;
-    }
-    
-    public UnboundedRequest(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("har") String har, @JsonProperty("har_size_bytes") Long harSizeBytes, @JsonProperty("request_id") String requestId, @JsonProperty("workspace_id") String workspaceId) {
+    public UnboundedRequest(
+            @JsonProperty("created_at") OffsetDateTime createdAt,
+            @JsonProperty("har") String har,
+            @JsonProperty("har_size_bytes") long harSizeBytes,
+            @JsonProperty("request_id") String requestId,
+            @JsonProperty("workspace_id") String workspaceId) {
+        Utils.checkNotNull(createdAt, "createdAt");
+        Utils.checkNotNull(har, "har");
+        Utils.checkNotNull(harSizeBytes, "harSizeBytes");
+        Utils.checkNotNull(requestId, "requestId");
+        Utils.checkNotNull(workspaceId, "workspaceId");
         this.createdAt = createdAt;
         this.har = har;
         this.harSizeBytes = harSizeBytes;
         this.requestId = requestId;
         this.workspaceId = workspaceId;
-  }
+    }
+
+    /**
+     * Creation timestamp.
+     */
+    public OffsetDateTime createdAt() {
+        return createdAt;
+    }
+
+    /**
+     * The HAR content of the request.
+     */
+    public String har() {
+        return har;
+    }
+
+    /**
+     * The size of the HAR content in bytes.
+     */
+    public long harSizeBytes() {
+        return harSizeBytes;
+    }
+
+    /**
+     * The ID of this request.
+     */
+    public String requestId() {
+        return requestId;
+    }
+
+    /**
+     * The workspace ID this request was made to.
+     */
+    public String workspaceId() {
+        return workspaceId;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * Creation timestamp.
+     */
+    public UnboundedRequest withCreatedAt(OffsetDateTime createdAt) {
+        Utils.checkNotNull(createdAt, "createdAt");
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * The HAR content of the request.
+     */
+    public UnboundedRequest withHar(String har) {
+        Utils.checkNotNull(har, "har");
+        this.har = har;
+        return this;
+    }
+
+    /**
+     * The size of the HAR content in bytes.
+     */
+    public UnboundedRequest withHarSizeBytes(long harSizeBytes) {
+        Utils.checkNotNull(harSizeBytes, "harSizeBytes");
+        this.harSizeBytes = harSizeBytes;
+        return this;
+    }
+
+    /**
+     * The ID of this request.
+     */
+    public UnboundedRequest withRequestId(String requestId) {
+        Utils.checkNotNull(requestId, "requestId");
+        this.requestId = requestId;
+        return this;
+    }
+
+    /**
+     * The workspace ID this request was made to.
+     */
+    public UnboundedRequest withWorkspaceId(String workspaceId) {
+        Utils.checkNotNull(workspaceId, "workspaceId");
+        this.workspaceId = workspaceId;
+        return this;
+    }
+    
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UnboundedRequest other = (UnboundedRequest) o;
+        return 
+            java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
+            java.util.Objects.deepEquals(this.har, other.har) &&
+            java.util.Objects.deepEquals(this.harSizeBytes, other.harSizeBytes) &&
+            java.util.Objects.deepEquals(this.requestId, other.requestId) &&
+            java.util.Objects.deepEquals(this.workspaceId, other.workspaceId);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            createdAt,
+            har,
+            harSizeBytes,
+            requestId,
+            workspaceId);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(UnboundedRequest.class,
+                "createdAt", createdAt,
+                "har", har,
+                "harSizeBytes", harSizeBytes,
+                "requestId", requestId,
+                "workspaceId", workspaceId);
+    }
+    
+    public final static class Builder {
+ 
+        private OffsetDateTime createdAt;
+ 
+        private String har;
+ 
+        private Long harSizeBytes;
+ 
+        private String requestId;
+ 
+        private String workspaceId;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * Creation timestamp.
+         */
+        public Builder createdAt(OffsetDateTime createdAt) {
+            Utils.checkNotNull(createdAt, "createdAt");
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        /**
+         * The HAR content of the request.
+         */
+        public Builder har(String har) {
+            Utils.checkNotNull(har, "har");
+            this.har = har;
+            return this;
+        }
+
+        /**
+         * The size of the HAR content in bytes.
+         */
+        public Builder harSizeBytes(long harSizeBytes) {
+            Utils.checkNotNull(harSizeBytes, "harSizeBytes");
+            this.harSizeBytes = harSizeBytes;
+            return this;
+        }
+
+        /**
+         * The ID of this request.
+         */
+        public Builder requestId(String requestId) {
+            Utils.checkNotNull(requestId, "requestId");
+            this.requestId = requestId;
+            return this;
+        }
+
+        /**
+         * The workspace ID this request was made to.
+         */
+        public Builder workspaceId(String workspaceId) {
+            Utils.checkNotNull(workspaceId, "workspaceId");
+            this.workspaceId = workspaceId;
+            return this;
+        }        
+        
+        public UnboundedRequest build() {
+            return new UnboundedRequest(
+                createdAt,
+                har,
+                harSizeBytes,
+                requestId,
+                workspaceId);
+        }
+    }
 }
+

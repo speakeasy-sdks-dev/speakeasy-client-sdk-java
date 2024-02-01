@@ -4,59 +4,211 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 
 
 public class GetSchemaDiffRequest {
+
     /**
      * The ID of the Api to retrieve schemas for.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
-    public String apiID;
+    private String apiID;
 
-    public GetSchemaDiffRequest withApiID(String apiID) {
-        this.apiID = apiID;
-        return this;
-    }
-    
     /**
      * The base revision ID of the schema to retrieve.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=baseRevisionID")
-    public String baseRevisionID;
+    private String baseRevisionID;
 
-    public GetSchemaDiffRequest withBaseRevisionID(String baseRevisionID) {
-        this.baseRevisionID = baseRevisionID;
-        return this;
-    }
-    
     /**
      * The target revision ID of the schema to retrieve.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=targetRevisionID")
-    public String targetRevisionID;
+    private String targetRevisionID;
 
-    public GetSchemaDiffRequest withTargetRevisionID(String targetRevisionID) {
-        this.targetRevisionID = targetRevisionID;
-        return this;
-    }
-    
     /**
      * The version ID of the Api to delete metadata for.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
-    public String versionID;
+    private String versionID;
 
-    public GetSchemaDiffRequest withVersionID(String versionID) {
-        this.versionID = versionID;
-        return this;
-    }
-    
-    public GetSchemaDiffRequest(@JsonProperty("apiID") String apiID, @JsonProperty("baseRevisionID") String baseRevisionID, @JsonProperty("targetRevisionID") String targetRevisionID, @JsonProperty("versionID") String versionID) {
+    public GetSchemaDiffRequest(
+            String apiID,
+            String baseRevisionID,
+            String targetRevisionID,
+            String versionID) {
+        Utils.checkNotNull(apiID, "apiID");
+        Utils.checkNotNull(baseRevisionID, "baseRevisionID");
+        Utils.checkNotNull(targetRevisionID, "targetRevisionID");
+        Utils.checkNotNull(versionID, "versionID");
         this.apiID = apiID;
         this.baseRevisionID = baseRevisionID;
         this.targetRevisionID = targetRevisionID;
         this.versionID = versionID;
-  }
+    }
+
+    /**
+     * The ID of the Api to retrieve schemas for.
+     */
+    public String apiID() {
+        return apiID;
+    }
+
+    /**
+     * The base revision ID of the schema to retrieve.
+     */
+    public String baseRevisionID() {
+        return baseRevisionID;
+    }
+
+    /**
+     * The target revision ID of the schema to retrieve.
+     */
+    public String targetRevisionID() {
+        return targetRevisionID;
+    }
+
+    /**
+     * The version ID of the Api to delete metadata for.
+     */
+    public String versionID() {
+        return versionID;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * The ID of the Api to retrieve schemas for.
+     */
+    public GetSchemaDiffRequest withApiID(String apiID) {
+        Utils.checkNotNull(apiID, "apiID");
+        this.apiID = apiID;
+        return this;
+    }
+
+    /**
+     * The base revision ID of the schema to retrieve.
+     */
+    public GetSchemaDiffRequest withBaseRevisionID(String baseRevisionID) {
+        Utils.checkNotNull(baseRevisionID, "baseRevisionID");
+        this.baseRevisionID = baseRevisionID;
+        return this;
+    }
+
+    /**
+     * The target revision ID of the schema to retrieve.
+     */
+    public GetSchemaDiffRequest withTargetRevisionID(String targetRevisionID) {
+        Utils.checkNotNull(targetRevisionID, "targetRevisionID");
+        this.targetRevisionID = targetRevisionID;
+        return this;
+    }
+
+    /**
+     * The version ID of the Api to delete metadata for.
+     */
+    public GetSchemaDiffRequest withVersionID(String versionID) {
+        Utils.checkNotNull(versionID, "versionID");
+        this.versionID = versionID;
+        return this;
+    }
+    
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GetSchemaDiffRequest other = (GetSchemaDiffRequest) o;
+        return 
+            java.util.Objects.deepEquals(this.apiID, other.apiID) &&
+            java.util.Objects.deepEquals(this.baseRevisionID, other.baseRevisionID) &&
+            java.util.Objects.deepEquals(this.targetRevisionID, other.targetRevisionID) &&
+            java.util.Objects.deepEquals(this.versionID, other.versionID);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            apiID,
+            baseRevisionID,
+            targetRevisionID,
+            versionID);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(GetSchemaDiffRequest.class,
+                "apiID", apiID,
+                "baseRevisionID", baseRevisionID,
+                "targetRevisionID", targetRevisionID,
+                "versionID", versionID);
+    }
+    
+    public final static class Builder {
+ 
+        private String apiID;
+ 
+        private String baseRevisionID;
+ 
+        private String targetRevisionID;
+ 
+        private String versionID;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * The ID of the Api to retrieve schemas for.
+         */
+        public Builder apiID(String apiID) {
+            Utils.checkNotNull(apiID, "apiID");
+            this.apiID = apiID;
+            return this;
+        }
+
+        /**
+         * The base revision ID of the schema to retrieve.
+         */
+        public Builder baseRevisionID(String baseRevisionID) {
+            Utils.checkNotNull(baseRevisionID, "baseRevisionID");
+            this.baseRevisionID = baseRevisionID;
+            return this;
+        }
+
+        /**
+         * The target revision ID of the schema to retrieve.
+         */
+        public Builder targetRevisionID(String targetRevisionID) {
+            Utils.checkNotNull(targetRevisionID, "targetRevisionID");
+            this.targetRevisionID = targetRevisionID;
+            return this;
+        }
+
+        /**
+         * The version ID of the Api to delete metadata for.
+         */
+        public Builder versionID(String versionID) {
+            Utils.checkNotNull(versionID, "versionID");
+            this.versionID = versionID;
+            return this;
+        }        
+        
+        public GetSchemaDiffRequest build() {
+            return new GetSchemaDiffRequest(
+                apiID,
+                baseRevisionID,
+                targetRevisionID,
+                versionID);
+        }
+    }
 }
+

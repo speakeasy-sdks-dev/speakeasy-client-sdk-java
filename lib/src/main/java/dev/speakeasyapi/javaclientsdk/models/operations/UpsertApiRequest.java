@@ -4,35 +4,131 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 
 
 public class UpsertApiRequest {
+
     /**
      * A JSON representation of the Api to upsert
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    public dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api;
+    private dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api;
 
-    public UpsertApiRequest withApi(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api) {
-        this.api = api;
-        return this;
-    }
-    
     /**
      * The ID of the Api to upsert.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
-    public String apiID;
+    private String apiID;
 
+    public UpsertApiRequest(
+            dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api,
+            String apiID) {
+        Utils.checkNotNull(api, "api");
+        Utils.checkNotNull(apiID, "apiID");
+        this.api = api;
+        this.apiID = apiID;
+    }
+
+    /**
+     * A JSON representation of the Api to upsert
+     */
+    public dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api() {
+        return api;
+    }
+
+    /**
+     * The ID of the Api to upsert.
+     */
+    public String apiID() {
+        return apiID;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * A JSON representation of the Api to upsert
+     */
+    public UpsertApiRequest withApi(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api) {
+        Utils.checkNotNull(api, "api");
+        this.api = api;
+        return this;
+    }
+
+    /**
+     * The ID of the Api to upsert.
+     */
     public UpsertApiRequest withApiID(String apiID) {
+        Utils.checkNotNull(apiID, "apiID");
         this.apiID = apiID;
         return this;
     }
     
-    public UpsertApiRequest(@JsonProperty("Api") dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api, @JsonProperty("apiID") String apiID) {
-        this.api = api;
-        this.apiID = apiID;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UpsertApiRequest other = (UpsertApiRequest) o;
+        return 
+            java.util.Objects.deepEquals(this.api, other.api) &&
+            java.util.Objects.deepEquals(this.apiID, other.apiID);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            api,
+            apiID);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(UpsertApiRequest.class,
+                "api", api,
+                "apiID", apiID);
+    }
+    
+    public final static class Builder {
+ 
+        private dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api;
+ 
+        private String apiID;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * A JSON representation of the Api to upsert
+         */
+        public Builder api(dev.speakeasyapi.javaclientsdk.models.shared.ApiInput api) {
+            Utils.checkNotNull(api, "api");
+            this.api = api;
+            return this;
+        }
+
+        /**
+         * The ID of the Api to upsert.
+         */
+        public Builder apiID(String apiID) {
+            Utils.checkNotNull(apiID, "apiID");
+            this.apiID = apiID;
+            return this;
+        }        
+        
+        public UpsertApiRequest build() {
+            return new UpsertApiRequest(
+                api,
+                apiID);
+        }
+    }
 }
+

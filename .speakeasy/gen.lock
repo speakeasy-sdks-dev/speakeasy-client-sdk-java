@@ -5,20 +5,22 @@ management:
   docVersion: 0.3.0
   speakeasyVersion: internal
   generationVersion: 2.246.1
-  releaseVersion: 4.0.0
-  configChecksum: d7a0d3350fe6aeb64cac6fe74ad28f70
+  releaseVersion: 5.0.0
+  configChecksum: c5c97fc6e994619bef2daa875ae3009f
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
   repoSubDirectory: .
   published: true
 features:
   java:
-    core: 3.2.2
+    core: 3.9.0
+    downloadStreams: 0.1.1
     examples: 2.81.3
-    globalSecurity: 2.81.2
+    globalSecurity: 2.82.1
     globalServerURLs: 2.82.1
     inputOutputModels: 2.83.0
     serverIDs: 2.81.1
 generatedFiles:
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/SecuritySource.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/SDKConfiguration.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/Apis.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/ApiEndpoints.java
@@ -27,6 +29,42 @@ generatedFiles:
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/Requests.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/Plugins.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/Embeds.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/ValidateApiKeyRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/DeleteApiRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GenerateOpenApiSpecRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GeneratePostmanCollectionRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetAllApiVersionsRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetApisRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/UpsertApiRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/DeleteApiEndpointRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/FindApiEndpointRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GenerateOpenApiSpecForApiEndpointRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GeneratePostmanCollectionForApiEndpointRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetAllApiEndpointsRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetAllForVersionApiEndpointsRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetApiEndpointRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/UpsertApiEndpointRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/DeleteVersionMetadataRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetVersionMetadataRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/InsertVersionMetadataRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/DeleteSchemaRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/DownloadSchemaRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/DownloadSchemaRevisionRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetSchemaRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetSchemaDiffRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetSchemaRevisionRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetSchemasRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/RegisterSchemaRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GenerateRequestPostmanCollectionRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetRequestFromEventLogRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/QueryEventLogRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetPluginsRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/RunPluginRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/UpsertPluginRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetEmbedAccessTokenRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/GetValidEmbedAccessTokensRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/RevokeEmbedAccessTokenRequestBuilder.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/SDKMethodInterfaces.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/SDK.java
   - .gitattributes
   - gradle/wrapper/gradle-wrapper.jar
@@ -34,15 +72,15 @@ generatedFiles:
   - gradlew
   - gradlew.bat
   - lib/build.gradle
-  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/DateTimeDeserializer.java
-  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/DateTimeSerializer.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/FormMetadata.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/HTTPClient.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/HTTPRequest.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/HeaderMetadata.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/JSON.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/LazySingletonValue.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/Metadata.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/MultipartFormMetadata.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/OneOfDeserializer.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/PathParamsMetadata.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/QueryParameters.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/QueryParamsMetadata.java
@@ -56,6 +94,7 @@ generatedFiles:
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/SpeakeasyMetadata.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/Types.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/utils/Utils.java
+  - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/errors/SDKError.java
   - settings.gradle
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/ValidateApiKeyResponse.java
   - lib/src/main/java/dev/speakeasyapi/javaclientsdk/models/operations/DeleteApiRequest.java

@@ -5,33 +5,130 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 
 
 public class ValueChange {
+
     /**
      * Represents the previous value of the element.
      */
     @JsonProperty("From")
-    public String from;
+    private String from;
 
-    public ValueChange withFrom(String from) {
-        this.from = from;
-        return this;
-    }
-    
     /**
      * Represents the current value of the element.
      */
     @JsonProperty("To")
-    public String to;
+    private String to;
 
+    public ValueChange(
+            @JsonProperty("From") String from,
+            @JsonProperty("To") String to) {
+        Utils.checkNotNull(from, "from");
+        Utils.checkNotNull(to, "to");
+        this.from = from;
+        this.to = to;
+    }
+
+    /**
+     * Represents the previous value of the element.
+     */
+    public String from() {
+        return from;
+    }
+
+    /**
+     * Represents the current value of the element.
+     */
+    public String to() {
+        return to;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * Represents the previous value of the element.
+     */
+    public ValueChange withFrom(String from) {
+        Utils.checkNotNull(from, "from");
+        this.from = from;
+        return this;
+    }
+
+    /**
+     * Represents the current value of the element.
+     */
     public ValueChange withTo(String to) {
+        Utils.checkNotNull(to, "to");
         this.to = to;
         return this;
     }
     
-    public ValueChange(@JsonProperty("From") String from, @JsonProperty("To") String to) {
-        this.from = from;
-        this.to = to;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ValueChange other = (ValueChange) o;
+        return 
+            java.util.Objects.deepEquals(this.from, other.from) &&
+            java.util.Objects.deepEquals(this.to, other.to);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            from,
+            to);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(ValueChange.class,
+                "from", from,
+                "to", to);
+    }
+    
+    public final static class Builder {
+ 
+        private String from;
+ 
+        private String to;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * Represents the previous value of the element.
+         */
+        public Builder from(String from) {
+            Utils.checkNotNull(from, "from");
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Represents the current value of the element.
+         */
+        public Builder to(String to) {
+            Utils.checkNotNull(to, "to");
+            this.to = to;
+            return this;
+        }        
+        
+        public ValueChange build() {
+            return new ValueChange(
+                from,
+                to);
+        }
+    }
 }
+

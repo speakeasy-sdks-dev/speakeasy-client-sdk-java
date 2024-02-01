@@ -5,36 +5,133 @@
 package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 
 /**
  * VersionMetadataInput - A set of keys and associated values, attached to a particular version of an Api.
  */
 
 public class VersionMetadataInput {
+
     /**
      * The key for this metadata.
      */
     @JsonProperty("meta_key")
-    public String metaKey;
+    private String metaKey;
 
-    public VersionMetadataInput withMetaKey(String metaKey) {
-        this.metaKey = metaKey;
-        return this;
-    }
-    
     /**
      * One of the values for this metadata.
      */
     @JsonProperty("meta_value")
-    public String metaValue;
+    private String metaValue;
 
+    public VersionMetadataInput(
+            @JsonProperty("meta_key") String metaKey,
+            @JsonProperty("meta_value") String metaValue) {
+        Utils.checkNotNull(metaKey, "metaKey");
+        Utils.checkNotNull(metaValue, "metaValue");
+        this.metaKey = metaKey;
+        this.metaValue = metaValue;
+    }
+
+    /**
+     * The key for this metadata.
+     */
+    public String metaKey() {
+        return metaKey;
+    }
+
+    /**
+     * One of the values for this metadata.
+     */
+    public String metaValue() {
+        return metaValue;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * The key for this metadata.
+     */
+    public VersionMetadataInput withMetaKey(String metaKey) {
+        Utils.checkNotNull(metaKey, "metaKey");
+        this.metaKey = metaKey;
+        return this;
+    }
+
+    /**
+     * One of the values for this metadata.
+     */
     public VersionMetadataInput withMetaValue(String metaValue) {
+        Utils.checkNotNull(metaValue, "metaValue");
         this.metaValue = metaValue;
         return this;
     }
     
-    public VersionMetadataInput(@JsonProperty("meta_key") String metaKey, @JsonProperty("meta_value") String metaValue) {
-        this.metaKey = metaKey;
-        this.metaValue = metaValue;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VersionMetadataInput other = (VersionMetadataInput) o;
+        return 
+            java.util.Objects.deepEquals(this.metaKey, other.metaKey) &&
+            java.util.Objects.deepEquals(this.metaValue, other.metaValue);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            metaKey,
+            metaValue);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(VersionMetadataInput.class,
+                "metaKey", metaKey,
+                "metaValue", metaValue);
+    }
+    
+    public final static class Builder {
+ 
+        private String metaKey;
+ 
+        private String metaValue;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * The key for this metadata.
+         */
+        public Builder metaKey(String metaKey) {
+            Utils.checkNotNull(metaKey, "metaKey");
+            this.metaKey = metaKey;
+            return this;
+        }
+
+        /**
+         * One of the values for this metadata.
+         */
+        public Builder metaValue(String metaValue) {
+            Utils.checkNotNull(metaValue, "metaValue");
+            this.metaValue = metaValue;
+            return this;
+        }        
+        
+        public VersionMetadataInput build() {
+            return new VersionMetadataInput(
+                metaKey,
+                metaValue);
+        }
+    }
 }
+

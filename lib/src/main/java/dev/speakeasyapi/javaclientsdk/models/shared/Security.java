@@ -6,18 +6,78 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 
 
 public class Security {
+
     @SpeakeasyMetadata("security:scheme=true,type=apiKey,subtype=header,name=x-api-key")
-    public String apiKey;
+    private String apiKey;
+
+    public Security(
+            String apiKey) {
+        Utils.checkNotNull(apiKey, "apiKey");
+        this.apiKey = apiKey;
+    }
+
+    public String apiKey() {
+        return apiKey;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
 
     public Security withAPIKey(String apiKey) {
+        Utils.checkNotNull(apiKey, "apiKey");
         this.apiKey = apiKey;
         return this;
     }
     
-    public Security(@JsonProperty("APIKey") String apiKey) {
-        this.apiKey = apiKey;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Security other = (Security) o;
+        return 
+            java.util.Objects.deepEquals(this.apiKey, other.apiKey);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            apiKey);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(Security.class,
+                "apiKey", apiKey);
+    }
+    
+    public final static class Builder {
+ 
+        private String apiKey;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        public Builder apiKey(String apiKey) {
+            Utils.checkNotNull(apiKey, "apiKey");
+            this.apiKey = apiKey;
+            return this;
+        }        
+        
+        public Security build() {
+            return new Security(
+                apiKey);
+        }
+    }
 }
+

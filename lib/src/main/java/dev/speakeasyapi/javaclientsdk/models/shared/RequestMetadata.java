@@ -7,29 +7,136 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
+import java.util.Optional;
 
 /**
  * RequestMetadata - Key-Value pairs associated with a request
  */
 
 public class RequestMetadata {
+
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("key")
-    public String key;
+    private Optional<? extends String> key;
+
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("value")
+    private Optional<? extends String> value;
+
+    public RequestMetadata(
+            @JsonProperty("key") Optional<? extends String> key,
+            @JsonProperty("value") Optional<? extends String> value) {
+        Utils.checkNotNull(key, "key");
+        Utils.checkNotNull(value, "value");
+        this.key = key;
+        this.value = value;
+    }
+
+    public Optional<? extends String> key() {
+        return key;
+    }
+
+    public Optional<? extends String> value() {
+        return value;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
 
     public RequestMetadata withKey(String key) {
-        this.key = key;
+        Utils.checkNotNull(key, "key");
+        this.key = Optional.ofNullable(key);
         return this;
     }
     
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("value")
-    public String value;
+    public RequestMetadata withKey(Optional<? extends String> key) {
+        Utils.checkNotNull(key, "key");
+        this.key = key;
+        return this;
+    }
 
     public RequestMetadata withValue(String value) {
+        Utils.checkNotNull(value, "value");
+        this.value = Optional.ofNullable(value);
+        return this;
+    }
+    
+    public RequestMetadata withValue(Optional<? extends String> value) {
+        Utils.checkNotNull(value, "value");
         this.value = value;
         return this;
     }
     
-    public RequestMetadata(){}
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RequestMetadata other = (RequestMetadata) o;
+        return 
+            java.util.Objects.deepEquals(this.key, other.key) &&
+            java.util.Objects.deepEquals(this.value, other.value);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            key,
+            value);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(RequestMetadata.class,
+                "key", key,
+                "value", value);
+    }
+    
+    public final static class Builder {
+ 
+        private Optional<? extends String> key = Optional.empty();
+ 
+        private Optional<? extends String> value = Optional.empty();  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        public Builder key(String key) {
+            Utils.checkNotNull(key, "key");
+            this.key = Optional.ofNullable(key);
+            return this;
+        }
+        
+        public Builder key(Optional<? extends String> key) {
+            Utils.checkNotNull(key, "key");
+            this.key = key;
+            return this;
+        }
+
+        public Builder value(String value) {
+            Utils.checkNotNull(value, "value");
+            this.value = Optional.ofNullable(value);
+            return this;
+        }
+        
+        public Builder value(Optional<? extends String> value) {
+            Utils.checkNotNull(value, "value");
+            this.value = value;
+            return this;
+        }        
+        
+        public RequestMetadata build() {
+            return new RequestMetadata(
+                key,
+                value);
+        }
+    }
 }
+

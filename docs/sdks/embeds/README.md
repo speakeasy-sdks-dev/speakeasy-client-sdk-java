@@ -1,5 +1,5 @@
 # Embeds
-(*embeds*)
+(*embeds()*)
 
 ## Overview
 
@@ -22,48 +22,53 @@ Filters can be applied allowing views to be filtered to things like particular c
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Filter;
 import dev.speakeasyapi.javaclientsdk.models.shared.Filters;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest req = new GetEmbedAccessTokenRequest(
-){{
-                description = "Versatile asynchronous leverage";
-                duration = 554373L;
-                filters = new Filters(
-                    new dev.speakeasyapi.javaclientsdk.models.shared.Filter[]{{
-                        add(new Filter(
-                        "string",
-                        "string",
-                        "string"){{
-                            key = "<key>";
-                            operator = "string";
-                            value = "string";
-                        }}),
-                    }},
-                    263313L,
-                    411277L,
-                    "string");
+            GetEmbedAccessTokenRequest req = GetEmbedAccessTokenRequest.builder()
+                .description("Versatile asynchronous leverage")
+                .duration(554373L)
+                .filters(Filters.builder()
+                    .filters(java.util.List.of(
+                            Filter.builder()
+                                .key("string")
+                                .operator("string")
+                                .value("string")
+                                .build()))
+                    .limit(263313L)
+                    .offset(411277L)
+                    .operator("string")
+                    .build())
+                .build();
 
-            }};
+            GetEmbedAccessTokenResponse res = sdk.embeds().getEmbedAccessToken()
+                .request(req)
+                .call();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse res = sdk.embeds.getEmbedAccessToken(req);
-
-            if (res.embedAccessTokenResponse != null) {
+            if (res.embedAccessTokenResponse().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -80,8 +85,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse](../../models/operations/GetEmbedAccessTokenResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse>](../../models/operations/GetEmbedAccessTokenResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getValidEmbedAccessTokens
 
@@ -93,24 +102,33 @@ Get all valid embed access tokens for the current workspace.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = sdk.embeds.getValidEmbedAccessTokens();
+            GetValidEmbedAccessTokensResponse res = sdk.embeds().getValidEmbedAccessTokens()
+                .call();
 
-            if (res.classes != null) {
+            if (res.classes().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -121,8 +139,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse](../../models/operations/GetValidEmbedAccessTokensResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse>](../../models/operations/GetValidEmbedAccessTokensResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## revokeEmbedAccessToken
 
@@ -134,28 +156,37 @@ Revoke an embed access EmbedToken.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest(
-                "string");
+            RevokeEmbedAccessTokenRequest req = RevokeEmbedAccessTokenRequest.builder()
+                .tokenID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse res = sdk.embeds.revokeEmbedAccessToken(req);
+            RevokeEmbedAccessTokenResponse res = sdk.embeds().revokeEmbedAccessToken()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -172,5 +203,9 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse](../../models/operations/RevokeEmbedAccessTokenResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse>](../../models/operations/RevokeEmbedAccessTokenResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

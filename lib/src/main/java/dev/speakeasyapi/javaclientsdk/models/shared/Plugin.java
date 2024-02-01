@@ -9,82 +9,290 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeDeserializer;
-import dev.speakeasyapi.javaclientsdk.utils.DateTimeSerializer;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 
 /**
  * Plugin - A plugin is a short script that is run against ingested requests
  */
 
 public class Plugin {
+
     @JsonProperty("code")
-    public String code;
+    private String code;
+
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("created_at")
+    private Optional<? extends OffsetDateTime> createdAt;
+
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("eval_hash")
+    private Optional<? extends String> evalHash;
+
+    @JsonProperty("plugin_id")
+    private String pluginId;
+
+    @JsonProperty("title")
+    private String title;
+
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("updated_at")
+    private Optional<? extends OffsetDateTime> updatedAt;
+
+    @JsonProperty("workspace_id")
+    private String workspaceId;
+
+    public Plugin(
+            @JsonProperty("code") String code,
+            @JsonProperty("created_at") Optional<? extends OffsetDateTime> createdAt,
+            @JsonProperty("eval_hash") Optional<? extends String> evalHash,
+            @JsonProperty("plugin_id") String pluginId,
+            @JsonProperty("title") String title,
+            @JsonProperty("updated_at") Optional<? extends OffsetDateTime> updatedAt,
+            @JsonProperty("workspace_id") String workspaceId) {
+        Utils.checkNotNull(code, "code");
+        Utils.checkNotNull(createdAt, "createdAt");
+        Utils.checkNotNull(evalHash, "evalHash");
+        Utils.checkNotNull(pluginId, "pluginId");
+        Utils.checkNotNull(title, "title");
+        Utils.checkNotNull(updatedAt, "updatedAt");
+        Utils.checkNotNull(workspaceId, "workspaceId");
+        this.code = code;
+        this.createdAt = createdAt;
+        this.evalHash = evalHash;
+        this.pluginId = pluginId;
+        this.title = title;
+        this.updatedAt = updatedAt;
+        this.workspaceId = workspaceId;
+    }
+
+    public String code() {
+        return code;
+    }
+
+    public Optional<? extends OffsetDateTime> createdAt() {
+        return createdAt;
+    }
+
+    public Optional<? extends String> evalHash() {
+        return evalHash;
+    }
+
+    public String pluginId() {
+        return pluginId;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public Optional<? extends OffsetDateTime> updatedAt() {
+        return updatedAt;
+    }
+
+    public String workspaceId() {
+        return workspaceId;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
 
     public Plugin withCode(String code) {
+        Utils.checkNotNull(code, "code");
         this.code = code;
         return this;
     }
-    
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonSerialize(using = DateTimeSerializer.class)
-    @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("created_at")
-    public OffsetDateTime createdAt;
 
     public Plugin withCreatedAt(OffsetDateTime createdAt) {
+        Utils.checkNotNull(createdAt, "createdAt");
+        this.createdAt = Optional.ofNullable(createdAt);
+        return this;
+    }
+    
+    public Plugin withCreatedAt(Optional<? extends OffsetDateTime> createdAt) {
+        Utils.checkNotNull(createdAt, "createdAt");
         this.createdAt = createdAt;
         return this;
     }
-    
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("eval_hash")
-    public String evalHash;
 
     public Plugin withEvalHash(String evalHash) {
+        Utils.checkNotNull(evalHash, "evalHash");
+        this.evalHash = Optional.ofNullable(evalHash);
+        return this;
+    }
+    
+    public Plugin withEvalHash(Optional<? extends String> evalHash) {
+        Utils.checkNotNull(evalHash, "evalHash");
         this.evalHash = evalHash;
         return this;
     }
-    
-    @JsonProperty("plugin_id")
-    public String pluginId;
 
     public Plugin withPluginId(String pluginId) {
+        Utils.checkNotNull(pluginId, "pluginId");
         this.pluginId = pluginId;
         return this;
     }
-    
-    @JsonProperty("title")
-    public String title;
 
     public Plugin withTitle(String title) {
+        Utils.checkNotNull(title, "title");
         this.title = title;
         return this;
     }
-    
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonSerialize(using = DateTimeSerializer.class)
-    @JsonDeserialize(using = DateTimeDeserializer.class)
-    @JsonProperty("updated_at")
-    public OffsetDateTime updatedAt;
 
     public Plugin withUpdatedAt(OffsetDateTime updatedAt) {
+        Utils.checkNotNull(updatedAt, "updatedAt");
+        this.updatedAt = Optional.ofNullable(updatedAt);
+        return this;
+    }
+    
+    public Plugin withUpdatedAt(Optional<? extends OffsetDateTime> updatedAt) {
+        Utils.checkNotNull(updatedAt, "updatedAt");
         this.updatedAt = updatedAt;
         return this;
     }
-    
-    @JsonProperty("workspace_id")
-    public String workspaceId;
 
     public Plugin withWorkspaceId(String workspaceId) {
+        Utils.checkNotNull(workspaceId, "workspaceId");
         this.workspaceId = workspaceId;
         return this;
     }
     
-    public Plugin(@JsonProperty("code") String code, @JsonProperty("plugin_id") String pluginId, @JsonProperty("title") String title, @JsonProperty("workspace_id") String workspaceId) {
-        this.code = code;
-        this.pluginId = pluginId;
-        this.title = title;
-        this.workspaceId = workspaceId;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Plugin other = (Plugin) o;
+        return 
+            java.util.Objects.deepEquals(this.code, other.code) &&
+            java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
+            java.util.Objects.deepEquals(this.evalHash, other.evalHash) &&
+            java.util.Objects.deepEquals(this.pluginId, other.pluginId) &&
+            java.util.Objects.deepEquals(this.title, other.title) &&
+            java.util.Objects.deepEquals(this.updatedAt, other.updatedAt) &&
+            java.util.Objects.deepEquals(this.workspaceId, other.workspaceId);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            code,
+            createdAt,
+            evalHash,
+            pluginId,
+            title,
+            updatedAt,
+            workspaceId);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(Plugin.class,
+                "code", code,
+                "createdAt", createdAt,
+                "evalHash", evalHash,
+                "pluginId", pluginId,
+                "title", title,
+                "updatedAt", updatedAt,
+                "workspaceId", workspaceId);
+    }
+    
+    public final static class Builder {
+ 
+        private String code;
+ 
+        private Optional<? extends OffsetDateTime> createdAt = Optional.empty();
+ 
+        private Optional<? extends String> evalHash = Optional.empty();
+ 
+        private String pluginId;
+ 
+        private String title;
+ 
+        private Optional<? extends OffsetDateTime> updatedAt = Optional.empty();
+ 
+        private String workspaceId;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        public Builder code(String code) {
+            Utils.checkNotNull(code, "code");
+            this.code = code;
+            return this;
+        }
+
+        public Builder createdAt(OffsetDateTime createdAt) {
+            Utils.checkNotNull(createdAt, "createdAt");
+            this.createdAt = Optional.ofNullable(createdAt);
+            return this;
+        }
+        
+        public Builder createdAt(Optional<? extends OffsetDateTime> createdAt) {
+            Utils.checkNotNull(createdAt, "createdAt");
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public Builder evalHash(String evalHash) {
+            Utils.checkNotNull(evalHash, "evalHash");
+            this.evalHash = Optional.ofNullable(evalHash);
+            return this;
+        }
+        
+        public Builder evalHash(Optional<? extends String> evalHash) {
+            Utils.checkNotNull(evalHash, "evalHash");
+            this.evalHash = evalHash;
+            return this;
+        }
+
+        public Builder pluginId(String pluginId) {
+            Utils.checkNotNull(pluginId, "pluginId");
+            this.pluginId = pluginId;
+            return this;
+        }
+
+        public Builder title(String title) {
+            Utils.checkNotNull(title, "title");
+            this.title = title;
+            return this;
+        }
+
+        public Builder updatedAt(OffsetDateTime updatedAt) {
+            Utils.checkNotNull(updatedAt, "updatedAt");
+            this.updatedAt = Optional.ofNullable(updatedAt);
+            return this;
+        }
+        
+        public Builder updatedAt(Optional<? extends OffsetDateTime> updatedAt) {
+            Utils.checkNotNull(updatedAt, "updatedAt");
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+        public Builder workspaceId(String workspaceId) {
+            Utils.checkNotNull(workspaceId, "workspaceId");
+            this.workspaceId = workspaceId;
+            return this;
+        }        
+        
+        public Plugin build() {
+            return new Plugin(
+                code,
+                createdAt,
+                evalHash,
+                pluginId,
+                title,
+                updatedAt,
+                workspaceId);
+        }
+    }
 }
+

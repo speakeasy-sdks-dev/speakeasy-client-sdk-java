@@ -4,25 +4,38 @@
 
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
 import dev.speakeasyapi.javaclientsdk.utils.JSON;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import org.apache.http.NameValuePair;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * REST APIs for retrieving request information
  */
-public class Requests {
-	
-	private SDKConfiguration sdkConfiguration;
+public class Requests implements
+            MethodCallGenerateRequestPostmanCollection,
+            MethodCallGetRequestFromEventLog,
+            MethodCallQueryEventLog {
+    
+    private final SDKConfiguration sdkConfiguration;
 
-	public Requests(SDKConfiguration sdkConfiguration) {
-		this.sdkConfiguration = sdkConfiguration;
-	}
+    Requests(SDKConfiguration sdkConfiguration) {
+        this.sdkConfiguration = sdkConfiguration;
+    }
+    public dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequestBuilder generateRequestPostmanCollection() {
+        return new dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequestBuilder(this);
+    }
 
     /**
      * Generate a Postman collection for a particular request.
@@ -32,9 +45,14 @@ public class Requests {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse generateRequestPostmanCollection(dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest request) throws Exception {
+    public dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse generateRequestPostmanCollection(
+            dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest.class, baseUrl, "/v1/eventlog/{requestID}/generate/postman", request, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(
+                dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest.class, 
+                baseUrl, 
+                "/v1/eventlog/{requestID}/generate/postman", 
+                request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -43,32 +61,52 @@ public class Requests {
         req.addHeader("Accept", "application/json;q=1, application/octet-stream;q=0");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = this.sdkConfiguration.securityClient;
+        HTTPClient client = dev.speakeasyapi.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
         
-        HttpResponse<byte[]> httpRes = client.send(req);
+        HttpResponse<InputStream> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-        
-        dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse(contentType, httpRes.statusCode(), httpRes) {{
-            postmanCollection = null;
-            error = null;
-        }};
+        String contentType = httpRes
+                .headers()
+                .firstValue("Content-Type")
+                .orElse("application/octet-stream");
+
+        dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse.Builder resBuilder = 
+            dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+        if ((httpRes.statusCode() == 200) && dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
+            resBuilder.postmanCollection(httpRes.body());
+        }
+
+        dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
-                byte[] out = httpRes.body();
-                res.postmanCollection = out;
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
-        }
-        else {
+        }else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = out;
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
         }
 
         return res;
+    }
+
+    public dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequestBuilder getRequestFromEventLog() {
+        return new dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequestBuilder(this);
     }
 
     /**
@@ -77,9 +115,14 @@ public class Requests {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse getRequestFromEventLog(dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequest request) throws Exception {
+    public dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse getRequestFromEventLog(
+            dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequest.class, baseUrl, "/v1/eventlog/{requestID}", request, null);
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(
+                dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequest.class, 
+                baseUrl, 
+                "/v1/eventlog/{requestID}", 
+                request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -88,33 +131,54 @@ public class Requests {
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = this.sdkConfiguration.securityClient;
+        HTTPClient client = dev.speakeasyapi.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
         
-        HttpResponse<byte[]> httpRes = client.send(req);
+        HttpResponse<InputStream> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-        
-        dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse(contentType, httpRes.statusCode(), httpRes) {{
-            unboundedRequest = null;
-            error = null;
-        }};
+        String contentType = httpRes
+                .headers()
+                .firstValue("Content-Type")
+                .orElse("application/octet-stream");
+
+        dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse.Builder resBuilder = 
+            dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+
+        dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest.class);
-                res.unboundedRequest = out;
+                dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest>() {});
+                res.withUnboundedRequest(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
-        }
-        else {
+        }else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = out;
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
         }
 
         return res;
+    }
+
+    public dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequestBuilder queryEventLog() {
+        return new dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequestBuilder(this);
     }
 
     /**
@@ -125,9 +189,12 @@ public class Requests {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse queryEventLog(dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest request) throws Exception {
+    public dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse queryEventLog(
+            dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/eventlog/query");
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(
+                baseUrl,
+                "/v1/eventlog/query");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -135,39 +202,58 @@ public class Requests {
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest.class, request, null);
+        java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(
+                dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
             }
         }
         
-        HTTPClient client = this.sdkConfiguration.securityClient;
+        HTTPClient client = dev.speakeasyapi.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
         
-        HttpResponse<byte[]> httpRes = client.send(req);
+        HttpResponse<InputStream> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-        
-        dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse(contentType, httpRes.statusCode(), httpRes) {{
-            classes = null;
-            error = null;
-        }};
+        String contentType = httpRes
+                .headers()
+                .firstValue("Content-Type")
+                .orElse("application/octet-stream");
+
+        dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse.Builder resBuilder = 
+            dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+
+        dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
         
         if (httpRes.statusCode() == 200) {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest[].class);
-                res.classes = out;
+                java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest> out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>>() {});
+                res.withClasses(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
-        }
-        else {
+        }else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = out;
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
         }
 
         return res;
     }
+
 }

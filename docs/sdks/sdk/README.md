@@ -21,24 +21,31 @@ Validate the current api key.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse res = sdk.validateApiKey();
+            ValidateApiKeyResponse res = sdk.validateApiKey()
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -49,5 +56,9 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse](../../models/operations/ValidateApiKeyResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse>](../../models/operations/ValidateApiKeyResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

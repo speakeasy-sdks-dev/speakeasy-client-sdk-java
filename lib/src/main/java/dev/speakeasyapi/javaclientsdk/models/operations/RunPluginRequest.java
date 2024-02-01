@@ -4,34 +4,150 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
+import java.util.Optional;
 
 
 public class RunPluginRequest {
+
     /**
      * The filter to apply to the query.
      */
     @SpeakeasyMetadata("queryParam:serialization=json,name=filters")
-    public dev.speakeasyapi.javaclientsdk.models.shared.Filters filters;
+    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Filters> filters;
 
-    public RunPluginRequest withFilters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
-        this.filters = filters;
-        return this;
-    }
-    
     /**
      * The ID of the plugin to run.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=pluginID")
-    public String pluginID;
+    private String pluginID;
 
+    public RunPluginRequest(
+            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Filters> filters,
+            String pluginID) {
+        Utils.checkNotNull(filters, "filters");
+        Utils.checkNotNull(pluginID, "pluginID");
+        this.filters = filters;
+        this.pluginID = pluginID;
+    }
+
+    /**
+     * The filter to apply to the query.
+     */
+    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Filters> filters() {
+        return filters;
+    }
+
+    /**
+     * The ID of the plugin to run.
+     */
+    public String pluginID() {
+        return pluginID;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * The filter to apply to the query.
+     */
+    public RunPluginRequest withFilters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
+        Utils.checkNotNull(filters, "filters");
+        this.filters = Optional.ofNullable(filters);
+        return this;
+    }
+    
+    /**
+     * The filter to apply to the query.
+     */
+    public RunPluginRequest withFilters(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Filters> filters) {
+        Utils.checkNotNull(filters, "filters");
+        this.filters = filters;
+        return this;
+    }
+
+    /**
+     * The ID of the plugin to run.
+     */
     public RunPluginRequest withPluginID(String pluginID) {
+        Utils.checkNotNull(pluginID, "pluginID");
         this.pluginID = pluginID;
         return this;
     }
     
-    public RunPluginRequest(@JsonProperty("pluginID") String pluginID) {
-        this.pluginID = pluginID;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RunPluginRequest other = (RunPluginRequest) o;
+        return 
+            java.util.Objects.deepEquals(this.filters, other.filters) &&
+            java.util.Objects.deepEquals(this.pluginID, other.pluginID);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            filters,
+            pluginID);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(RunPluginRequest.class,
+                "filters", filters,
+                "pluginID", pluginID);
+    }
+    
+    public final static class Builder {
+ 
+        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Filters> filters = Optional.empty();
+ 
+        private String pluginID;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * The filter to apply to the query.
+         */
+        public Builder filters(dev.speakeasyapi.javaclientsdk.models.shared.Filters filters) {
+            Utils.checkNotNull(filters, "filters");
+            this.filters = Optional.ofNullable(filters);
+            return this;
+        }
+        
+        /**
+         * The filter to apply to the query.
+         */
+        public Builder filters(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Filters> filters) {
+            Utils.checkNotNull(filters, "filters");
+            this.filters = filters;
+            return this;
+        }
+
+        /**
+         * The ID of the plugin to run.
+         */
+        public Builder pluginID(String pluginID) {
+            Utils.checkNotNull(pluginID, "pluginID");
+            this.pluginID = pluginID;
+            return this;
+        }        
+        
+        public RunPluginRequest build() {
+            return new RunPluginRequest(
+                filters,
+                pluginID);
+        }
+    }
 }
+

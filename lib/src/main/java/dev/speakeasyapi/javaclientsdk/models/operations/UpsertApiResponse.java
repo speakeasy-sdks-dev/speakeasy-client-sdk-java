@@ -4,69 +4,283 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 import java.net.http.HttpResponse;
+import java.util.Optional;
 
 
 public class UpsertApiResponse {
+
     /**
      * OK
      */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.Api api;
+    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Api> api;
 
-    public UpsertApiResponse withApi(dev.speakeasyapi.javaclientsdk.models.shared.Api api) {
+    /**
+     * HTTP response content type for this operation
+     */
+    private String contentType;
+
+    /**
+     * Default error response
+     */
+    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
+
+    /**
+     * HTTP response status code for this operation
+     */
+    private int statusCode;
+
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
+    private HttpResponse<InputStream> rawResponse;
+
+    public UpsertApiResponse(
+            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Api> api,
+            String contentType,
+            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
+            int statusCode,
+            HttpResponse<InputStream> rawResponse) {
+        Utils.checkNotNull(api, "api");
+        Utils.checkNotNull(contentType, "contentType");
+        Utils.checkNotNull(error, "error");
+        Utils.checkNotNull(statusCode, "statusCode");
+        Utils.checkNotNull(rawResponse, "rawResponse");
         this.api = api;
+        this.contentType = contentType;
+        this.error = error;
+        this.statusCode = statusCode;
+        this.rawResponse = rawResponse;
+    }
+
+    /**
+     * OK
+     */
+    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Api> api() {
+        return api;
+    }
+
+    /**
+     * HTTP response content type for this operation
+     */
+    public String contentType() {
+        return contentType;
+    }
+
+    /**
+     * Default error response
+     */
+    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error() {
+        return error;
+    }
+
+    /**
+     * HTTP response status code for this operation
+     */
+    public int statusCode() {
+        return statusCode;
+    }
+
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
+    public HttpResponse<InputStream> rawResponse() {
+        return rawResponse;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * OK
+     */
+    public UpsertApiResponse withApi(dev.speakeasyapi.javaclientsdk.models.shared.Api api) {
+        Utils.checkNotNull(api, "api");
+        this.api = Optional.ofNullable(api);
         return this;
     }
     
     /**
+     * OK
+     */
+    public UpsertApiResponse withApi(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Api> api) {
+        Utils.checkNotNull(api, "api");
+        this.api = api;
+        return this;
+    }
+
+    /**
      * HTTP response content type for this operation
      */
-    
-    public String contentType;
-
     public UpsertApiResponse withContentType(String contentType) {
+        Utils.checkNotNull(contentType, "contentType");
         this.contentType = contentType;
+        return this;
+    }
+
+    /**
+     * Default error response
+     */
+    public UpsertApiResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+        Utils.checkNotNull(error, "error");
+        this.error = Optional.ofNullable(error);
         return this;
     }
     
     /**
      * Default error response
      */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
-
-    public UpsertApiResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+    public UpsertApiResponse withError(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
+        Utils.checkNotNull(error, "error");
         this.error = error;
         return this;
     }
-    
+
     /**
      * HTTP response status code for this operation
      */
-    
-    public Integer statusCode;
-
-    public UpsertApiResponse withStatusCode(Integer statusCode) {
+    public UpsertApiResponse withStatusCode(int statusCode) {
+        Utils.checkNotNull(statusCode, "statusCode");
         this.statusCode = statusCode;
         return this;
     }
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    
-    public HttpResponse<byte[]> rawResponse;
-
-    public UpsertApiResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+    public UpsertApiResponse withRawResponse(HttpResponse<InputStream> rawResponse) {
+        Utils.checkNotNull(rawResponse, "rawResponse");
         this.rawResponse = rawResponse;
         return this;
     }
     
-    public UpsertApiResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode, @JsonProperty("RawResponse") HttpResponse<byte[]> rawResponse) {
-        this.contentType = contentType;
-        this.statusCode = statusCode;
-        this.rawResponse = rawResponse;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UpsertApiResponse other = (UpsertApiResponse) o;
+        return 
+            java.util.Objects.deepEquals(this.api, other.api) &&
+            java.util.Objects.deepEquals(this.contentType, other.contentType) &&
+            java.util.Objects.deepEquals(this.error, other.error) &&
+            java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
+            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            api,
+            contentType,
+            error,
+            statusCode,
+            rawResponse);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(UpsertApiResponse.class,
+                "api", api,
+                "contentType", contentType,
+                "error", error,
+                "statusCode", statusCode,
+                "rawResponse", rawResponse);
+    }
+    
+    public final static class Builder {
+ 
+        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Api> api = Optional.empty();
+ 
+        private String contentType;
+ 
+        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error = Optional.empty();
+ 
+        private Integer statusCode;
+ 
+        private HttpResponse<InputStream> rawResponse;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * OK
+         */
+        public Builder api(dev.speakeasyapi.javaclientsdk.models.shared.Api api) {
+            Utils.checkNotNull(api, "api");
+            this.api = Optional.ofNullable(api);
+            return this;
+        }
+        
+        /**
+         * OK
+         */
+        public Builder api(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Api> api) {
+            Utils.checkNotNull(api, "api");
+            this.api = api;
+            return this;
+        }
+
+        /**
+         * HTTP response content type for this operation
+         */
+        public Builder contentType(String contentType) {
+            Utils.checkNotNull(contentType, "contentType");
+            this.contentType = contentType;
+            return this;
+        }
+
+        /**
+         * Default error response
+         */
+        public Builder error(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+            Utils.checkNotNull(error, "error");
+            this.error = Optional.ofNullable(error);
+            return this;
+        }
+        
+        /**
+         * Default error response
+         */
+        public Builder error(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
+            Utils.checkNotNull(error, "error");
+            this.error = error;
+            return this;
+        }
+
+        /**
+         * HTTP response status code for this operation
+         */
+        public Builder statusCode(int statusCode) {
+            Utils.checkNotNull(statusCode, "statusCode");
+            this.statusCode = statusCode;
+            return this;
+        }
+
+        /**
+         * Raw HTTP response; suitable for custom response parsing
+         */
+        public Builder rawResponse(HttpResponse<InputStream> rawResponse) {
+            Utils.checkNotNull(rawResponse, "rawResponse");
+            this.rawResponse = rawResponse;
+            return this;
+        }        
+        
+        public UpsertApiResponse build() {
+            return new UpsertApiResponse(
+                api,
+                contentType,
+                error,
+                statusCode,
+                rawResponse);
+        }
+    }
 }
+

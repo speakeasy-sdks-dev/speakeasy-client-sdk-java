@@ -4,197 +4,262 @@
 
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
 import dev.speakeasyapi.javaclientsdk.utils.JSON;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
  * /docs - The Speakeasy Platform Documentation
  */
-public class SDK {
-	/**
-	 * AvailableServers contains identifiers for the servers available to the SDK.
-	 */ 
-	public enum AvailableServers {
-        PROD("prod");
+public class SDK implements
+            MethodCallValidateApiKeyDirect {
+    /**
+     * AvailableServers contains identifiers for the servers available to the SDK.
+     */ 
+    public enum AvailableServers {
+PROD("prod");
 
-		public final String server;
+        private final String server;
 
-		private AvailableServers(String server) {
-			this.server = server;
-		}
-	}
+        private AvailableServers(String server) {
+            this.server = server;
+        }
+        
+        public String server() {
+           return server;
+        }
+    }
 
-	/**
-	 * SERVERS contains the list of server urls available to the SDK.
-	 */
-	public static final java.util.Map<AvailableServers, String> SERVERS = new java.util.HashMap<AvailableServers, String>() {{
-		put(AvailableServers.PROD, "https://api.prod.speakeasyapi.dev");
-	}};
-	
-  	
+    /**
+     * SERVERS contains the list of server urls available to the SDK.
+     */
+    public static final java.util.Map<AvailableServers, String> SERVERS = new java.util.HashMap<>() {{
+    put(AvailableServers.PROD, "https://api.prod.speakeasyapi.dev");
+    }};
+
     /**
      * REST APIs for managing Api entities
      */
-    public Apis apis;
+    private final Apis apis;
+
     /**
      * REST APIs for managing ApiEndpoint entities
      */
-    public ApiEndpoints apiEndpoints;
+    private final ApiEndpoints apiEndpoints;
+
     /**
      * REST APIs for managing Version Metadata entities
      */
-    public Metadata metadata;
+    private final Metadata metadata;
+
     /**
      * REST APIs for managing Schema entities
      */
-    public Schemas schemas;
+    private final Schemas schemas;
+
     /**
      * REST APIs for retrieving request information
      */
-    public Requests requests;
+    private final Requests requests;
+
     /**
      * REST APIs for managing and running plugins
      */
-    public Plugins plugins;
+    private final Plugins plugins;
+
     /**
      * REST APIs for managing embeds
      */
-    public Embeds embeds;	
+    private final Embeds embeds;
 
-	private SDKConfiguration sdkConfiguration;
+    /**
+     * REST APIs for managing Api entities
+     */
+    public Apis apis() {
+        return apis;
+    }
 
-	/**
-	 * The Builder class allows the configuration of a new instance of the SDK.
-	 */
-	public static class Builder {
-		private SDKConfiguration sdkConfiguration = new SDKConfiguration();
+    /**
+     * REST APIs for managing ApiEndpoint entities
+     */
+    public ApiEndpoints apiEndpoints() {
+        return apiEndpoints;
+    }
 
-		private Builder() {
-		}
+    /**
+     * REST APIs for managing Version Metadata entities
+     */
+    public Metadata metadata() {
+        return metadata;
+    }
 
-		/**
-		 * Allows the default HTTP client to be overridden with a custom implementation.
-		 * @param client The HTTP client to use for all requests.
-		 * @return The builder instance.
-		 */
-		public Builder setClient(HTTPClient client) {
-			this.sdkConfiguration.defaultClient = client;
-			return this;
-		}
-		
-		/**
-		 * Configures the SDK to use the provided security details.
-		 * @param security The security details to use for all requests.
-		 * @return The builder instance.
-		 */
-		public Builder setSecurity(dev.speakeasyapi.javaclientsdk.models.shared.Security security) {
-			this.sdkConfiguration.security = security;
-			return this;
-		}
-		
-		/**
-		 * Allows the overriding of the default server URL.
-		 * @param serverUrl The server URL to use for all requests.
-		 * @return The builder instance.
-		 */
-		public Builder setServerURL(String serverUrl) {
-			this.sdkConfiguration.serverUrl = serverUrl;
-			return this;
-		}
-		
-		/**
-		 * Allows the overriding of the default server URL  with a templated URL populated with the provided parameters.
-		 * @param serverUrl The server URL to use for all requests.
-		 * @param params The parameters to use when templating the URL.
-		 * @return The builder instance.
-		 */
-		public Builder setServerURL(String serverUrl, java.util.Map<String, String> params) {
-			this.sdkConfiguration.serverUrl = dev.speakeasyapi.javaclientsdk.utils.Utils.templateUrl(serverUrl, params);
-			return this;
-		}
-		
-		/**
-		 * Allows the overriding of the default server by name
-		 * @param server The server to use for all requests.
-		 * @return The builder instance.
-		 */
-		public Builder setServer(AvailableServers server) {
-			this.sdkConfiguration.server = server.toString();
-			this.sdkConfiguration.serverUrl = SERVERS.get(server);
-			return this;
-		}
-		
-		/**
-		 * Builds a new instance of the SDK.
-		 * @return The SDK instance.
-		 * @throws Exception Thrown if the SDK could not be built.
-		 */
-		public SDK build() throws Exception {
-			if (this.sdkConfiguration.defaultClient == null) {
-				this.sdkConfiguration.defaultClient = new SpeakeasyHTTPClient();
-			}
-			
-			if (this.sdkConfiguration.security != null) {
-				this.sdkConfiguration.securityClient = dev.speakeasyapi.javaclientsdk.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, this.sdkConfiguration.security);
-			}
-			
-			if (this.sdkConfiguration.securityClient == null) {
-				this.sdkConfiguration.securityClient = this.sdkConfiguration.defaultClient;
-			}
-			
-			if (this.sdkConfiguration.serverUrl == null || this.sdkConfiguration.serverUrl.isBlank()) {
-				this.sdkConfiguration.serverUrl = SERVERS.get(AvailableServers.PROD);
-				this.sdkConfiguration.server = AvailableServers.PROD.toString();
-			}
+    /**
+     * REST APIs for managing Schema entities
+     */
+    public Schemas schemas() {
+        return schemas;
+    }
 
-			if (this.sdkConfiguration.serverUrl.endsWith("/")) {
-				this.sdkConfiguration.serverUrl = this.sdkConfiguration.serverUrl.substring(0, this.sdkConfiguration.serverUrl.length() - 1);
-			}
-			
-			return new SDK(this.sdkConfiguration);
-		}
-	}
+    /**
+     * REST APIs for retrieving request information
+     */
+    public Requests requests() {
+        return requests;
+    }
 
-	/**
-	 * Get a new instance of the SDK builder to configure a new instance of the SDK.
-	 * @return The SDK builder instance.
-	 */
-	public static Builder builder() {
-		return new Builder();
-	}
+    /**
+     * REST APIs for managing and running plugins
+     */
+    public Plugins plugins() {
+        return plugins;
+    }
 
-	private SDK(SDKConfiguration sdkConfiguration) throws Exception {
-		this.sdkConfiguration = sdkConfiguration;
-		
-		this.apis = new Apis(this.sdkConfiguration);
-		
-		this.apiEndpoints = new ApiEndpoints(this.sdkConfiguration);
-		
-		this.metadata = new Metadata(this.sdkConfiguration);
-		
-		this.schemas = new Schemas(this.sdkConfiguration);
-		
-		this.requests = new Requests(this.sdkConfiguration);
-		
-		this.plugins = new Plugins(this.sdkConfiguration);
-		
-		this.embeds = new Embeds(this.sdkConfiguration);
-	}
+    /**
+     * REST APIs for managing embeds
+     */
+    public Embeds embeds() {
+        return embeds;
+    }  
+
+    private final SDKConfiguration sdkConfiguration;
+
+    /**
+     * The Builder class allows the configuration of a new instance of the SDK.
+     */
+    public static class Builder {
+  
+        private final SDKConfiguration sdkConfiguration = new SDKConfiguration();
+
+        private Builder() {
+        }
+
+        /**
+         * Allows the default HTTP client to be overridden with a custom implementation.
+         * @param client The HTTP client to use for all requests.
+         * @return The builder instance.
+         */
+        public Builder client(HTTPClient client) {
+            this.sdkConfiguration.defaultClient = client;
+            return this;
+        }
+        
+        /**
+         * Configures the SDK to use the provided security details.
+         * @param security The security details to use for all requests.
+         * @return The builder instance.
+         */
+        public Builder security(dev.speakeasyapi.javaclientsdk.models.shared.Security security) {
+            this.sdkConfiguration.securitySource = SecuritySource.of(security);
+            return this;
+        }
+
+        public Builder securitySource(SecuritySource securitySource) {
+            this.sdkConfiguration.securitySource = securitySource;
+            return this;
+        }
+        
+        /**
+         * Allows the overriding of the default server URL.
+         * @param serverUrl The server URL to use for all requests.
+         * @return The builder instance.
+         */
+        public Builder serverURL(String serverUrl) {
+            this.sdkConfiguration.serverUrl = serverUrl;
+            return this;
+        }
+        
+        /**
+         * Allows the overriding of the default server URL  with a templated URL populated with the provided parameters.
+         * @param serverUrl The server URL to use for all requests.
+         * @param params The parameters to use when templating the URL.
+         * @return The builder instance.
+         */
+        public Builder serverURL(String serverUrl, java.util.Map<String, String> params) {
+            this.sdkConfiguration.serverUrl = dev.speakeasyapi.javaclientsdk.utils.Utils.templateUrl(serverUrl, params);
+            return this;
+        }
+        
+        /**
+         * Allows the overriding of the default server by name
+         * @param server The server to use for all requests.
+         * @return The builder instance.
+         */
+        public Builder server(AvailableServers server) {
+            this.sdkConfiguration.server = server.toString();
+            this.sdkConfiguration.serverUrl = SERVERS.get(server);
+            return this;
+        }
+        
+        /**
+         * Builds a new instance of the SDK.
+         * @return The SDK instance.
+         * @throws Exception Thrown if the SDK could not be built.
+         */
+        public SDK build() throws Exception {
+            if (sdkConfiguration.defaultClient == null) {
+                sdkConfiguration.defaultClient = new SpeakeasyHTTPClient();
+            }
+	    if (sdkConfiguration.securitySource == null) {
+	    	sdkConfiguration.securitySource = SecuritySource.of(null);
+	    }
+            if (sdkConfiguration.serverUrl == null || sdkConfiguration.serverUrl.isBlank()) {
+                sdkConfiguration.serverUrl = SERVERS.get(AvailableServers.PROD);
+                sdkConfiguration.server = AvailableServers.PROD.toString();
+            }
+            if (sdkConfiguration.serverUrl.endsWith("/")) {
+                sdkConfiguration.serverUrl = sdkConfiguration.serverUrl.substring(0, sdkConfiguration.serverUrl.length() - 1);
+            }
+            return new SDK(sdkConfiguration);
+        }
+    }
+
+    /**
+     * Get a new instance of the SDK builder to configure a new instance of the SDK.
+     * @return The SDK builder instance.
+     */
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    private SDK(SDKConfiguration sdkConfiguration) throws Exception {
+        this.sdkConfiguration = sdkConfiguration;
+        this.apis = new Apis(sdkConfiguration);
+        this.apiEndpoints = new ApiEndpoints(sdkConfiguration);
+        this.metadata = new Metadata(sdkConfiguration);
+        this.schemas = new Schemas(sdkConfiguration);
+        this.requests = new Requests(sdkConfiguration);
+        this.plugins = new Plugins(sdkConfiguration);
+        this.embeds = new Embeds(sdkConfiguration);
+    }
+
+    public dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder validateApiKey() {
+        return new dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder(this);
+    }
 
     /**
      * Validate the current api key.
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKey() throws Exception {
+    public dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/auth/validate");
+        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(
+                baseUrl,
+                "/v1/auth/validate");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -203,26 +268,75 @@ public class SDK {
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = this.sdkConfiguration.securityClient;
+        HTTPClient client = dev.speakeasyapi.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
         
-        HttpResponse<byte[]> httpRes = client.send(req);
+        HttpResponse<InputStream> httpRes = client.send(req);
 
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-        
-        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse res = new dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse(contentType, httpRes.statusCode(), httpRes) {{
-            error = null;
-        }};
+        String contentType = httpRes
+                .headers()
+                .firstValue("Content-Type")
+                .orElse("application/octet-stream");
+
+        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse.Builder resBuilder = 
+            dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+
+        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
         
         if (httpRes.statusCode() == 200) {
-        }
-        else {
+        }else {
             if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), dev.speakeasyapi.javaclientsdk.models.shared.Error.class);
-                res.error = out;
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
         }
 
         return res;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

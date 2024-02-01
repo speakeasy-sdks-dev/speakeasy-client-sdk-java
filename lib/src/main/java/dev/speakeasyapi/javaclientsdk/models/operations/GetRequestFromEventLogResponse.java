@@ -4,69 +4,283 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 import java.net.http.HttpResponse;
+import java.util.Optional;
 
 
 public class GetRequestFromEventLogResponse {
+
     /**
      * HTTP response content type for this operation
      */
-    
-    public String contentType;
+    private String contentType;
 
-    public GetRequestFromEventLogResponse withContentType(String contentType) {
+    /**
+     * Default error response
+     */
+    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
+
+    /**
+     * HTTP response status code for this operation
+     */
+    private int statusCode;
+
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
+    private HttpResponse<InputStream> rawResponse;
+
+    /**
+     * OK
+     */
+    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest> unboundedRequest;
+
+    public GetRequestFromEventLogResponse(
+            String contentType,
+            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
+            int statusCode,
+            HttpResponse<InputStream> rawResponse,
+            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest> unboundedRequest) {
+        Utils.checkNotNull(contentType, "contentType");
+        Utils.checkNotNull(error, "error");
+        Utils.checkNotNull(statusCode, "statusCode");
+        Utils.checkNotNull(rawResponse, "rawResponse");
+        Utils.checkNotNull(unboundedRequest, "unboundedRequest");
         this.contentType = contentType;
+        this.error = error;
+        this.statusCode = statusCode;
+        this.rawResponse = rawResponse;
+        this.unboundedRequest = unboundedRequest;
+    }
+
+    /**
+     * HTTP response content type for this operation
+     */
+    public String contentType() {
+        return contentType;
+    }
+
+    /**
+     * Default error response
+     */
+    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error() {
+        return error;
+    }
+
+    /**
+     * HTTP response status code for this operation
+     */
+    public int statusCode() {
+        return statusCode;
+    }
+
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
+    public HttpResponse<InputStream> rawResponse() {
+        return rawResponse;
+    }
+
+    /**
+     * OK
+     */
+    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest> unboundedRequest() {
+        return unboundedRequest;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * HTTP response content type for this operation
+     */
+    public GetRequestFromEventLogResponse withContentType(String contentType) {
+        Utils.checkNotNull(contentType, "contentType");
+        this.contentType = contentType;
+        return this;
+    }
+
+    /**
+     * Default error response
+     */
+    public GetRequestFromEventLogResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+        Utils.checkNotNull(error, "error");
+        this.error = Optional.ofNullable(error);
         return this;
     }
     
     /**
      * Default error response
      */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.Error error;
-
-    public GetRequestFromEventLogResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+    public GetRequestFromEventLogResponse withError(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
+        Utils.checkNotNull(error, "error");
         this.error = error;
         return this;
     }
-    
+
     /**
      * HTTP response status code for this operation
      */
-    
-    public Integer statusCode;
-
-    public GetRequestFromEventLogResponse withStatusCode(Integer statusCode) {
+    public GetRequestFromEventLogResponse withStatusCode(int statusCode) {
+        Utils.checkNotNull(statusCode, "statusCode");
         this.statusCode = statusCode;
         return this;
     }
-    
+
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    
-    public HttpResponse<byte[]> rawResponse;
-
-    public GetRequestFromEventLogResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+    public GetRequestFromEventLogResponse withRawResponse(HttpResponse<InputStream> rawResponse) {
+        Utils.checkNotNull(rawResponse, "rawResponse");
         this.rawResponse = rawResponse;
+        return this;
+    }
+
+    /**
+     * OK
+     */
+    public GetRequestFromEventLogResponse withUnboundedRequest(dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest unboundedRequest) {
+        Utils.checkNotNull(unboundedRequest, "unboundedRequest");
+        this.unboundedRequest = Optional.ofNullable(unboundedRequest);
         return this;
     }
     
     /**
      * OK
      */
-    
-    public dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest unboundedRequest;
-
-    public GetRequestFromEventLogResponse withUnboundedRequest(dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest unboundedRequest) {
+    public GetRequestFromEventLogResponse withUnboundedRequest(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest> unboundedRequest) {
+        Utils.checkNotNull(unboundedRequest, "unboundedRequest");
         this.unboundedRequest = unboundedRequest;
         return this;
     }
     
-    public GetRequestFromEventLogResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode, @JsonProperty("RawResponse") HttpResponse<byte[]> rawResponse) {
-        this.contentType = contentType;
-        this.statusCode = statusCode;
-        this.rawResponse = rawResponse;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GetRequestFromEventLogResponse other = (GetRequestFromEventLogResponse) o;
+        return 
+            java.util.Objects.deepEquals(this.contentType, other.contentType) &&
+            java.util.Objects.deepEquals(this.error, other.error) &&
+            java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
+            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse) &&
+            java.util.Objects.deepEquals(this.unboundedRequest, other.unboundedRequest);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            contentType,
+            error,
+            statusCode,
+            rawResponse,
+            unboundedRequest);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(GetRequestFromEventLogResponse.class,
+                "contentType", contentType,
+                "error", error,
+                "statusCode", statusCode,
+                "rawResponse", rawResponse,
+                "unboundedRequest", unboundedRequest);
+    }
+    
+    public final static class Builder {
+ 
+        private String contentType;
+ 
+        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error = Optional.empty();
+ 
+        private Integer statusCode;
+ 
+        private HttpResponse<InputStream> rawResponse;
+ 
+        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest> unboundedRequest = Optional.empty();  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * HTTP response content type for this operation
+         */
+        public Builder contentType(String contentType) {
+            Utils.checkNotNull(contentType, "contentType");
+            this.contentType = contentType;
+            return this;
+        }
+
+        /**
+         * Default error response
+         */
+        public Builder error(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+            Utils.checkNotNull(error, "error");
+            this.error = Optional.ofNullable(error);
+            return this;
+        }
+        
+        /**
+         * Default error response
+         */
+        public Builder error(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
+            Utils.checkNotNull(error, "error");
+            this.error = error;
+            return this;
+        }
+
+        /**
+         * HTTP response status code for this operation
+         */
+        public Builder statusCode(int statusCode) {
+            Utils.checkNotNull(statusCode, "statusCode");
+            this.statusCode = statusCode;
+            return this;
+        }
+
+        /**
+         * Raw HTTP response; suitable for custom response parsing
+         */
+        public Builder rawResponse(HttpResponse<InputStream> rawResponse) {
+            Utils.checkNotNull(rawResponse, "rawResponse");
+            this.rawResponse = rawResponse;
+            return this;
+        }
+
+        /**
+         * OK
+         */
+        public Builder unboundedRequest(dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest unboundedRequest) {
+            Utils.checkNotNull(unboundedRequest, "unboundedRequest");
+            this.unboundedRequest = Optional.ofNullable(unboundedRequest);
+            return this;
+        }
+        
+        /**
+         * OK
+         */
+        public Builder unboundedRequest(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest> unboundedRequest) {
+            Utils.checkNotNull(unboundedRequest, "unboundedRequest");
+            this.unboundedRequest = unboundedRequest;
+            return this;
+        }        
+        
+        public GetRequestFromEventLogResponse build() {
+            return new GetRequestFromEventLogResponse(
+                contentType,
+                error,
+                statusCode,
+                rawResponse,
+                unboundedRequest);
+        }
+    }
 }
+

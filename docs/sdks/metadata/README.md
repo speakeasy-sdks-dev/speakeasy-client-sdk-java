@@ -1,5 +1,5 @@
 # Metadata
-(*metadata*)
+(*metadata()*)
 
 ## Overview
 
@@ -21,31 +21,40 @@ Delete metadata for a particular apiID and versionID.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest req = new DeleteVersionMetadataRequest(
-                "string",
-                "string",
-                "string",
-                "string");
+            DeleteVersionMetadataRequest req = DeleteVersionMetadataRequest.builder()
+                .apiID("string")
+                .metaKey("string")
+                .metaValue("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse res = sdk.metadata.deleteVersionMetadata(req);
+            DeleteVersionMetadataResponse res = sdk.metadata().deleteVersionMetadata()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -62,8 +71,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse](../../models/operations/DeleteVersionMetadataResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataResponse>](../../models/operations/DeleteVersionMetadataResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getVersionMetadata
 
@@ -75,29 +88,40 @@ Get all metadata for a particular apiID and versionID.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest req = new GetVersionMetadataRequest(
-                "string",
-                "string");
+            GetVersionMetadataRequest req = GetVersionMetadataRequest.builder()
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse res = sdk.metadata.getVersionMetadata(req);
+            GetVersionMetadataResponse res = sdk.metadata().getVersionMetadata()
+                .request(req)
+                .call();
 
-            if (res.classes != null) {
+            if (res.classes().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -114,8 +138,12 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse](../../models/operations/GetVersionMetadataResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataResponse>](../../models/operations/GetVersionMetadataResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## insertVersionMetadata
 
@@ -127,33 +155,45 @@ Insert metadata for a particular apiID and versionID.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadataInput;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "string"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
                 .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest req = new InsertVersionMetadataRequest(
-                new VersionMetadataInput(
-                    "string",
-                    "string"),
-                "string",
-                "string");
+            InsertVersionMetadataRequest req = InsertVersionMetadataRequest.builder()
+                .versionMetadata(VersionMetadataInput.builder()
+                        .metaKey("string")
+                        .metaValue("string")
+                        .build())
+                .apiID("string")
+                .versionID("string")
+                .build();
 
-            dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse res = sdk.metadata.insertVersionMetadata(req);
+            InsertVersionMetadataResponse res = sdk.metadata().insertVersionMetadata()
+                .request(req)
+                .call();
 
-            if (res.versionMetadata != null) {
+            if (res.versionMetadata().isPresent()) {
                 // handle response
             }
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -170,5 +210,9 @@ public class Application {
 
 ### Response
 
-**[dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse](../../models/operations/InsertVersionMetadataResponse.md)**
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataResponse>](../../models/operations/InsertVersionMetadataResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

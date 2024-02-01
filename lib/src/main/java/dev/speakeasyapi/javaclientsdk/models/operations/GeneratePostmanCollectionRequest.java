@@ -4,35 +4,131 @@
 
 package dev.speakeasyapi.javaclientsdk.models.operations;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
+import java.io.InputStream;
 
 
 public class GeneratePostmanCollectionRequest {
+
     /**
      * The ID of the Api to generate a Postman collection for.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
-    public String apiID;
+    private String apiID;
 
-    public GeneratePostmanCollectionRequest withApiID(String apiID) {
-        this.apiID = apiID;
-        return this;
-    }
-    
     /**
      * The version ID of the Api to generate a Postman collection for.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
-    public String versionID;
+    private String versionID;
 
+    public GeneratePostmanCollectionRequest(
+            String apiID,
+            String versionID) {
+        Utils.checkNotNull(apiID, "apiID");
+        Utils.checkNotNull(versionID, "versionID");
+        this.apiID = apiID;
+        this.versionID = versionID;
+    }
+
+    /**
+     * The ID of the Api to generate a Postman collection for.
+     */
+    public String apiID() {
+        return apiID;
+    }
+
+    /**
+     * The version ID of the Api to generate a Postman collection for.
+     */
+    public String versionID() {
+        return versionID;
+    }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
+
+    /**
+     * The ID of the Api to generate a Postman collection for.
+     */
+    public GeneratePostmanCollectionRequest withApiID(String apiID) {
+        Utils.checkNotNull(apiID, "apiID");
+        this.apiID = apiID;
+        return this;
+    }
+
+    /**
+     * The version ID of the Api to generate a Postman collection for.
+     */
     public GeneratePostmanCollectionRequest withVersionID(String versionID) {
+        Utils.checkNotNull(versionID, "versionID");
         this.versionID = versionID;
         return this;
     }
     
-    public GeneratePostmanCollectionRequest(@JsonProperty("apiID") String apiID, @JsonProperty("versionID") String versionID) {
-        this.apiID = apiID;
-        this.versionID = versionID;
-  }
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GeneratePostmanCollectionRequest other = (GeneratePostmanCollectionRequest) o;
+        return 
+            java.util.Objects.deepEquals(this.apiID, other.apiID) &&
+            java.util.Objects.deepEquals(this.versionID, other.versionID);
+    }
+    
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+            apiID,
+            versionID);
+    }
+    
+    @Override
+    public String toString() {
+        return Utils.toString(GeneratePostmanCollectionRequest.class,
+                "apiID", apiID,
+                "versionID", versionID);
+    }
+    
+    public final static class Builder {
+ 
+        private String apiID;
+ 
+        private String versionID;  
+        
+        private Builder() {
+          // force use of static builder() method
+        }
+
+        /**
+         * The ID of the Api to generate a Postman collection for.
+         */
+        public Builder apiID(String apiID) {
+            Utils.checkNotNull(apiID, "apiID");
+            this.apiID = apiID;
+            return this;
+        }
+
+        /**
+         * The version ID of the Api to generate a Postman collection for.
+         */
+        public Builder versionID(String versionID) {
+            Utils.checkNotNull(versionID, "versionID");
+            this.versionID = versionID;
+            return this;
+        }        
+        
+        public GeneratePostmanCollectionRequest build() {
+            return new GeneratePostmanCollectionRequest(
+                apiID,
+                versionID);
+        }
+    }
 }
+
