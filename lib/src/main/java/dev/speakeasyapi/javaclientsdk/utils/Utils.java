@@ -43,8 +43,26 @@ public final class Utils {
 
         return baseURL + path;
     }
+    
+    public static <T> String generateURL(Class<T> type, String baseURL, String path, JsonNullable<? extends T> params,
+            Map<String, Map<String, Map<String, Object>>> globals) throws JsonProcessingException, IllegalArgumentException, IllegalAccessException {
+        if (params.isPresent() && params.get() != null) {
+            return generateURL(type, baseURL, path, params.get(), globals);
+        } else {
+            return baseURL;
+        }
+    }
+    
+    public static <T> String generateURL(Class<T> type, String baseURL, String path, Optional<? extends T> params,
+            Map<String, Map<String, Map<String, Object>>> globals) throws JsonProcessingException, IllegalArgumentException, IllegalAccessException {
+        if (params.isPresent()) {
+            return generateURL(type, baseURL, path, params.get(), globals);
+        } else {
+            return baseURL;
+        }
+    }
 
-    public static <T extends Object> String generateURL(Class<T> type, String baseURL, String path, T params,
+    public static <T> String generateURL(Class<T> type, String baseURL, String path, T params,
             Map<String, Map<String, Map<String, Object>>> globals)
             throws IllegalArgumentException, IllegalAccessException, JsonProcessingException {
         if (baseURL != null && baseURL.endsWith("/")) {
