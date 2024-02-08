@@ -1,7 +1,4 @@
 name: Generate
-permissions:
-    checks: ""
-    statuses: ""
 "on":
     workflow_dispatch:
         inputs:
