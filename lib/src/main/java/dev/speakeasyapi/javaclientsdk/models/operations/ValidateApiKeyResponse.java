@@ -13,6 +13,11 @@ import java.util.Optional;
 public class ValidateApiKeyResponse {
 
     /**
+     * OK
+     */
+    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails> apiKeyDetails;
+
+    /**
      * HTTP response content type for this operation
      */
     private String contentType;
@@ -33,18 +38,28 @@ public class ValidateApiKeyResponse {
     private HttpResponse<InputStream> rawResponse;
 
     public ValidateApiKeyResponse(
+            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails> apiKeyDetails,
             String contentType,
             Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
             int statusCode,
             HttpResponse<InputStream> rawResponse) {
+        Utils.checkNotNull(apiKeyDetails, "apiKeyDetails");
         Utils.checkNotNull(contentType, "contentType");
         Utils.checkNotNull(error, "error");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
+        this.apiKeyDetails = apiKeyDetails;
         this.contentType = contentType;
         this.error = error;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
+    }
+
+    /**
+     * OK
+     */
+    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails> apiKeyDetails() {
+        return apiKeyDetails;
     }
 
     /**
@@ -77,6 +92,24 @@ public class ValidateApiKeyResponse {
     
     public final static Builder builder() {
         return new Builder();
+    }
+
+    /**
+     * OK
+     */
+    public ValidateApiKeyResponse withApiKeyDetails(dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails apiKeyDetails) {
+        Utils.checkNotNull(apiKeyDetails, "apiKeyDetails");
+        this.apiKeyDetails = Optional.ofNullable(apiKeyDetails);
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    public ValidateApiKeyResponse withApiKeyDetails(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails> apiKeyDetails) {
+        Utils.checkNotNull(apiKeyDetails, "apiKeyDetails");
+        this.apiKeyDetails = apiKeyDetails;
+        return this;
     }
 
     /**
@@ -134,6 +167,7 @@ public class ValidateApiKeyResponse {
         }
         ValidateApiKeyResponse other = (ValidateApiKeyResponse) o;
         return 
+            java.util.Objects.deepEquals(this.apiKeyDetails, other.apiKeyDetails) &&
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
             java.util.Objects.deepEquals(this.error, other.error) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
@@ -143,6 +177,7 @@ public class ValidateApiKeyResponse {
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
+            apiKeyDetails,
             contentType,
             error,
             statusCode,
@@ -152,6 +187,7 @@ public class ValidateApiKeyResponse {
     @Override
     public String toString() {
         return Utils.toString(ValidateApiKeyResponse.class,
+                "apiKeyDetails", apiKeyDetails,
                 "contentType", contentType,
                 "error", error,
                 "statusCode", statusCode,
@@ -159,6 +195,8 @@ public class ValidateApiKeyResponse {
     }
     
     public final static class Builder {
+ 
+        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails> apiKeyDetails = Optional.empty();
  
         private String contentType;
  
@@ -170,6 +208,24 @@ public class ValidateApiKeyResponse {
         
         private Builder() {
           // force use of static builder() method
+        }
+
+        /**
+         * OK
+         */
+        public Builder apiKeyDetails(dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails apiKeyDetails) {
+            Utils.checkNotNull(apiKeyDetails, "apiKeyDetails");
+            this.apiKeyDetails = Optional.ofNullable(apiKeyDetails);
+            return this;
+        }
+        
+        /**
+         * OK
+         */
+        public Builder apiKeyDetails(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.ApiKeyDetails> apiKeyDetails) {
+            Utils.checkNotNull(apiKeyDetails, "apiKeyDetails");
+            this.apiKeyDetails = apiKeyDetails;
+            return this;
         }
 
         /**
@@ -219,6 +275,7 @@ public class ValidateApiKeyResponse {
         
         public ValidateApiKeyResponse build() {
             return new ValidateApiKeyResponse(
+                apiKeyDetails,
                 contentType,
                 error,
                 statusCode,

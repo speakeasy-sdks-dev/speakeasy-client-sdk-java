@@ -18,6 +18,11 @@ public class GetValidEmbedAccessTokensResponse {
     private String contentType;
 
     /**
+     * OK
+     */
+    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> embedTokens;
+
+    /**
      * Default error response
      */
     private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
@@ -32,27 +37,22 @@ public class GetValidEmbedAccessTokensResponse {
      */
     private HttpResponse<InputStream> rawResponse;
 
-    /**
-     * OK
-     */
-    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> classes;
-
     public GetValidEmbedAccessTokensResponse(
             String contentType,
+            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> embedTokens,
             Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
             int statusCode,
-            HttpResponse<InputStream> rawResponse,
-            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> classes) {
+            HttpResponse<InputStream> rawResponse) {
         Utils.checkNotNull(contentType, "contentType");
+        Utils.checkNotNull(embedTokens, "embedTokens");
         Utils.checkNotNull(error, "error");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
-        Utils.checkNotNull(classes, "classes");
         this.contentType = contentType;
+        this.embedTokens = embedTokens;
         this.error = error;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
-        this.classes = classes;
     }
 
     /**
@@ -60,6 +60,13 @@ public class GetValidEmbedAccessTokensResponse {
      */
     public String contentType() {
         return contentType;
+    }
+
+    /**
+     * OK
+     */
+    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> embedTokens() {
+        return embedTokens;
     }
 
     /**
@@ -82,13 +89,6 @@ public class GetValidEmbedAccessTokensResponse {
     public HttpResponse<InputStream> rawResponse() {
         return rawResponse;
     }
-
-    /**
-     * OK
-     */
-    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> classes() {
-        return classes;
-    }
     
     public final static Builder builder() {
         return new Builder();
@@ -100,6 +100,24 @@ public class GetValidEmbedAccessTokensResponse {
     public GetValidEmbedAccessTokensResponse withContentType(String contentType) {
         Utils.checkNotNull(contentType, "contentType");
         this.contentType = contentType;
+        return this;
+    }
+
+    /**
+     * OK
+     */
+    public GetValidEmbedAccessTokensResponse withEmbedTokens(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken> embedTokens) {
+        Utils.checkNotNull(embedTokens, "embedTokens");
+        this.embedTokens = Optional.ofNullable(embedTokens);
+        return this;
+    }
+    
+    /**
+     * OK
+     */
+    public GetValidEmbedAccessTokensResponse withEmbedTokens(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> embedTokens) {
+        Utils.checkNotNull(embedTokens, "embedTokens");
+        this.embedTokens = embedTokens;
         return this;
     }
 
@@ -138,24 +156,6 @@ public class GetValidEmbedAccessTokensResponse {
         this.rawResponse = rawResponse;
         return this;
     }
-
-    /**
-     * OK
-     */
-    public GetValidEmbedAccessTokensResponse withClasses(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = Optional.ofNullable(classes);
-        return this;
-    }
-    
-    /**
-     * OK
-     */
-    public GetValidEmbedAccessTokensResponse withClasses(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = classes;
-        return this;
-    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -168,43 +168,43 @@ public class GetValidEmbedAccessTokensResponse {
         GetValidEmbedAccessTokensResponse other = (GetValidEmbedAccessTokensResponse) o;
         return 
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
+            java.util.Objects.deepEquals(this.embedTokens, other.embedTokens) &&
             java.util.Objects.deepEquals(this.error, other.error) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
-            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse) &&
-            java.util.Objects.deepEquals(this.classes, other.classes);
+            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
             contentType,
+            embedTokens,
             error,
             statusCode,
-            rawResponse,
-            classes);
+            rawResponse);
     }
     
     @Override
     public String toString() {
         return Utils.toString(GetValidEmbedAccessTokensResponse.class,
                 "contentType", contentType,
+                "embedTokens", embedTokens,
                 "error", error,
                 "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "classes", classes);
+                "rawResponse", rawResponse);
     }
     
     public final static class Builder {
  
         private String contentType;
  
+        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> embedTokens = Optional.empty();
+ 
         private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error = Optional.empty();
  
         private Integer statusCode;
  
-        private HttpResponse<InputStream> rawResponse;
- 
-        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> classes = Optional.empty();  
+        private HttpResponse<InputStream> rawResponse;  
         
         private Builder() {
           // force use of static builder() method
@@ -216,6 +216,24 @@ public class GetValidEmbedAccessTokensResponse {
         public Builder contentType(String contentType) {
             Utils.checkNotNull(contentType, "contentType");
             this.contentType = contentType;
+            return this;
+        }
+
+        /**
+         * OK
+         */
+        public Builder embedTokens(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken> embedTokens) {
+            Utils.checkNotNull(embedTokens, "embedTokens");
+            this.embedTokens = Optional.ofNullable(embedTokens);
+            return this;
+        }
+        
+        /**
+         * OK
+         */
+        public Builder embedTokens(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> embedTokens) {
+            Utils.checkNotNull(embedTokens, "embedTokens");
+            this.embedTokens = embedTokens;
             return this;
         }
 
@@ -253,33 +271,15 @@ public class GetValidEmbedAccessTokensResponse {
             Utils.checkNotNull(rawResponse, "rawResponse");
             this.rawResponse = rawResponse;
             return this;
-        }
-
-        /**
-         * OK
-         */
-        public Builder classes(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = Optional.ofNullable(classes);
-            return this;
-        }
-        
-        /**
-         * OK
-         */
-        public Builder classes(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = classes;
-            return this;
         }        
         
         public GetValidEmbedAccessTokensResponse build() {
             return new GetValidEmbedAccessTokensResponse(
                 contentType,
+                embedTokens,
                 error,
                 statusCode,
-                rawResponse,
-                classes);
+                rawResponse);
         }
     }
 }

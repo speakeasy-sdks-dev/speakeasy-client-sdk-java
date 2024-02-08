@@ -35,24 +35,24 @@ public class GetVersionMetadataResponse {
     /**
      * OK
      */
-    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> classes;
+    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> versionMetadata;
 
     public GetVersionMetadataResponse(
             String contentType,
             Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
             int statusCode,
             HttpResponse<InputStream> rawResponse,
-            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> classes) {
+            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> versionMetadata) {
         Utils.checkNotNull(contentType, "contentType");
         Utils.checkNotNull(error, "error");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
-        Utils.checkNotNull(classes, "classes");
+        Utils.checkNotNull(versionMetadata, "versionMetadata");
         this.contentType = contentType;
         this.error = error;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
-        this.classes = classes;
+        this.versionMetadata = versionMetadata;
     }
 
     /**
@@ -86,8 +86,8 @@ public class GetVersionMetadataResponse {
     /**
      * OK
      */
-    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> classes() {
-        return classes;
+    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> versionMetadata() {
+        return versionMetadata;
     }
     
     public final static Builder builder() {
@@ -142,18 +142,18 @@ public class GetVersionMetadataResponse {
     /**
      * OK
      */
-    public GetVersionMetadataResponse withClasses(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = Optional.ofNullable(classes);
+    public GetVersionMetadataResponse withVersionMetadata(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata> versionMetadata) {
+        Utils.checkNotNull(versionMetadata, "versionMetadata");
+        this.versionMetadata = Optional.ofNullable(versionMetadata);
         return this;
     }
     
     /**
      * OK
      */
-    public GetVersionMetadataResponse withClasses(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = classes;
+    public GetVersionMetadataResponse withVersionMetadata(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> versionMetadata) {
+        Utils.checkNotNull(versionMetadata, "versionMetadata");
+        this.versionMetadata = versionMetadata;
         return this;
     }
     
@@ -171,7 +171,7 @@ public class GetVersionMetadataResponse {
             java.util.Objects.deepEquals(this.error, other.error) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
             java.util.Objects.deepEquals(this.rawResponse, other.rawResponse) &&
-            java.util.Objects.deepEquals(this.classes, other.classes);
+            java.util.Objects.deepEquals(this.versionMetadata, other.versionMetadata);
     }
     
     @Override
@@ -181,7 +181,7 @@ public class GetVersionMetadataResponse {
             error,
             statusCode,
             rawResponse,
-            classes);
+            versionMetadata);
     }
     
     @Override
@@ -191,7 +191,7 @@ public class GetVersionMetadataResponse {
                 "error", error,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse,
-                "classes", classes);
+                "versionMetadata", versionMetadata);
     }
     
     public final static class Builder {
@@ -204,7 +204,7 @@ public class GetVersionMetadataResponse {
  
         private HttpResponse<InputStream> rawResponse;
  
-        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> classes = Optional.empty();  
+        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> versionMetadata = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -258,18 +258,18 @@ public class GetVersionMetadataResponse {
         /**
          * OK
          */
-        public Builder classes(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = Optional.ofNullable(classes);
+        public Builder versionMetadata(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata> versionMetadata) {
+            Utils.checkNotNull(versionMetadata, "versionMetadata");
+            this.versionMetadata = Optional.ofNullable(versionMetadata);
             return this;
         }
         
         /**
          * OK
          */
-        public Builder classes(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = classes;
+        public Builder versionMetadata(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>> versionMetadata) {
+            Utils.checkNotNull(versionMetadata, "versionMetadata");
+            this.versionMetadata = versionMetadata;
             return this;
         }        
         
@@ -279,7 +279,7 @@ public class GetVersionMetadataResponse {
                 error,
                 statusCode,
                 rawResponse,
-                classes);
+                versionMetadata);
         }
     }
 }

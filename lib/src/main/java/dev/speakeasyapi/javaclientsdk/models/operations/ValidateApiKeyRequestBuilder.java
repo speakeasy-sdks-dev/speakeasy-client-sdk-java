@@ -17,9 +17,9 @@ import dev.speakeasyapi.javaclientsdk.utils.LazySingletonValue;
 public class ValidateApiKeyRequestBuilder {
 
 
-    private final SDKMethodInterfaces.MethodCallValidateApiKeyDirect sdk;
+    private final SDKMethodInterfaces.MethodCallValidateApiKey sdk;
     
-    public ValidateApiKeyRequestBuilder(SDKMethodInterfaces.MethodCallValidateApiKeyDirect sdk) {
+    public ValidateApiKeyRequestBuilder(SDKMethodInterfaces.MethodCallValidateApiKey sdk) {
         this.sdk = sdk;
     }
 

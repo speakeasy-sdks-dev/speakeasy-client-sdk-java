@@ -17,9 +17,9 @@ import dev.speakeasyapi.javaclientsdk.utils.LazySingletonValue;
 public class GetValidEmbedAccessTokensRequestBuilder {
 
 
-    private final SDKMethodInterfaces.MethodCallGetValidEmbedAccessTokensDirect sdk;
+    private final SDKMethodInterfaces.MethodCallGetValidEmbedAccessTokens sdk;
     
-    public GetValidEmbedAccessTokensRequestBuilder(SDKMethodInterfaces.MethodCallGetValidEmbedAccessTokensDirect sdk) {
+    public GetValidEmbedAccessTokensRequestBuilder(SDKMethodInterfaces.MethodCallGetValidEmbedAccessTokens sdk) {
         this.sdk = sdk;
     }
 

@@ -14,24 +14,24 @@ import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import dev.speakeasyapi.javaclientsdk.utils.LazySingletonValue;
 
-public class UpsertPluginRequestBuilder {
+public class PostWorkspaceEventsRequestBuilder {
 
-    private dev.speakeasyapi.javaclientsdk.models.shared.Plugin request;
+    private PostWorkspaceEventsRequest request;
 
-    private final SDKMethodInterfaces.MethodCallUpsertPlugin sdk;
+    private final SDKMethodInterfaces.MethodCallPostWorkspaceEvents sdk;
     
-    public UpsertPluginRequestBuilder(SDKMethodInterfaces.MethodCallUpsertPlugin sdk) {
+    public PostWorkspaceEventsRequestBuilder(SDKMethodInterfaces.MethodCallPostWorkspaceEvents sdk) {
         this.sdk = sdk;
     }
              
-    public UpsertPluginRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.shared.Plugin request) {
+    public PostWorkspaceEventsRequestBuilder request(PostWorkspaceEventsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;
     }
 
-    public UpsertPluginResponse call() throws Exception {
-        return sdk.upsertPlugin(
+    public PostWorkspaceEventsResponse call() throws Exception {
+        return sdk.postWorkspaceEvents(
             request);
     }
 }

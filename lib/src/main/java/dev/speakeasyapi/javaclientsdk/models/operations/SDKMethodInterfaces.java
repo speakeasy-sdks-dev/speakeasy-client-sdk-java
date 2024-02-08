@@ -12,11 +12,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 public class SDKMethodInterfaces {
 
-    public interface MethodCallValidateApiKeyDirect { 
-        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception;
-    }
-
-
     public interface MethodCallDeleteApi { 
         dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse deleteApi(
             dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest request) throws Exception;
@@ -167,6 +162,11 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallValidateApiKey { 
+        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception;
+    }
+
+
     public interface MethodCallGenerateRequestPostmanCollection { 
         dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse generateRequestPostmanCollection(
             dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest request) throws Exception;
@@ -185,30 +185,13 @@ public class SDKMethodInterfaces {
     }
 
 
-    public interface MethodCallGetPluginsDirect { 
-        dev.speakeasyapi.javaclientsdk.models.operations.GetPluginsResponse getPluginsDirect() throws Exception;
-    }
-
-
-    public interface MethodCallRunPlugin { 
-        dev.speakeasyapi.javaclientsdk.models.operations.RunPluginResponse runPlugin(
-            dev.speakeasyapi.javaclientsdk.models.operations.RunPluginRequest request) throws Exception;
-    }
-
-
-    public interface MethodCallUpsertPlugin { 
-        dev.speakeasyapi.javaclientsdk.models.operations.UpsertPluginResponse upsertPlugin(
-            dev.speakeasyapi.javaclientsdk.models.shared.Plugin request) throws Exception;
-    }
-
-
     public interface MethodCallGetEmbedAccessToken { 
         dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse getEmbedAccessToken(
             dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetValidEmbedAccessTokensDirect { 
+    public interface MethodCallGetValidEmbedAccessTokens { 
         dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse getValidEmbedAccessTokensDirect() throws Exception;
     }
 
@@ -216,6 +199,12 @@ public class SDKMethodInterfaces {
     public interface MethodCallRevokeEmbedAccessToken { 
         dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse revokeEmbedAccessToken(
             dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallPostWorkspaceEvents { 
+        dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsResponse postWorkspaceEvents(
+            dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsRequest request) throws Exception;
     }
 
 }

@@ -1,12 +1,26 @@
-<!-- Start SDK Example Usage [usage] -->
+# Auth
+(*auth()*)
+
+## Overview
+
+REST APIs for managing Authentication
+
+### Available Operations
+
+* [validateApiKey](#validateapikey) - Validate the current api key.
+
+## validateApiKey
+
+Validate the current api key.
+
+### Example Usage
+
 ```java
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
-import dev.speakeasyapi.javaclientsdk.models.operations.QueryParamOp;
+import dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
@@ -24,20 +38,10 @@ public class Application {
                 .workspaceID("string")
                 .build();
 
-            GetApisRequest req = GetApisRequest.builder()
-                .metadata(java.util.Map.ofEntries(
-                    entry("key", java.util.List.of(
-                        "string"))))
-                .op(QueryParamOp.builder()
-                    .and(false)
-                    .build())
-                .build();
-
-            GetApisResponse res = sdk.apis().getApis()
-                .request(req)
+            ValidateApiKeyResponse res = sdk.auth().validateApiKey()
                 .call();
 
-            if (res.apis().isPresent()) {
+            if (res.apiKeyDetails().isPresent()) {
                 // handle response
             }
 
@@ -49,4 +53,13 @@ public class Application {
     }
 }
 ```
-<!-- End SDK Example Usage [usage] -->
+
+
+### Response
+
+**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse>](../../models/operations/ValidateApiKeyResponse.md)**
+### Errors
+
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

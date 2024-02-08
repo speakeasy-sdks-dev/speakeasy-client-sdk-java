@@ -24,7 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 public class Embeds implements
             MethodCallGetEmbedAccessToken,
-            MethodCallGetValidEmbedAccessTokensDirect,
+            MethodCallGetValidEmbedAccessTokens,
             MethodCallRevokeEmbedAccessToken {
     
     private final SDKConfiguration sdkConfiguration;
@@ -58,7 +58,7 @@ public class Embeds implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(
-                dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest.class, request, null);
+                dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -160,7 +160,7 @@ public class Embeds implements
                 java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken> out = mapper.readValue(
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken>>() {});
-                res.withClasses(java.util.Optional.ofNullable(out));
+                res.withEmbedTokens(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
@@ -196,7 +196,7 @@ public class Embeds implements
                 dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest.class, 
                 baseUrl, 
                 "/v1/workspace/embed-access-tokens/{tokenID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");

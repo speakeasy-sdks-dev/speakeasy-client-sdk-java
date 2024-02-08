@@ -55,7 +55,7 @@ public class Apis implements
                 dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -120,7 +120,7 @@ public class Apis implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/generate/openapi", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -193,7 +193,7 @@ public class Apis implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/generate/postman", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -265,7 +265,7 @@ public class Apis implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -274,7 +274,7 @@ public class Apis implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(
-                dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, request, null);
+                dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -308,7 +308,7 @@ public class Apis implements
                 java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> out = mapper.readValue(
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>>() {});
-                res.withClasses(java.util.Optional.ofNullable(out));
+                res.withApis(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
@@ -353,7 +353,7 @@ public class Apis implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(
-                dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest.class, request, null);
+                dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -387,7 +387,7 @@ public class Apis implements
                 java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> out = mapper.readValue(
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>>() {});
-                res.withClasses(java.util.Optional.ofNullable(out));
+                res.withApis(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
@@ -425,7 +425,7 @@ public class Apis implements
                 dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");

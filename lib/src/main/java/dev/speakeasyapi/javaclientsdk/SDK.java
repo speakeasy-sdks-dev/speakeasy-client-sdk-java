@@ -4,18 +4,11 @@
 
 package dev.speakeasyapi.javaclientsdk;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
-import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
-import dev.speakeasyapi.javaclientsdk.utils.JSON;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.io.InputStream;
-import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -25,8 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
  * /docs - The Speakeasy Platform Documentation
  */
-public class SDK implements
-            MethodCallValidateApiKeyDirect {
+public class SDK {
     /**
      * AvailableServers contains identifiers for the servers available to the SDK.
      */ 
@@ -72,19 +64,24 @@ PROD("prod");
     private final Schemas schemas;
 
     /**
+     * REST APIs for managing Authentication
+     */
+    private final Auth auth;
+
+    /**
      * REST APIs for retrieving request information
      */
     private final Requests requests;
 
     /**
-     * REST APIs for managing and running plugins
-     */
-    private final Plugins plugins;
-
-    /**
      * REST APIs for managing embeds
      */
     private final Embeds embeds;
+
+    /**
+     * REST APIs for capturing event data
+     */
+    private final Events events;
 
     /**
      * REST APIs for managing Api entities
@@ -115,6 +112,13 @@ PROD("prod");
     }
 
     /**
+     * REST APIs for managing Authentication
+     */
+    public Auth auth() {
+        return auth;
+    }
+
+    /**
      * REST APIs for retrieving request information
      */
     public Requests requests() {
@@ -122,17 +126,17 @@ PROD("prod");
     }
 
     /**
-     * REST APIs for managing and running plugins
-     */
-    public Plugins plugins() {
-        return plugins;
-    }
-
-    /**
      * REST APIs for managing embeds
      */
     public Embeds embeds() {
         return embeds;
+    }
+
+    /**
+     * REST APIs for capturing event data
+     */
+    public Events events() {
+        return events;
     }  
 
     private final SDKConfiguration sdkConfiguration;
@@ -205,6 +209,21 @@ PROD("prod");
         }
         
         /**
+         * Allows setting the workspaceID parameter for all supported operations.
+         * @param workspaceID The value to set.
+         * @return The builder instance.
+         */
+        public Builder workspaceID(String workspaceID) {
+            if (!this.sdkConfiguration.globals.get("parameters").containsKey("pathParam")) {
+                this.sdkConfiguration.globals.get("parameters").put("pathParam", new java.util.HashMap<>());
+            }
+    
+            this.sdkConfiguration.globals.get("parameters").get("pathParam").put("workspaceID", workspaceID);
+    
+            return this;
+        }
+        
+        /**
          * Builds a new instance of the SDK.
          * @return The SDK instance.
          * @throws Exception Thrown if the SDK could not be built.
@@ -241,72 +260,11 @@ PROD("prod");
         this.apiEndpoints = new ApiEndpoints(sdkConfiguration);
         this.metadata = new Metadata(sdkConfiguration);
         this.schemas = new Schemas(sdkConfiguration);
+        this.auth = new Auth(sdkConfiguration);
         this.requests = new Requests(sdkConfiguration);
-        this.plugins = new Plugins(sdkConfiguration);
         this.embeds = new Embeds(sdkConfiguration);
+        this.events = new Events(sdkConfiguration);
     }
-
-    public dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder validateApiKey() {
-        return new dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder(this);
-    }
-
-    /**
-     * Validate the current api key.
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
-    public dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception {
-        String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = dev.speakeasyapi.javaclientsdk.utils.Utils.generateURL(
-                baseUrl,
-                "/v1/auth/validate");
-        
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod("GET");
-        req.setURL(url);
-
-        req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
-        HTTPClient client = dev.speakeasyapi.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
-        HttpResponse<InputStream> httpRes = client.send(req);
-
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse.Builder resBuilder = 
-            dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
-        
-        if (httpRes.statusCode() == 200) {
-        }else {
-            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
-            }
-        }
-
-        return res;
-    }
-
-
-
 
 
 

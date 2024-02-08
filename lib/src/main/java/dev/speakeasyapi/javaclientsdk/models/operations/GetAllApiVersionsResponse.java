@@ -13,6 +13,11 @@ import java.util.Optional;
 public class GetAllApiVersionsResponse {
 
     /**
+     * OK
+     */
+    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> apis;
+
+    /**
      * HTTP response content type for this operation
      */
     private String contentType;
@@ -32,27 +37,29 @@ public class GetAllApiVersionsResponse {
      */
     private HttpResponse<InputStream> rawResponse;
 
-    /**
-     * OK
-     */
-    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> classes;
-
     public GetAllApiVersionsResponse(
+            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> apis,
             String contentType,
             Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
             int statusCode,
-            HttpResponse<InputStream> rawResponse,
-            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> classes) {
+            HttpResponse<InputStream> rawResponse) {
+        Utils.checkNotNull(apis, "apis");
         Utils.checkNotNull(contentType, "contentType");
         Utils.checkNotNull(error, "error");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
-        Utils.checkNotNull(classes, "classes");
+        this.apis = apis;
         this.contentType = contentType;
         this.error = error;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
-        this.classes = classes;
+    }
+
+    /**
+     * OK
+     */
+    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> apis() {
+        return apis;
     }
 
     /**
@@ -82,16 +89,27 @@ public class GetAllApiVersionsResponse {
     public HttpResponse<InputStream> rawResponse() {
         return rawResponse;
     }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
 
     /**
      * OK
      */
-    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> classes() {
-        return classes;
+    public GetAllApiVersionsResponse withApis(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> apis) {
+        Utils.checkNotNull(apis, "apis");
+        this.apis = Optional.ofNullable(apis);
+        return this;
     }
     
-    public final static Builder builder() {
-        return new Builder();
+    /**
+     * OK
+     */
+    public GetAllApiVersionsResponse withApis(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> apis) {
+        Utils.checkNotNull(apis, "apis");
+        this.apis = apis;
+        return this;
     }
 
     /**
@@ -138,24 +156,6 @@ public class GetAllApiVersionsResponse {
         this.rawResponse = rawResponse;
         return this;
     }
-
-    /**
-     * OK
-     */
-    public GetAllApiVersionsResponse withClasses(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = Optional.ofNullable(classes);
-        return this;
-    }
-    
-    /**
-     * OK
-     */
-    public GetAllApiVersionsResponse withClasses(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = classes;
-        return this;
-    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -167,34 +167,36 @@ public class GetAllApiVersionsResponse {
         }
         GetAllApiVersionsResponse other = (GetAllApiVersionsResponse) o;
         return 
+            java.util.Objects.deepEquals(this.apis, other.apis) &&
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
             java.util.Objects.deepEquals(this.error, other.error) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
-            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse) &&
-            java.util.Objects.deepEquals(this.classes, other.classes);
+            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
+            apis,
             contentType,
             error,
             statusCode,
-            rawResponse,
-            classes);
+            rawResponse);
     }
     
     @Override
     public String toString() {
         return Utils.toString(GetAllApiVersionsResponse.class,
+                "apis", apis,
                 "contentType", contentType,
                 "error", error,
                 "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "classes", classes);
+                "rawResponse", rawResponse);
     }
     
     public final static class Builder {
+ 
+        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> apis = Optional.empty();
  
         private String contentType;
  
@@ -202,12 +204,28 @@ public class GetAllApiVersionsResponse {
  
         private Integer statusCode;
  
-        private HttpResponse<InputStream> rawResponse;
- 
-        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> classes = Optional.empty();  
+        private HttpResponse<InputStream> rawResponse;  
         
         private Builder() {
           // force use of static builder() method
+        }
+
+        /**
+         * OK
+         */
+        public Builder apis(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> apis) {
+            Utils.checkNotNull(apis, "apis");
+            this.apis = Optional.ofNullable(apis);
+            return this;
+        }
+        
+        /**
+         * OK
+         */
+        public Builder apis(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> apis) {
+            Utils.checkNotNull(apis, "apis");
+            this.apis = apis;
+            return this;
         }
 
         /**
@@ -253,33 +271,15 @@ public class GetAllApiVersionsResponse {
             Utils.checkNotNull(rawResponse, "rawResponse");
             this.rawResponse = rawResponse;
             return this;
-        }
-
-        /**
-         * OK
-         */
-        public Builder classes(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = Optional.ofNullable(classes);
-            return this;
-        }
-        
-        /**
-         * OK
-         */
-        public Builder classes(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.Api>> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = classes;
-            return this;
         }        
         
         public GetAllApiVersionsResponse build() {
             return new GetAllApiVersionsResponse(
+                apis,
                 contentType,
                 error,
                 statusCode,
-                rawResponse,
-                classes);
+                rawResponse);
         }
     }
 }

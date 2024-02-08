@@ -52,7 +52,7 @@ public class Requests implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest.class, 
                 baseUrl, 
                 "/v1/eventlog/{requestID}/generate/postman", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -122,7 +122,7 @@ public class Requests implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequest.class, 
                 baseUrl, 
                 "/v1/eventlog/{requestID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -203,7 +203,7 @@ public class Requests implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         java.util.List<NameValuePair> queryParams = dev.speakeasyapi.javaclientsdk.utils.Utils.getQueryParams(
-                dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest.class, request, null);
+                dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -237,7 +237,7 @@ public class Requests implements
                 java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest> out = mapper.readValue(
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>>() {});
-                res.withClasses(java.util.Optional.ofNullable(out));
+                res.withBoundedRequests(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }

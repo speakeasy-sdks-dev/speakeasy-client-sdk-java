@@ -39,6 +39,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GenerateRequestPostmanCollectionRequest req = GenerateRequestPostmanCollectionRequest.builder()
@@ -105,6 +106,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetRequestFromEventLogRequest req = GetRequestFromEventLogRequest.builder()
@@ -174,6 +176,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             QueryEventLogRequest req = QueryEventLogRequest.builder()
@@ -194,7 +197,7 @@ public class Application {
                 .request(req)
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.boundedRequests().isPresent()) {
                 // handle response
             }
 

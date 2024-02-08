@@ -43,6 +43,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             DeleteSchemaRequest req = DeleteSchemaRequest.builder()
@@ -109,6 +110,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             DownloadSchemaRequest req = DownloadSchemaRequest.builder()
@@ -176,6 +178,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             DownloadSchemaRevisionRequest req = DownloadSchemaRevisionRequest.builder()
@@ -245,6 +248,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetSchemaRequest req = GetSchemaRequest.builder()
@@ -312,6 +316,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetSchemaDiffRequest req = GetSchemaDiffRequest.builder()
@@ -382,6 +387,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetSchemaRevisionRequest req = GetSchemaRevisionRequest.builder()
@@ -451,6 +457,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetSchemasRequest req = GetSchemasRequest.builder()
@@ -521,6 +528,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             RegisterSchemaRequest req = RegisterSchemaRequest.builder()

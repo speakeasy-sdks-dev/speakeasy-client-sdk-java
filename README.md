@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:6.0.0'
+implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:7.0.0'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -37,6 +37,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetApisRequest req = GetApisRequest.builder()
@@ -52,7 +53,7 @@ public class Application {
                 .request(req)
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.apis().isPresent()) {
                 // handle response
             }
 
@@ -68,10 +69,6 @@ public class Application {
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
-### [SDK](docs/sdks/sdk/README.md)
-
-* [validateApiKey](docs/sdks/sdk/README.md#validateapikey) - Validate the current api key.
 
 ### [apis()](docs/sdks/apis/README.md)
 
@@ -110,23 +107,25 @@ public class Application {
 * [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
 * [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
 
+### [auth()](docs/sdks/auth/README.md)
+
+* [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
+
 ### [requests()](docs/sdks/requests/README.md)
 
 * [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
 * [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
 * [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
 
-### [plugins()](docs/sdks/plugins/README.md)
-
-* [getPlugins](docs/sdks/plugins/README.md#getplugins) - Get all plugins for the current workspace.
-* [runPlugin](docs/sdks/plugins/README.md#runplugin) - Run a plugin
-* [upsertPlugin](docs/sdks/plugins/README.md#upsertplugin) - Upsert a plugin
-
 ### [embeds()](docs/sdks/embeds/README.md)
 
 * [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
 * [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
 * [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
+
+### [events()](docs/sdks/events/README.md)
+
+* [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -149,7 +148,8 @@ package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
@@ -165,9 +165,16 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
-            ValidateApiKeyResponse res = sdk.validateApiKey()
+            DeleteApiRequest req = DeleteApiRequest.builder()
+                .apiID("string")
+                .versionID("string")
+                .build();
+
+            DeleteApiResponse res = sdk.apis().deleteApi()
+                .request(req)
                 .call();
 
             // handle response
@@ -190,7 +197,8 @@ package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
@@ -206,9 +214,16 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
-            ValidateApiKeyResponse res = sdk.validateApiKey()
+            DeleteApiRequest req = DeleteApiRequest.builder()
+                .apiID("string")
+                .versionID("string")
+                .build();
+
+            DeleteApiResponse res = sdk.apis().deleteApi()
+                .request(req)
                 .call();
 
             // handle response
@@ -239,7 +254,8 @@ package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
@@ -254,9 +270,16 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
-            ValidateApiKeyResponse res = sdk.validateApiKey()
+            DeleteApiRequest req = DeleteApiRequest.builder()
+                .apiID("string")
+                .versionID("string")
+                .build();
+
+            DeleteApiResponse res = sdk.apis().deleteApi()
+                .request(req)
                 .call();
 
             // handle response
@@ -288,7 +311,8 @@ package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
@@ -303,9 +327,16 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
-            ValidateApiKeyResponse res = sdk.validateApiKey()
+            DeleteApiRequest req = DeleteApiRequest.builder()
+                .apiID("string")
+                .versionID("string")
+                .build();
+
+            DeleteApiResponse res = sdk.apis().deleteApi()
+                .request(req)
                 .call();
 
             // handle response
@@ -319,6 +350,83 @@ public class Application {
 }
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
+
+A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `workspaceID` to `"string"` at SDK initialization and then you do not have to pass the same value on calls to operations like `postWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available.
+
+| Name | Type | Required | Description |
+| ---- | ---- |:--------:| ----------- |
+| workspaceID | String |  | The workspaceID parameter. |
+
+
+### Example
+
+```java
+package hello.world;
+
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.operations.*;
+import dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.*;
+import dev.speakeasyapi.javaclientsdk.models.shared.CliEvent;
+import dev.speakeasyapi.javaclientsdk.models.shared.GenerateBumpType;
+import dev.speakeasyapi.javaclientsdk.models.shared.InteractionType;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import static java.util.Map.entry;
+
+public class Application {
+
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("string")
+                .build();
+
+            PostWorkspaceEventsRequest req = PostWorkspaceEventsRequest.builder()
+                .requestBody(java.util.List.of(
+                        CliEvent.builder()
+                            .createdAt(OffsetDateTime.parse("2023-10-28T06:47:51.791Z"))
+                            .executionId("string")
+                            .id("string")
+                            .interactionType(InteractionType.CLI_EXEC)
+                            .localStartedAt(OffsetDateTime.parse("2024-02-25T22:57:22.933Z"))
+                            .speakeasyApiKeyName("string")
+                            .speakeasyVersion("string")
+                            .success(false)
+                            .workspaceId("string")
+                            .build()))
+                .build();
+
+            PostWorkspaceEventsResponse res = sdk.events().postWorkspaceEvents()
+                .request(req)
+                .call();
+
+            // handle response
+
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+<!-- End Global Parameters [global-parameters] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

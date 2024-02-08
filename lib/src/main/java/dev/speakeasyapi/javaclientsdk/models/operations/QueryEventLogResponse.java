@@ -13,6 +13,11 @@ import java.util.Optional;
 public class QueryEventLogResponse {
 
     /**
+     * OK
+     */
+    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> boundedRequests;
+
+    /**
      * HTTP response content type for this operation
      */
     private String contentType;
@@ -32,27 +37,29 @@ public class QueryEventLogResponse {
      */
     private HttpResponse<InputStream> rawResponse;
 
-    /**
-     * OK
-     */
-    private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> classes;
-
     public QueryEventLogResponse(
+            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> boundedRequests,
             String contentType,
             Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
             int statusCode,
-            HttpResponse<InputStream> rawResponse,
-            Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> classes) {
+            HttpResponse<InputStream> rawResponse) {
+        Utils.checkNotNull(boundedRequests, "boundedRequests");
         Utils.checkNotNull(contentType, "contentType");
         Utils.checkNotNull(error, "error");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
-        Utils.checkNotNull(classes, "classes");
+        this.boundedRequests = boundedRequests;
         this.contentType = contentType;
         this.error = error;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
-        this.classes = classes;
+    }
+
+    /**
+     * OK
+     */
+    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> boundedRequests() {
+        return boundedRequests;
     }
 
     /**
@@ -82,16 +89,27 @@ public class QueryEventLogResponse {
     public HttpResponse<InputStream> rawResponse() {
         return rawResponse;
     }
+    
+    public final static Builder builder() {
+        return new Builder();
+    }
 
     /**
      * OK
      */
-    public Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> classes() {
-        return classes;
+    public QueryEventLogResponse withBoundedRequests(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest> boundedRequests) {
+        Utils.checkNotNull(boundedRequests, "boundedRequests");
+        this.boundedRequests = Optional.ofNullable(boundedRequests);
+        return this;
     }
     
-    public final static Builder builder() {
-        return new Builder();
+    /**
+     * OK
+     */
+    public QueryEventLogResponse withBoundedRequests(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> boundedRequests) {
+        Utils.checkNotNull(boundedRequests, "boundedRequests");
+        this.boundedRequests = boundedRequests;
+        return this;
     }
 
     /**
@@ -138,24 +156,6 @@ public class QueryEventLogResponse {
         this.rawResponse = rawResponse;
         return this;
     }
-
-    /**
-     * OK
-     */
-    public QueryEventLogResponse withClasses(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = Optional.ofNullable(classes);
-        return this;
-    }
-    
-    /**
-     * OK
-     */
-    public QueryEventLogResponse withClasses(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> classes) {
-        Utils.checkNotNull(classes, "classes");
-        this.classes = classes;
-        return this;
-    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -167,34 +167,36 @@ public class QueryEventLogResponse {
         }
         QueryEventLogResponse other = (QueryEventLogResponse) o;
         return 
+            java.util.Objects.deepEquals(this.boundedRequests, other.boundedRequests) &&
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
             java.util.Objects.deepEquals(this.error, other.error) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
-            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse) &&
-            java.util.Objects.deepEquals(this.classes, other.classes);
+            java.util.Objects.deepEquals(this.rawResponse, other.rawResponse);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
+            boundedRequests,
             contentType,
             error,
             statusCode,
-            rawResponse,
-            classes);
+            rawResponse);
     }
     
     @Override
     public String toString() {
         return Utils.toString(QueryEventLogResponse.class,
+                "boundedRequests", boundedRequests,
                 "contentType", contentType,
                 "error", error,
                 "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "classes", classes);
+                "rawResponse", rawResponse);
     }
     
     public final static class Builder {
+ 
+        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> boundedRequests = Optional.empty();
  
         private String contentType;
  
@@ -202,12 +204,28 @@ public class QueryEventLogResponse {
  
         private Integer statusCode;
  
-        private HttpResponse<InputStream> rawResponse;
- 
-        private Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> classes = Optional.empty();  
+        private HttpResponse<InputStream> rawResponse;  
         
         private Builder() {
           // force use of static builder() method
+        }
+
+        /**
+         * OK
+         */
+        public Builder boundedRequests(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest> boundedRequests) {
+            Utils.checkNotNull(boundedRequests, "boundedRequests");
+            this.boundedRequests = Optional.ofNullable(boundedRequests);
+            return this;
+        }
+        
+        /**
+         * OK
+         */
+        public Builder boundedRequests(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> boundedRequests) {
+            Utils.checkNotNull(boundedRequests, "boundedRequests");
+            this.boundedRequests = boundedRequests;
+            return this;
         }
 
         /**
@@ -253,33 +271,15 @@ public class QueryEventLogResponse {
             Utils.checkNotNull(rawResponse, "rawResponse");
             this.rawResponse = rawResponse;
             return this;
-        }
-
-        /**
-         * OK
-         */
-        public Builder classes(java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = Optional.ofNullable(classes);
-            return this;
-        }
-        
-        /**
-         * OK
-         */
-        public Builder classes(Optional<? extends java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest>> classes) {
-            Utils.checkNotNull(classes, "classes");
-            this.classes = classes;
-            return this;
         }        
         
         public QueryEventLogResponse build() {
             return new QueryEventLogResponse(
+                boundedRequests,
                 contentType,
                 error,
                 statusCode,
-                rawResponse,
-                classes);
+                rawResponse);
         }
     }
 }

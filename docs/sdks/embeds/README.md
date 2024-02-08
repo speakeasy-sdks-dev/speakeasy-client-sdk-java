@@ -41,6 +41,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetEmbedAccessTokenRequest req = GetEmbedAccessTokenRequest.builder()
@@ -118,12 +119,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetValidEmbedAccessTokensResponse res = sdk.embeds().getValidEmbedAccessTokens()
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.embedTokens().isPresent()) {
                 // handle response
             }
 
@@ -173,6 +175,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             RevokeEmbedAccessTokenRequest req = RevokeEmbedAccessTokenRequest.builder()

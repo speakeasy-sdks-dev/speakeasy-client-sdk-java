@@ -7,25 +7,14 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.net.http.HttpResponse;
-import java.util.Optional;
 
 
-public class UpsertPluginResponse {
+public class PostWorkspaceEventsResponse {
 
     /**
      * HTTP response content type for this operation
      */
     private String contentType;
-
-    /**
-     * Default error response
-     */
-    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
-
-    /**
-     * OK
-     */
-    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Plugin> plugin;
 
     /**
      * HTTP response status code for this operation
@@ -37,20 +26,14 @@ public class UpsertPluginResponse {
      */
     private HttpResponse<InputStream> rawResponse;
 
-    public UpsertPluginResponse(
+    public PostWorkspaceEventsResponse(
             String contentType,
-            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
-            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Plugin> plugin,
             int statusCode,
             HttpResponse<InputStream> rawResponse) {
         Utils.checkNotNull(contentType, "contentType");
-        Utils.checkNotNull(error, "error");
-        Utils.checkNotNull(plugin, "plugin");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
         this.contentType = contentType;
-        this.error = error;
-        this.plugin = plugin;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
     }
@@ -60,20 +43,6 @@ public class UpsertPluginResponse {
      */
     public String contentType() {
         return contentType;
-    }
-
-    /**
-     * Default error response
-     */
-    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error() {
-        return error;
-    }
-
-    /**
-     * OK
-     */
-    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Plugin> plugin() {
-        return plugin;
     }
 
     /**
@@ -97,52 +66,16 @@ public class UpsertPluginResponse {
     /**
      * HTTP response content type for this operation
      */
-    public UpsertPluginResponse withContentType(String contentType) {
+    public PostWorkspaceEventsResponse withContentType(String contentType) {
         Utils.checkNotNull(contentType, "contentType");
         this.contentType = contentType;
         return this;
     }
 
     /**
-     * Default error response
-     */
-    public UpsertPluginResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
-        Utils.checkNotNull(error, "error");
-        this.error = Optional.ofNullable(error);
-        return this;
-    }
-    
-    /**
-     * Default error response
-     */
-    public UpsertPluginResponse withError(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
-        Utils.checkNotNull(error, "error");
-        this.error = error;
-        return this;
-    }
-
-    /**
-     * OK
-     */
-    public UpsertPluginResponse withPlugin(dev.speakeasyapi.javaclientsdk.models.shared.Plugin plugin) {
-        Utils.checkNotNull(plugin, "plugin");
-        this.plugin = Optional.ofNullable(plugin);
-        return this;
-    }
-    
-    /**
-     * OK
-     */
-    public UpsertPluginResponse withPlugin(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Plugin> plugin) {
-        Utils.checkNotNull(plugin, "plugin");
-        this.plugin = plugin;
-        return this;
-    }
-
-    /**
      * HTTP response status code for this operation
      */
-    public UpsertPluginResponse withStatusCode(int statusCode) {
+    public PostWorkspaceEventsResponse withStatusCode(int statusCode) {
         Utils.checkNotNull(statusCode, "statusCode");
         this.statusCode = statusCode;
         return this;
@@ -151,7 +84,7 @@ public class UpsertPluginResponse {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    public UpsertPluginResponse withRawResponse(HttpResponse<InputStream> rawResponse) {
+    public PostWorkspaceEventsResponse withRawResponse(HttpResponse<InputStream> rawResponse) {
         Utils.checkNotNull(rawResponse, "rawResponse");
         this.rawResponse = rawResponse;
         return this;
@@ -165,11 +98,9 @@ public class UpsertPluginResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpsertPluginResponse other = (UpsertPluginResponse) o;
+        PostWorkspaceEventsResponse other = (PostWorkspaceEventsResponse) o;
         return 
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
-            java.util.Objects.deepEquals(this.error, other.error) &&
-            java.util.Objects.deepEquals(this.plugin, other.plugin) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
             java.util.Objects.deepEquals(this.rawResponse, other.rawResponse);
     }
@@ -178,18 +109,14 @@ public class UpsertPluginResponse {
     public int hashCode() {
         return java.util.Objects.hash(
             contentType,
-            error,
-            plugin,
             statusCode,
             rawResponse);
     }
     
     @Override
     public String toString() {
-        return Utils.toString(UpsertPluginResponse.class,
+        return Utils.toString(PostWorkspaceEventsResponse.class,
                 "contentType", contentType,
-                "error", error,
-                "plugin", plugin,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse);
     }
@@ -197,10 +124,6 @@ public class UpsertPluginResponse {
     public final static class Builder {
  
         private String contentType;
- 
-        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error = Optional.empty();
- 
-        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Plugin> plugin = Optional.empty();
  
         private Integer statusCode;
  
@@ -216,42 +139,6 @@ public class UpsertPluginResponse {
         public Builder contentType(String contentType) {
             Utils.checkNotNull(contentType, "contentType");
             this.contentType = contentType;
-            return this;
-        }
-
-        /**
-         * Default error response
-         */
-        public Builder error(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
-            Utils.checkNotNull(error, "error");
-            this.error = Optional.ofNullable(error);
-            return this;
-        }
-        
-        /**
-         * Default error response
-         */
-        public Builder error(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
-            Utils.checkNotNull(error, "error");
-            this.error = error;
-            return this;
-        }
-
-        /**
-         * OK
-         */
-        public Builder plugin(dev.speakeasyapi.javaclientsdk.models.shared.Plugin plugin) {
-            Utils.checkNotNull(plugin, "plugin");
-            this.plugin = Optional.ofNullable(plugin);
-            return this;
-        }
-        
-        /**
-         * OK
-         */
-        public Builder plugin(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Plugin> plugin) {
-            Utils.checkNotNull(plugin, "plugin");
-            this.plugin = plugin;
             return this;
         }
 
@@ -273,11 +160,9 @@ public class UpsertPluginResponse {
             return this;
         }        
         
-        public UpsertPluginResponse build() {
-            return new UpsertPluginResponse(
+        public PostWorkspaceEventsResponse build() {
+            return new PostWorkspaceEventsResponse(
                 contentType,
-                error,
-                plugin,
                 statusCode,
                 rawResponse);
         }

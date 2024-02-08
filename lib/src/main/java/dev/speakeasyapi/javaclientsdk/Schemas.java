@@ -55,7 +55,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -118,7 +118,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schema/download", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -192,7 +192,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}/download", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -268,7 +268,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schema", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -340,7 +340,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schema/{baseRevisionID}/diff/{targetRevisionID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -414,7 +414,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schema/{revisionID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -488,7 +488,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schemas", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -562,7 +562,7 @@ public class Schemas implements
                 dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/schema", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");

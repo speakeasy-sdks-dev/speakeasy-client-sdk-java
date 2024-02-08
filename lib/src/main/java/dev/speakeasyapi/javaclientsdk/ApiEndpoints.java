@@ -56,7 +56,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -121,7 +121,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/api_endpoints/find/{displayName}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -195,7 +195,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/openapi", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -268,7 +268,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}/generate/postman", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -338,7 +338,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/api_endpoints", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -374,7 +374,7 @@ public class ApiEndpoints implements
                 java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint> out = mapper.readValue(
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint>>() {});
-                res.withClasses(java.util.Optional.ofNullable(out));
+                res.withApiEndpoints(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
@@ -410,7 +410,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/api_endpoints", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -446,7 +446,7 @@ public class ApiEndpoints implements
                 java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint> out = mapper.readValue(
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint>>() {});
-                res.withClasses(java.util.Optional.ofNullable(out));
+                res.withAPIEndpoints(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
@@ -482,7 +482,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -555,7 +555,7 @@ public class ApiEndpoints implements
                 dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/api_endpoints/{apiEndpointID}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");

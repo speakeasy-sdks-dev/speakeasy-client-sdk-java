@@ -43,6 +43,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             DeleteApiEndpointRequest req = DeleteApiEndpointRequest.builder()
@@ -110,6 +111,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             FindApiEndpointRequest req = FindApiEndpointRequest.builder()
@@ -179,6 +181,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GenerateOpenApiSpecForApiEndpointRequest req = GenerateOpenApiSpecForApiEndpointRequest.builder()
@@ -247,6 +250,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GeneratePostmanCollectionForApiEndpointRequest req = GeneratePostmanCollectionForApiEndpointRequest.builder()
@@ -315,6 +319,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetAllApiEndpointsRequest req = GetAllApiEndpointsRequest.builder()
@@ -325,7 +330,7 @@ public class Application {
                 .request(req)
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.apiEndpoints().isPresent()) {
                 // handle response
             }
 
@@ -381,6 +386,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetAllForVersionApiEndpointsRequest req = GetAllForVersionApiEndpointsRequest.builder()
@@ -392,7 +398,7 @@ public class Application {
                 .request(req)
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.apiEndpoints().isPresent()) {
                 // handle response
             }
 
@@ -448,6 +454,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetApiEndpointRequest req = GetApiEndpointRequest.builder()
@@ -517,6 +524,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             UpsertApiEndpointRequest req = UpsertApiEndpointRequest.builder()

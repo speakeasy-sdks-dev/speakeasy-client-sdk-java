@@ -38,6 +38,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             DeleteVersionMetadataRequest req = DeleteVersionMetadataRequest.builder()
@@ -105,6 +106,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetVersionMetadataRequest req = GetVersionMetadataRequest.builder()
@@ -116,7 +118,7 @@ public class Application {
                 .request(req)
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.versionMetadata().isPresent()) {
                 // handle response
             }
 
@@ -173,6 +175,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             InsertVersionMetadataRequest req = InsertVersionMetadataRequest.builder()

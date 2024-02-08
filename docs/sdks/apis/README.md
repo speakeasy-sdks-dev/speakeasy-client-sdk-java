@@ -41,6 +41,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             DeleteApiRequest req = DeleteApiRequest.builder()
@@ -107,6 +108,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GenerateOpenApiSpecRequest req = GenerateOpenApiSpecRequest.builder()
@@ -174,6 +176,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GeneratePostmanCollectionRequest req = GeneratePostmanCollectionRequest.builder()
@@ -243,6 +246,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetAllApiVersionsRequest req = GetAllApiVersionsRequest.builder()
@@ -259,7 +263,7 @@ public class Application {
                 .request(req)
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.apis().isPresent()) {
                 // handle response
             }
 
@@ -317,6 +321,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             GetApisRequest req = GetApisRequest.builder()
@@ -332,7 +337,7 @@ public class Application {
                 .request(req)
                 .call();
 
-            if (res.classes().isPresent()) {
+            if (res.apis().isPresent()) {
                 // handle response
             }
 
@@ -390,6 +395,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+                .workspaceID("string")
                 .build();
 
             UpsertApiRequest req = UpsertApiRequest.builder()

@@ -6,8 +6,9 @@ generation:
   fixes:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
 java:
-  version: 6.0.0
+  version: 7.0.0
   artifactID: javaclientsdk
   companyEmail: chase@speakeasyapi.dev
   companyName: Speakeasy

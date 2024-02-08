@@ -50,7 +50,7 @@ public class Metadata implements
                 dev.speakeasyapi.javaclientsdk.models.operations.DeleteVersionMetadataRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -113,7 +113,7 @@ public class Metadata implements
                 dev.speakeasyapi.javaclientsdk.models.operations.GetVersionMetadataRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/metadata", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -149,7 +149,7 @@ public class Metadata implements
                 java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata> out = mapper.readValue(
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<java.util.List<dev.speakeasyapi.javaclientsdk.models.shared.VersionMetadata>>() {});
-                res.withClasses(java.util.Optional.ofNullable(out));
+                res.withVersionMetadata(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
@@ -185,7 +185,7 @@ public class Metadata implements
                 dev.speakeasyapi.javaclientsdk.models.operations.InsertVersionMetadataRequest.class, 
                 baseUrl, 
                 "/v1/apis/{apiID}/version/{versionID}/metadata", 
-                request, null);
+                request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
