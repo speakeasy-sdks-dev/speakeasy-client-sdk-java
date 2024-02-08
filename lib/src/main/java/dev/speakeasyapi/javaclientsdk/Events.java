@@ -4,14 +4,18 @@
 
 package dev.speakeasyapi.javaclientsdk;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
+import dev.speakeasyapi.javaclientsdk.utils.JSON;
 import dev.speakeasyapi.javaclientsdk.utils.SerializedBody;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -56,7 +60,7 @@ public class Events implements
         }
         req.setBody(serializedRequestBody);
 
-        req.addHeader("Accept", "*/*");
+        req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
         HTTPClient client = dev.speakeasyapi.javaclientsdk.utils.Utils.configureSecurityClient(
@@ -80,7 +84,18 @@ public class Events implements
 
         res.withRawResponse(httpRes);
         
-        
+        if ((httpRes.statusCode() >= 200 && httpRes.statusCode() < 300)) {
+        } else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
+            if (dev.speakeasyapi.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                dev.speakeasyapi.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        }
 
         return res;
     }

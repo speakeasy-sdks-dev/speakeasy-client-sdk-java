@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.speakeasyapi</groupId>
+  <artifactId>javaclientsdk</artifactId>
+  <version>7.0.4</version>
+  <name>Speakeasy Java SDK</name>
+  <description>SDK enabling Java developers to easily integrate with the Speakeasy API.</description>
+  <url>https://github.com/speakeasy-api/speakeasy-client-sdk-java</url>
+  <organization>
+    <name>Speakeasy</name>
+    <url>www.speakeasyapi.dev</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>The MIT License (MIT)</name>
+      <url>https://mit-license.org/</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Speakeasy</name>
+      <email>chase@speakeasyapi.dev</email>
+      <organization>Speakeasy</organization>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:ssh://git@github.com/speakeasy-api/speakeasy-client-sdk-java.git</connection>
+    <url>github.com/speakeasy-api/speakeasy-client-sdk-java</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.16.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.16.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jdk8</artifactId>
+      <version>2.16.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.openapitools</groupId>
+      <artifactId>jackson-databind-nullable</artifactId>
+      <version>0.2.6</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.14</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpmime</artifactId>
+      <version>4.5.14</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.15.1</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>

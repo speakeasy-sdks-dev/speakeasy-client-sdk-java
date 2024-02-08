@@ -7,6 +7,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.net.http.HttpResponse;
+import java.util.Optional;
 
 
 public class PostWorkspaceEventsResponse {
@@ -15,6 +16,8 @@ public class PostWorkspaceEventsResponse {
      * HTTP response content type for this operation
      */
     private String contentType;
+
+    private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error;
 
     /**
      * HTTP response status code for this operation
@@ -28,12 +31,15 @@ public class PostWorkspaceEventsResponse {
 
     public PostWorkspaceEventsResponse(
             String contentType,
+            Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error,
             int statusCode,
             HttpResponse<InputStream> rawResponse) {
         Utils.checkNotNull(contentType, "contentType");
+        Utils.checkNotNull(error, "error");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
         this.contentType = contentType;
+        this.error = error;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
     }
@@ -43,6 +49,10 @@ public class PostWorkspaceEventsResponse {
      */
     public String contentType() {
         return contentType;
+    }
+
+    public Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error() {
+        return error;
     }
 
     /**
@@ -69,6 +79,18 @@ public class PostWorkspaceEventsResponse {
     public PostWorkspaceEventsResponse withContentType(String contentType) {
         Utils.checkNotNull(contentType, "contentType");
         this.contentType = contentType;
+        return this;
+    }
+
+    public PostWorkspaceEventsResponse withError(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+        Utils.checkNotNull(error, "error");
+        this.error = Optional.ofNullable(error);
+        return this;
+    }
+    
+    public PostWorkspaceEventsResponse withError(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
+        Utils.checkNotNull(error, "error");
+        this.error = error;
         return this;
     }
 
@@ -101,6 +123,7 @@ public class PostWorkspaceEventsResponse {
         PostWorkspaceEventsResponse other = (PostWorkspaceEventsResponse) o;
         return 
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
+            java.util.Objects.deepEquals(this.error, other.error) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
             java.util.Objects.deepEquals(this.rawResponse, other.rawResponse);
     }
@@ -109,6 +132,7 @@ public class PostWorkspaceEventsResponse {
     public int hashCode() {
         return java.util.Objects.hash(
             contentType,
+            error,
             statusCode,
             rawResponse);
     }
@@ -117,6 +141,7 @@ public class PostWorkspaceEventsResponse {
     public String toString() {
         return Utils.toString(PostWorkspaceEventsResponse.class,
                 "contentType", contentType,
+                "error", error,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse);
     }
@@ -124,6 +149,8 @@ public class PostWorkspaceEventsResponse {
     public final static class Builder {
  
         private String contentType;
+ 
+        private Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error = Optional.empty();
  
         private Integer statusCode;
  
@@ -139,6 +166,18 @@ public class PostWorkspaceEventsResponse {
         public Builder contentType(String contentType) {
             Utils.checkNotNull(contentType, "contentType");
             this.contentType = contentType;
+            return this;
+        }
+
+        public Builder error(dev.speakeasyapi.javaclientsdk.models.shared.Error error) {
+            Utils.checkNotNull(error, "error");
+            this.error = Optional.ofNullable(error);
+            return this;
+        }
+        
+        public Builder error(Optional<? extends dev.speakeasyapi.javaclientsdk.models.shared.Error> error) {
+            Utils.checkNotNull(error, "error");
+            this.error = error;
             return this;
         }
 
@@ -163,6 +202,7 @@ public class PostWorkspaceEventsResponse {
         public PostWorkspaceEventsResponse build() {
             return new PostWorkspaceEventsResponse(
                 contentType,
+                error,
                 statusCode,
                 rawResponse);
         }
