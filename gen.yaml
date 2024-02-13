@@ -8,7 +8,7 @@ generation:
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
 java:
-  version: 7.3.0
+  version: 7.3.1
   artifactID: javaclientsdk
   companyEmail: chase@speakeasyapi.dev
   companyName: Speakeasy
@@ -25,6 +25,7 @@ java:
       webhooks: models/webhooks
   inputModelSuffix: input
   maxMethodParams: 0
+  ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
   outputModelSuffix: output
   projectName: speakeasy-client-sdk-java
   templateVersion: v2
