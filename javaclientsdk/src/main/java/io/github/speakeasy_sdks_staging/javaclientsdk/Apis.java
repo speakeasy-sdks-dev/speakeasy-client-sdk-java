@@ -4,42 +4,26 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.JSON;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SerializedBody;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
-import java.util.Optional;
 import org.apache.http.NameValuePair;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * REST APIs for managing Api entities
  */
-public class Apis implements
-            MethodCallDeleteApi,
-            MethodCallGenerateOpenApiSpec,
-            MethodCallGeneratePostmanCollection,
-            MethodCallGetAllApiVersions,
-            MethodCallGetApis,
-            MethodCallUpsertApi {
-    
-    private final SDKConfiguration sdkConfiguration;
+public class Apis {
+	
+	private SDKConfiguration sdkConfiguration;
 
-    Apis(SDKConfiguration sdkConfiguration) {
-        this.sdkConfiguration = sdkConfiguration;
-    }
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequestBuilder deleteApi() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequestBuilder(this);
-    }
+	public Apis(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
+	}
 
     /**
      * Delete an Api.
@@ -48,14 +32,9 @@ public class Apis implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse deleteApi(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse deleteApi(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -64,45 +43,27 @@ public class Apis implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse(contentType, httpRes.statusCode(), httpRes) {{
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
-    }
-
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequestBuilder generateOpenApiSpec() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequestBuilder(this);
     }
 
     /**
@@ -113,14 +74,9 @@ public class Apis implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse generateOpenApiSpec(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse generateOpenApiSpec(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/generate/openapi", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/generate/openapi", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -129,54 +85,33 @@ public class Apis implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse(contentType, httpRes.statusCode(), httpRes) {{
+            generateOpenApiSpecDiff = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateOpenApiSpecDiff out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateOpenApiSpecDiff>() {});
-                res.withGenerateOpenApiSpecDiff(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateOpenApiSpecDiff out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateOpenApiSpecDiff.class);
+                res.generateOpenApiSpecDiff = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
-    }
-
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequestBuilder generatePostmanCollection() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequestBuilder(this);
     }
 
     /**
@@ -186,14 +121,9 @@ public class Apis implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse generatePostmanCollection(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse generatePostmanCollection(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/generate/postman", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/generate/postman", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -202,52 +132,32 @@ public class Apis implements
         req.addHeader("Accept", "application/json;q=1, application/octet-stream;q=0");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-        if ((httpRes.statusCode() == 200) && io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
-            resBuilder.postmanCollection(httpRes.body());
-        }
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse(contentType, httpRes.statusCode(), httpRes) {{
+            postmanCollection = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                byte[] out = httpRes.body();
+                res.postmanCollection = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
-    }
-
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequestBuilder getAllApiVersions() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequestBuilder(this);
     }
 
     /**
@@ -258,14 +168,9 @@ public class Apis implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse getAllApiVersions(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse getAllApiVersions(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, baseUrl, "/v1/apis/{apiID}", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -273,62 +178,40 @@ public class Apis implements
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, request, this.sdkConfiguration.globals);
+        java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
             }
         }
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse(contentType, httpRes.statusCode(), httpRes) {{
+            apis = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api> out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api>>() {});
-                res.withApis(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api[].class);
+                res.apis = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
-    }
-
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequestBuilder getApis() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequestBuilder(this);
     }
 
     /**
@@ -339,12 +222,9 @@ public class Apis implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse getApis(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse getApis(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                baseUrl,
-                "/v1/apis");
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/apis");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -352,62 +232,40 @@ public class Apis implements
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest.class, request, this.sdkConfiguration.globals);
+        java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
             }
         }
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse(contentType, httpRes.statusCode(), httpRes) {{
+            apis = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api> out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api>>() {});
-                res.withApis(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api[].class);
+                res.apis = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
-    }
-
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequestBuilder upsertApi() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequestBuilder(this);
     }
 
     /**
@@ -418,20 +276,14 @@ public class Apis implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse upsertApi(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse upsertApi(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest.class, baseUrl, "/v1/apis/{apiID}", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");
         req.setURL(url);
-        SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(
-                request, "api", "json", false);
+        SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(request, "api", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }
@@ -440,50 +292,32 @@ public class Apis implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse(contentType, httpRes.statusCode(), httpRes) {{
+            api = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api>() {});
-                res.withApi(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Api.class);
+                res.api = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
     }
-
 }

@@ -33,6 +33,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -57,7 +58,6 @@ public class Application {
                 .call();
 
             // handle response
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
@@ -101,6 +101,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -127,7 +128,6 @@ public class Application {
             if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
@@ -171,6 +171,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -197,7 +198,6 @@ public class Application {
             if (res.generateOpenApiSpecDiff().isPresent()) {
                 // handle response
             }
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
@@ -240,6 +240,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -266,7 +267,6 @@ public class Application {
             if (res.postmanCollection().isPresent()) {
                 // handle response
             }
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
@@ -309,6 +309,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -333,7 +334,6 @@ public class Application {
             if (res.apiEndpoints().isPresent()) {
                 // handle response
             }
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
@@ -376,6 +376,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -401,7 +402,6 @@ public class Application {
             if (res.apiEndpoints().isPresent()) {
                 // handle response
             }
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
@@ -444,6 +444,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -470,7 +471,6 @@ public class Application {
             if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
@@ -514,6 +514,7 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.ApiEndpointI
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -548,7 +549,6 @@ public class Application {
             if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
-
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {

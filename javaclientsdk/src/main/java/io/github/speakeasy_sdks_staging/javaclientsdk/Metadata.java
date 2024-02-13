@@ -4,38 +4,25 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.JSON;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SerializedBody;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * REST APIs for managing Version Metadata entities
  */
-public class Metadata implements
-            MethodCallDeleteVersionMetadata,
-            MethodCallGetVersionMetadata,
-            MethodCallInsertVersionMetadata {
-    
-    private final SDKConfiguration sdkConfiguration;
+public class Metadata {
+	
+	private SDKConfiguration sdkConfiguration;
 
-    Metadata(SDKConfiguration sdkConfiguration) {
-        this.sdkConfiguration = sdkConfiguration;
-    }
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequestBuilder deleteVersionMetadata() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequestBuilder(this);
-    }
+	public Metadata(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
+	}
 
     /**
      * Delete metadata for a particular apiID and versionID.
@@ -43,14 +30,9 @@ public class Metadata implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse deleteVersionMetadata(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse deleteVersionMetadata(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
@@ -59,45 +41,27 @@ public class Metadata implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse(contentType, httpRes.statusCode(), httpRes) {{
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
-    }
-
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequestBuilder getVersionMetadata() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequestBuilder(this);
     }
 
     /**
@@ -106,14 +70,9 @@ public class Metadata implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse getVersionMetadata(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse getVersionMetadata(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/metadata", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -122,54 +81,33 @@ public class Metadata implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse(contentType, httpRes.statusCode(), httpRes) {{
+            versionMetadata = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata> out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata>>() {});
-                res.withVersionMetadata(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata[] out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata[].class);
+                res.versionMetadata = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
-    }
-
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequestBuilder insertVersionMetadata() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequestBuilder(this);
     }
 
     /**
@@ -178,20 +116,14 @@ public class Metadata implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse insertVersionMetadata(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse insertVersionMetadata(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/metadata", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest.class, baseUrl, "/v1/apis/{apiID}/version/{versionID}/metadata", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(
-                request, "versionMetadata", "json", false);
+        SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(request, "versionMetadata", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }
@@ -200,50 +132,32 @@ public class Metadata implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse(contentType, httpRes.statusCode(), httpRes) {{
+            versionMetadata = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata>() {});
-                res.withVersionMetadata(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata.class);
+                res.versionMetadata = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
     }
-
 }

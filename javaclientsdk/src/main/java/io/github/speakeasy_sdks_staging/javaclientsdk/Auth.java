@@ -4,45 +4,32 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.JSON;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * REST APIs for managing Authentication
  */
-public class Auth implements
-            MethodCallValidateApiKey {
-    
-    private final SDKConfiguration sdkConfiguration;
+public class Auth {
+	
+	private SDKConfiguration sdkConfiguration;
 
-    Auth(SDKConfiguration sdkConfiguration) {
-        this.sdkConfiguration = sdkConfiguration;
-    }
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder validateApiKey() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder(this);
-    }
+	public Auth(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
+	}
 
     /**
      * Validate the current api key.
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKey() throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                baseUrl,
-                "/v1/auth/validate");
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(baseUrl, "/v1/auth/validate");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -51,50 +38,32 @@ public class Auth implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse(contentType, httpRes.statusCode(), httpRes) {{
+            apiKeyDetails = null;
+            error = null;
+        }};
         
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.ApiKeyDetails out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.ApiKeyDetails>() {});
-                res.withApiKeyDetails(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.ApiKeyDetails out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.ApiKeyDetails.class);
+                res.apiKeyDetails = out;
             }
-        }else {
+        }
+        else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
     }
-
 }

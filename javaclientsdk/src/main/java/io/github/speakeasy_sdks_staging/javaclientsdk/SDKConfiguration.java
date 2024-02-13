@@ -10,18 +10,18 @@ import java.util.Map;
 import java.util.HashMap;
 
 class SDKConfiguration {
-	public SecuritySource securitySource;	
-    
 	public HTTPClient defaultClient;
+	public HTTPClient securityClient;
+	public Security security;
 	public String serverUrl;
 	public String server;
 	public String language = "java";
 	public String openapiDocVersion = "0.4.0";
-	public String sdkVersion = "7.0.6";
-	public String genVersion = "2.250.22";
-	public String userAgent = "speakeasy-sdk/java 7.0.6 2.250.22 0.4.0 io.github.speakeasy_sdks_staging.javaclientsdk";
-	public Map<String, Map<String, Map<String, java.lang.Object>>> globals = new HashMap<>(){{
-		put("parameters", new HashMap<>());
+	public String sdkVersion = "7.1.3";
+	public String genVersion = "internal";
+	public String userAgent = "speakeasy-sdk/java 7.1.3 internal 0.4.0 io.github.speakeasy_sdks_staging.javaclientsdk";
+	public Map<String, Map<String, Map<String, java.lang.Object>>> globals = new HashMap<String, Map<String, Map<String, java.lang.Object>>>(){{
+		put("parameters", new HashMap<String, Map<String, java.lang.Object>>());
 	}};
 	
 }

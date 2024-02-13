@@ -4,91 +4,23 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SpeakeasyMetadata;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 
 
 public class GetRequestFromEventLogRequest {
-
     /**
      * The ID of the request to retrieve.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=requestID")
-    private String requestID;
+    public String requestID;
 
-    public GetRequestFromEventLogRequest(
-            String requestID) {
-        Utils.checkNotNull(requestID, "requestID");
-        this.requestID = requestID;
-    }
-
-    /**
-     * The ID of the request to retrieve.
-     */
-    public String requestID() {
-        return requestID;
-    }
-    
-    public final static Builder builder() {
-        return new Builder();
-    }
-
-    /**
-     * The ID of the request to retrieve.
-     */
     public GetRequestFromEventLogRequest withRequestID(String requestID) {
-        Utils.checkNotNull(requestID, "requestID");
         this.requestID = requestID;
         return this;
     }
     
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        GetRequestFromEventLogRequest other = (GetRequestFromEventLogRequest) o;
-        return 
-            java.util.Objects.deepEquals(this.requestID, other.requestID);
-    }
-    
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(
-            requestID);
-    }
-    
-    @Override
-    public String toString() {
-        return Utils.toString(GetRequestFromEventLogRequest.class,
-                "requestID", requestID);
-    }
-    
-    public final static class Builder {
- 
-        private String requestID;  
-        
-        private Builder() {
-          // force use of static builder() method
-        }
-
-        /**
-         * The ID of the request to retrieve.
-         */
-        public Builder requestID(String requestID) {
-            Utils.checkNotNull(requestID, "requestID");
-            this.requestID = requestID;
-            return this;
-        }        
-        
-        public GetRequestFromEventLogRequest build() {
-            return new GetRequestFromEventLogRequest(
-                requestID);
-        }
-    }
+    public GetRequestFromEventLogRequest(@JsonProperty("requestID") String requestID) {
+        this.requestID = requestID;
+  }
 }
-

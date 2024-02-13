@@ -4,35 +4,24 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.JSON;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SerializedBody;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * REST APIs for capturing event data
  */
-public class Events implements
-            MethodCallPostWorkspaceEvents {
-    
-    private final SDKConfiguration sdkConfiguration;
+public class Events {
+	
+	private SDKConfiguration sdkConfiguration;
 
-    Events(SDKConfiguration sdkConfiguration) {
-        this.sdkConfiguration = sdkConfiguration;
-    }
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequestBuilder postWorkspaceEvents() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequestBuilder(this);
-    }
+	public Events(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
+	}
 
     /**
      * Post events for a specific workspace
@@ -41,20 +30,14 @@ public class Events implements
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse postWorkspaceEvents(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse postWorkspaceEvents(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest.class, 
-                baseUrl, 
-                "/v1/workspace/{workspaceID}/events", 
-                request, this.sdkConfiguration.globals);
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest.class, baseUrl, "/v1/workspace/{workspaceID}/events", request, this.sdkConfiguration.globals);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(
-                request, "requestBody", "json", false);
+        SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(request, "requestBody", "json");
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }
@@ -63,41 +46,26 @@ public class Events implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
         
-        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
-                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
-        HttpResponse<InputStream> httpRes = client.send(req);
+        HttpResponse<byte[]> httpRes = client.send(req);
 
-        String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse.Builder resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse
-                .builder()
-                .contentType(contentType)
-                .statusCode(httpRes.statusCode())
-                .rawResponse(httpRes);
-
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse res = resBuilder.build();
-
-        res.withRawResponse(httpRes);
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+        
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse res = new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse(contentType, httpRes.statusCode(), httpRes) {{
+            error = null;
+        }};
         
         if ((httpRes.statusCode() >= 200 && httpRes.statusCode() < 300)) {
-        } else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
+        }
+        else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error.class);
+                res.error = out;
             }
         }
 
         return res;
     }
-
 }

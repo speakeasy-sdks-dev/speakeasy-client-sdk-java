@@ -4,171 +4,47 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SpeakeasyMetadata;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 
 
 public class DeleteSchemaRequest {
-
     /**
      * The ID of the Api to delete schemas for.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=apiID")
-    private String apiID;
+    public String apiID;
 
+    public DeleteSchemaRequest withApiID(String apiID) {
+        this.apiID = apiID;
+        return this;
+    }
+    
     /**
      * The revision ID of the schema to delete.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=revisionID")
-    private String revisionID;
+    public String revisionID;
 
+    public DeleteSchemaRequest withRevisionID(String revisionID) {
+        this.revisionID = revisionID;
+        return this;
+    }
+    
     /**
      * The version ID of the Api to delete metadata for.
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=versionID")
-    private String versionID;
+    public String versionID;
 
-    public DeleteSchemaRequest(
-            String apiID,
-            String revisionID,
-            String versionID) {
-        Utils.checkNotNull(apiID, "apiID");
-        Utils.checkNotNull(revisionID, "revisionID");
-        Utils.checkNotNull(versionID, "versionID");
-        this.apiID = apiID;
-        this.revisionID = revisionID;
-        this.versionID = versionID;
-    }
-
-    /**
-     * The ID of the Api to delete schemas for.
-     */
-    public String apiID() {
-        return apiID;
-    }
-
-    /**
-     * The revision ID of the schema to delete.
-     */
-    public String revisionID() {
-        return revisionID;
-    }
-
-    /**
-     * The version ID of the Api to delete metadata for.
-     */
-    public String versionID() {
-        return versionID;
-    }
-    
-    public final static Builder builder() {
-        return new Builder();
-    }
-
-    /**
-     * The ID of the Api to delete schemas for.
-     */
-    public DeleteSchemaRequest withApiID(String apiID) {
-        Utils.checkNotNull(apiID, "apiID");
-        this.apiID = apiID;
-        return this;
-    }
-
-    /**
-     * The revision ID of the schema to delete.
-     */
-    public DeleteSchemaRequest withRevisionID(String revisionID) {
-        Utils.checkNotNull(revisionID, "revisionID");
-        this.revisionID = revisionID;
-        return this;
-    }
-
-    /**
-     * The version ID of the Api to delete metadata for.
-     */
     public DeleteSchemaRequest withVersionID(String versionID) {
-        Utils.checkNotNull(versionID, "versionID");
         this.versionID = versionID;
         return this;
     }
     
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        DeleteSchemaRequest other = (DeleteSchemaRequest) o;
-        return 
-            java.util.Objects.deepEquals(this.apiID, other.apiID) &&
-            java.util.Objects.deepEquals(this.revisionID, other.revisionID) &&
-            java.util.Objects.deepEquals(this.versionID, other.versionID);
-    }
-    
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(
-            apiID,
-            revisionID,
-            versionID);
-    }
-    
-    @Override
-    public String toString() {
-        return Utils.toString(DeleteSchemaRequest.class,
-                "apiID", apiID,
-                "revisionID", revisionID,
-                "versionID", versionID);
-    }
-    
-    public final static class Builder {
- 
-        private String apiID;
- 
-        private String revisionID;
- 
-        private String versionID;  
-        
-        private Builder() {
-          // force use of static builder() method
-        }
-
-        /**
-         * The ID of the Api to delete schemas for.
-         */
-        public Builder apiID(String apiID) {
-            Utils.checkNotNull(apiID, "apiID");
-            this.apiID = apiID;
-            return this;
-        }
-
-        /**
-         * The revision ID of the schema to delete.
-         */
-        public Builder revisionID(String revisionID) {
-            Utils.checkNotNull(revisionID, "revisionID");
-            this.revisionID = revisionID;
-            return this;
-        }
-
-        /**
-         * The version ID of the Api to delete metadata for.
-         */
-        public Builder versionID(String versionID) {
-            Utils.checkNotNull(versionID, "versionID");
-            this.versionID = versionID;
-            return this;
-        }        
-        
-        public DeleteSchemaRequest build() {
-            return new DeleteSchemaRequest(
-                apiID,
-                revisionID,
-                versionID);
-        }
-    }
+    public DeleteSchemaRequest(@JsonProperty("apiID") String apiID, @JsonProperty("revisionID") String revisionID, @JsonProperty("versionID") String versionID) {
+        this.apiID = apiID;
+        this.revisionID = revisionID;
+        this.versionID = versionID;
+  }
 }
-

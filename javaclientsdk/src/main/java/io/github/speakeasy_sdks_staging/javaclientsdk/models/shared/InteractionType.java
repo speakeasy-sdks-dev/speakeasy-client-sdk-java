@@ -5,8 +5,6 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 
 /**
  * InteractionType - Type of interaction.
@@ -16,13 +14,9 @@ public enum InteractionType {
     TARGET_GENERATE("TARGET_GENERATE");
 
     @JsonValue
-    private final String value;
+    public final String value;
 
     private InteractionType(String value) {
         this.value = value;
-    }
-    
-    public String value() {
-        return value;
     }
 }

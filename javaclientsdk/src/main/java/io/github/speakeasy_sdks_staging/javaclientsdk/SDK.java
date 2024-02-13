@@ -4,297 +4,201 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SpeakeasyHTTPClient;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
  * /docs - The Speakeasy Platform Documentation
  */
 public class SDK {
-    /**
-     * AvailableServers contains identifiers for the servers available to the SDK.
-     */ 
-    public enum AvailableServers {
-PROD("prod");
+	/**
+	 * AvailableServers contains identifiers for the servers available to the SDK.
+	 */ 
+	public enum AvailableServers {
+        PROD("prod");
 
-        private final String server;
+		public final String server;
 
-        private AvailableServers(String server) {
-            this.server = server;
-        }
-        
-        public String server() {
-           return server;
-        }
-    }
+		private AvailableServers(String server) {
+			this.server = server;
+		}
+	}
 
-    /**
-     * SERVERS contains the list of server urls available to the SDK.
-     */
-    public static final java.util.Map<AvailableServers, String> SERVERS = new java.util.HashMap<>() {{
-    put(AvailableServers.PROD, "https://api.prod.speakeasyapi.dev");
-    }};
-
+	/**
+	 * SERVERS contains the list of server urls available to the SDK.
+	 */
+	public static final java.util.Map<AvailableServers, String> SERVERS = new java.util.HashMap<AvailableServers, String>() {{
+		put(AvailableServers.PROD, "https://api.prod.speakeasyapi.dev");
+	}};
+  	
     /**
      * REST APIs for managing Api entities
      */
-    private final Apis apis;
-
+    public Apis apis;
     /**
      * REST APIs for managing ApiEndpoint entities
      */
-    private final ApiEndpoints apiEndpoints;
-
+    public ApiEndpoints apiEndpoints;
     /**
      * REST APIs for managing Version Metadata entities
      */
-    private final Metadata metadata;
-
+    public Metadata metadata;
     /**
      * REST APIs for managing Schema entities
      */
-    private final Schemas schemas;
-
+    public Schemas schemas;
     /**
      * REST APIs for managing Authentication
      */
-    private final Auth auth;
-
+    public Auth auth;
     /**
      * REST APIs for retrieving request information
      */
-    private final Requests requests;
-
+    public Requests requests;
     /**
      * REST APIs for managing embeds
      */
-    private final Embeds embeds;
-
+    public Embeds embeds;
     /**
      * REST APIs for capturing event data
      */
-    private final Events events;
+    public Events events;	
 
-    /**
-     * REST APIs for managing Api entities
-     */
-    public Apis apis() {
-        return apis;
-    }
+	private SDKConfiguration sdkConfiguration;
 
-    /**
-     * REST APIs for managing ApiEndpoint entities
-     */
-    public ApiEndpoints apiEndpoints() {
-        return apiEndpoints;
-    }
+	/**
+	 * The Builder class allows the configuration of a new instance of the SDK.
+	 */
+	public static class Builder {
+		private SDKConfiguration sdkConfiguration = new SDKConfiguration();
 
-    /**
-     * REST APIs for managing Version Metadata entities
-     */
-    public Metadata metadata() {
-        return metadata;
-    }
+		private Builder() {
+		}
 
-    /**
-     * REST APIs for managing Schema entities
-     */
-    public Schemas schemas() {
-        return schemas;
-    }
+		/**
+		 * Allows the default HTTP client to be overridden with a custom implementation.
+		 * @param client The HTTP client to use for all requests.
+		 * @return The builder instance.
+		 */
+		public Builder setClient(HTTPClient client) {
+			this.sdkConfiguration.defaultClient = client;
+			return this;
+		}
+		
+		/**
+		 * Configures the SDK to use the provided security details.
+		 * @param security The security details to use for all requests.
+		 * @return The builder instance.
+		 */
+		public Builder setSecurity(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security security) {
+			this.sdkConfiguration.security = security;
+			return this;
+		}
+		
+		/**
+		 * Allows the overriding of the default server URL.
+		 * @param serverUrl The server URL to use for all requests.
+		 * @return The builder instance.
+		 */
+		public Builder setServerURL(String serverUrl) {
+			this.sdkConfiguration.serverUrl = serverUrl;
+			return this;
+		}
+		
+		/**
+		 * Allows the overriding of the default server URL  with a templated URL populated with the provided parameters.
+		 * @param serverUrl The server URL to use for all requests.
+		 * @param params The parameters to use when templating the URL.
+		 * @return The builder instance.
+		 */
+		public Builder setServerURL(String serverUrl, java.util.Map<String, String> params) {
+			this.sdkConfiguration.serverUrl = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.templateUrl(serverUrl, params);
+			return this;
+		}
+		
+		/**
+		 * Allows the overriding of the default server by name
+		 * @param server The server to use for all requests.
+		 * @return The builder instance.
+		 */
+		public Builder setServer(AvailableServers server) {
+			this.sdkConfiguration.server = server.toString();
+			this.sdkConfiguration.serverUrl = SERVERS.get(server);
+			return this;
+		}
+		
+		/**
+		 * Allows setting the workspaceID parameter for all supported operations.
+		 * @param workspaceID The value to set.
+		 * @return The builder instance.
+		 */
+		public Builder setWorkspaceID(String workspaceID) {
+			if (!this.sdkConfiguration.globals.get("parameters").containsKey("pathParam")) {
+				this.sdkConfiguration.globals.get("parameters").put("pathParam", new java.util.HashMap<String, java.lang.Object>());
+			}
 
-    /**
-     * REST APIs for managing Authentication
-     */
-    public Auth auth() {
-        return auth;
-    }
+			this.sdkConfiguration.globals.get("parameters").get("pathParam").put("workspaceID", workspaceID);
 
-    /**
-     * REST APIs for retrieving request information
-     */
-    public Requests requests() {
-        return requests;
-    }
+			return this;
+		}
+		
+		/**
+		 * Builds a new instance of the SDK.
+		 * @return The SDK instance.
+		 * @throws Exception Thrown if the SDK could not be built.
+		 */
+		public SDK build() throws Exception {
+			if (this.sdkConfiguration.defaultClient == null) {
+				this.sdkConfiguration.defaultClient = new SpeakeasyHTTPClient();
+			}
+			
+			if (this.sdkConfiguration.security != null) {
+				this.sdkConfiguration.securityClient = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(this.sdkConfiguration.defaultClient, this.sdkConfiguration.security);
+			}
+			
+			if (this.sdkConfiguration.securityClient == null) {
+				this.sdkConfiguration.securityClient = this.sdkConfiguration.defaultClient;
+			}
+			
+			if (this.sdkConfiguration.serverUrl == null || this.sdkConfiguration.serverUrl.isBlank()) {
+				this.sdkConfiguration.serverUrl = SERVERS.get(AvailableServers.PROD);
+				this.sdkConfiguration.server = AvailableServers.PROD.toString();
+			}
 
-    /**
-     * REST APIs for managing embeds
-     */
-    public Embeds embeds() {
-        return embeds;
-    }
+			if (this.sdkConfiguration.serverUrl.endsWith("/")) {
+				this.sdkConfiguration.serverUrl = this.sdkConfiguration.serverUrl.substring(0, this.sdkConfiguration.serverUrl.length() - 1);
+			}
+			
+			return new SDK(this.sdkConfiguration);
+		}
+	}
 
-    /**
-     * REST APIs for capturing event data
-     */
-    public Events events() {
-        return events;
-    }  
+	/**
+	 * Get a new instance of the SDK builder to configure a new instance of the SDK.
+	 * @return The SDK builder instance.
+	 */
+	public static Builder builder() {
+		return new Builder();
+	}
 
-    private final SDKConfiguration sdkConfiguration;
-
-    /**
-     * The Builder class allows the configuration of a new instance of the SDK.
-     */
-    public static class Builder {
-  
-        private final SDKConfiguration sdkConfiguration = new SDKConfiguration();
-
-        private Builder() {
-        }
-
-        /**
-         * Allows the default HTTP client to be overridden with a custom implementation.
-         * @param client The HTTP client to use for all requests.
-         * @return The builder instance.
-         */
-        public Builder client(HTTPClient client) {
-            this.sdkConfiguration.defaultClient = client;
-            return this;
-        }
-        
-        /**
-         * Configures the SDK to use the provided security details.
-         * @param security The security details to use for all requests.
-         * @return The builder instance.
-         */
-        public Builder security(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security security) {
-            this.sdkConfiguration.securitySource = SecuritySource.of(security);
-            return this;
-        }
-
-        public Builder securitySource(SecuritySource securitySource) {
-            this.sdkConfiguration.securitySource = securitySource;
-            return this;
-        }
-        
-        /**
-         * Allows the overriding of the default server URL.
-         * @param serverUrl The server URL to use for all requests.
-         * @return The builder instance.
-         */
-        public Builder serverURL(String serverUrl) {
-            this.sdkConfiguration.serverUrl = serverUrl;
-            return this;
-        }
-        
-        /**
-         * Allows the overriding of the default server URL  with a templated URL populated with the provided parameters.
-         * @param serverUrl The server URL to use for all requests.
-         * @param params The parameters to use when templating the URL.
-         * @return The builder instance.
-         */
-        public Builder serverURL(String serverUrl, java.util.Map<String, String> params) {
-            this.sdkConfiguration.serverUrl = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.templateUrl(serverUrl, params);
-            return this;
-        }
-        
-        /**
-         * Allows the overriding of the default server by name
-         * @param server The server to use for all requests.
-         * @return The builder instance.
-         */
-        public Builder server(AvailableServers server) {
-            this.sdkConfiguration.server = server.toString();
-            this.sdkConfiguration.serverUrl = SERVERS.get(server);
-            return this;
-        }
-        
-        /**
-         * Allows setting the workspaceID parameter for all supported operations.
-         * @param workspaceID The value to set.
-         * @return The builder instance.
-         */
-        public Builder workspaceID(String workspaceID) {
-            if (!this.sdkConfiguration.globals.get("parameters").containsKey("pathParam")) {
-                this.sdkConfiguration.globals.get("parameters").put("pathParam", new java.util.HashMap<>());
-            }
-    
-            this.sdkConfiguration.globals.get("parameters").get("pathParam").put("workspaceID", workspaceID);
-    
-            return this;
-        }
-        
-        /**
-         * Builds a new instance of the SDK.
-         * @return The SDK instance.
-         * @throws Exception Thrown if the SDK could not be built.
-         */
-        public SDK build() throws Exception {
-            if (sdkConfiguration.defaultClient == null) {
-                sdkConfiguration.defaultClient = new SpeakeasyHTTPClient();
-            }
-	    if (sdkConfiguration.securitySource == null) {
-	    	sdkConfiguration.securitySource = SecuritySource.of(null);
-	    }
-            if (sdkConfiguration.serverUrl == null || sdkConfiguration.serverUrl.isBlank()) {
-                sdkConfiguration.serverUrl = SERVERS.get(AvailableServers.PROD);
-                sdkConfiguration.server = AvailableServers.PROD.toString();
-            }
-            if (sdkConfiguration.serverUrl.endsWith("/")) {
-                sdkConfiguration.serverUrl = sdkConfiguration.serverUrl.substring(0, sdkConfiguration.serverUrl.length() - 1);
-            }
-            return new SDK(sdkConfiguration);
-        }
-    }
-
-    /**
-     * Get a new instance of the SDK builder to configure a new instance of the SDK.
-     * @return The SDK builder instance.
-     */
-    public static Builder builder() {
-        return new Builder();
-    }
-
-    private SDK(SDKConfiguration sdkConfiguration) throws Exception {
-        this.sdkConfiguration = sdkConfiguration;
-        this.apis = new Apis(sdkConfiguration);
-        this.apiEndpoints = new ApiEndpoints(sdkConfiguration);
-        this.metadata = new Metadata(sdkConfiguration);
-        this.schemas = new Schemas(sdkConfiguration);
-        this.auth = new Auth(sdkConfiguration);
-        this.requests = new Requests(sdkConfiguration);
-        this.embeds = new Embeds(sdkConfiguration);
-        this.events = new Events(sdkConfiguration);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	private SDK(SDKConfiguration sdkConfiguration) throws Exception {
+		this.sdkConfiguration = sdkConfiguration;
+		
+		this.apis = new Apis(this.sdkConfiguration);
+		
+		this.apiEndpoints = new ApiEndpoints(this.sdkConfiguration);
+		
+		this.metadata = new Metadata(this.sdkConfiguration);
+		
+		this.schemas = new Schemas(this.sdkConfiguration);
+		
+		this.auth = new Auth(this.sdkConfiguration);
+		
+		this.requests = new Requests(this.sdkConfiguration);
+		
+		this.embeds = new Embeds(this.sdkConfiguration);
+		
+		this.events = new Events(this.sdkConfiguration);
+	}
 }

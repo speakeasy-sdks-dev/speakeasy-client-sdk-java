@@ -5,8 +5,6 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 
 /**
  * GenerateBumpType - Bump type of the lock file (calculated semver delta, or a custom change (manual release))
@@ -19,13 +17,9 @@ public enum GenerateBumpType {
     NONE("none");
 
     @JsonValue
-    private final String value;
+    public final String value;
 
     private GenerateBumpType(String value) {
         this.value = value;
-    }
-    
-    public String value() {
-        return value;
     }
 }

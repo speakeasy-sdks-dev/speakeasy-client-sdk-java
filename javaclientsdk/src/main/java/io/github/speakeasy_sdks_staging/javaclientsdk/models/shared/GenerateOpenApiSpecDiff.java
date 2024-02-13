@@ -5,106 +5,27 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import java.io.InputStream;
 
 
 public class GenerateOpenApiSpecDiff {
-
     @JsonProperty("current_schema")
-    private String currentSchema;
-
-    @JsonProperty("new_schema")
-    private String newSchema;
-
-    public GenerateOpenApiSpecDiff(
-            @JsonProperty("current_schema") String currentSchema,
-            @JsonProperty("new_schema") String newSchema) {
-        Utils.checkNotNull(currentSchema, "currentSchema");
-        Utils.checkNotNull(newSchema, "newSchema");
-        this.currentSchema = currentSchema;
-        this.newSchema = newSchema;
-    }
-
-    public String currentSchema() {
-        return currentSchema;
-    }
-
-    public String newSchema() {
-        return newSchema;
-    }
-    
-    public final static Builder builder() {
-        return new Builder();
-    }
+    public String currentSchema;
 
     public GenerateOpenApiSpecDiff withCurrentSchema(String currentSchema) {
-        Utils.checkNotNull(currentSchema, "currentSchema");
         this.currentSchema = currentSchema;
         return this;
     }
+    
+    @JsonProperty("new_schema")
+    public String newSchema;
 
     public GenerateOpenApiSpecDiff withNewSchema(String newSchema) {
-        Utils.checkNotNull(newSchema, "newSchema");
         this.newSchema = newSchema;
         return this;
     }
     
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        GenerateOpenApiSpecDiff other = (GenerateOpenApiSpecDiff) o;
-        return 
-            java.util.Objects.deepEquals(this.currentSchema, other.currentSchema) &&
-            java.util.Objects.deepEquals(this.newSchema, other.newSchema);
-    }
-    
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(
-            currentSchema,
-            newSchema);
-    }
-    
-    @Override
-    public String toString() {
-        return Utils.toString(GenerateOpenApiSpecDiff.class,
-                "currentSchema", currentSchema,
-                "newSchema", newSchema);
-    }
-    
-    public final static class Builder {
- 
-        private String currentSchema;
- 
-        private String newSchema;  
-        
-        private Builder() {
-          // force use of static builder() method
-        }
-
-        public Builder currentSchema(String currentSchema) {
-            Utils.checkNotNull(currentSchema, "currentSchema");
-            this.currentSchema = currentSchema;
-            return this;
-        }
-
-        public Builder newSchema(String newSchema) {
-            Utils.checkNotNull(newSchema, "newSchema");
-            this.newSchema = newSchema;
-            return this;
-        }        
-        
-        public GenerateOpenApiSpecDiff build() {
-            return new GenerateOpenApiSpecDiff(
-                currentSchema,
-                newSchema);
-        }
-    }
+    public GenerateOpenApiSpecDiff(@JsonProperty("current_schema") String currentSchema, @JsonProperty("new_schema") String newSchema) {
+        this.currentSchema = currentSchema;
+        this.newSchema = newSchema;
+  }
 }
-
