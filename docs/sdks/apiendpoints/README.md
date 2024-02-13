@@ -25,14 +25,15 @@ Delete an ApiEndpoint. This will also delete all associated Request Logs (if usi
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiEndpointRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiEndpointResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -57,8 +58,7 @@ public class Application {
                 .call();
 
             // handle response
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -69,14 +69,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                        | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                        | [dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointRequest](../../models/operations/DeleteApiEndpointRequest.md) | :heavy_check_mark:                                                                                                               | The request object to use for the request.                                                                                       |
+| Parameter                                                                                                                                        | Type                                                                                                                                             | Required                                                                                                                                         | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                        | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiEndpointRequest](../../models/operations/DeleteApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                               | The request object to use for the request.                                                                                                       |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiEndpointResponse>](../../models/operations/DeleteApiEndpointResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiEndpointResponse>](../../models/operations/DeleteApiEndpointResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -93,14 +93,15 @@ This is useful for finding the ID of an ApiEndpoint to use in the /v1/apis/{apiI
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FindApiEndpointRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FindApiEndpointResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -127,8 +128,7 @@ public class Application {
             if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -139,14 +139,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                    | [dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointRequest](../../models/operations/FindApiEndpointRequest.md) | :heavy_check_mark:                                                                                                           | The request object to use for the request.                                                                                   |
+| Parameter                                                                                                                                    | Type                                                                                                                                         | Required                                                                                                                                     | Description                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                    | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FindApiEndpointRequest](../../models/operations/FindApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                           | The request object to use for the request.                                                                                                   |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.FindApiEndpointResponse>](../../models/operations/FindApiEndpointResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FindApiEndpointResponse>](../../models/operations/FindApiEndpointResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -163,14 +163,15 @@ Returns the original document and the newly generated document allowing a diff t
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -197,8 +198,7 @@ public class Application {
             if (res.generateOpenApiSpecDiff().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -209,14 +209,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                                                        | Type                                                                                                                                                             | Required                                                                                                                                                         | Description                                                                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                                        | [dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest](../../models/operations/GenerateOpenApiSpecForApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                                               | The request object to use for the request.                                                                                                                       |
+| Parameter                                                                                                                                                                        | Type                                                                                                                                                                             | Required                                                                                                                                                                         | Description                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                                                        | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest](../../models/operations/GenerateOpenApiSpecForApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                                                               | The request object to use for the request.                                                                                                                                       |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse>](../../models/operations/GenerateOpenApiSpecForApiEndpointResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse>](../../models/operations/GenerateOpenApiSpecForApiEndpointResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -232,14 +232,15 @@ Generates a postman collection that allows the endpoint to be called from postma
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -266,8 +267,7 @@ public class Application {
             if (res.postmanCollection().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -278,14 +278,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                                                                    | Type                                                                                                                                                                         | Required                                                                                                                                                                     | Description                                                                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                                                    | [dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest](../../models/operations/GeneratePostmanCollectionForApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                                                           | The request object to use for the request.                                                                                                                                   |
+| Parameter                                                                                                                                                                                    | Type                                                                                                                                                                                         | Required                                                                                                                                                                                     | Description                                                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                                                                    | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest](../../models/operations/GeneratePostmanCollectionForApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                                                                           | The request object to use for the request.                                                                                                                                                   |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse>](../../models/operations/GeneratePostmanCollectionForApiEndpointResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse>](../../models/operations/GeneratePostmanCollectionForApiEndpointResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -301,14 +301,15 @@ Get all Api endpoints for a particular apiID.
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiEndpointsRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiEndpointsResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -333,8 +334,7 @@ public class Application {
             if (res.apiEndpoints().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -345,14 +345,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                          | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                          | [dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsRequest](../../models/operations/GetAllApiEndpointsRequest.md) | :heavy_check_mark:                                                                                                                 | The request object to use for the request.                                                                                         |
+| Parameter                                                                                                                                          | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                          | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiEndpointsRequest](../../models/operations/GetAllApiEndpointsRequest.md) | :heavy_check_mark:                                                                                                                                 | The request object to use for the request.                                                                                                         |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiEndpointsResponse>](../../models/operations/GetAllApiEndpointsResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiEndpointsResponse>](../../models/operations/GetAllApiEndpointsResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -368,14 +368,15 @@ Get all ApiEndpoints for a particular apiID and versionID.
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -401,8 +402,7 @@ public class Application {
             if (res.apiEndpoints().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -413,14 +413,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                                              | Type                                                                                                                                                   | Required                                                                                                                                               | Description                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                              | [dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest](../../models/operations/GetAllForVersionApiEndpointsRequest.md) | :heavy_check_mark:                                                                                                                                     | The request object to use for the request.                                                                                                             |
+| Parameter                                                                                                                                                              | Type                                                                                                                                                                   | Required                                                                                                                                                               | Description                                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                                              | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest](../../models/operations/GetAllForVersionApiEndpointsRequest.md) | :heavy_check_mark:                                                                                                                                                     | The request object to use for the request.                                                                                                                             |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse>](../../models/operations/GetAllForVersionApiEndpointsResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse>](../../models/operations/GetAllForVersionApiEndpointsResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -436,14 +436,15 @@ Get an ApiEndpoint.
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApiEndpointRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApiEndpointResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -470,8 +471,7 @@ public class Application {
             if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -482,14 +482,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                  | [dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointRequest](../../models/operations/GetApiEndpointRequest.md) | :heavy_check_mark:                                                                                                         | The request object to use for the request.                                                                                 |
+| Parameter                                                                                                                                  | Type                                                                                                                                       | Required                                                                                                                                   | Description                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                  | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApiEndpointRequest](../../models/operations/GetApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                         | The request object to use for the request.                                                                                                 |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetApiEndpointResponse>](../../models/operations/GetApiEndpointResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApiEndpointResponse>](../../models/operations/GetApiEndpointResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -505,15 +505,16 @@ Upsert an ApiEndpoint. If the ApiEndpoint does not exist it will be created, oth
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpointInput;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiEndpointRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiEndpointResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.ApiEndpointInput;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -548,8 +549,7 @@ public class Application {
             if (res.apiEndpoint().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -560,14 +560,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                        | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                        | [dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointRequest](../../models/operations/UpsertApiEndpointRequest.md) | :heavy_check_mark:                                                                                                               | The request object to use for the request.                                                                                       |
+| Parameter                                                                                                                                        | Type                                                                                                                                             | Required                                                                                                                                         | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                        | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiEndpointRequest](../../models/operations/UpsertApiEndpointRequest.md) | :heavy_check_mark:                                                                                                                               | The request object to use for the request.                                                                                                       |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiEndpointResponse>](../../models/operations/UpsertApiEndpointResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiEndpointResponse>](../../models/operations/UpsertApiEndpointResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |

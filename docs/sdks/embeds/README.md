@@ -21,16 +21,17 @@ Filters can be applied allowing views to be filtered to things like particular c
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Filter;
-import dev.speakeasyapi.javaclientsdk.models.shared.Filters;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filter;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filters;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -67,8 +68,7 @@ public class Application {
             if (res.embedAccessTokenResponse().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -79,14 +79,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                            | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                            | [dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest](../../models/operations/GetEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                                                                   | The request object to use for the request.                                                                                           |
+| Parameter                                                                                                                                            | Type                                                                                                                                                 | Required                                                                                                                                             | Description                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                            | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest](../../models/operations/GetEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                                                                                   | The request object to use for the request.                                                                                                           |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenResponse>](../../models/operations/GetEmbedAccessTokenResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse>](../../models/operations/GetEmbedAccessTokenResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -102,13 +102,14 @@ Get all valid embed access tokens for the current workspace.
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -128,8 +129,7 @@ public class Application {
             if (res.embedTokens().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -141,7 +141,7 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse>](../../models/operations/GetValidEmbedAccessTokensResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse>](../../models/operations/GetValidEmbedAccessTokensResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |
@@ -157,14 +157,15 @@ Revoke an embed access EmbedToken.
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -187,8 +188,7 @@ public class Application {
                 .call();
 
             // handle response
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -199,14 +199,14 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                                                                                  | Type                                                                                                                                       | Required                                                                                                                                   | Description                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                  | [dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest](../../models/operations/RevokeEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                                                                         | The request object to use for the request.                                                                                                 |
+| Parameter                                                                                                                                                  | Type                                                                                                                                                       | Required                                                                                                                                                   | Description                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                                  | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest](../../models/operations/RevokeEmbedAccessTokenRequest.md) | :heavy_check_mark:                                                                                                                                         | The request object to use for the request.                                                                                                                 |
 
 
 ### Response
 
-**[Optional<? extends dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse>](../../models/operations/RevokeEmbedAccessTokenResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse>](../../models/operations/RevokeEmbedAccessTokenResponse.md)**
 ### Errors
 
 | Error Object          | Status Code           | Content Type          |

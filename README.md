@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:7.0.5'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.2.0'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -18,15 +18,16 @@ implementation 'dev.speakeasyapi.javaclientsdk:speakeasy-client-sdk-java:7.0.5'
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
-import dev.speakeasyapi.javaclientsdk.models.operations.QueryParamOp;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryParamOp;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -56,8 +57,7 @@ public class Application {
             if (res.apis().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -146,14 +146,15 @@ You can override the default server globally by passing a server name to the `se
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -178,8 +179,7 @@ public class Application {
                 .call();
 
             // handle response
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -195,14 +195,15 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -227,8 +228,7 @@ public class Application {
                 .call();
 
             // handle response
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -252,14 +252,15 @@ Handling errors in this SDK should largely match your expectations.  All operati
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -283,8 +284,7 @@ public class Application {
                 .call();
 
             // handle response
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -309,14 +309,15 @@ You can set the security parameters through the `security` builder method when i
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -340,8 +341,7 @@ public class Application {
                 .call();
 
             // handle response
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
@@ -373,17 +373,18 @@ The following global parameter is available.
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.CliEvent;
-import dev.speakeasyapi.javaclientsdk.models.shared.GenerateBumpType;
-import dev.speakeasyapi.javaclientsdk.models.shared.InteractionType;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateBumpType;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -417,8 +418,7 @@ public class Application {
                 .call();
 
             // handle response
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception

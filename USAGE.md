@@ -2,15 +2,16 @@
 ```java
 package hello.world;
 
-import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.operations.*;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
-import dev.speakeasyapi.javaclientsdk.models.operations.QueryParamOp;
-import dev.speakeasyapi.javaclientsdk.models.shared.*;
-import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryParamOp;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 import static java.util.Map.entry;
 
 public class Application {
@@ -40,8 +41,7 @@ public class Application {
             if (res.apis().isPresent()) {
                 // handle response
             }
-
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.SDKError e) {
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {
             // handle exception
