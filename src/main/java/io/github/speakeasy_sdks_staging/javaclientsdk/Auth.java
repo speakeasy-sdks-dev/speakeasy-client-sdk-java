@@ -16,12 +16,14 @@ import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
+import org.apache.http.NameValuePair;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * REST APIs for managing Authentication
  */
 public class Auth implements
+            MethodCallGetWorkspaceAccess,
             MethodCallValidateApiKey {
     
     private final SDKConfiguration sdkConfiguration;
@@ -29,6 +31,83 @@ public class Auth implements
     Auth(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequestBuilder getWorkspaceAccess() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequestBuilder(this);
+    }
+
+    /**
+     * Get access allowances for a particular workspace
+     * Checks if generation is permitted for a particular run of the CLI
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse getWorkspaceAccess(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request) throws Exception {
+        String baseUrl = this.sdkConfiguration.serverUrl;
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
+                baseUrl,
+                "/v1/workspace/access");
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("GET");
+        req.setURL(url);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+        java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest.class, request, this.sdkConfiguration.globals);
+        if (queryParams != null) {
+            for (NameValuePair queryParam : queryParams) {
+                req.addQueryParam(queryParam);
+            }
+        }
+        
+        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+        
+        HttpResponse<InputStream> httpRes = client.send(req);
+
+        String contentType = httpRes
+                .headers()
+                .firstValue("Content-Type")
+                .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse.Builder resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
+        
+        if (httpRes.statusCode() == 200) {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails>() {});
+                res.withAccessDetails(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        } else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        }
+
+        return res;
+    }
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder validateApiKey() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder(this);
     }

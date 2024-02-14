@@ -44,13 +44,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteApiEndpointRequest req = DeleteApiEndpointRequest.builder()
-                .apiEndpointID("string")
-                .apiID("string")
-                .versionID("string")
+                .apiEndpointID("<value>")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteApiEndpointResponse res = sdk.apiEndpoints().deleteApiEndpoint()
@@ -112,13 +112,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             FindApiEndpointRequest req = FindApiEndpointRequest.builder()
-                .apiID("string")
-                .displayName("string")
-                .versionID("string")
+                .apiID("<value>")
+                .displayName("<value>")
+                .versionID("<value>")
                 .build();
 
             FindApiEndpointResponse res = sdk.apiEndpoints().findApiEndpoint()
@@ -182,13 +182,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GenerateOpenApiSpecForApiEndpointRequest req = GenerateOpenApiSpecForApiEndpointRequest.builder()
-                .apiEndpointID("string")
-                .apiID("string")
-                .versionID("string")
+                .apiEndpointID("<value>")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GenerateOpenApiSpecForApiEndpointResponse res = sdk.apiEndpoints().generateOpenApiSpecForApiEndpoint()
@@ -251,13 +251,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GeneratePostmanCollectionForApiEndpointRequest req = GeneratePostmanCollectionForApiEndpointRequest.builder()
-                .apiEndpointID("string")
-                .apiID("string")
-                .versionID("string")
+                .apiEndpointID("<value>")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GeneratePostmanCollectionForApiEndpointResponse res = sdk.apiEndpoints().generatePostmanCollectionForApiEndpoint()
@@ -320,11 +320,11 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetAllApiEndpointsRequest req = GetAllApiEndpointsRequest.builder()
-                .apiID("string")
+                .apiID("<value>")
                 .build();
 
             GetAllApiEndpointsResponse res = sdk.apiEndpoints().getAllApiEndpoints()
@@ -387,12 +387,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetAllForVersionApiEndpointsRequest req = GetAllForVersionApiEndpointsRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GetAllForVersionApiEndpointsResponse res = sdk.apiEndpoints().getAllForVersionApiEndpoints()
@@ -455,13 +455,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetApiEndpointRequest req = GetApiEndpointRequest.builder()
-                .apiEndpointID("string")
-                .apiID("string")
-                .versionID("string")
+                .apiEndpointID("<value>")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GetApiEndpointResponse res = sdk.apiEndpoints().getApiEndpoint()
@@ -525,21 +525,21 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             UpsertApiEndpointRequest req = UpsertApiEndpointRequest.builder()
                 .apiEndpoint(ApiEndpointInput.builder()
-                        .apiEndpointId("string")
-                        .description("string")
-                        .displayName("string")
-                        .method("string")
-                        .path("string")
-                        .versionId("string")
+                        .apiEndpointId("<value>")
+                        .description("<value>")
+                        .displayName("<value>")
+                        .method("<value>")
+                        .path("<value>")
+                        .versionId("<value>")
                         .build())
-                .apiEndpointID("string")
-                .apiID("string")
-                .versionID("string")
+                .apiEndpointID("<value>")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             UpsertApiEndpointResponse res = sdk.apiEndpoints().upsertApiEndpoint()

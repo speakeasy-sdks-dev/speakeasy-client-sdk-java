@@ -162,6 +162,12 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallGetWorkspaceAccess { 
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse getWorkspaceAccess(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request) throws Exception;
+    }
+
+
     public interface MethodCallValidateApiKey { 
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception;
     }

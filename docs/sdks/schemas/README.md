@@ -44,13 +44,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteSchemaRequest req = DeleteSchemaRequest.builder()
-                .apiID("string")
-                .revisionID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .revisionID("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteSchemaResponse res = sdk.schemas().deleteSchema()
@@ -111,12 +111,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DownloadSchemaRequest req = DownloadSchemaRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             DownloadSchemaResponse res = sdk.schemas().downloadSchema()
@@ -179,13 +179,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DownloadSchemaRevisionRequest req = DownloadSchemaRevisionRequest.builder()
-                .apiID("string")
-                .revisionID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .revisionID("<value>")
+                .versionID("<value>")
                 .build();
 
             DownloadSchemaRevisionResponse res = sdk.schemas().downloadSchemaRevision()
@@ -249,12 +249,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetSchemaRequest req = GetSchemaRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GetSchemaResponse res = sdk.schemas().getSchema()
@@ -317,14 +317,14 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetSchemaDiffRequest req = GetSchemaDiffRequest.builder()
-                .apiID("string")
-                .baseRevisionID("string")
-                .targetRevisionID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .baseRevisionID("<value>")
+                .targetRevisionID("<value>")
+                .versionID("<value>")
                 .build();
 
             GetSchemaDiffResponse res = sdk.schemas().getSchemaDiff()
@@ -388,13 +388,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetSchemaRevisionRequest req = GetSchemaRevisionRequest.builder()
-                .apiID("string")
-                .revisionID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .revisionID("<value>")
+                .versionID("<value>")
                 .build();
 
             GetSchemaRevisionResponse res = sdk.schemas().getSchemaRevision()
@@ -458,12 +458,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetSchemasRequest req = GetSchemasRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GetSchemasResponse res = sdk.schemas().getSchemas()
@@ -529,18 +529,18 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             RegisterSchemaRequest req = RegisterSchemaRequest.builder()
                 .requestBody(RegisterSchemaRequestBody.builder()
                         .file(File.builder()
                                 .content("0xCAFCA03e0e".getBytes())
-                                .fileName("string")
+                                .fileName("<value>")
                                 .build())
                         .build())
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             RegisterSchemaResponse res = sdk.schemas().registerSchema()

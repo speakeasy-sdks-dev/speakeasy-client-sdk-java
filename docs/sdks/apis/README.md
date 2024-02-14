@@ -42,12 +42,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteApiRequest req = DeleteApiRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteApiResponse res = sdk.apis().deleteApi()
@@ -109,12 +109,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GenerateOpenApiSpecRequest req = GenerateOpenApiSpecRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GenerateOpenApiSpecResponse res = sdk.apis().generateOpenApiSpec()
@@ -177,12 +177,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GeneratePostmanCollectionRequest req = GeneratePostmanCollectionRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GeneratePostmanCollectionResponse res = sdk.apis().generatePostmanCollection()
@@ -247,14 +247,14 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetAllApiVersionsRequest req = GetAllApiVersionsRequest.builder()
-                .apiID("string")
+                .apiID("<value>")
                 .metadata(java.util.Map.ofEntries(
                     entry("key", java.util.List.of(
-                        "string"))))
+                        "<value>"))))
                 .op(Op.builder()
                     .and(false)
                     .build())
@@ -322,13 +322,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetApisRequest req = GetApisRequest.builder()
                 .metadata(java.util.Map.ofEntries(
                     entry("key", java.util.List.of(
-                        "string"))))
+                        "<value>"))))
                 .op(QueryParamOp.builder()
                     .and(false)
                     .build())
@@ -396,19 +396,19 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             UpsertApiRequest req = UpsertApiRequest.builder()
                 .api(ApiInput.builder()
-                        .apiId("string")
-                        .description("string")
-                        .versionId("string")
+                        .apiId("<value>")
+                        .description("<value>")
+                        .versionId("<value>")
                         .metaData(java.util.Map.ofEntries(
                             entry("key", java.util.List.of(
-                                "string"))))
+                                "<value>"))))
                         .build())
-                .apiID("string")
+                .apiID("<value>")
                 .build();
 
             UpsertApiResponse res = sdk.apis().upsertApi()

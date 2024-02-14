@@ -42,7 +42,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetEmbedAccessTokenRequest req = GetEmbedAccessTokenRequest.builder()
@@ -51,13 +51,13 @@ public class Application {
                 .filters(Filters.builder()
                     .filters(java.util.List.of(
                             Filter.builder()
-                                .key("string")
-                                .operator("string")
-                                .value("string")
+                                .key("<value>")
+                                .operator("<value>")
+                                .value("<value>")
                                 .build()))
                     .limit(263313L)
                     .offset(411277L)
-                    .operator("string")
+                    .operator("<value>")
                     .build())
                 .build();
 
@@ -120,7 +120,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetValidEmbedAccessTokensResponse res = sdk.embeds().getValidEmbedAccessTokens()
@@ -176,11 +176,11 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             RevokeEmbedAccessTokenRequest req = RevokeEmbedAccessTokenRequest.builder()
-                .tokenID("string")
+                .tokenID("<value>")
                 .build();
 
             RevokeEmbedAccessTokenResponse res = sdk.embeds().revokeEmbedAccessToken()

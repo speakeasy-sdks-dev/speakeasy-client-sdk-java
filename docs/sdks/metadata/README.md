@@ -39,14 +39,14 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteVersionMetadataRequest req = DeleteVersionMetadataRequest.builder()
-                .apiID("string")
-                .metaKey("string")
-                .metaValue("string")
-                .versionID("string")
+                .apiID("<value>")
+                .metaKey("<value>")
+                .metaValue("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteVersionMetadataResponse res = sdk.metadata().deleteVersionMetadata()
@@ -107,12 +107,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetVersionMetadataRequest req = GetVersionMetadataRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             GetVersionMetadataResponse res = sdk.metadata().getVersionMetadata()
@@ -176,16 +176,16 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             InsertVersionMetadataRequest req = InsertVersionMetadataRequest.builder()
                 .versionMetadata(VersionMetadataInput.builder()
-                        .metaKey("string")
-                        .metaValue("string")
+                        .metaKey("<value>")
+                        .metaValue("<value>")
                         .build())
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             InsertVersionMetadataResponse res = sdk.metadata().insertVersionMetadata()

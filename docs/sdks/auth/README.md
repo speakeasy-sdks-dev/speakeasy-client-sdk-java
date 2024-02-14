@@ -7,7 +7,75 @@ REST APIs for managing Authentication
 
 ### Available Operations
 
+* [getWorkspaceAccess](#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](#validateapikey) - Validate the current api key.
+
+## getWorkspaceAccess
+
+Checks if generation is permitted for a particular run of the CLI
+
+### Example Usage
+
+```java
+package hello.world;
+
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
+
+public class Application {
+
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
+                .build();
+
+            GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
+                .genLockId("<value>")
+                .build();
+
+            GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
+                .request(req)
+                .call();
+
+            if (res.accessDetails().isPresent()) {
+                // handle response
+            }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                          | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                          | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest](../../models/operations/GetWorkspaceAccessRequest.md) | :heavy_check_mark:                                                                                                                                 | The request object to use for the request.                                                                                                         |
+
+
+### Response
+
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse>](../../models/operations/GetWorkspaceAccessResponse.md)**
+### Errors
+
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## validateApiKey
 
@@ -36,7 +104,7 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             ValidateApiKeyResponse res = sdk.auth().validateApiKey()

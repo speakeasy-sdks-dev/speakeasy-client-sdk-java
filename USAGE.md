@@ -22,13 +22,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetApisRequest req = GetApisRequest.builder()
                 .metadata(java.util.Map.ofEntries(
                     entry("key", java.util.List.of(
-                        "string"))))
+                        "<value>"))))
                 .op(QueryParamOp.builder()
                     .and(false)
                     .build())

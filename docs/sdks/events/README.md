@@ -40,21 +40,21 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             PostWorkspaceEventsRequest req = PostWorkspaceEventsRequest.builder()
                 .requestBody(java.util.List.of(
                         CliEvent.builder()
                             .createdAt(OffsetDateTime.parse("2023-10-28T06:47:51.791Z"))
-                            .executionId("string")
-                            .id("string")
+                            .executionId("<value>")
+                            .id("<value>")
                             .interactionType(InteractionType.CLI_EXEC)
                             .localStartedAt(OffsetDateTime.parse("2024-02-25T22:57:22.933Z"))
-                            .speakeasyApiKeyName("string")
-                            .speakeasyVersion("string")
+                            .speakeasyApiKeyName("<value>")
+                            .speakeasyVersion("<value>")
                             .success(false)
-                            .workspaceId("string")
+                            .workspaceId("<value>")
                             .build()))
                 .build();
 

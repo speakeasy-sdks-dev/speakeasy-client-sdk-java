@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.3.1'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.4.0'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -38,13 +38,13 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetApisRequest req = GetApisRequest.builder()
                 .metadata(java.util.Map.ofEntries(
                     entry("key", java.util.List.of(
-                        "string"))))
+                        "<value>"))))
                 .op(QueryParamOp.builder()
                     .and(false)
                     .build())
@@ -109,6 +109,7 @@ public class Application {
 
 ### [auth()](docs/sdks/auth/README.md)
 
+* [getWorkspaceAccess](docs/sdks/auth/README.md#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 
 ### [requests()](docs/sdks/requests/README.md)
@@ -166,12 +167,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteApiRequest req = DeleteApiRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteApiResponse res = sdk.apis().deleteApi()
@@ -215,12 +216,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteApiRequest req = DeleteApiRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteApiResponse res = sdk.apis().deleteApi()
@@ -271,12 +272,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteApiRequest req = DeleteApiRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteApiResponse res = sdk.apis().deleteApi()
@@ -328,12 +329,12 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             DeleteApiRequest req = DeleteApiRequest.builder()
-                .apiID("string")
-                .versionID("string")
+                .apiID("<value>")
+                .versionID("<value>")
                 .build();
 
             DeleteApiResponse res = sdk.apis().deleteApi()
@@ -356,7 +357,7 @@ public class Application {
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `workspaceID` to `"string"` at SDK initialization and then you do not have to pass the same value on calls to operations like `postWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `workspaceID` to `"<value>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `postWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -395,21 +396,21 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             PostWorkspaceEventsRequest req = PostWorkspaceEventsRequest.builder()
                 .requestBody(java.util.List.of(
                         CliEvent.builder()
                             .createdAt(OffsetDateTime.parse("2023-10-28T06:47:51.791Z"))
-                            .executionId("string")
-                            .id("string")
+                            .executionId("<value>")
+                            .id("<value>")
                             .interactionType(InteractionType.CLI_EXEC)
                             .localStartedAt(OffsetDateTime.parse("2024-02-25T22:57:22.933Z"))
-                            .speakeasyApiKeyName("string")
-                            .speakeasyVersion("string")
+                            .speakeasyApiKeyName("<value>")
+                            .speakeasyVersion("<value>")
                             .success(false)
-                            .workspaceId("string")
+                            .workspaceId("<value>")
                             .build()))
                 .build();
 

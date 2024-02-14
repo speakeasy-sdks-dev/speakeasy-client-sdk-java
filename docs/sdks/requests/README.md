@@ -40,11 +40,11 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GenerateRequestPostmanCollectionRequest req = GenerateRequestPostmanCollectionRequest.builder()
-                .requestID("string")
+                .requestID("<value>")
                 .build();
 
             GenerateRequestPostmanCollectionResponse res = sdk.requests().generateRequestPostmanCollection()
@@ -107,11 +107,11 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             GetRequestFromEventLogRequest req = GetRequestFromEventLogRequest.builder()
-                .requestID("string")
+                .requestID("<value>")
                 .build();
 
             GetRequestFromEventLogResponse res = sdk.requests().getRequestFromEventLog()
@@ -177,20 +177,20 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .workspaceID("string")
+                .workspaceID("<value>")
                 .build();
 
             QueryEventLogRequest req = QueryEventLogRequest.builder()
                 .filters(Filters.builder()
                     .filters(java.util.List.of(
                             Filter.builder()
-                                .key("string")
-                                .operator("string")
-                                .value("string")
+                                .key("<value>")
+                                .operator("<value>")
+                                .value("<value>")
                                 .build()))
                     .limit(241978L)
                     .offset(451388L)
-                    .operator("string")
+                    .operator("<value>")
                     .build())
                 .build();
 

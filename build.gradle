@@ -11,6 +11,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'signing'
+    id 'cl.franciscosolis.sonatype-central-upload' version '1.0.0'
 }
 
 compileJava.options.encoding = "UTF-8"
@@ -20,10 +21,9 @@ repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
-
 java {
     sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11    
+    targetCompatibility = JavaVersion.VERSION_11
     withSourcesJar()
     withJavadocJar()
 }
@@ -35,28 +35,62 @@ model {
 }
 
 jar {
-    dependsOn(":$project.name:generatePomFileForMavenPublication")
+    dependsOn(":generatePomFileForMavenPublication")
+    archiveBaseName = "javaclientsdk"
+
     into("META-INF/maven/io.github.speakeasy-sdks-staging/javaclientsdk") {
-        from("$buildDir/pom.xml") 
+        from("$buildDir/pom.xml")
     }
 }
 
-publishing {
-    repositories {
-        maven {
-            name = "OSSRH"
-            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
-            credentials {
-                username = System.getenv("MAVEN_USERNAME")
-                password = System.getenv("MAVEN_PASSWORD")
-          }
-        }
+javadoc {
+    options.encoding = "UTF-8"
+
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
     }
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+
+tasks.withType(Javadoc) {
+  failOnError false
+  options.addStringOption('Xdoclint:none', '-quiet')
+}
+group = "io.github.speakeasy-sdks-staging"
+version = "7.4.0"
+
+sourcesJar {
+    archiveBaseName = "javaclientsdk"
+}
+
+javadocJar {
+    archiveBaseName = "javaclientsdk"
+}
+
+sonatypeCentralUpload {
+    // This is your Sonatype generated username
+    username = System.getenv("SONATYPE_USERNAME")
+    // This is your sonatype generated password
+    password = System.getenv("SONATYPE_PASSWORD")
+
+    // This is a list of files to upload. Ideally you would point to your jar file, source and javadoc jar (required by central)
+    archives = files("$buildDir/libs/javaclientsdk-${version}.jar", "build/libs/javaclientsdk-${version}-sources.jar", "build/libs/javaclientsdk-${version}-javadoc.jar")
+    // This is the pom file to upload. This is required by central
+    pom = file("$buildDir/pom.xml")
+
+    // This is your PGP private key. This is required to sign your files
+    signingKey = System.getenv("SONATYPE_SIGNING_KEY")
+    // This is your PGP private key passphrase to decrypt your private key
+    signingKeyPassphrase = System.getenv("SIGNING_KEY_PASSPHRASE")
+}
+publishing {
+
     publications {
         maven(MavenPublication) {
             groupId = 'io.github.speakeasy-sdks-staging'
             artifactId = 'javaclientsdk'
-            version = '7.3.1'
+            version = '7.4.0'
 
             from components.java
 
@@ -97,15 +131,6 @@ if (!project.hasProperty('skip.signing')) {
         useInMemoryPgpKeys(signingKey, signingPassphrase)
         sign publishing.publications.maven
     }
-}
-
-javadoc {
-    options.encoding = "UTF-8"
-
-    if(JavaVersion.current().isJava9Compatible()) {
-        options.addBooleanOption('html5', true)
-    }
-    options.addStringOption('Xdoclint:none', '-quiet')   
 }
 
 dependencies {
