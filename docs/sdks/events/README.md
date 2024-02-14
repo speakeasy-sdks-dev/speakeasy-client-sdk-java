@@ -1,5 +1,5 @@
 # Events
-(*events*)
+(*events()*)
 
 ## Overview
 
@@ -19,54 +19,52 @@ Sends an array of events to be stored for a particular workspace.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateBumpType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest req = new PostWorkspaceEventsRequest(
-                new io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent[]{{
-                    add(new CliEvent(
-                    OffsetDateTime.parse("2023-10-28T06:47:51.791Z"),
-                    "<value>",
-                    "<value>",
-                    InteractionType.CLI_EXEC,
-                    OffsetDateTime.parse("2024-02-25T22:57:22.933Z"),
-                    "<value>",
-                    "<value>",
-                    false,
-                    "<value>"){{
-                        createdAt = OffsetDateTime.parse("2024-11-21T06:58:42.120Z");
-                        executionId = "<value>";
-                        id = "<id>";
-                        interactionType = InteractionType.CLI_EXEC;
-                        localStartedAt = OffsetDateTime.parse("2024-05-07T12:35:47.182Z");
-                        speakeasyApiKeyName = "<value>";
-                        speakeasyVersion = "<value>";
-                        success = false;
-                        workspaceId = "<value>";
-                    }}),
-                }});
+            PostWorkspaceEventsRequest req = PostWorkspaceEventsRequest.builder()
+                .requestBody(java.util.List.of(
+                        CliEvent.builder()
+                            .createdAt(OffsetDateTime.parse("2023-10-28T06:47:51.791Z"))
+                            .executionId("<value>")
+                            .id("<value>")
+                            .interactionType(InteractionType.CLI_EXEC)
+                            .localStartedAt(OffsetDateTime.parse("2024-02-25T22:57:22.933Z"))
+                            .speakeasyApiKeyName("<value>")
+                            .speakeasyVersion("<value>")
+                            .success(false)
+                            .workspaceId("<value>")
+                            .build()))
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse res = sdk.events.postWorkspaceEvents(req);
+            PostWorkspaceEventsResponse res = sdk.events().postWorkspaceEvents()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -83,5 +81,9 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse](../../models/operations/PostWorkspaceEventsResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse>](../../models/operations/PostWorkspaceEventsResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

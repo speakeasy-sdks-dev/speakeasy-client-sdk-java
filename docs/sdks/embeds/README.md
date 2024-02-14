@@ -1,5 +1,5 @@
 # Embeds
-(*embeds*)
+(*embeds()*)
 
 ## Overview
 
@@ -22,49 +22,54 @@ Filters can be applied allowing views to be filtered to things like particular c
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filter;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filters;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest req = new GetEmbedAccessTokenRequest(
-){{
-                description = "Versatile asynchronous leverage";
-                duration = 554373L;
-                filters = new Filters(
-                    new io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filter[]{{
-                        add(new Filter(
-                        "<value>",
-                        "<value>",
-                        "<value>"){{
-                            key = "<key>";
-                            operator = "<value>";
-                            value = "<value>";
-                        }}),
-                    }},
-                    263313L,
-                    411277L,
-                    "<value>");
+            GetEmbedAccessTokenRequest req = GetEmbedAccessTokenRequest.builder()
+                .description("Versatile asynchronous leverage")
+                .duration(554373L)
+                .filters(Filters.builder()
+                    .filters(java.util.List.of(
+                            Filter.builder()
+                                .key("<value>")
+                                .operator("<value>")
+                                .value("<value>")
+                                .build()))
+                    .limit(263313L)
+                    .offset(411277L)
+                    .operator("<value>")
+                    .build())
+                .build();
 
-            }};
+            GetEmbedAccessTokenResponse res = sdk.embeds().getEmbedAccessToken()
+                .request(req)
+                .call();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse res = sdk.embeds.getEmbedAccessToken(req);
-
-            if (res.embedAccessTokenResponse != null) {
+            if (res.embedAccessTokenResponse().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -81,8 +86,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse](../../models/operations/GetEmbedAccessTokenResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse>](../../models/operations/GetEmbedAccessTokenResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getValidEmbedAccessTokens
 
@@ -94,25 +103,34 @@ Get all valid embed access tokens for the current workspace.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = sdk.embeds.getValidEmbedAccessTokens();
+            GetValidEmbedAccessTokensResponse res = sdk.embeds().getValidEmbedAccessTokens()
+                .call();
 
-            if (res.embedTokens != null) {
+            if (res.embedTokens().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -123,8 +141,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse](../../models/operations/GetValidEmbedAccessTokensResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse>](../../models/operations/GetValidEmbedAccessTokensResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## revokeEmbedAccessToken
 
@@ -136,29 +158,38 @@ Revoke an embed access EmbedToken.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest req = new RevokeEmbedAccessTokenRequest(
-                "<value>");
+            RevokeEmbedAccessTokenRequest req = RevokeEmbedAccessTokenRequest.builder()
+                .tokenID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse res = sdk.embeds.revokeEmbedAccessToken(req);
+            RevokeEmbedAccessTokenResponse res = sdk.embeds().revokeEmbedAccessToken()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -175,5 +206,9 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse](../../models/operations/RevokeEmbedAccessTokenResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse>](../../models/operations/RevokeEmbedAccessTokenResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

@@ -1,5 +1,5 @@
 # Metadata
-(*metadata*)
+(*metadata()*)
 
 ## Overview
 
@@ -21,32 +21,41 @@ Delete metadata for a particular apiID and versionID.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest req = new DeleteVersionMetadataRequest(
-                "<value>",
-                "<value>",
-                "<value>",
-                "<value>");
+            DeleteVersionMetadataRequest req = DeleteVersionMetadataRequest.builder()
+                .apiID("<value>")
+                .metaKey("<value>")
+                .metaValue("<value>")
+                .versionID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse res = sdk.metadata.deleteVersionMetadata(req);
+            DeleteVersionMetadataResponse res = sdk.metadata().deleteVersionMetadata()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -63,8 +72,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse](../../models/operations/DeleteVersionMetadataResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse>](../../models/operations/DeleteVersionMetadataResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getVersionMetadata
 
@@ -76,30 +89,41 @@ Get all metadata for a particular apiID and versionID.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest req = new GetVersionMetadataRequest(
-                "<value>",
-                "<value>");
+            GetVersionMetadataRequest req = GetVersionMetadataRequest.builder()
+                .apiID("<value>")
+                .versionID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse res = sdk.metadata.getVersionMetadata(req);
+            GetVersionMetadataResponse res = sdk.metadata().getVersionMetadata()
+                .request(req)
+                .call();
 
-            if (res.versionMetadata != null) {
+            if (res.versionMetadata().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -116,8 +140,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse](../../models/operations/GetVersionMetadataResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse>](../../models/operations/GetVersionMetadataResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## insertVersionMetadata
 
@@ -129,34 +157,46 @@ Insert metadata for a particular apiID and versionID.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadataInput;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest req = new InsertVersionMetadataRequest(
-                new VersionMetadataInput(
-                    "<value>",
-                    "<value>"),
-                "<value>",
-                "<value>");
+            InsertVersionMetadataRequest req = InsertVersionMetadataRequest.builder()
+                .versionMetadata(VersionMetadataInput.builder()
+                        .metaKey("<value>")
+                        .metaValue("<value>")
+                        .build())
+                .apiID("<value>")
+                .versionID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse res = sdk.metadata.insertVersionMetadata(req);
+            InsertVersionMetadataResponse res = sdk.metadata().insertVersionMetadata()
+                .request(req)
+                .call();
 
-            if (res.versionMetadata != null) {
+            if (res.versionMetadata().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -173,5 +213,9 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse](../../models/operations/InsertVersionMetadataResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse>](../../models/operations/InsertVersionMetadataResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

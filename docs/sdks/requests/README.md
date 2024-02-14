@@ -1,5 +1,5 @@
 # Requests
-(*requests*)
+(*requests()*)
 
 ## Overview
 
@@ -22,29 +22,40 @@ Allowing it to be replayed with the same inputs that were captured by the SDK.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest req = new GenerateRequestPostmanCollectionRequest(
-                "<value>");
+            GenerateRequestPostmanCollectionRequest req = GenerateRequestPostmanCollectionRequest.builder()
+                .requestID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse res = sdk.requests.generateRequestPostmanCollection(req);
+            GenerateRequestPostmanCollectionResponse res = sdk.requests().generateRequestPostmanCollection()
+                .request(req)
+                .call();
 
-            if (res.postmanCollection != null) {
+            if (res.postmanCollection().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -61,8 +72,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse](../../models/operations/GenerateRequestPostmanCollectionResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse>](../../models/operations/GenerateRequestPostmanCollectionResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getRequestFromEventLog
 
@@ -74,29 +89,40 @@ Get information about a particular request.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogRequest req = new GetRequestFromEventLogRequest(
-                "<value>");
+            GetRequestFromEventLogRequest req = GetRequestFromEventLogRequest.builder()
+                .requestID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogResponse res = sdk.requests.getRequestFromEventLog(req);
+            GetRequestFromEventLogResponse res = sdk.requests().getRequestFromEventLog()
+                .request(req)
+                .call();
 
-            if (res.unboundedRequest != null) {
+            if (res.unboundedRequest().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -113,8 +139,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogResponse](../../models/operations/GetRequestFromEventLogResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogResponse>](../../models/operations/GetRequestFromEventLogResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## queryEventLog
 
@@ -127,47 +157,52 @@ Allows the filtering of requests on a number of criteria such as ApiID, VersionI
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filter;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filters;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogRequest req = new QueryEventLogRequest(
-){{
-                filters = new Filters(
-                    new io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filter[]{{
-                        add(new Filter(
-                        "<value>",
-                        "<value>",
-                        "<value>"){{
-                            key = "<key>";
-                            operator = "<value>";
-                            value = "<value>";
-                        }}),
-                    }},
-                    241978L,
-                    451388L,
-                    "<value>");
+            QueryEventLogRequest req = QueryEventLogRequest.builder()
+                .filters(Filters.builder()
+                    .filters(java.util.List.of(
+                            Filter.builder()
+                                .key("<value>")
+                                .operator("<value>")
+                                .value("<value>")
+                                .build()))
+                    .limit(241978L)
+                    .offset(451388L)
+                    .operator("<value>")
+                    .build())
+                .build();
 
-            }};
+            QueryEventLogResponse res = sdk.requests().queryEventLog()
+                .request(req)
+                .call();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogResponse res = sdk.requests.queryEventLog(req);
-
-            if (res.boundedRequests != null) {
+            if (res.boundedRequests().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -184,5 +219,9 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogResponse](../../models/operations/QueryEventLogResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogResponse>](../../models/operations/QueryEventLogResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |

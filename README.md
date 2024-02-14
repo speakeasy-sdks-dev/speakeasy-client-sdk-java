@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.5.2'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.6.0'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -19,40 +19,46 @@ implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryParamOp;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest req = new GetApisRequest(
-){{
-                metadata = new java.util.HashMap<String, String[]>(
-                ){{
-                    put("key", new String[]{{
-                        add("<value>"),
-                    }});
-                }};
-                op = new QueryParamOp(
-                    false);
+            GetApisRequest req = GetApisRequest.builder()
+                .metadata(java.util.Map.ofEntries(
+                    entry("key", java.util.List.of(
+                        "<value>"))))
+                .op(QueryParamOp.builder()
+                    .and(false)
+                    .build())
+                .build();
 
-            }};
+            GetApisResponse res = sdk.apis().getApis()
+                .request(req)
+                .call();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse res = sdk.apis.getApis(req);
-
-            if (res.apis != null) {
+            if (res.apis().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -64,7 +70,7 @@ public class Application {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [apis](docs/sdks/apis/README.md)
+### [apis()](docs/sdks/apis/README.md)
 
 * [deleteApi](docs/sdks/apis/README.md#deleteapi) - Delete an Api.
 * [generateOpenApiSpec](docs/sdks/apis/README.md#generateopenapispec) - Generate an OpenAPI specification for a particular Api.
@@ -73,7 +79,7 @@ public class Application {
 * [getApis](docs/sdks/apis/README.md#getapis) - Get a list of Apis for a given workspace
 * [upsertApi](docs/sdks/apis/README.md#upsertapi) - Upsert an Api
 
-### [apiEndpoints](docs/sdks/apiendpoints/README.md)
+### [apiEndpoints()](docs/sdks/apiendpoints/README.md)
 
 * [deleteApiEndpoint](docs/sdks/apiendpoints/README.md#deleteapiendpoint) - Delete an ApiEndpoint.
 * [findApiEndpoint](docs/sdks/apiendpoints/README.md#findapiendpoint) - Find an ApiEndpoint via its displayName.
@@ -84,13 +90,13 @@ public class Application {
 * [getApiEndpoint](docs/sdks/apiendpoints/README.md#getapiendpoint) - Get an ApiEndpoint.
 * [upsertApiEndpoint](docs/sdks/apiendpoints/README.md#upsertapiendpoint) - Upsert an ApiEndpoint.
 
-### [metadata](docs/sdks/metadata/README.md)
+### [metadata()](docs/sdks/metadata/README.md)
 
 * [deleteVersionMetadata](docs/sdks/metadata/README.md#deleteversionmetadata) - Delete metadata for a particular apiID and versionID.
 * [getVersionMetadata](docs/sdks/metadata/README.md#getversionmetadata) - Get all metadata for a particular apiID and versionID.
 * [insertVersionMetadata](docs/sdks/metadata/README.md#insertversionmetadata) - Insert metadata for a particular apiID and versionID.
 
-### [schemas](docs/sdks/schemas/README.md)
+### [schemas()](docs/sdks/schemas/README.md)
 
 * [deleteSchema](docs/sdks/schemas/README.md#deleteschema) - Delete a particular schema revision for an Api.
 * [downloadSchema](docs/sdks/schemas/README.md#downloadschema) - Download the latest schema for a particular apiID.
@@ -101,24 +107,24 @@ public class Application {
 * [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
 * [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
 
-### [auth](docs/sdks/auth/README.md)
+### [auth()](docs/sdks/auth/README.md)
 
 * [getWorkspaceAccess](docs/sdks/auth/README.md#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 
-### [requests](docs/sdks/requests/README.md)
+### [requests()](docs/sdks/requests/README.md)
 
 * [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
 * [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
 * [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
 
-### [embeds](docs/sdks/embeds/README.md)
+### [embeds()](docs/sdks/embeds/README.md)
 
 * [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
 * [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
 * [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
 
-### [events](docs/sdks/events/README.md)
+### [events()](docs/sdks/events/README.md)
 
 * [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
 <!-- End Available Resources and Operations [operations] -->
@@ -128,21 +134,109 @@ public class Application {
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Name
 
-You can override the default server globally using the `setServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+You can override the default server globally by passing a server name to the `server` builder method when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
 | Name | Server | Variables |
 | ----- | ------ | --------- |
 | `prod` | `https://api.prod.speakeasyapi.dev` | None |
 
+#### Example
+
+```java
+package hello.world;
+
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
+
+public class Application {
+
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .server("prod)"
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
+                .build();
+
+            DeleteApiRequest req = DeleteApiRequest.builder()
+                .apiID("<value>")
+                .versionID("<value>")
+                .build();
+
+            DeleteApiResponse res = sdk.apis().deleteApi()
+                .request(req)
+                .call();
+
+            // handle response
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
 
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally using the `setServerURL` option when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverURL` builder method when initializing the SDK client instance. For example:
+```java
+package hello.world;
+
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
+
+public class Application {
+
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .serverURL("https://api.prod.speakeasyapi.dev")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
+                .build();
+
+            DeleteApiRequest req = DeleteApiRequest.builder()
+                .apiID("<value>")
+                .versionID("<value>")
+                .build();
+
+            DeleteApiResponse res = sdk.apis().deleteApi()
+                .request(req)
+                .call();
+
+            // handle response
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Error Handling [errors] -->
@@ -281,54 +375,52 @@ The following global parameter is available.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateBumpType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest req = new PostWorkspaceEventsRequest(
-                new io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent[]{{
-                    add(new CliEvent(
-                    OffsetDateTime.parse("2023-10-28T06:47:51.791Z"),
-                    "<value>",
-                    "<value>",
-                    InteractionType.CLI_EXEC,
-                    OffsetDateTime.parse("2024-02-25T22:57:22.933Z"),
-                    "<value>",
-                    "<value>",
-                    false,
-                    "<value>"){{
-                        createdAt = OffsetDateTime.parse("2024-11-21T06:58:42.120Z");
-                        executionId = "<value>";
-                        id = "<id>";
-                        interactionType = InteractionType.CLI_EXEC;
-                        localStartedAt = OffsetDateTime.parse("2024-05-07T12:35:47.182Z");
-                        speakeasyApiKeyName = "<value>";
-                        speakeasyVersion = "<value>";
-                        success = false;
-                        workspaceId = "<value>";
-                    }}),
-                }});
+            PostWorkspaceEventsRequest req = PostWorkspaceEventsRequest.builder()
+                .requestBody(java.util.List.of(
+                        CliEvent.builder()
+                            .createdAt(OffsetDateTime.parse("2023-10-28T06:47:51.791Z"))
+                            .executionId("<value>")
+                            .id("<value>")
+                            .interactionType(InteractionType.CLI_EXEC)
+                            .localStartedAt(OffsetDateTime.parse("2024-02-25T22:57:22.933Z"))
+                            .speakeasyApiKeyName("<value>")
+                            .speakeasyVersion("<value>")
+                            .success(false)
+                            .workspaceId("<value>")
+                            .build()))
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse res = sdk.events.postWorkspaceEvents(req);
+            PostWorkspaceEventsResponse res = sdk.events().postWorkspaceEvents()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }

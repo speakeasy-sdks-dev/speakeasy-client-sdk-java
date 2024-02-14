@@ -1,5 +1,5 @@
 # Apis
-(*apis*)
+(*apis()*)
 
 ## Overview
 
@@ -24,30 +24,39 @@ Delete a particular version of an Api. The will also delete all associated ApiEn
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest req = new DeleteApiRequest(
-                "<value>",
-                "<value>");
+            DeleteApiRequest req = DeleteApiRequest.builder()
+                .apiID("<value>")
+                .versionID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse res = sdk.apis.deleteApi(req);
+            DeleteApiResponse res = sdk.apis().deleteApi()
+                .request(req)
+                .call();
 
-            if (res.statusCode == 200) {
-                // handle response
-            }
+            // handle response
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -64,8 +73,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse](../../models/operations/DeleteApiResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse>](../../models/operations/DeleteApiResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## generateOpenApiSpec
 
@@ -78,30 +91,41 @@ Returns the original document and the newly generated document allowing a diff t
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest req = new GenerateOpenApiSpecRequest(
-                "<value>",
-                "<value>");
+            GenerateOpenApiSpecRequest req = GenerateOpenApiSpecRequest.builder()
+                .apiID("<value>")
+                .versionID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse res = sdk.apis.generateOpenApiSpec(req);
+            GenerateOpenApiSpecResponse res = sdk.apis().generateOpenApiSpec()
+                .request(req)
+                .call();
 
-            if (res.generateOpenApiSpecDiff != null) {
+            if (res.generateOpenApiSpecDiff().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -118,8 +142,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse](../../models/operations/GenerateOpenApiSpecResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse>](../../models/operations/GenerateOpenApiSpecResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## generatePostmanCollection
 
@@ -131,30 +159,41 @@ Generates a postman collection containing all endpoints for a particular API. In
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest req = new GeneratePostmanCollectionRequest(
-                "<value>",
-                "<value>");
+            GeneratePostmanCollectionRequest req = GeneratePostmanCollectionRequest.builder()
+                .apiID("<value>")
+                .versionID("<value>")
+                .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse res = sdk.apis.generatePostmanCollection(req);
+            GeneratePostmanCollectionResponse res = sdk.apis().generatePostmanCollection()
+                .request(req)
+                .call();
 
-            if (res.postmanCollection != null) {
+            if (res.postmanCollection().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -171,8 +210,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse](../../models/operations/GeneratePostmanCollectionResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse>](../../models/operations/GeneratePostmanCollectionResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getAllApiVersions
 
@@ -185,40 +228,47 @@ Supports filtering the versions based on metadata attributes.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.Op;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest req = new GetAllApiVersionsRequest(
-                "<value>"){{
-                metadata = new java.util.HashMap<String, String[]>(
-                ){{
-                    put("key", new String[]{{
-                        add("<value>"),
-                    }});
-                }};
-                op = new Op(
-                    false);
+            GetAllApiVersionsRequest req = GetAllApiVersionsRequest.builder()
+                .apiID("<value>")
+                .metadata(java.util.Map.ofEntries(
+                    entry("key", java.util.List.of(
+                        "<value>"))))
+                .op(Op.builder()
+                    .and(false)
+                    .build())
+                .build();
 
-            }};
+            GetAllApiVersionsResponse res = sdk.apis().getAllApiVersions()
+                .request(req)
+                .call();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse res = sdk.apis.getAllApiVersions(req);
-
-            if (res.apis != null) {
+            if (res.apis().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -235,8 +285,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse](../../models/operations/GetAllApiVersionsResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse>](../../models/operations/GetAllApiVersionsResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getApis
 
@@ -249,40 +303,46 @@ Supports filtering the APIs based on metadata attributes.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryParamOp;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest req = new GetApisRequest(
-){{
-                metadata = new java.util.HashMap<String, String[]>(
-                ){{
-                    put("key", new String[]{{
-                        add("<value>"),
-                    }});
-                }};
-                op = new QueryParamOp(
-                    false);
+            GetApisRequest req = GetApisRequest.builder()
+                .metadata(java.util.Map.ofEntries(
+                    entry("key", java.util.List.of(
+                        "<value>"))))
+                .op(QueryParamOp.builder()
+                    .and(false)
+                    .build())
+                .build();
 
-            }};
+            GetApisResponse res = sdk.apis().getApis()
+                .request(req)
+                .call();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse res = sdk.apis.getApis(req);
-
-            if (res.apis != null) {
+            if (res.apis().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -299,8 +359,12 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse](../../models/operations/GetApisResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse>](../../models/operations/GetApisResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## upsertApi
 
@@ -313,42 +377,49 @@ If the Api exists, it will be updated.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.ApiInput;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
 
 public class Application {
+
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security(
-                "<value>"){{
-                    apiKey = "<YOUR_API_KEY_HERE>";
-                }})
-                .setWorkspaceID("<value>")
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
                 .build();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest req = new UpsertApiRequest(
-                new ApiInput(
-                    "<value>",
-                    "<value>",
-                    "<value>"){{
-                    metaData = new java.util.HashMap<String, String[]>(
-                    ){{
-                        put("key", new String[]{{
-                            add("<value>"),
-                        }});
-                    }};
+            UpsertApiRequest req = UpsertApiRequest.builder()
+                .api(ApiInput.builder()
+                        .apiId("<value>")
+                        .description("<value>")
+                        .versionId("<value>")
+                        .metaData(java.util.Map.ofEntries(
+                            entry("key", java.util.List.of(
+                                "<value>"))))
+                        .build())
+                .apiID("<value>")
+                .build();
 
-                }},
-                "<value>");
+            UpsertApiResponse res = sdk.apis().upsertApi()
+                .request(req)
+                .call();
 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse res = sdk.apis.upsertApi(req);
-
-            if (res.api != null) {
+            if (res.api().isPresent()) {
                 // handle response
             }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -365,5 +436,9 @@ public class Application {
 
 ### Response
 
-**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse](../../models/operations/UpsertApiResponse.md)**
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse>](../../models/operations/UpsertApiResponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| models/errorsSDKError | 4xx-5xx               | */*                   |
