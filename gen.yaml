@@ -27,4 +27,4 @@ java:
   maxMethodParams: 0
   outputModelSuffix: output
   projectName: speakeasy-client-sdk-java
-  templateVersion: v2
+  templateVersion: v1
