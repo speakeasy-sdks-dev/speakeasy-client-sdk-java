@@ -1317,3 +1317,13 @@ Based on:
 - [java v7.5.2] .
 ### Releases
 - [Maven Central v7.5.2] https://central.sonatype.com/artifact/io.github.speakeasy-sdks-staging/javaclientsdk/7.5.2 - .
+
+## 2024-02-14 23:10:08
+### Changes
+Based on:
+- OpenAPI Doc 0.4.0 https://docs.speakeasyapi.dev/openapi.yaml
+- Speakeasy CLI 1.180.0 (2.258.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [java v7.6.1] .
+### Releases
+- [Maven Central v7.6.1] https://central.sonatype.com/artifact/io.github.speakeasy-sdks-staging/javaclientsdk/7.6.1 - .
