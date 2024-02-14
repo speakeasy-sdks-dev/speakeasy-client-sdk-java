@@ -1,5 +1,5 @@
 # Schemas
-(*schemas()*)
+(*schemas*)
 
 ## Overview
 
@@ -26,40 +26,31 @@ Delete a particular schema revision for an Api.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            DeleteSchemaRequest req = DeleteSchemaRequest.builder()
-                .apiID("<value>")
-                .revisionID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaRequest req = new DeleteSchemaRequest(
+                "<value>",
+                "<value>",
+                "<value>");
 
-            DeleteSchemaResponse res = sdk.schemas().deleteSchema()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse res = sdk.schemas.deleteSchema(req);
 
-            // handle response
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
+            if (res.statusCode == 200) {
+                // handle response
+            }
         } catch (Exception e) {
             // handle exception
         }
@@ -76,12 +67,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse>](../../models/operations/DeleteSchemaResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse](../../models/operations/DeleteSchemaResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## downloadSchema
 
@@ -93,41 +80,30 @@ Download the latest schema for a particular apiID.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            DownloadSchemaRequest req = DownloadSchemaRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRequest req = new DownloadSchemaRequest(
+                "<value>",
+                "<value>");
 
-            DownloadSchemaResponse res = sdk.schemas().downloadSchema()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse res = sdk.schemas.downloadSchema(req);
 
-            if (res.twoHundredApplicationJsonSchema().isPresent()) {
+            if (res.twoHundredApplicationJsonSchema != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -144,12 +120,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse>](../../models/operations/DownloadSchemaResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse](../../models/operations/DownloadSchemaResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## downloadSchemaRevision
 
@@ -161,42 +133,31 @@ Download a particular schema revision for an Api.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            DownloadSchemaRevisionRequest req = DownloadSchemaRevisionRequest.builder()
-                .apiID("<value>")
-                .revisionID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionRequest req = new DownloadSchemaRevisionRequest(
+                "<value>",
+                "<value>",
+                "<value>");
 
-            DownloadSchemaRevisionResponse res = sdk.schemas().downloadSchemaRevision()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse res = sdk.schemas.downloadSchemaRevision(req);
 
-            if (res.twoHundredApplicationJsonSchema().isPresent()) {
+            if (res.twoHundredApplicationJsonSchema != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -213,12 +174,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse>](../../models/operations/DownloadSchemaRevisionResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse](../../models/operations/DownloadSchemaRevisionResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getSchema
 
@@ -231,41 +188,30 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            GetSchemaRequest req = GetSchemaRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRequest req = new GetSchemaRequest(
+                "<value>",
+                "<value>");
 
-            GetSchemaResponse res = sdk.schemas().getSchema()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse res = sdk.schemas.getSchema(req);
 
-            if (res.schema().isPresent()) {
+            if (res.schema != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -282,12 +228,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse>](../../models/operations/GetSchemaResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse](../../models/operations/GetSchemaResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getSchemaDiff
 
@@ -299,43 +241,32 @@ Get a diff of two schema revisions for an Api.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            GetSchemaDiffRequest req = GetSchemaDiffRequest.builder()
-                .apiID("<value>")
-                .baseRevisionID("<value>")
-                .targetRevisionID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffRequest req = new GetSchemaDiffRequest(
+                "<value>",
+                "<value>",
+                "<value>",
+                "<value>");
 
-            GetSchemaDiffResponse res = sdk.schemas().getSchemaDiff()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse res = sdk.schemas.getSchemaDiff(req);
 
-            if (res.schemaDiff().isPresent()) {
+            if (res.schemaDiff != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -352,12 +283,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse>](../../models/operations/GetSchemaDiffResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse](../../models/operations/GetSchemaDiffResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getSchemaRevision
 
@@ -370,42 +297,31 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            GetSchemaRevisionRequest req = GetSchemaRevisionRequest.builder()
-                .apiID("<value>")
-                .revisionID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionRequest req = new GetSchemaRevisionRequest(
+                "<value>",
+                "<value>",
+                "<value>");
 
-            GetSchemaRevisionResponse res = sdk.schemas().getSchemaRevision()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse res = sdk.schemas.getSchemaRevision(req);
 
-            if (res.schema().isPresent()) {
+            if (res.schema != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -422,12 +338,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse>](../../models/operations/GetSchemaRevisionResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse](../../models/operations/GetSchemaRevisionResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## getSchemas
 
@@ -440,41 +352,30 @@ This won't include the schemas themselves, they can be retrieved via the downloa
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            GetSchemasRequest req = GetSchemasRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasRequest req = new GetSchemasRequest(
+                "<value>",
+                "<value>");
 
-            GetSchemasResponse res = sdk.schemas().getSchemas()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse res = sdk.schemas.getSchemas(req);
 
-            if (res.classes().isPresent()) {
+            if (res.classes != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -491,12 +392,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse>](../../models/operations/GetSchemasResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse](../../models/operations/GetSchemasResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## registerSchema
 
@@ -509,47 +406,36 @@ This will be used to populate ApiEndpoints and used as a base for any schema gen
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.File;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaRequestBody;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            RegisterSchemaRequest req = RegisterSchemaRequest.builder()
-                .requestBody(RegisterSchemaRequestBody.builder()
-                        .file(File.builder()
-                                .content("0xCAFCA03e0e".getBytes())
-                                .fileName("<value>")
-                                .build())
-                        .build())
-                .apiID("<value>")
-                .versionID("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaRequest req = new RegisterSchemaRequest(
+                new RegisterSchemaRequestBody(
+                    new File(
+                        "0xCAFCA03e0e".getBytes(),
+                        "<value>")),
+                "<value>",
+                "<value>");
 
-            RegisterSchemaResponse res = sdk.schemas().registerSchema()
-                .request(req)
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse res = sdk.schemas.registerSchema(req);
 
-            // handle response
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
+            if (res.statusCode == 200) {
+                // handle response
+            }
         } catch (Exception e) {
             // handle exception
         }
@@ -566,9 +452,5 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse>](../../models/operations/RegisterSchemaResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse](../../models/operations/RegisterSchemaResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |

@@ -1,5 +1,5 @@
 # Auth
-(*auth()*)
+(*auth*)
 
 ## Overview
 
@@ -20,40 +20,32 @@ Checks if generation is permitted for a particular run of the CLI
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
-                .genLockId("<value>")
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest req = new GetWorkspaceAccessRequest(
+){{
+                genLockId = "<value>";
 
-            GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
-                .request(req)
-                .call();
+            }};
 
-            if (res.accessDetails().isPresent()) {
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse res = sdk.auth.getWorkspaceAccess(req);
+
+            if (res.accessDetails != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -70,12 +62,8 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse>](../../models/operations/GetWorkspaceAccessResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse](../../models/operations/GetWorkspaceAccessResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
 
 ## validateApiKey
 
@@ -87,34 +75,25 @@ Validate the current api key.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            ValidateApiKeyResponse res = sdk.auth().validateApiKey()
-                .call();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse res = sdk.auth.validateApiKey();
 
-            if (res.apiKeyDetails().isPresent()) {
+            if (res.apiKeyDetails != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
@@ -125,9 +104,5 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse>](../../models/operations/ValidateApiKeyResponse.md)**
-### Errors
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse](../../models/operations/ValidateApiKeyResponse.md)**
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |

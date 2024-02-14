@@ -3,46 +3,40 @@
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryParamOp;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import static java.util.Map.entry;
 
 public class Application {
-
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .security(Security.builder()
-                    .apiKey("<YOUR_API_KEY_HERE>")
-                    .build())
-                .workspaceID("<value>")
+                .setSecurity(new Security(
+                "<value>"){{
+                    apiKey = "<YOUR_API_KEY_HERE>";
+                }})
+                .setWorkspaceID("<value>")
                 .build();
 
-            GetApisRequest req = GetApisRequest.builder()
-                .metadata(java.util.Map.ofEntries(
-                    entry("key", java.util.List.of(
-                        "<value>"))))
-                .op(QueryParamOp.builder()
-                    .and(false)
-                    .build())
-                .build();
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest req = new GetApisRequest(
+){{
+                metadata = new java.util.HashMap<String, String[]>(
+                ){{
+                    put("key", new String[]{{
+                        add("<value>"),
+                    }});
+                }};
+                op = new QueryParamOp(
+                    false);
 
-            GetApisResponse res = sdk.apis().getApis()
-                .request(req)
-                .call();
+            }};
 
-            if (res.apis().isPresent()) {
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse res = sdk.apis.getApis(req);
+
+            if (res.apis != null) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
-            // handle exception
         } catch (Exception e) {
             // handle exception
         }
