@@ -11,13 +11,9 @@ on:
 
 jobs:
     generate:
-        uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14.43
+        uses: speakeasy-api/sdk-generation-action-v15/.github/workflows/sdk-generation.yaml@v15
         with:
             speakeasy_version: latest
-            openapi_doc_location: https://docs.speakeasyapi.dev/openapi.yaml
-            languages: |-
-                - java
-            publish_java: true
             use_sonatype_central: true
             force: ${{ github.event.inputs.force }}
         secrets:
