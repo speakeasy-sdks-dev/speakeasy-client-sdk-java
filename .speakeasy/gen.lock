@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 66f99777-b2f2-4e45-9581-501d199e5c0c
 management:
-  docChecksum: c81aa4e807522359d28c09ee16d252ba
+  docChecksum: 90bb5b2f880d4a86868122f9a6b08d40
   docVersion: 0.4.0
   speakeasyVersion: internal
-  generationVersion: 2.259.1
-  releaseVersion: 7.6.8
-  configChecksum: c21a3a25ebb9d46ed76993a55fd652c9
+  generationVersion: 2.262.2
+  releaseVersion: 7.6.9
+  configChecksum: ce52946f0d638f5475058972948691d6
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
   repoSubDirectory: .
   published: true
 features:
   java:
-    core: 3.12.1
+    core: 3.12.3
     downloadStreams: 0.1.1
     examples: 2.81.3
     globalSecurity: 2.82.2
@@ -179,6 +179,7 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ValueChange.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SchemaDiff.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessDetails.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccountType.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiKeyDetails.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/UnboundedRequest.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/BoundedRequest.java
@@ -273,6 +274,7 @@ generatedFiles:
   - docs/models/shared/ValueChange.md
   - docs/models/shared/SchemaDiff.md
   - docs/models/shared/AccessDetails.md
+  - docs/models/shared/AccountType.md
   - docs/models/shared/ApiKeyDetails.md
   - docs/models/shared/UnboundedRequest.md
   - docs/models/shared/BoundedRequest.md

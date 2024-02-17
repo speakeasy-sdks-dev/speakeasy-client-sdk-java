@@ -15,6 +15,9 @@ import java.util.Optional;
 
 public class ApiKeyDetails {
 
+    @JsonProperty("account_type")
+    private AccountType accountType;
+
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generation_access_unlimited")
     private Optional<? extends Boolean> generationAccessUnlimited;
@@ -23,12 +26,19 @@ public class ApiKeyDetails {
     private String workspaceId;
 
     public ApiKeyDetails(
+            @JsonProperty("account_type") AccountType accountType,
             @JsonProperty("generation_access_unlimited") Optional<? extends Boolean> generationAccessUnlimited,
             @JsonProperty("workspace_id") String workspaceId) {
+        Utils.checkNotNull(accountType, "accountType");
         Utils.checkNotNull(generationAccessUnlimited, "generationAccessUnlimited");
         Utils.checkNotNull(workspaceId, "workspaceId");
+        this.accountType = accountType;
         this.generationAccessUnlimited = generationAccessUnlimited;
         this.workspaceId = workspaceId;
+    }
+
+    public AccountType accountType() {
+        return accountType;
     }
 
     public Optional<? extends Boolean> generationAccessUnlimited() {
@@ -41,6 +51,12 @@ public class ApiKeyDetails {
     
     public final static Builder builder() {
         return new Builder();
+    }
+
+    public ApiKeyDetails withAccountType(AccountType accountType) {
+        Utils.checkNotNull(accountType, "accountType");
+        this.accountType = accountType;
+        return this;
     }
 
     public ApiKeyDetails withGenerationAccessUnlimited(boolean generationAccessUnlimited) {
@@ -71,6 +87,7 @@ public class ApiKeyDetails {
         }
         ApiKeyDetails other = (ApiKeyDetails) o;
         return 
+            java.util.Objects.deepEquals(this.accountType, other.accountType) &&
             java.util.Objects.deepEquals(this.generationAccessUnlimited, other.generationAccessUnlimited) &&
             java.util.Objects.deepEquals(this.workspaceId, other.workspaceId);
     }
@@ -78,6 +95,7 @@ public class ApiKeyDetails {
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
+            accountType,
             generationAccessUnlimited,
             workspaceId);
     }
@@ -85,11 +103,14 @@ public class ApiKeyDetails {
     @Override
     public String toString() {
         return Utils.toString(ApiKeyDetails.class,
+                "accountType", accountType,
                 "generationAccessUnlimited", generationAccessUnlimited,
                 "workspaceId", workspaceId);
     }
     
     public final static class Builder {
+ 
+        private AccountType accountType;
  
         private Optional<? extends Boolean> generationAccessUnlimited = Optional.empty();
  
@@ -97,6 +118,12 @@ public class ApiKeyDetails {
         
         private Builder() {
           // force use of static builder() method
+        }
+
+        public Builder accountType(AccountType accountType) {
+            Utils.checkNotNull(accountType, "accountType");
+            this.accountType = accountType;
+            return this;
         }
 
         public Builder generationAccessUnlimited(boolean generationAccessUnlimited) {
@@ -119,6 +146,7 @@ public class ApiKeyDetails {
         
         public ApiKeyDetails build() {
             return new ApiKeyDetails(
+                accountType,
                 generationAccessUnlimited,
                 workspaceId);
         }
