@@ -19,10 +19,28 @@ public class GetWorkspaceAccessRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=genLockId")
     private Optional<? extends String> genLockId;
 
+    /**
+     * Skip side-effects like incrementing metrics.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=passive")
+    private Optional<? extends Boolean> passive;
+
+    /**
+     * The type of the generated target.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=targetType")
+    private Optional<? extends String> targetType;
+
     public GetWorkspaceAccessRequest(
-            Optional<? extends String> genLockId) {
+            Optional<? extends String> genLockId,
+            Optional<? extends Boolean> passive,
+            Optional<? extends String> targetType) {
         Utils.checkNotNull(genLockId, "genLockId");
+        Utils.checkNotNull(passive, "passive");
+        Utils.checkNotNull(targetType, "targetType");
         this.genLockId = genLockId;
+        this.passive = passive;
+        this.targetType = targetType;
     }
 
     /**
@@ -30,6 +48,20 @@ public class GetWorkspaceAccessRequest {
      */
     public Optional<? extends String> genLockId() {
         return genLockId;
+    }
+
+    /**
+     * Skip side-effects like incrementing metrics.
+     */
+    public Optional<? extends Boolean> passive() {
+        return passive;
+    }
+
+    /**
+     * The type of the generated target.
+     */
+    public Optional<? extends String> targetType() {
+        return targetType;
     }
     
     public final static Builder builder() {
@@ -53,6 +85,42 @@ public class GetWorkspaceAccessRequest {
         this.genLockId = genLockId;
         return this;
     }
+
+    /**
+     * Skip side-effects like incrementing metrics.
+     */
+    public GetWorkspaceAccessRequest withPassive(boolean passive) {
+        Utils.checkNotNull(passive, "passive");
+        this.passive = Optional.ofNullable(passive);
+        return this;
+    }
+    
+    /**
+     * Skip side-effects like incrementing metrics.
+     */
+    public GetWorkspaceAccessRequest withPassive(Optional<? extends Boolean> passive) {
+        Utils.checkNotNull(passive, "passive");
+        this.passive = passive;
+        return this;
+    }
+
+    /**
+     * The type of the generated target.
+     */
+    public GetWorkspaceAccessRequest withTargetType(String targetType) {
+        Utils.checkNotNull(targetType, "targetType");
+        this.targetType = Optional.ofNullable(targetType);
+        return this;
+    }
+    
+    /**
+     * The type of the generated target.
+     */
+    public GetWorkspaceAccessRequest withTargetType(Optional<? extends String> targetType) {
+        Utils.checkNotNull(targetType, "targetType");
+        this.targetType = targetType;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -64,24 +132,34 @@ public class GetWorkspaceAccessRequest {
         }
         GetWorkspaceAccessRequest other = (GetWorkspaceAccessRequest) o;
         return 
-            java.util.Objects.deepEquals(this.genLockId, other.genLockId);
+            java.util.Objects.deepEquals(this.genLockId, other.genLockId) &&
+            java.util.Objects.deepEquals(this.passive, other.passive) &&
+            java.util.Objects.deepEquals(this.targetType, other.targetType);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
-            genLockId);
+            genLockId,
+            passive,
+            targetType);
     }
     
     @Override
     public String toString() {
         return Utils.toString(GetWorkspaceAccessRequest.class,
-                "genLockId", genLockId);
+                "genLockId", genLockId,
+                "passive", passive,
+                "targetType", targetType);
     }
     
     public final static class Builder {
  
-        private Optional<? extends String> genLockId = Optional.empty();  
+        private Optional<? extends String> genLockId = Optional.empty();
+ 
+        private Optional<? extends Boolean> passive = Optional.empty();
+ 
+        private Optional<? extends String> targetType = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -104,10 +182,48 @@ public class GetWorkspaceAccessRequest {
             this.genLockId = genLockId;
             return this;
         }
+
+        /**
+         * Skip side-effects like incrementing metrics.
+         */
+        public Builder passive(boolean passive) {
+            Utils.checkNotNull(passive, "passive");
+            this.passive = Optional.ofNullable(passive);
+            return this;
+        }
+        
+        /**
+         * Skip side-effects like incrementing metrics.
+         */
+        public Builder passive(Optional<? extends Boolean> passive) {
+            Utils.checkNotNull(passive, "passive");
+            this.passive = passive;
+            return this;
+        }
+
+        /**
+         * The type of the generated target.
+         */
+        public Builder targetType(String targetType) {
+            Utils.checkNotNull(targetType, "targetType");
+            this.targetType = Optional.ofNullable(targetType);
+            return this;
+        }
+        
+        /**
+         * The type of the generated target.
+         */
+        public Builder targetType(Optional<? extends String> targetType) {
+            Utils.checkNotNull(targetType, "targetType");
+            this.targetType = targetType;
+            return this;
+        }
         
         public GetWorkspaceAccessRequest build() {
             return new GetWorkspaceAccessRequest(
-                genLockId);
+                genLockId,
+                passive,
+                targetType);
         }
     }
 }

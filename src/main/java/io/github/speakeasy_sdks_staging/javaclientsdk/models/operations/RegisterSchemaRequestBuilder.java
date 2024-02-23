@@ -5,25 +5,23 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
 
 public class RegisterSchemaRequestBuilder {
 
     private RegisterSchemaRequest request;
-
     private final SDKMethodInterfaces.MethodCallRegisterSchema sdk;
-    
+
     public RegisterSchemaRequestBuilder(SDKMethodInterfaces.MethodCallRegisterSchema sdk) {
         this.sdk = sdk;
     }
-             
+
     public RegisterSchemaRequestBuilder request(RegisterSchemaRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
@@ -31,6 +29,7 @@ public class RegisterSchemaRequestBuilder {
     }
 
     public RegisterSchemaResponse call() throws Exception {
+
         return sdk.registerSchema(
             request);
     }

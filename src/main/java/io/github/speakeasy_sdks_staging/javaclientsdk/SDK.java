@@ -6,6 +6,7 @@ package io.github.speakeasy_sdks_staging.javaclientsdk;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SpeakeasyHTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
@@ -21,7 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class SDK {
     /**
      * AvailableServers contains identifiers for the servers available to the SDK.
-     */ 
+     */
     public enum AvailableServers {
 PROD("prod");
 
@@ -30,7 +31,7 @@ PROD("prod");
         private AvailableServers(String server) {
             this.server = server;
         }
-        
+
         public String server() {
            return server;
         }
@@ -137,7 +138,7 @@ PROD("prod");
      */
     public Events events() {
         return events;
-    }  
+    }
 
     private final SDKConfiguration sdkConfiguration;
 
@@ -145,7 +146,7 @@ PROD("prod");
      * The Builder class allows the configuration of a new instance of the SDK.
      */
     public static class Builder {
-  
+
         private final SDKConfiguration sdkConfiguration = new SDKConfiguration();
 
         private Builder() {
@@ -153,6 +154,7 @@ PROD("prod");
 
         /**
          * Allows the default HTTP client to be overridden with a custom implementation.
+         *
          * @param client The HTTP client to use for all requests.
          * @return The builder instance.
          */
@@ -163,6 +165,7 @@ PROD("prod");
         
         /**
          * Configures the SDK to use the provided security details.
+         *
          * @param security The security details to use for all requests.
          * @return The builder instance.
          */
@@ -171,13 +174,19 @@ PROD("prod");
             return this;
         }
 
+        /**
+         * Configures the SDK to use a custom security source.
+         * @param securitySource The security source to use for all requests.
+         * @return The builder instance.
+         */
         public Builder securitySource(SecuritySource securitySource) {
             this.sdkConfiguration.securitySource = securitySource;
             return this;
         }
         
         /**
-         * Allows the overriding of the default server URL.
+         * Overrides the default server URL.
+         *
          * @param serverUrl The server URL to use for all requests.
          * @return The builder instance.
          */
@@ -185,9 +194,10 @@ PROD("prod");
             this.sdkConfiguration.serverUrl = serverUrl;
             return this;
         }
-        
+
         /**
-         * Allows the overriding of the default server URL  with a templated URL populated with the provided parameters.
+         * Overrides the default server URL  with a templated URL populated with the provided parameters.
+         *
          * @param serverUrl The server URL to use for all requests.
          * @param params The parameters to use when templating the URL.
          * @return The builder instance.
@@ -198,7 +208,8 @@ PROD("prod");
         }
         
         /**
-         * Allows the overriding of the default server by name
+         * Overrides the default server by name.
+         *
          * @param server The server to use for all requests.
          * @return The builder instance.
          */
@@ -209,7 +220,18 @@ PROD("prod");
         }
         
         /**
+         * Overrides the default configuration for retries
+         *
+         * @param retryConfig The retry configuration to use for all requests.
+         * @return The builder instance.
+         */
+        public Builder retryConfig(RetryConfig retryConfig) {
+            this.sdkConfiguration.retryConfig = Optional.of(retryConfig);
+            return this;
+        }
+        /**
          * Allows setting the workspaceID parameter for all supported operations.
+         *
          * @param workspaceID The value to set.
          * @return The builder instance.
          */
@@ -217,9 +239,9 @@ PROD("prod");
             if (!this.sdkConfiguration.globals.get("parameters").containsKey("pathParam")) {
                 this.sdkConfiguration.globals.get("parameters").put("pathParam", new java.util.HashMap<>());
             }
-    
+
             this.sdkConfiguration.globals.get("parameters").get("pathParam").put("workspaceID", workspaceID);
-    
+
             return this;
         }
         

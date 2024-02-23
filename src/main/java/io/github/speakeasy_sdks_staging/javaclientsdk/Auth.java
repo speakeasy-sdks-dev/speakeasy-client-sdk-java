@@ -11,10 +11,14 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMetho
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.JSON;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import org.apache.http.NameValuePair;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -25,12 +29,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class Auth implements
             MethodCallGetWorkspaceAccess,
             MethodCallValidateApiKey {
-    
+
     private final SDKConfiguration sdkConfiguration;
 
     Auth(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequestBuilder getWorkspaceAccess() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequestBuilder(this);
     }
@@ -38,23 +43,33 @@ public class Auth implements
     /**
      * Get access allowances for a particular workspace
      * Checks if generation is permitted for a particular run of the CLI
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse getWorkspaceAccess(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request) throws Exception {
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request,
+            Optional<Options> options) throws Exception {
+
+        if (options.isPresent()) {
+          options.get().validate(Arrays.asList(Options.Option.RETRY_CONFIG));
+        }
+
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
                 baseUrl,
                 "/v1/workspace/access");
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+
         java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
                 io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
@@ -62,16 +77,44 @@ public class Auth implements
                 req.addQueryParam(queryParam);
             }
         }
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
-        HttpResponse<InputStream> httpRes = client.send(req);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig retryConfig;
+        if (options.isPresent() && options.get().retryConfig().isPresent()) {
+            retryConfig = options.get().retryConfig().get();
+        } else if (this.sdkConfiguration.retryConfig.isPresent()) {
+            retryConfig = this.sdkConfiguration.retryConfig.get();
+        } else {
+            retryConfig = io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig.builder()
+                .backoff(io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy.builder()
+                            .initialInterval(100L, java.util.concurrent.TimeUnit.MILLISECONDS)
+                            .maxInterval(2000L, java.util.concurrent.TimeUnit.MILLISECONDS)
+                            .baseFactor((double)(1.5))
+                            .maxElapsedTime(30000L, java.util.concurrent.TimeUnit.MILLISECONDS)
+                            .retryConnectError(true)
+                            .build())
+                .build();
+        }
+
+        List<String> statusCodes = new java.util.ArrayList<String>();
+        statusCodes.add("408");
+        statusCodes.add("500");
+        statusCodes.add("502");
+        statusCodes.add("503");
+        io.github.speakeasy_sdks_staging.javaclientsdk.utils.Retries retries = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Retries.builder()
+            .action(() -> client.send(req))
+            .retryConfig(retryConfig)
+            .statusCodes(statusCodes)
+            .build();
+
+        HttpResponse<InputStream> httpRes = retries.run();
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse
                 .builder()
@@ -82,7 +125,7 @@ public class Auth implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
@@ -108,37 +151,40 @@ public class Auth implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder validateApiKey() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyRequestBuilder(this);
     }
 
     /**
      * Validate the current api key.
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
                 baseUrl,
                 "/v1/auth/validate");
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse
                 .builder()
@@ -149,7 +195,7 @@ public class Auth implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();

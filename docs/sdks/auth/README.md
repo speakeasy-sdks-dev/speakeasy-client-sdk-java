@@ -43,6 +43,8 @@ public class Application {
 
             GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
                 .genLockId("<value>")
+                .passive(false)
+                .targetType("<value>")
                 .build();
 
             GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()

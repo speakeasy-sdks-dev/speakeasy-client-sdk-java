@@ -5,25 +5,23 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
 
 public class GetAllApiEndpointsRequestBuilder {
 
     private GetAllApiEndpointsRequest request;
-
     private final SDKMethodInterfaces.MethodCallGetAllApiEndpoints sdk;
-    
+
     public GetAllApiEndpointsRequestBuilder(SDKMethodInterfaces.MethodCallGetAllApiEndpoints sdk) {
         this.sdk = sdk;
     }
-             
+
     public GetAllApiEndpointsRequestBuilder request(GetAllApiEndpointsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
@@ -31,6 +29,7 @@ public class GetAllApiEndpointsRequestBuilder {
     }
 
     public GetAllApiEndpointsResponse call() throws Exception {
+
         return sdk.getAllApiEndpoints(
             request);
     }

@@ -27,47 +27,50 @@ public class Metadata implements
             MethodCallDeleteVersionMetadata,
             MethodCallGetVersionMetadata,
             MethodCallInsertVersionMetadata {
-    
+
     private final SDKConfiguration sdkConfiguration;
 
     Metadata(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequestBuilder deleteVersionMetadata() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequestBuilder(this);
     }
 
     /**
      * Delete metadata for a particular apiID and versionID.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse deleteVersionMetadata(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}/version/{versionID}/metadata/{metaKey}/{metaValue}",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse
                 .builder()
@@ -78,7 +81,7 @@ public class Metadata implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
         }else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -95,41 +98,44 @@ public class Metadata implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequestBuilder getVersionMetadata() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequestBuilder(this);
     }
 
     /**
      * Get all metadata for a particular apiID and versionID.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse getVersionMetadata(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/metadata", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}/version/{versionID}/metadata",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse
                 .builder()
@@ -140,7 +146,7 @@ public class Metadata implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
@@ -166,28 +172,32 @@ public class Metadata implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequestBuilder insertVersionMetadata() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequestBuilder(this);
     }
 
     /**
      * Insert metadata for a particular apiID and versionID.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse insertVersionMetadata(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/metadata", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}/version/{versionID}/metadata",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
+
         SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(
                 request, "versionMetadata", "json", false);
         if (serializedRequestBody == null) {
@@ -197,16 +207,16 @@ public class Metadata implements
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse
                 .builder()
@@ -217,7 +227,7 @@ public class Metadata implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();

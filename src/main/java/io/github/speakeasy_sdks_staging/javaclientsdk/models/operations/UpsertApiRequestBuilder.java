@@ -5,25 +5,23 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
 
 public class UpsertApiRequestBuilder {
 
     private UpsertApiRequest request;
-
     private final SDKMethodInterfaces.MethodCallUpsertApi sdk;
-    
+
     public UpsertApiRequestBuilder(SDKMethodInterfaces.MethodCallUpsertApi sdk) {
         this.sdk = sdk;
     }
-             
+
     public UpsertApiRequestBuilder request(UpsertApiRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
@@ -31,6 +29,7 @@ public class UpsertApiRequestBuilder {
     }
 
     public UpsertApiResponse call() throws Exception {
+
         return sdk.upsertApi(
             request);
     }

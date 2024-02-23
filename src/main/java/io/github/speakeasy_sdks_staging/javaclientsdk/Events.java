@@ -11,11 +11,15 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SDKMetho
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPClient;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.HTTPRequest;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.JSON;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SerializedBody;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -24,12 +28,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 public class Events implements
             MethodCallPostWorkspaceEvents {
-    
+
     private final SDKConfiguration sdkConfiguration;
 
     Events(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequestBuilder postWorkspaceEvents() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequestBuilder(this);
     }
@@ -37,22 +42,32 @@ public class Events implements
     /**
      * Post events for a specific workspace
      * Sends an array of events to be stored for a particular workspace.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse postWorkspaceEvents(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest request) throws Exception {
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest request,
+            Optional<Options> options) throws Exception {
+
+        if (options.isPresent()) {
+          options.get().validate(Arrays.asList(Options.Option.RETRY_CONFIG));
+        }
+
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest.class, 
-                baseUrl, 
-                "/v1/workspace/{workspaceID}/events", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest.class,
+                baseUrl,
+                "/v1/workspace/{workspaceID}/events",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
+
         SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(
                 request, "requestBody", "json", false);
         if (serializedRequestBody == null) {
@@ -62,16 +77,44 @@ public class Events implements
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
-        HttpResponse<InputStream> httpRes = client.send(req);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig retryConfig;
+        if (options.isPresent() && options.get().retryConfig().isPresent()) {
+            retryConfig = options.get().retryConfig().get();
+        } else if (this.sdkConfiguration.retryConfig.isPresent()) {
+            retryConfig = this.sdkConfiguration.retryConfig.get();
+        } else {
+            retryConfig = io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig.builder()
+                .backoff(io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy.builder()
+                            .initialInterval(100L, java.util.concurrent.TimeUnit.MILLISECONDS)
+                            .maxInterval(2000L, java.util.concurrent.TimeUnit.MILLISECONDS)
+                            .baseFactor((double)(1.5))
+                            .maxElapsedTime(30000L, java.util.concurrent.TimeUnit.MILLISECONDS)
+                            .retryConnectError(true)
+                            .build())
+                .build();
+        }
+
+        List<String> statusCodes = new java.util.ArrayList<String>();
+        statusCodes.add("408");
+        statusCodes.add("500");
+        statusCodes.add("502");
+        statusCodes.add("503");
+        io.github.speakeasy_sdks_staging.javaclientsdk.utils.Retries retries = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Retries.builder()
+            .action(() -> client.send(req))
+            .retryConfig(retryConfig)
+            .statusCodes(statusCodes)
+            .build();
+
+        HttpResponse<InputStream> httpRes = retries.run();
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse
                 .builder()
@@ -82,7 +125,7 @@ public class Events implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if ((httpRes.statusCode() >= 200 && httpRes.statusCode() < 300)) {
         } else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {

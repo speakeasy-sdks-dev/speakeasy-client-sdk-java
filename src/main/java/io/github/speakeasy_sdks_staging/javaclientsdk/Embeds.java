@@ -26,12 +26,13 @@ public class Embeds implements
             MethodCallGetEmbedAccessToken,
             MethodCallGetValidEmbedAccessTokens,
             MethodCallRevokeEmbedAccessToken {
-    
+
     private final SDKConfiguration sdkConfiguration;
 
     Embeds(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequestBuilder getEmbedAccessToken() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequestBuilder(this);
     }
@@ -40,23 +41,26 @@ public class Embeds implements
      * Get an embed access token for the current workspace.
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
      * Filters can be applied allowing views to be filtered to things like particular customerIds.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse getEmbedAccessToken(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
                 baseUrl,
                 "/v1/workspace/embed-access-token");
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+
         java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
                 io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
@@ -64,16 +68,16 @@ public class Embeds implements
                 req.addQueryParam(queryParam);
             }
         }
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse
                 .builder()
@@ -84,7 +88,7 @@ public class Embeds implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
@@ -110,37 +114,40 @@ public class Embeds implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensRequestBuilder getValidEmbedAccessTokens() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensRequestBuilder(this);
     }
 
     /**
      * Get all valid embed access tokens for the current workspace.
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse getValidEmbedAccessTokensDirect() throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
                 baseUrl,
                 "/v1/workspace/embed-access-tokens/valid");
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse
                 .builder()
@@ -151,7 +158,7 @@ public class Embeds implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
@@ -177,41 +184,44 @@ public class Embeds implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequestBuilder revokeEmbedAccessToken() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequestBuilder(this);
     }
 
     /**
      * Revoke an embed access EmbedToken.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse revokeEmbedAccessToken(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest.class, 
-                baseUrl, 
-                "/v1/workspace/embed-access-tokens/{tokenID}", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest.class,
+                baseUrl,
+                "/v1/workspace/embed-access-tokens/{tokenID}",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse
                 .builder()
@@ -222,7 +232,7 @@ public class Embeds implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
         }else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {

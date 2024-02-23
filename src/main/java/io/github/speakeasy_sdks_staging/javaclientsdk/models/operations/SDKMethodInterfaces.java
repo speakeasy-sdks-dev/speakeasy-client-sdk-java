@@ -4,6 +4,7 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -12,205 +13,207 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 public class SDKMethodInterfaces {
 
-    public interface MethodCallDeleteApi { 
+    public interface MethodCallDeleteApi {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse deleteApi(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGenerateOpenApiSpec { 
+    public interface MethodCallGenerateOpenApiSpec {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse generateOpenApiSpec(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGeneratePostmanCollection { 
+    public interface MethodCallGeneratePostmanCollection {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse generatePostmanCollection(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetAllApiVersions { 
+    public interface MethodCallGetAllApiVersions {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse getAllApiVersions(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetApis { 
+    public interface MethodCallGetApis {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse getApis(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest request) throws Exception;
     }
 
 
-    public interface MethodCallUpsertApi { 
+    public interface MethodCallUpsertApi {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse upsertApi(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest request) throws Exception;
     }
 
 
-    public interface MethodCallDeleteApiEndpoint { 
+    public interface MethodCallDeleteApiEndpoint {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiEndpointResponse deleteApiEndpoint(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiEndpointRequest request) throws Exception;
     }
 
 
-    public interface MethodCallFindApiEndpoint { 
+    public interface MethodCallFindApiEndpoint {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FindApiEndpointResponse findApiEndpoint(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FindApiEndpointRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGenerateOpenApiSpecForApiEndpoint { 
+    public interface MethodCallGenerateOpenApiSpecForApiEndpoint {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse generateOpenApiSpecForApiEndpoint(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGeneratePostmanCollectionForApiEndpoint { 
+    public interface MethodCallGeneratePostmanCollectionForApiEndpoint {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse generatePostmanCollectionForApiEndpoint(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetAllApiEndpoints { 
+    public interface MethodCallGetAllApiEndpoints {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiEndpointsResponse getAllApiEndpoints(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiEndpointsRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetAllForVersionApiEndpoints { 
+    public interface MethodCallGetAllForVersionApiEndpoints {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse getAllForVersionApiEndpoints(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllForVersionApiEndpointsRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetApiEndpoint { 
+    public interface MethodCallGetApiEndpoint {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApiEndpointResponse getApiEndpoint(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApiEndpointRequest request) throws Exception;
     }
 
 
-    public interface MethodCallUpsertApiEndpoint { 
+    public interface MethodCallUpsertApiEndpoint {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiEndpointResponse upsertApiEndpoint(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiEndpointRequest request) throws Exception;
     }
 
 
-    public interface MethodCallDeleteVersionMetadata { 
+    public interface MethodCallDeleteVersionMetadata {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse deleteVersionMetadata(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetVersionMetadata { 
+    public interface MethodCallGetVersionMetadata {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse getVersionMetadata(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataRequest request) throws Exception;
     }
 
 
-    public interface MethodCallInsertVersionMetadata { 
+    public interface MethodCallInsertVersionMetadata {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse insertVersionMetadata(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataRequest request) throws Exception;
     }
 
 
-    public interface MethodCallDeleteSchema { 
+    public interface MethodCallDeleteSchema {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse deleteSchema(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaRequest request) throws Exception;
     }
 
 
-    public interface MethodCallDownloadSchema { 
+    public interface MethodCallDownloadSchema {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse downloadSchema(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRequest request) throws Exception;
     }
 
 
-    public interface MethodCallDownloadSchemaRevision { 
+    public interface MethodCallDownloadSchemaRevision {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse downloadSchemaRevision(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetSchema { 
+    public interface MethodCallGetSchema {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse getSchema(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetSchemaDiff { 
+    public interface MethodCallGetSchemaDiff {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse getSchemaDiff(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetSchemaRevision { 
+    public interface MethodCallGetSchemaRevision {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse getSchemaRevision(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetSchemas { 
+    public interface MethodCallGetSchemas {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse getSchemas(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasRequest request) throws Exception;
     }
 
 
-    public interface MethodCallRegisterSchema { 
+    public interface MethodCallRegisterSchema {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse registerSchema(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetWorkspaceAccess { 
+    public interface MethodCallGetWorkspaceAccess {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse getWorkspaceAccess(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request) throws Exception;
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request,
+            Optional<Options> options) throws Exception;
     }
 
 
-    public interface MethodCallValidateApiKey { 
+    public interface MethodCallValidateApiKey {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse validateApiKeyDirect() throws Exception;
     }
 
 
-    public interface MethodCallGenerateRequestPostmanCollection { 
+    public interface MethodCallGenerateRequestPostmanCollection {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse generateRequestPostmanCollection(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetRequestFromEventLog { 
+    public interface MethodCallGetRequestFromEventLog {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogResponse getRequestFromEventLog(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogRequest request) throws Exception;
     }
 
 
-    public interface MethodCallQueryEventLog { 
+    public interface MethodCallQueryEventLog {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogResponse queryEventLog(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetEmbedAccessToken { 
+    public interface MethodCallGetEmbedAccessToken {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse getEmbedAccessToken(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGetValidEmbedAccessTokens { 
+    public interface MethodCallGetValidEmbedAccessTokens {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetValidEmbedAccessTokensResponse getValidEmbedAccessTokensDirect() throws Exception;
     }
 
 
-    public interface MethodCallRevokeEmbedAccessToken { 
+    public interface MethodCallRevokeEmbedAccessToken {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenResponse revokeEmbedAccessToken(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RevokeEmbedAccessTokenRequest request) throws Exception;
     }
 
 
-    public interface MethodCallPostWorkspaceEvents { 
+    public interface MethodCallPostWorkspaceEvents {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse postWorkspaceEvents(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest request) throws Exception;
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest request,
+            Optional<Options> options) throws Exception;
     }
 
 }

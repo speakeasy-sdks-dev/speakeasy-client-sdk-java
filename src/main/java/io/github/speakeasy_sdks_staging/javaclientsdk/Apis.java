@@ -31,12 +31,13 @@ public class Apis implements
             MethodCallGetAllApiVersions,
             MethodCallGetApis,
             MethodCallUpsertApi {
-    
+
     private final SDKConfiguration sdkConfiguration;
 
     Apis(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequestBuilder deleteApi() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequestBuilder(this);
     }
@@ -44,35 +45,37 @@ public class Apis implements
     /**
      * Delete an Api.
      * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas &amp; Request Logs (if using a Postgres datastore).
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse deleteApi(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}/version/{versionID}",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("DELETE");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse
                 .builder()
@@ -83,7 +86,7 @@ public class Apis implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
         }else {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
@@ -100,6 +103,7 @@ public class Apis implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequestBuilder generateOpenApiSpec() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequestBuilder(this);
     }
@@ -108,35 +112,37 @@ public class Apis implements
      * Generate an OpenAPI specification for a particular Api.
      * This endpoint will generate any missing operations in any registered OpenAPI document if the operation does not already exist in the document.
      * Returns the original document and the newly generated document allowing a diff to be performed to see what has changed.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse generateOpenApiSpec(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/generate/openapi", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}/version/{versionID}/generate/openapi",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse
                 .builder()
@@ -147,7 +153,7 @@ public class Apis implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
@@ -173,6 +179,7 @@ public class Apis implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequestBuilder generatePostmanCollection() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequestBuilder(this);
     }
@@ -180,35 +187,37 @@ public class Apis implements
     /**
      * Generate a Postman collection for a particular Api.
      * Generates a postman collection containing all endpoints for a particular API. Includes variables produced for any path/query/header parameters included in the OpenAPI document.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse generatePostmanCollection(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}/version/{versionID}/generate/postman", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}/version/{versionID}/generate/postman",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/octet-stream;q=0");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse
                 .builder()
@@ -222,7 +231,7 @@ public class Apis implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/octet-stream")) {
             } else {
@@ -243,6 +252,7 @@ public class Apis implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequestBuilder getAllApiVersions() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequestBuilder(this);
     }
@@ -251,25 +261,28 @@ public class Apis implements
      * Get all Api versions for a particular ApiEndpoint.
      * Get all Api versions for a particular ApiEndpoint.
      * Supports filtering the versions based on metadata attributes.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse getAllApiVersions(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+
         java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
                 io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
@@ -277,16 +290,16 @@ public class Apis implements
                 req.addQueryParam(queryParam);
             }
         }
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse
                 .builder()
@@ -297,7 +310,7 @@ public class Apis implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
@@ -323,6 +336,7 @@ public class Apis implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequestBuilder getApis() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequestBuilder(this);
     }
@@ -331,23 +345,26 @@ public class Apis implements
      * Get a list of Apis for a given workspace
      * Get a list of all Apis and their versions for a given workspace.
      * Supports filtering the APIs based on metadata attributes.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse getApis(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
                 baseUrl,
                 "/v1/apis");
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+
         java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
                 io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest.class, request, this.sdkConfiguration.globals);
         if (queryParams != null) {
@@ -355,16 +372,16 @@ public class Apis implements
                 req.addQueryParam(queryParam);
             }
         }
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse
                 .builder()
@@ -375,7 +392,7 @@ public class Apis implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
@@ -401,6 +418,7 @@ public class Apis implements
         return res;
     }
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequestBuilder upsertApi() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequestBuilder(this);
     }
@@ -409,22 +427,25 @@ public class Apis implements
      * Upsert an Api
      * Upsert an Api. If the Api does not exist, it will be created.
      * If the Api exists, it will be updated.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
      */
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse upsertApi(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest request) throws Exception {
+
         String baseUrl = this.sdkConfiguration.serverUrl;
+
         String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest.class, 
-                baseUrl, 
-                "/v1/apis/{apiID}", 
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiRequest.class,
+                baseUrl,
+                "/v1/apis/{apiID}",
                 request, this.sdkConfiguration.globals);
-        
+
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");
         req.setURL(url);
+
         SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(
                 request, "api", "json", false);
         if (serializedRequestBody == null) {
@@ -434,16 +455,16 @@ public class Apis implements
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
-        
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
-        
+
         HttpResponse<InputStream> httpRes = client.send(req);
 
         String contentType = httpRes
-                .headers()
-                .firstValue("Content-Type")
-                .orElse("application/octet-stream");
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse.Builder resBuilder = 
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse
                 .builder()
@@ -454,7 +475,7 @@ public class Apis implements
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse res = resBuilder.build();
 
         res.withRawResponse(httpRes);
-        
+
         if (httpRes.statusCode() == 200) {
             if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
