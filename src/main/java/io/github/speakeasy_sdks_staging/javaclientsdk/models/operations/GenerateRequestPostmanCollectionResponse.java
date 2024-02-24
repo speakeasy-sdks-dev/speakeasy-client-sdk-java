@@ -4,9 +4,13 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
@@ -112,7 +116,7 @@ public class GenerateRequestPostmanCollectionResponse {
         this.error = Optional.ofNullable(error);
         return this;
     }
-    
+
     /**
      * Default error response
      */
@@ -130,7 +134,7 @@ public class GenerateRequestPostmanCollectionResponse {
         this.postmanCollection = Optional.ofNullable(postmanCollection);
         return this;
     }
-    
+
     /**
      * OK
      */
@@ -228,7 +232,7 @@ public class GenerateRequestPostmanCollectionResponse {
             this.error = Optional.ofNullable(error);
             return this;
         }
-        
+
         /**
          * Default error response
          */
@@ -246,7 +250,7 @@ public class GenerateRequestPostmanCollectionResponse {
             this.postmanCollection = Optional.ofNullable(postmanCollection);
             return this;
         }
-        
+
         /**
          * OK
          */

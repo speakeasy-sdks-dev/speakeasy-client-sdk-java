@@ -9,6 +9,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisR
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryParamOp;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;

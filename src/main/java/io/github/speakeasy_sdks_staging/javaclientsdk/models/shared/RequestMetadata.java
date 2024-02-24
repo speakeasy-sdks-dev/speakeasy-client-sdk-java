@@ -4,12 +4,16 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Optional;
 
 /**
@@ -52,7 +56,7 @@ public class RequestMetadata {
         this.key = Optional.ofNullable(key);
         return this;
     }
-    
+
     public RequestMetadata withKey(Optional<? extends String> key) {
         Utils.checkNotNull(key, "key");
         this.key = key;
@@ -64,7 +68,7 @@ public class RequestMetadata {
         this.value = Optional.ofNullable(value);
         return this;
     }
-    
+
     public RequestMetadata withValue(Optional<? extends String> value) {
         Utils.checkNotNull(value, "value");
         this.value = value;
@@ -114,7 +118,7 @@ public class RequestMetadata {
             this.key = Optional.ofNullable(key);
             return this;
         }
-        
+
         public Builder key(Optional<? extends String> key) {
             Utils.checkNotNull(key, "key");
             this.key = key;
@@ -126,7 +130,7 @@ public class RequestMetadata {
             this.value = Optional.ofNullable(value);
             return this;
         }
-        
+
         public Builder value(Optional<? extends String> value) {
             Utils.checkNotNull(value, "value");
             this.value = value;

@@ -9,6 +9,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options.Builder;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -31,7 +33,7 @@ public class PostWorkspaceEventsRequestBuilder {
         this.request = request;
         return this;
     }
-
+                
     public PostWorkspaceEventsRequestBuilder retryConfig(io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig retryConfig) {
         Utils.checkNotNull(retryConfig, "retryConfig");
         this.retryConfig = Optional.of(retryConfig);

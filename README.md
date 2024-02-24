@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.7.0'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.8.0'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -25,6 +25,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisR
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryParamOp;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -153,6 +155,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteAp
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -202,6 +206,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteAp
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -259,6 +265,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteAp
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -316,6 +324,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteAp
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -383,6 +393,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateBumpType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -446,6 +458,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -507,6 +521,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;

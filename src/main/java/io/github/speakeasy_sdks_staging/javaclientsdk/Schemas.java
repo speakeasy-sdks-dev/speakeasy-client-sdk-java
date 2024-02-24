@@ -14,6 +14,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.utils.JSON;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SerializedBody;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.OffsetDateTime;
@@ -584,9 +586,10 @@ public class Schemas implements
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-
+        Object _convertedRequest = Utils.convertToShape(request, Utils.JsonShape.DEFAULT,
+            new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaRequest>() {});
         SerializedBody serializedRequestBody = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.serializeRequestBody(
-                request, "requestBody", "multipart", false);
+                _convertedRequest, "requestBody", "multipart", false);
         if (serializedRequestBody == null) {
             throw new Exception("Request body is required");
         }

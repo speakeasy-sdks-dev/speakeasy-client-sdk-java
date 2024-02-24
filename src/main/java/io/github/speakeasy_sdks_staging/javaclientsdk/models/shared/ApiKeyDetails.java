@@ -4,12 +4,16 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Optional;
 
 
@@ -64,7 +68,7 @@ public class ApiKeyDetails {
         this.generationAccessUnlimited = Optional.ofNullable(generationAccessUnlimited);
         return this;
     }
-    
+
     public ApiKeyDetails withGenerationAccessUnlimited(Optional<? extends Boolean> generationAccessUnlimited) {
         Utils.checkNotNull(generationAccessUnlimited, "generationAccessUnlimited");
         this.generationAccessUnlimited = generationAccessUnlimited;
@@ -131,7 +135,7 @@ public class ApiKeyDetails {
             this.generationAccessUnlimited = Optional.ofNullable(generationAccessUnlimited);
             return this;
         }
-        
+
         public Builder generationAccessUnlimited(Optional<? extends Boolean> generationAccessUnlimited) {
             Utils.checkNotNull(generationAccessUnlimited, "generationAccessUnlimited");
             this.generationAccessUnlimited = generationAccessUnlimited;

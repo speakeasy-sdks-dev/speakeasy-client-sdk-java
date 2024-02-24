@@ -31,6 +31,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSc
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -98,6 +100,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.Download
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -166,6 +170,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.Download
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -236,6 +242,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchem
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -304,6 +312,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchem
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -375,6 +385,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchem
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -445,6 +457,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchem
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -516,6 +530,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.Register
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;

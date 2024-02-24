@@ -5,6 +5,8 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;

@@ -4,14 +4,18 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
@@ -193,7 +197,7 @@ public class Api {
         this.matched = Optional.ofNullable(matched);
         return this;
     }
-    
+
     /**
      * Determines if all the endpoints within the Api are found in the OpenAPI spec associated with the Api.
      */
@@ -211,7 +215,7 @@ public class Api {
         this.metaData = Optional.ofNullable(metaData);
         return this;
     }
-    
+
     /**
      * A set of values associated with a meta_data key. This field is only set on get requests.
      */
@@ -351,7 +355,7 @@ public class Api {
             this.matched = Optional.ofNullable(matched);
             return this;
         }
-        
+
         /**
          * Determines if all the endpoints within the Api are found in the OpenAPI spec associated with the Api.
          */
@@ -369,7 +373,7 @@ public class Api {
             this.metaData = Optional.ofNullable(metaData);
             return this;
         }
-        
+
         /**
          * A set of values associated with a meta_data key. This field is only set on get requests.
          */

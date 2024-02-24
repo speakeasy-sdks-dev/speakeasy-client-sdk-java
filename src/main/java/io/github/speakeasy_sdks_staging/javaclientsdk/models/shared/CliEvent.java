@@ -4,14 +4,18 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
@@ -789,7 +793,7 @@ public class CliEvent {
         this.commitHead = Optional.ofNullable(commitHead);
         return this;
     }
-    
+
     /**
      * Remote commit ID.
      */
@@ -816,7 +820,7 @@ public class CliEvent {
         this.durationMs = Optional.ofNullable(durationMs);
         return this;
     }
-    
+
     /**
      * Duration of the event in milliseconds.
      */
@@ -843,7 +847,7 @@ public class CliEvent {
         this.generateBumpType = Optional.ofNullable(generateBumpType);
         return this;
     }
-    
+
     /**
      * Bump type of the lock file (calculated semver delta, or a custom change (manual release))
      */
@@ -861,7 +865,7 @@ public class CliEvent {
         this.generateConfigPostChecksum = Optional.ofNullable(generateConfigPostChecksum);
         return this;
     }
-    
+
     /**
      * Checksum of the configuration file (post generation)
      */
@@ -879,7 +883,7 @@ public class CliEvent {
         this.generateConfigPostRaw = Optional.ofNullable(generateConfigPostRaw);
         return this;
     }
-    
+
     /**
      * Rendered configuration file (post generation)
      */
@@ -897,7 +901,7 @@ public class CliEvent {
         this.generateConfigPostVersion = Optional.ofNullable(generateConfigPostVersion);
         return this;
     }
-    
+
     /**
      * Version of the generated target (post generation)
      */
@@ -915,7 +919,7 @@ public class CliEvent {
         this.generateConfigPreChecksum = Optional.ofNullable(generateConfigPreChecksum);
         return this;
     }
-    
+
     /**
      * Checksum of the configuration file (prior to generation)
      */
@@ -933,7 +937,7 @@ public class CliEvent {
         this.generateConfigPreRaw = Optional.ofNullable(generateConfigPreRaw);
         return this;
     }
-    
+
     /**
      * Rendered configuration file (prior to generation)
      */
@@ -951,7 +955,7 @@ public class CliEvent {
         this.generateConfigPreVersion = Optional.ofNullable(generateConfigPreVersion);
         return this;
     }
-    
+
     /**
      * Version of the generated target (prior to generation)
      */
@@ -969,7 +973,7 @@ public class CliEvent {
         this.generateGenLockId = Optional.ofNullable(generateGenLockId);
         return this;
     }
-    
+
     /**
      * gen.lock ID (expected to be a uuid).
      */
@@ -987,7 +991,7 @@ public class CliEvent {
         this.generateGenLockPostFeatures = Optional.ofNullable(generateGenLockPostFeatures);
         return this;
     }
-    
+
     /**
      * Features post generation
      */
@@ -1005,7 +1009,7 @@ public class CliEvent {
         this.generateGenLockPreDocChecksum = Optional.ofNullable(generateGenLockPreDocChecksum);
         return this;
     }
-    
+
     /**
      * Checksum of the Previous Rendered OpenAPI document (prior to generation, via gen lock)
      */
@@ -1023,7 +1027,7 @@ public class CliEvent {
         this.generateGenLockPreDocVersion = Optional.ofNullable(generateGenLockPreDocVersion);
         return this;
     }
-    
+
     /**
      * info.Version of the Previous Rendered OpenAPI document (prior to generation, via gen lock)
      */
@@ -1041,7 +1045,7 @@ public class CliEvent {
         this.generateGenLockPreFeatures = Optional.ofNullable(generateGenLockPreFeatures);
         return this;
     }
-    
+
     /**
      * Features prior to generation
      */
@@ -1059,7 +1063,7 @@ public class CliEvent {
         this.generateGenLockPreVersion = Optional.ofNullable(generateGenLockPreVersion);
         return this;
     }
-    
+
     /**
      * Artifact version for the Previous Generation
      */
@@ -1077,7 +1081,7 @@ public class CliEvent {
         this.generateOutputTests = Optional.ofNullable(generateOutputTests);
         return this;
     }
-    
+
     /**
      * Indicates whether tests were output.
      */
@@ -1095,7 +1099,7 @@ public class CliEvent {
         this.generatePublished = Optional.ofNullable(generatePublished);
         return this;
     }
-    
+
     /**
      * Indicates whether the target was considered published.
      */
@@ -1113,7 +1117,7 @@ public class CliEvent {
         this.generateRepoUrl = Optional.ofNullable(generateRepoUrl);
         return this;
     }
-    
+
     /**
      * Expected Repo URL, for use in documentation generation.
      */
@@ -1131,7 +1135,7 @@ public class CliEvent {
         this.generateTarget = Optional.ofNullable(generateTarget);
         return this;
     }
-    
+
     /**
      * The target of the event.
      */
@@ -1149,7 +1153,7 @@ public class CliEvent {
         this.generateTargetVersion = Optional.ofNullable(generateTargetVersion);
         return this;
     }
-    
+
     /**
      * The version of the target.
      */
@@ -1167,7 +1171,7 @@ public class CliEvent {
         this.generateVersion = Optional.ofNullable(generateVersion);
         return this;
     }
-    
+
     /**
      * Version of the generation logic used.
      */
@@ -1185,7 +1189,7 @@ public class CliEvent {
         this.ghActionOrganization = Optional.ofNullable(ghActionOrganization);
         return this;
     }
-    
+
     /**
      * GitHub organization of the action.
      */
@@ -1203,7 +1207,7 @@ public class CliEvent {
         this.ghActionRepository = Optional.ofNullable(ghActionRepository);
         return this;
     }
-    
+
     /**
      * GitHub repository of the action.
      */
@@ -1221,7 +1225,7 @@ public class CliEvent {
         this.ghActionRunLink = Optional.ofNullable(ghActionRunLink);
         return this;
     }
-    
+
     /**
      * Link to the GitHub action run.
      */
@@ -1239,7 +1243,7 @@ public class CliEvent {
         this.ghActionVersion = Optional.ofNullable(ghActionVersion);
         return this;
     }
-    
+
     /**
      * Version of the GitHub action.
      */
@@ -1257,7 +1261,7 @@ public class CliEvent {
         this.gitRelativeCwd = Optional.ofNullable(gitRelativeCwd);
         return this;
     }
-    
+
     /**
      * Current working directory relative to the git root.
      */
@@ -1275,7 +1279,7 @@ public class CliEvent {
         this.gitRemoteDefaultOwner = Optional.ofNullable(gitRemoteDefaultOwner);
         return this;
     }
-    
+
     /**
      * Default owner for git remote.
      */
@@ -1293,7 +1297,7 @@ public class CliEvent {
         this.gitRemoteDefaultRepo = Optional.ofNullable(gitRemoteDefaultRepo);
         return this;
     }
-    
+
     /**
      * Default repository name for git remote.
      */
@@ -1311,7 +1315,7 @@ public class CliEvent {
         this.gitUserEmail = Optional.ofNullable(gitUserEmail);
         return this;
     }
-    
+
     /**
      * User email from git configuration.
      */
@@ -1329,7 +1333,7 @@ public class CliEvent {
         this.gitUserName = Optional.ofNullable(gitUserName);
         return this;
     }
-    
+
     /**
      * User name from git configuration.
      */
@@ -1347,7 +1351,7 @@ public class CliEvent {
         this.hostname = Optional.ofNullable(hostname);
         return this;
     }
-    
+
     /**
      * Remote hostname.
      */
@@ -1383,7 +1387,7 @@ public class CliEvent {
         this.localCompletedAt = Optional.ofNullable(localCompletedAt);
         return this;
     }
-    
+
     /**
      * Timestamp when the event completed, in local time.
      */
@@ -1410,7 +1414,7 @@ public class CliEvent {
         this.managementDocChecksum = Optional.ofNullable(managementDocChecksum);
         return this;
     }
-    
+
     /**
      * Checksum of the currently Rendered OpenAPI document.
      */
@@ -1428,7 +1432,7 @@ public class CliEvent {
         this.managementDocVersion = Optional.ofNullable(managementDocVersion);
         return this;
     }
-    
+
     /**
      * Version taken from info.version field of the Rendered OpenAPI document.
      */
@@ -1446,7 +1450,7 @@ public class CliEvent {
         this.rawCommand = Optional.ofNullable(rawCommand);
         return this;
     }
-    
+
     /**
      * Full CLI command.
      */
@@ -1464,7 +1468,7 @@ public class CliEvent {
         this.repoLabel = Optional.ofNullable(repoLabel);
         return this;
     }
-    
+
     /**
      * Label of the git repository.
      */
@@ -1771,7 +1775,7 @@ public class CliEvent {
             this.commitHead = Optional.ofNullable(commitHead);
             return this;
         }
-        
+
         /**
          * Remote commit ID.
          */
@@ -1798,7 +1802,7 @@ public class CliEvent {
             this.durationMs = Optional.ofNullable(durationMs);
             return this;
         }
-        
+
         /**
          * Duration of the event in milliseconds.
          */
@@ -1825,7 +1829,7 @@ public class CliEvent {
             this.generateBumpType = Optional.ofNullable(generateBumpType);
             return this;
         }
-        
+
         /**
          * Bump type of the lock file (calculated semver delta, or a custom change (manual release))
          */
@@ -1843,7 +1847,7 @@ public class CliEvent {
             this.generateConfigPostChecksum = Optional.ofNullable(generateConfigPostChecksum);
             return this;
         }
-        
+
         /**
          * Checksum of the configuration file (post generation)
          */
@@ -1861,7 +1865,7 @@ public class CliEvent {
             this.generateConfigPostRaw = Optional.ofNullable(generateConfigPostRaw);
             return this;
         }
-        
+
         /**
          * Rendered configuration file (post generation)
          */
@@ -1879,7 +1883,7 @@ public class CliEvent {
             this.generateConfigPostVersion = Optional.ofNullable(generateConfigPostVersion);
             return this;
         }
-        
+
         /**
          * Version of the generated target (post generation)
          */
@@ -1897,7 +1901,7 @@ public class CliEvent {
             this.generateConfigPreChecksum = Optional.ofNullable(generateConfigPreChecksum);
             return this;
         }
-        
+
         /**
          * Checksum of the configuration file (prior to generation)
          */
@@ -1915,7 +1919,7 @@ public class CliEvent {
             this.generateConfigPreRaw = Optional.ofNullable(generateConfigPreRaw);
             return this;
         }
-        
+
         /**
          * Rendered configuration file (prior to generation)
          */
@@ -1933,7 +1937,7 @@ public class CliEvent {
             this.generateConfigPreVersion = Optional.ofNullable(generateConfigPreVersion);
             return this;
         }
-        
+
         /**
          * Version of the generated target (prior to generation)
          */
@@ -1951,7 +1955,7 @@ public class CliEvent {
             this.generateGenLockId = Optional.ofNullable(generateGenLockId);
             return this;
         }
-        
+
         /**
          * gen.lock ID (expected to be a uuid).
          */
@@ -1969,7 +1973,7 @@ public class CliEvent {
             this.generateGenLockPostFeatures = Optional.ofNullable(generateGenLockPostFeatures);
             return this;
         }
-        
+
         /**
          * Features post generation
          */
@@ -1987,7 +1991,7 @@ public class CliEvent {
             this.generateGenLockPreDocChecksum = Optional.ofNullable(generateGenLockPreDocChecksum);
             return this;
         }
-        
+
         /**
          * Checksum of the Previous Rendered OpenAPI document (prior to generation, via gen lock)
          */
@@ -2005,7 +2009,7 @@ public class CliEvent {
             this.generateGenLockPreDocVersion = Optional.ofNullable(generateGenLockPreDocVersion);
             return this;
         }
-        
+
         /**
          * info.Version of the Previous Rendered OpenAPI document (prior to generation, via gen lock)
          */
@@ -2023,7 +2027,7 @@ public class CliEvent {
             this.generateGenLockPreFeatures = Optional.ofNullable(generateGenLockPreFeatures);
             return this;
         }
-        
+
         /**
          * Features prior to generation
          */
@@ -2041,7 +2045,7 @@ public class CliEvent {
             this.generateGenLockPreVersion = Optional.ofNullable(generateGenLockPreVersion);
             return this;
         }
-        
+
         /**
          * Artifact version for the Previous Generation
          */
@@ -2059,7 +2063,7 @@ public class CliEvent {
             this.generateOutputTests = Optional.ofNullable(generateOutputTests);
             return this;
         }
-        
+
         /**
          * Indicates whether tests were output.
          */
@@ -2077,7 +2081,7 @@ public class CliEvent {
             this.generatePublished = Optional.ofNullable(generatePublished);
             return this;
         }
-        
+
         /**
          * Indicates whether the target was considered published.
          */
@@ -2095,7 +2099,7 @@ public class CliEvent {
             this.generateRepoUrl = Optional.ofNullable(generateRepoUrl);
             return this;
         }
-        
+
         /**
          * Expected Repo URL, for use in documentation generation.
          */
@@ -2113,7 +2117,7 @@ public class CliEvent {
             this.generateTarget = Optional.ofNullable(generateTarget);
             return this;
         }
-        
+
         /**
          * The target of the event.
          */
@@ -2131,7 +2135,7 @@ public class CliEvent {
             this.generateTargetVersion = Optional.ofNullable(generateTargetVersion);
             return this;
         }
-        
+
         /**
          * The version of the target.
          */
@@ -2149,7 +2153,7 @@ public class CliEvent {
             this.generateVersion = Optional.ofNullable(generateVersion);
             return this;
         }
-        
+
         /**
          * Version of the generation logic used.
          */
@@ -2167,7 +2171,7 @@ public class CliEvent {
             this.ghActionOrganization = Optional.ofNullable(ghActionOrganization);
             return this;
         }
-        
+
         /**
          * GitHub organization of the action.
          */
@@ -2185,7 +2189,7 @@ public class CliEvent {
             this.ghActionRepository = Optional.ofNullable(ghActionRepository);
             return this;
         }
-        
+
         /**
          * GitHub repository of the action.
          */
@@ -2203,7 +2207,7 @@ public class CliEvent {
             this.ghActionRunLink = Optional.ofNullable(ghActionRunLink);
             return this;
         }
-        
+
         /**
          * Link to the GitHub action run.
          */
@@ -2221,7 +2225,7 @@ public class CliEvent {
             this.ghActionVersion = Optional.ofNullable(ghActionVersion);
             return this;
         }
-        
+
         /**
          * Version of the GitHub action.
          */
@@ -2239,7 +2243,7 @@ public class CliEvent {
             this.gitRelativeCwd = Optional.ofNullable(gitRelativeCwd);
             return this;
         }
-        
+
         /**
          * Current working directory relative to the git root.
          */
@@ -2257,7 +2261,7 @@ public class CliEvent {
             this.gitRemoteDefaultOwner = Optional.ofNullable(gitRemoteDefaultOwner);
             return this;
         }
-        
+
         /**
          * Default owner for git remote.
          */
@@ -2275,7 +2279,7 @@ public class CliEvent {
             this.gitRemoteDefaultRepo = Optional.ofNullable(gitRemoteDefaultRepo);
             return this;
         }
-        
+
         /**
          * Default repository name for git remote.
          */
@@ -2293,7 +2297,7 @@ public class CliEvent {
             this.gitUserEmail = Optional.ofNullable(gitUserEmail);
             return this;
         }
-        
+
         /**
          * User email from git configuration.
          */
@@ -2311,7 +2315,7 @@ public class CliEvent {
             this.gitUserName = Optional.ofNullable(gitUserName);
             return this;
         }
-        
+
         /**
          * User name from git configuration.
          */
@@ -2329,7 +2333,7 @@ public class CliEvent {
             this.hostname = Optional.ofNullable(hostname);
             return this;
         }
-        
+
         /**
          * Remote hostname.
          */
@@ -2365,7 +2369,7 @@ public class CliEvent {
             this.localCompletedAt = Optional.ofNullable(localCompletedAt);
             return this;
         }
-        
+
         /**
          * Timestamp when the event completed, in local time.
          */
@@ -2392,7 +2396,7 @@ public class CliEvent {
             this.managementDocChecksum = Optional.ofNullable(managementDocChecksum);
             return this;
         }
-        
+
         /**
          * Checksum of the currently Rendered OpenAPI document.
          */
@@ -2410,7 +2414,7 @@ public class CliEvent {
             this.managementDocVersion = Optional.ofNullable(managementDocVersion);
             return this;
         }
-        
+
         /**
          * Version taken from info.version field of the Rendered OpenAPI document.
          */
@@ -2428,7 +2432,7 @@ public class CliEvent {
             this.rawCommand = Optional.ofNullable(rawCommand);
             return this;
         }
-        
+
         /**
          * Full CLI command.
          */
@@ -2446,7 +2450,7 @@ public class CliEvent {
             this.repoLabel = Optional.ofNullable(repoLabel);
             return this;
         }
-        
+
         /**
          * Label of the git repository.
          */

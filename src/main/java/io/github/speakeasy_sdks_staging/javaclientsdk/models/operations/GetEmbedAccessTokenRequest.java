@@ -4,10 +4,14 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SpeakeasyMetadata;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Optional;
 
 
@@ -76,7 +80,7 @@ public class GetEmbedAccessTokenRequest {
         this.description = Optional.ofNullable(description);
         return this;
     }
-    
+
     /**
      * The description of the embed access token.
      */
@@ -94,7 +98,7 @@ public class GetEmbedAccessTokenRequest {
         this.duration = Optional.ofNullable(duration);
         return this;
     }
-    
+
     /**
      * The duration (in minutes) of the embed access token.
      */
@@ -112,7 +116,7 @@ public class GetEmbedAccessTokenRequest {
         this.filters = Optional.ofNullable(filters);
         return this;
     }
-    
+
     /**
      * The filter to apply to the query.
      */
@@ -173,7 +177,7 @@ public class GetEmbedAccessTokenRequest {
             this.description = Optional.ofNullable(description);
             return this;
         }
-        
+
         /**
          * The description of the embed access token.
          */
@@ -191,7 +195,7 @@ public class GetEmbedAccessTokenRequest {
             this.duration = Optional.ofNullable(duration);
             return this;
         }
-        
+
         /**
          * The duration (in minutes) of the embed access token.
          */
@@ -209,7 +213,7 @@ public class GetEmbedAccessTokenRequest {
             this.filters = Optional.ofNullable(filters);
             return this;
         }
-        
+
         /**
          * The filter to apply to the query.
          */

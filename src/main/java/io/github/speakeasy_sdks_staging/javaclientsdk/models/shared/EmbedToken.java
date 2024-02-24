@@ -4,14 +4,18 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
@@ -253,7 +257,7 @@ public class EmbedToken {
         this.lastUsed = Optional.ofNullable(lastUsed);
         return this;
     }
-    
+
     /**
      * The last time this token was used.
      */
@@ -271,7 +275,7 @@ public class EmbedToken {
         this.revokedAt = Optional.ofNullable(revokedAt);
         return this;
     }
-    
+
     /**
      * The time this token was revoked.
      */
@@ -289,7 +293,7 @@ public class EmbedToken {
         this.revokedBy = Optional.ofNullable(revokedBy);
         return this;
     }
-    
+
     /**
      * The ID of the user that revoked this token.
      */
@@ -448,7 +452,7 @@ public class EmbedToken {
             this.lastUsed = Optional.ofNullable(lastUsed);
             return this;
         }
-        
+
         /**
          * The last time this token was used.
          */
@@ -466,7 +470,7 @@ public class EmbedToken {
             this.revokedAt = Optional.ofNullable(revokedAt);
             return this;
         }
-        
+
         /**
          * The time this token was revoked.
          */
@@ -484,7 +488,7 @@ public class EmbedToken {
             this.revokedBy = Optional.ofNullable(revokedBy);
             return this;
         }
-        
+
         /**
          * The ID of the user that revoked this token.
          */

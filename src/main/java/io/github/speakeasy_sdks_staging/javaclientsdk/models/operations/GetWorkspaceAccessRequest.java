@@ -4,10 +4,14 @@
 
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SpeakeasyMetadata;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
 import java.io.InputStream;
 import java.lang.Deprecated;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Optional;
 
 
@@ -76,7 +80,7 @@ public class GetWorkspaceAccessRequest {
         this.genLockId = Optional.ofNullable(genLockId);
         return this;
     }
-    
+
     /**
      * Unique identifier of the generation target.
      */
@@ -94,7 +98,7 @@ public class GetWorkspaceAccessRequest {
         this.passive = Optional.ofNullable(passive);
         return this;
     }
-    
+
     /**
      * Skip side-effects like incrementing metrics.
      */
@@ -112,7 +116,7 @@ public class GetWorkspaceAccessRequest {
         this.targetType = Optional.ofNullable(targetType);
         return this;
     }
-    
+
     /**
      * The type of the generated target.
      */
@@ -173,7 +177,7 @@ public class GetWorkspaceAccessRequest {
             this.genLockId = Optional.ofNullable(genLockId);
             return this;
         }
-        
+
         /**
          * Unique identifier of the generation target.
          */
@@ -191,7 +195,7 @@ public class GetWorkspaceAccessRequest {
             this.passive = Optional.ofNullable(passive);
             return this;
         }
-        
+
         /**
          * Skip side-effects like incrementing metrics.
          */
@@ -209,7 +213,7 @@ public class GetWorkspaceAccessRequest {
             this.targetType = Optional.ofNullable(targetType);
             return this;
         }
-        
+
         /**
          * The type of the generated target.
          */

@@ -27,6 +27,8 @@ import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateBumpType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Optional;
