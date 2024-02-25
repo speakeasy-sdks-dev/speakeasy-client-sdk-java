@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 66f99777-b2f2-4e45-9581-501d199e5c0c
 management:
-  docChecksum: 10893fff3e9a4e77b8628de48190cd77
+  docChecksum: 1e1fbb7b85b19b149be8f6b8a6916f76
   docVersion: 0.4.0
   speakeasyVersion: internal
   generationVersion: 2.272.4
-  releaseVersion: 7.8.0
-  configChecksum: 8f37f9d7ba2d74bc9f26bab4f0db937d
+  releaseVersion: 7.8.1
+  configChecksum: 3719baa96c50f4a072f9d6b6e0a65ad7
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
   repoSubDirectory: .
   published: true
@@ -65,6 +65,8 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetEmbedAccessTokenRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetValidEmbedAccessTokensRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SDKMethodInterfaces.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/SDK.java
@@ -173,6 +175,10 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetValidEmbedAccessTokensResponse.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenRequest.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsResponse.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsRequest.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsResponse.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Error.java
@@ -199,6 +205,7 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GenerateBumpType.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/InteractionType.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/CliEvent.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/TargetSDK.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Security.java
   - docs/models/operations/DeleteApiRequest.md
   - docs/models/operations/DeleteApiResponse.md
@@ -268,6 +275,10 @@ generatedFiles:
   - docs/models/operations/GetValidEmbedAccessTokensResponse.md
   - docs/models/operations/RevokeEmbedAccessTokenRequest.md
   - docs/models/operations/RevokeEmbedAccessTokenResponse.md
+  - docs/models/operations/GetWorkspaceEventsRequest.md
+  - docs/models/operations/GetWorkspaceEventsResponse.md
+  - docs/models/operations/GetWorkspaceTargetsRequest.md
+  - docs/models/operations/GetWorkspaceTargetsResponse.md
   - docs/models/operations/PostWorkspaceEventsRequest.md
   - docs/models/operations/PostWorkspaceEventsResponse.md
   - docs/models/shared/Error.md
@@ -294,6 +305,7 @@ generatedFiles:
   - docs/models/shared/GenerateBumpType.md
   - docs/models/shared/InteractionType.md
   - docs/models/shared/CliEvent.md
+  - docs/models/shared/TargetSDK.md
   - docs/models/shared/Security.md
   - docs/sdks/sdk/README.md
   - docs/sdks/apis/README.md

@@ -70,7 +70,7 @@ public class CliEvent {
     private Optional<? extends String> generateConfigPostRaw;
 
     /**
-     * Version of the generated target (post generation)
+     * The version of the customer's SDK that we just generated
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generate_config_post_version")
@@ -91,7 +91,7 @@ public class CliEvent {
     private Optional<? extends String> generateConfigPreRaw;
 
     /**
-     * Version of the generated target (prior to generation)
+     * The version of the customer's SDK before we generated
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generate_config_pre_version")
@@ -291,6 +291,34 @@ public class CliEvent {
     private Optional<? extends String> managementDocVersion;
 
     /**
+     * Name of the published package.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("publish_package_name")
+    private Optional<? extends String> publishPackageName;
+
+    /**
+     * Name of the registry where the package was published.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("publish_package_registry_name")
+    private Optional<? extends String> publishPackageRegistryName;
+
+    /**
+     * URL of the published package.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("publish_package_url")
+    private Optional<? extends String> publishPackageUrl;
+
+    /**
+     * Version of the published package.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("publish_package_version")
+    private Optional<? extends String> publishPackageVersion;
+
+    /**
      * Full CLI command.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -368,6 +396,10 @@ public class CliEvent {
             @JsonProperty("local_started_at") OffsetDateTime localStartedAt,
             @JsonProperty("management_doc_checksum") Optional<? extends String> managementDocChecksum,
             @JsonProperty("management_doc_version") Optional<? extends String> managementDocVersion,
+            @JsonProperty("publish_package_name") Optional<? extends String> publishPackageName,
+            @JsonProperty("publish_package_registry_name") Optional<? extends String> publishPackageRegistryName,
+            @JsonProperty("publish_package_url") Optional<? extends String> publishPackageUrl,
+            @JsonProperty("publish_package_version") Optional<? extends String> publishPackageVersion,
             @JsonProperty("raw_command") Optional<? extends String> rawCommand,
             @JsonProperty("repo_label") Optional<? extends String> repoLabel,
             @JsonProperty("speakeasy_api_key_name") String speakeasyApiKeyName,
@@ -413,6 +445,10 @@ public class CliEvent {
         Utils.checkNotNull(localStartedAt, "localStartedAt");
         Utils.checkNotNull(managementDocChecksum, "managementDocChecksum");
         Utils.checkNotNull(managementDocVersion, "managementDocVersion");
+        Utils.checkNotNull(publishPackageName, "publishPackageName");
+        Utils.checkNotNull(publishPackageRegistryName, "publishPackageRegistryName");
+        Utils.checkNotNull(publishPackageUrl, "publishPackageUrl");
+        Utils.checkNotNull(publishPackageVersion, "publishPackageVersion");
         Utils.checkNotNull(rawCommand, "rawCommand");
         Utils.checkNotNull(repoLabel, "repoLabel");
         Utils.checkNotNull(speakeasyApiKeyName, "speakeasyApiKeyName");
@@ -458,6 +494,10 @@ public class CliEvent {
         this.localStartedAt = localStartedAt;
         this.managementDocChecksum = managementDocChecksum;
         this.managementDocVersion = managementDocVersion;
+        this.publishPackageName = publishPackageName;
+        this.publishPackageRegistryName = publishPackageRegistryName;
+        this.publishPackageUrl = publishPackageUrl;
+        this.publishPackageVersion = publishPackageVersion;
         this.rawCommand = rawCommand;
         this.repoLabel = repoLabel;
         this.speakeasyApiKeyName = speakeasyApiKeyName;
@@ -516,7 +556,7 @@ public class CliEvent {
     }
 
     /**
-     * Version of the generated target (post generation)
+     * The version of the customer's SDK that we just generated
      */
     public Optional<? extends String> generateConfigPostVersion() {
         return generateConfigPostVersion;
@@ -537,7 +577,7 @@ public class CliEvent {
     }
 
     /**
-     * Version of the generated target (prior to generation)
+     * The version of the customer's SDK before we generated
      */
     public Optional<? extends String> generateConfigPreVersion() {
         return generateConfigPreVersion;
@@ -740,6 +780,34 @@ public class CliEvent {
     }
 
     /**
+     * Name of the published package.
+     */
+    public Optional<? extends String> publishPackageName() {
+        return publishPackageName;
+    }
+
+    /**
+     * Name of the registry where the package was published.
+     */
+    public Optional<? extends String> publishPackageRegistryName() {
+        return publishPackageRegistryName;
+    }
+
+    /**
+     * URL of the published package.
+     */
+    public Optional<? extends String> publishPackageUrl() {
+        return publishPackageUrl;
+    }
+
+    /**
+     * Version of the published package.
+     */
+    public Optional<? extends String> publishPackageVersion() {
+        return publishPackageVersion;
+    }
+
+    /**
      * Full CLI command.
      */
     public Optional<? extends String> rawCommand() {
@@ -894,7 +962,7 @@ public class CliEvent {
     }
 
     /**
-     * Version of the generated target (post generation)
+     * The version of the customer's SDK that we just generated
      */
     public CliEvent withGenerateConfigPostVersion(String generateConfigPostVersion) {
         Utils.checkNotNull(generateConfigPostVersion, "generateConfigPostVersion");
@@ -903,7 +971,7 @@ public class CliEvent {
     }
 
     /**
-     * Version of the generated target (post generation)
+     * The version of the customer's SDK that we just generated
      */
     public CliEvent withGenerateConfigPostVersion(Optional<? extends String> generateConfigPostVersion) {
         Utils.checkNotNull(generateConfigPostVersion, "generateConfigPostVersion");
@@ -948,7 +1016,7 @@ public class CliEvent {
     }
 
     /**
-     * Version of the generated target (prior to generation)
+     * The version of the customer's SDK before we generated
      */
     public CliEvent withGenerateConfigPreVersion(String generateConfigPreVersion) {
         Utils.checkNotNull(generateConfigPreVersion, "generateConfigPreVersion");
@@ -957,7 +1025,7 @@ public class CliEvent {
     }
 
     /**
-     * Version of the generated target (prior to generation)
+     * The version of the customer's SDK before we generated
      */
     public CliEvent withGenerateConfigPreVersion(Optional<? extends String> generateConfigPreVersion) {
         Utils.checkNotNull(generateConfigPreVersion, "generateConfigPreVersion");
@@ -1443,6 +1511,78 @@ public class CliEvent {
     }
 
     /**
+     * Name of the published package.
+     */
+    public CliEvent withPublishPackageName(String publishPackageName) {
+        Utils.checkNotNull(publishPackageName, "publishPackageName");
+        this.publishPackageName = Optional.ofNullable(publishPackageName);
+        return this;
+    }
+
+    /**
+     * Name of the published package.
+     */
+    public CliEvent withPublishPackageName(Optional<? extends String> publishPackageName) {
+        Utils.checkNotNull(publishPackageName, "publishPackageName");
+        this.publishPackageName = publishPackageName;
+        return this;
+    }
+
+    /**
+     * Name of the registry where the package was published.
+     */
+    public CliEvent withPublishPackageRegistryName(String publishPackageRegistryName) {
+        Utils.checkNotNull(publishPackageRegistryName, "publishPackageRegistryName");
+        this.publishPackageRegistryName = Optional.ofNullable(publishPackageRegistryName);
+        return this;
+    }
+
+    /**
+     * Name of the registry where the package was published.
+     */
+    public CliEvent withPublishPackageRegistryName(Optional<? extends String> publishPackageRegistryName) {
+        Utils.checkNotNull(publishPackageRegistryName, "publishPackageRegistryName");
+        this.publishPackageRegistryName = publishPackageRegistryName;
+        return this;
+    }
+
+    /**
+     * URL of the published package.
+     */
+    public CliEvent withPublishPackageUrl(String publishPackageUrl) {
+        Utils.checkNotNull(publishPackageUrl, "publishPackageUrl");
+        this.publishPackageUrl = Optional.ofNullable(publishPackageUrl);
+        return this;
+    }
+
+    /**
+     * URL of the published package.
+     */
+    public CliEvent withPublishPackageUrl(Optional<? extends String> publishPackageUrl) {
+        Utils.checkNotNull(publishPackageUrl, "publishPackageUrl");
+        this.publishPackageUrl = publishPackageUrl;
+        return this;
+    }
+
+    /**
+     * Version of the published package.
+     */
+    public CliEvent withPublishPackageVersion(String publishPackageVersion) {
+        Utils.checkNotNull(publishPackageVersion, "publishPackageVersion");
+        this.publishPackageVersion = Optional.ofNullable(publishPackageVersion);
+        return this;
+    }
+
+    /**
+     * Version of the published package.
+     */
+    public CliEvent withPublishPackageVersion(Optional<? extends String> publishPackageVersion) {
+        Utils.checkNotNull(publishPackageVersion, "publishPackageVersion");
+        this.publishPackageVersion = publishPackageVersion;
+        return this;
+    }
+
+    /**
      * Full CLI command.
      */
     public CliEvent withRawCommand(String rawCommand) {
@@ -1563,6 +1703,10 @@ public class CliEvent {
             java.util.Objects.deepEquals(this.localStartedAt, other.localStartedAt) &&
             java.util.Objects.deepEquals(this.managementDocChecksum, other.managementDocChecksum) &&
             java.util.Objects.deepEquals(this.managementDocVersion, other.managementDocVersion) &&
+            java.util.Objects.deepEquals(this.publishPackageName, other.publishPackageName) &&
+            java.util.Objects.deepEquals(this.publishPackageRegistryName, other.publishPackageRegistryName) &&
+            java.util.Objects.deepEquals(this.publishPackageUrl, other.publishPackageUrl) &&
+            java.util.Objects.deepEquals(this.publishPackageVersion, other.publishPackageVersion) &&
             java.util.Objects.deepEquals(this.rawCommand, other.rawCommand) &&
             java.util.Objects.deepEquals(this.repoLabel, other.repoLabel) &&
             java.util.Objects.deepEquals(this.speakeasyApiKeyName, other.speakeasyApiKeyName) &&
@@ -1613,6 +1757,10 @@ public class CliEvent {
             localStartedAt,
             managementDocChecksum,
             managementDocVersion,
+            publishPackageName,
+            publishPackageRegistryName,
+            publishPackageUrl,
+            publishPackageVersion,
             rawCommand,
             repoLabel,
             speakeasyApiKeyName,
@@ -1663,6 +1811,10 @@ public class CliEvent {
                 "localStartedAt", localStartedAt,
                 "managementDocChecksum", managementDocChecksum,
                 "managementDocVersion", managementDocVersion,
+                "publishPackageName", publishPackageName,
+                "publishPackageRegistryName", publishPackageRegistryName,
+                "publishPackageUrl", publishPackageUrl,
+                "publishPackageVersion", publishPackageVersion,
                 "rawCommand", rawCommand,
                 "repoLabel", repoLabel,
                 "speakeasyApiKeyName", speakeasyApiKeyName,
@@ -1750,6 +1902,14 @@ public class CliEvent {
         private Optional<? extends String> managementDocChecksum = Optional.empty();
  
         private Optional<? extends String> managementDocVersion = Optional.empty();
+ 
+        private Optional<? extends String> publishPackageName = Optional.empty();
+ 
+        private Optional<? extends String> publishPackageRegistryName = Optional.empty();
+ 
+        private Optional<? extends String> publishPackageUrl = Optional.empty();
+ 
+        private Optional<? extends String> publishPackageVersion = Optional.empty();
  
         private Optional<? extends String> rawCommand = Optional.empty();
  
@@ -1876,7 +2036,7 @@ public class CliEvent {
         }
 
         /**
-         * Version of the generated target (post generation)
+         * The version of the customer's SDK that we just generated
          */
         public Builder generateConfigPostVersion(String generateConfigPostVersion) {
             Utils.checkNotNull(generateConfigPostVersion, "generateConfigPostVersion");
@@ -1885,7 +2045,7 @@ public class CliEvent {
         }
 
         /**
-         * Version of the generated target (post generation)
+         * The version of the customer's SDK that we just generated
          */
         public Builder generateConfigPostVersion(Optional<? extends String> generateConfigPostVersion) {
             Utils.checkNotNull(generateConfigPostVersion, "generateConfigPostVersion");
@@ -1930,7 +2090,7 @@ public class CliEvent {
         }
 
         /**
-         * Version of the generated target (prior to generation)
+         * The version of the customer's SDK before we generated
          */
         public Builder generateConfigPreVersion(String generateConfigPreVersion) {
             Utils.checkNotNull(generateConfigPreVersion, "generateConfigPreVersion");
@@ -1939,7 +2099,7 @@ public class CliEvent {
         }
 
         /**
-         * Version of the generated target (prior to generation)
+         * The version of the customer's SDK before we generated
          */
         public Builder generateConfigPreVersion(Optional<? extends String> generateConfigPreVersion) {
             Utils.checkNotNull(generateConfigPreVersion, "generateConfigPreVersion");
@@ -2425,6 +2585,78 @@ public class CliEvent {
         }
 
         /**
+         * Name of the published package.
+         */
+        public Builder publishPackageName(String publishPackageName) {
+            Utils.checkNotNull(publishPackageName, "publishPackageName");
+            this.publishPackageName = Optional.ofNullable(publishPackageName);
+            return this;
+        }
+
+        /**
+         * Name of the published package.
+         */
+        public Builder publishPackageName(Optional<? extends String> publishPackageName) {
+            Utils.checkNotNull(publishPackageName, "publishPackageName");
+            this.publishPackageName = publishPackageName;
+            return this;
+        }
+
+        /**
+         * Name of the registry where the package was published.
+         */
+        public Builder publishPackageRegistryName(String publishPackageRegistryName) {
+            Utils.checkNotNull(publishPackageRegistryName, "publishPackageRegistryName");
+            this.publishPackageRegistryName = Optional.ofNullable(publishPackageRegistryName);
+            return this;
+        }
+
+        /**
+         * Name of the registry where the package was published.
+         */
+        public Builder publishPackageRegistryName(Optional<? extends String> publishPackageRegistryName) {
+            Utils.checkNotNull(publishPackageRegistryName, "publishPackageRegistryName");
+            this.publishPackageRegistryName = publishPackageRegistryName;
+            return this;
+        }
+
+        /**
+         * URL of the published package.
+         */
+        public Builder publishPackageUrl(String publishPackageUrl) {
+            Utils.checkNotNull(publishPackageUrl, "publishPackageUrl");
+            this.publishPackageUrl = Optional.ofNullable(publishPackageUrl);
+            return this;
+        }
+
+        /**
+         * URL of the published package.
+         */
+        public Builder publishPackageUrl(Optional<? extends String> publishPackageUrl) {
+            Utils.checkNotNull(publishPackageUrl, "publishPackageUrl");
+            this.publishPackageUrl = publishPackageUrl;
+            return this;
+        }
+
+        /**
+         * Version of the published package.
+         */
+        public Builder publishPackageVersion(String publishPackageVersion) {
+            Utils.checkNotNull(publishPackageVersion, "publishPackageVersion");
+            this.publishPackageVersion = Optional.ofNullable(publishPackageVersion);
+            return this;
+        }
+
+        /**
+         * Version of the published package.
+         */
+        public Builder publishPackageVersion(Optional<? extends String> publishPackageVersion) {
+            Utils.checkNotNull(publishPackageVersion, "publishPackageVersion");
+            this.publishPackageVersion = publishPackageVersion;
+            return this;
+        }
+
+        /**
          * Full CLI command.
          */
         public Builder rawCommand(String rawCommand) {
@@ -2537,6 +2769,10 @@ public class CliEvent {
                 localStartedAt,
                 managementDocChecksum,
                 managementDocVersion,
+                publishPackageName,
+                publishPackageRegistryName,
+                publishPackageUrl,
+                publishPackageVersion,
                 rawCommand,
                 repoLabel,
                 speakeasyApiKeyName,

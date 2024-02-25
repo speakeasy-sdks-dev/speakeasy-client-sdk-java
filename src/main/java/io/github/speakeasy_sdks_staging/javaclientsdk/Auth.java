@@ -138,16 +138,6 @@ public class Auth implements
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }
-        } else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
-            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
-                    Utils.toUtf8AndClose(httpRes.body()),
-                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
-                res.withError(java.util.Optional.ofNullable(out));
-            } else {
-                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
-            }
         }
 
         return res;

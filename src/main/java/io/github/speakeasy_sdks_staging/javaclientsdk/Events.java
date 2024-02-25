@@ -23,12 +23,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import org.apache.http.NameValuePair;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * REST APIs for capturing event data
  */
 public class Events implements
+            MethodCallGetWorkspaceEvents,
+            MethodCallGetWorkspaceTargets,
             MethodCallPostWorkspaceEvents {
 
     private final SDKConfiguration sdkConfiguration;
@@ -36,6 +39,162 @@ public class Events implements
     Events(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsRequestBuilder getWorkspaceEvents() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsRequestBuilder(this);
+    }
+
+    /**
+     * Load recent events for a particular workspace
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
+     */
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsResponse getWorkspaceEvents(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsRequest request) throws Exception {
+
+        String baseUrl = this.sdkConfiguration.serverUrl;
+
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsRequest.class,
+                baseUrl,
+                "/v1/workspace/{workspaceID}/events",
+                request, this.sdkConfiguration.globals);
+
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("GET");
+        req.setURL(url);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+
+        java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsRequest.class, request, this.sdkConfiguration.globals);
+        if (queryParams != null) {
+            for (NameValuePair queryParam : queryParams) {
+                req.addQueryParam(queryParam);
+            }
+        }
+
+        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+
+        HttpResponse<InputStream> httpRes = client.send(req);
+
+        String contentType = httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsResponse.Builder resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
+
+        if (httpRes.statusCode() == 200) {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent> out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent>>() {});
+                res.withCliEventBatch(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        } else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        }
+
+        return res;
+    }
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsRequestBuilder getWorkspaceTargets() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsRequestBuilder(this);
+    }
+
+    /**
+     * Load targets for a particular workspace
+     * @param request The request object containing all of the parameters for the API call.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
+     */
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse getWorkspaceTargets(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsRequest request) throws Exception {
+
+        String baseUrl = this.sdkConfiguration.serverUrl;
+
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsRequest.class,
+                baseUrl,
+                "/v1/workspace/{workspaceID}/events/targets",
+                request, this.sdkConfiguration.globals);
+
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("GET");
+        req.setURL(url);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+
+        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+
+        HttpResponse<InputStream> httpRes = client.send(req);
+
+        String contentType = httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse.Builder resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
+
+        if (httpRes.statusCode() == 200) {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.TargetSDK> out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.TargetSDK>>() {});
+                res.withTargetSDKList(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        } else if ((httpRes.statusCode() >= 500 && httpRes.statusCode() < 600)) {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        }
+
+        return res;
+    }
+
 
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequestBuilder postWorkspaceEvents() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequestBuilder(this);

@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.8.0'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.8.1'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -128,6 +128,8 @@ public class Application {
 
 ### [events()](docs/sdks/events/README.md)
 
+* [getWorkspaceEvents](docs/sdks/events/README.md#getworkspaceevents) - Load recent events for a particular workspace
+* [getWorkspaceTargets](docs/sdks/events/README.md#getworkspacetargets) - Load targets for a particular workspace
 * [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
 <!-- End Available Resources and Operations [operations] -->
 
@@ -308,13 +310,14 @@ public class Application {
 
 ### Per-Client Security Schemes
 
-This SDK supports the following security scheme globally:
+This SDK supports the following security schemes globally:
 
-| Name     | Type     | Scheme   |
-| -------- | -------- | -------- |
-| `apiKey` | apiKey   | API key  |
+| Name        | Type        | Scheme      |
+| ----------- | ----------- | ----------- |
+| `apiKey`    | apiKey      | API key     |
+| `bearer`    | http        | HTTP Bearer |
 
-You can set the security parameters through the `security` builder method when initializing the SDK client instance. For example:
+You can set the security parameters through the `security` builder method when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```java
 package hello.world;
 
@@ -367,7 +370,7 @@ public class Application {
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `workspaceID` to `"<value>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `postWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `workspaceID` to `"<value>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `getWorkspaceEvents`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -386,12 +389,9 @@ package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GenerateBumpType;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -411,26 +411,17 @@ public class Application {
                 .workspaceID("<value>")
                 .build();
 
-            PostWorkspaceEventsRequest req = PostWorkspaceEventsRequest.builder()
-                .requestBody(java.util.List.of(
-                        CliEvent.builder()
-                            .createdAt(OffsetDateTime.parse("2023-10-28T06:47:51.791Z"))
-                            .executionId("<value>")
-                            .id("<value>")
-                            .interactionType(InteractionType.CLI_EXEC)
-                            .localStartedAt(OffsetDateTime.parse("2024-02-25T22:57:22.933Z"))
-                            .speakeasyApiKeyName("<value>")
-                            .speakeasyVersion("<value>")
-                            .success(false)
-                            .workspaceId("<value>")
-                            .build()))
+            GetWorkspaceEventsRequest req = GetWorkspaceEventsRequest.builder()
+                .generateGenLockId("<value>")
                 .build();
 
-            PostWorkspaceEventsResponse res = sdk.events().postWorkspaceEvents()
+            GetWorkspaceEventsResponse res = sdk.events().getWorkspaceEvents()
                 .request(req)
                 .call();
 
-            // handle response
+            if (res.cliEventBatch().isPresent()) {
+                // handle response
+            }
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
             // handle exception
         } catch (Exception e) {

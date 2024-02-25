@@ -18,7 +18,12 @@ import java.math.BigInteger;
  */
 public enum InteractionType {
     CLI_EXEC("CLI_EXEC"),
-    TARGET_GENERATE("TARGET_GENERATE");
+    TARGET_GENERATE("TARGET_GENERATE"),
+    AUTHENTICATE("AUTHENTICATE"),
+    QUICKSTART("QUICKSTART"),
+    RUN("RUN"),
+    CONFIGURE("CONFIGURE"),
+    PUBLISH("PUBLISH");
 
     @JsonValue
     private final String value;

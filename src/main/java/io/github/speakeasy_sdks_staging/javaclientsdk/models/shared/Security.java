@@ -5,7 +5,6 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.SpeakeasyMetadata;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
@@ -13,21 +12,32 @@ import java.io.InputStream;
 import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Optional;
 
 
 public class Security {
 
     @SpeakeasyMetadata("security:scheme=true,type=apiKey,subtype=header,name=x-api-key")
-    private String apiKey;
+    private Optional<? extends String> apiKey;
+
+    @SpeakeasyMetadata("security:scheme=true,type=http,subtype=bearer,name=Authorization")
+    private Optional<? extends String> bearer;
 
     public Security(
-            String apiKey) {
+            Optional<? extends String> apiKey,
+            Optional<? extends String> bearer) {
         Utils.checkNotNull(apiKey, "apiKey");
+        Utils.checkNotNull(bearer, "bearer");
         this.apiKey = apiKey;
+        this.bearer = bearer;
     }
 
-    public String apiKey() {
+    public Optional<? extends String> apiKey() {
         return apiKey;
+    }
+
+    public Optional<? extends String> bearer() {
+        return bearer;
     }
     
     public final static Builder builder() {
@@ -36,7 +46,25 @@ public class Security {
 
     public Security withAPIKey(String apiKey) {
         Utils.checkNotNull(apiKey, "apiKey");
+        this.apiKey = Optional.ofNullable(apiKey);
+        return this;
+    }
+
+    public Security withAPIKey(Optional<? extends String> apiKey) {
+        Utils.checkNotNull(apiKey, "apiKey");
         this.apiKey = apiKey;
+        return this;
+    }
+
+    public Security withBearer(String bearer) {
+        Utils.checkNotNull(bearer, "bearer");
+        this.bearer = Optional.ofNullable(bearer);
+        return this;
+    }
+
+    public Security withBearer(Optional<? extends String> bearer) {
+        Utils.checkNotNull(bearer, "bearer");
+        this.bearer = bearer;
         return this;
     }
     
@@ -50,24 +78,29 @@ public class Security {
         }
         Security other = (Security) o;
         return 
-            java.util.Objects.deepEquals(this.apiKey, other.apiKey);
+            java.util.Objects.deepEquals(this.apiKey, other.apiKey) &&
+            java.util.Objects.deepEquals(this.bearer, other.bearer);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
-            apiKey);
+            apiKey,
+            bearer);
     }
     
     @Override
     public String toString() {
         return Utils.toString(Security.class,
-                "apiKey", apiKey);
+                "apiKey", apiKey,
+                "bearer", bearer);
     }
     
     public final static class Builder {
  
-        private String apiKey;  
+        private Optional<? extends String> apiKey = Optional.empty();
+ 
+        private Optional<? extends String> bearer = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -75,13 +108,32 @@ public class Security {
 
         public Builder apiKey(String apiKey) {
             Utils.checkNotNull(apiKey, "apiKey");
+            this.apiKey = Optional.ofNullable(apiKey);
+            return this;
+        }
+
+        public Builder apiKey(Optional<? extends String> apiKey) {
+            Utils.checkNotNull(apiKey, "apiKey");
             this.apiKey = apiKey;
+            return this;
+        }
+
+        public Builder bearer(String bearer) {
+            Utils.checkNotNull(bearer, "bearer");
+            this.bearer = Optional.ofNullable(bearer);
+            return this;
+        }
+
+        public Builder bearer(Optional<? extends String> bearer) {
+            Utils.checkNotNull(bearer, "bearer");
+            this.bearer = bearer;
             return this;
         }
         
         public Security build() {
             return new Security(
-                apiKey);
+                apiKey,
+                bearer);
         }
     }
 }

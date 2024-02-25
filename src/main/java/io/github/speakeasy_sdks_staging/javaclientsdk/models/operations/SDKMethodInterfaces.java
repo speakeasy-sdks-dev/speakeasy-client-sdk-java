@@ -212,6 +212,18 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallGetWorkspaceEvents {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsResponse getWorkspaceEvents(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallGetWorkspaceTargets {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse getWorkspaceTargets(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsRequest request) throws Exception;
+    }
+
+
     public interface MethodCallPostWorkspaceEvents {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse postWorkspaceEvents(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest request,

@@ -15,17 +15,22 @@ import java.net.http.HttpResponse;
 import java.util.Optional;
 
 
-public class GetWorkspaceAccessResponse {
+public class GetWorkspaceEventsResponse {
 
     /**
-     * OK
+     * Success
      */
-    private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails> accessDetails;
+    private Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent>> cliEventBatch;
 
     /**
      * HTTP response content type for this operation
      */
     private String contentType;
+
+    /**
+     * Error
+     */
+    private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error> error;
 
     /**
      * HTTP response status code for this operation
@@ -37,26 +42,29 @@ public class GetWorkspaceAccessResponse {
      */
     private HttpResponse<InputStream> rawResponse;
 
-    public GetWorkspaceAccessResponse(
-            Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails> accessDetails,
+    public GetWorkspaceEventsResponse(
+            Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent>> cliEventBatch,
             String contentType,
+            Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error> error,
             int statusCode,
             HttpResponse<InputStream> rawResponse) {
-        Utils.checkNotNull(accessDetails, "accessDetails");
+        Utils.checkNotNull(cliEventBatch, "cliEventBatch");
         Utils.checkNotNull(contentType, "contentType");
+        Utils.checkNotNull(error, "error");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
-        this.accessDetails = accessDetails;
+        this.cliEventBatch = cliEventBatch;
         this.contentType = contentType;
+        this.error = error;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
     }
 
     /**
-     * OK
+     * Success
      */
-    public Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails> accessDetails() {
-        return accessDetails;
+    public Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent>> cliEventBatch() {
+        return cliEventBatch;
     }
 
     /**
@@ -64,6 +72,13 @@ public class GetWorkspaceAccessResponse {
      */
     public String contentType() {
         return contentType;
+    }
+
+    /**
+     * Error
+     */
+    public Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error> error() {
+        return error;
     }
 
     /**
@@ -85,36 +100,54 @@ public class GetWorkspaceAccessResponse {
     }
 
     /**
-     * OK
+     * Success
      */
-    public GetWorkspaceAccessResponse withAccessDetails(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails accessDetails) {
-        Utils.checkNotNull(accessDetails, "accessDetails");
-        this.accessDetails = Optional.ofNullable(accessDetails);
+    public GetWorkspaceEventsResponse withCliEventBatch(java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent> cliEventBatch) {
+        Utils.checkNotNull(cliEventBatch, "cliEventBatch");
+        this.cliEventBatch = Optional.ofNullable(cliEventBatch);
         return this;
     }
 
     /**
-     * OK
+     * Success
      */
-    public GetWorkspaceAccessResponse withAccessDetails(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails> accessDetails) {
-        Utils.checkNotNull(accessDetails, "accessDetails");
-        this.accessDetails = accessDetails;
+    public GetWorkspaceEventsResponse withCliEventBatch(Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent>> cliEventBatch) {
+        Utils.checkNotNull(cliEventBatch, "cliEventBatch");
+        this.cliEventBatch = cliEventBatch;
         return this;
     }
 
     /**
      * HTTP response content type for this operation
      */
-    public GetWorkspaceAccessResponse withContentType(String contentType) {
+    public GetWorkspaceEventsResponse withContentType(String contentType) {
         Utils.checkNotNull(contentType, "contentType");
         this.contentType = contentType;
         return this;
     }
 
     /**
+     * Error
+     */
+    public GetWorkspaceEventsResponse withError(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error error) {
+        Utils.checkNotNull(error, "error");
+        this.error = Optional.ofNullable(error);
+        return this;
+    }
+
+    /**
+     * Error
+     */
+    public GetWorkspaceEventsResponse withError(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error> error) {
+        Utils.checkNotNull(error, "error");
+        this.error = error;
+        return this;
+    }
+
+    /**
      * HTTP response status code for this operation
      */
-    public GetWorkspaceAccessResponse withStatusCode(int statusCode) {
+    public GetWorkspaceEventsResponse withStatusCode(int statusCode) {
         Utils.checkNotNull(statusCode, "statusCode");
         this.statusCode = statusCode;
         return this;
@@ -123,7 +156,7 @@ public class GetWorkspaceAccessResponse {
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    public GetWorkspaceAccessResponse withRawResponse(HttpResponse<InputStream> rawResponse) {
+    public GetWorkspaceEventsResponse withRawResponse(HttpResponse<InputStream> rawResponse) {
         Utils.checkNotNull(rawResponse, "rawResponse");
         this.rawResponse = rawResponse;
         return this;
@@ -137,10 +170,11 @@ public class GetWorkspaceAccessResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetWorkspaceAccessResponse other = (GetWorkspaceAccessResponse) o;
+        GetWorkspaceEventsResponse other = (GetWorkspaceEventsResponse) o;
         return 
-            java.util.Objects.deepEquals(this.accessDetails, other.accessDetails) &&
+            java.util.Objects.deepEquals(this.cliEventBatch, other.cliEventBatch) &&
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
+            java.util.Objects.deepEquals(this.error, other.error) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
             java.util.Objects.deepEquals(this.rawResponse, other.rawResponse);
     }
@@ -148,26 +182,30 @@ public class GetWorkspaceAccessResponse {
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
-            accessDetails,
+            cliEventBatch,
             contentType,
+            error,
             statusCode,
             rawResponse);
     }
     
     @Override
     public String toString() {
-        return Utils.toString(GetWorkspaceAccessResponse.class,
-                "accessDetails", accessDetails,
+        return Utils.toString(GetWorkspaceEventsResponse.class,
+                "cliEventBatch", cliEventBatch,
                 "contentType", contentType,
+                "error", error,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse);
     }
     
     public final static class Builder {
  
-        private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails> accessDetails = Optional.empty();
+        private Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent>> cliEventBatch = Optional.empty();
  
         private String contentType;
+ 
+        private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error> error = Optional.empty();
  
         private Integer statusCode;
  
@@ -178,20 +216,20 @@ public class GetWorkspaceAccessResponse {
         }
 
         /**
-         * OK
+         * Success
          */
-        public Builder accessDetails(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails accessDetails) {
-            Utils.checkNotNull(accessDetails, "accessDetails");
-            this.accessDetails = Optional.ofNullable(accessDetails);
+        public Builder cliEventBatch(java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent> cliEventBatch) {
+            Utils.checkNotNull(cliEventBatch, "cliEventBatch");
+            this.cliEventBatch = Optional.ofNullable(cliEventBatch);
             return this;
         }
 
         /**
-         * OK
+         * Success
          */
-        public Builder accessDetails(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessDetails> accessDetails) {
-            Utils.checkNotNull(accessDetails, "accessDetails");
-            this.accessDetails = accessDetails;
+        public Builder cliEventBatch(Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent>> cliEventBatch) {
+            Utils.checkNotNull(cliEventBatch, "cliEventBatch");
+            this.cliEventBatch = cliEventBatch;
             return this;
         }
 
@@ -201,6 +239,24 @@ public class GetWorkspaceAccessResponse {
         public Builder contentType(String contentType) {
             Utils.checkNotNull(contentType, "contentType");
             this.contentType = contentType;
+            return this;
+        }
+
+        /**
+         * Error
+         */
+        public Builder error(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error error) {
+            Utils.checkNotNull(error, "error");
+            this.error = Optional.ofNullable(error);
+            return this;
+        }
+
+        /**
+         * Error
+         */
+        public Builder error(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error> error) {
+            Utils.checkNotNull(error, "error");
+            this.error = error;
             return this;
         }
 
@@ -222,10 +278,11 @@ public class GetWorkspaceAccessResponse {
             return this;
         }
         
-        public GetWorkspaceAccessResponse build() {
-            return new GetWorkspaceAccessResponse(
-                accessDetails,
+        public GetWorkspaceEventsResponse build() {
+            return new GetWorkspaceEventsResponse(
+                cliEventBatch,
                 contentType,
+                error,
                 statusCode,
                 rawResponse);
         }
