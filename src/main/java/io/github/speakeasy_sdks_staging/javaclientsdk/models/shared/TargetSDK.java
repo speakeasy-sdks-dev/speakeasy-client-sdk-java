@@ -30,12 +30,6 @@ public class TargetSDK {
     private Optional<? extends String> commitHead;
 
     /**
-     * Timestamp when the event was created in the database.
-     */
-    @JsonProperty("created_at")
-    private OffsetDateTime createdAt;
-
-    /**
      * Version of the generated target (post generation)
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -43,11 +37,10 @@ public class TargetSDK {
     private Optional<? extends String> generateConfigPostVersion;
 
     /**
-     * gen.lock ID (expected to be a uuid).
+     * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generate_gen_lock_id")
-    private Optional<? extends String> generateGenLockId;
+    private String generateGenLockId;
 
     /**
      * Indicates whether the target was considered published.
@@ -63,11 +56,39 @@ public class TargetSDK {
     private String generateTarget;
 
     /**
-     * The version of the target.
+     * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generate_target_version")
     private Optional<? extends String> generateTargetVersion;
+
+    /**
+     * GitHub organization of the action.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("gh_action_organization")
+    private Optional<? extends String> ghActionOrganization;
+
+    /**
+     * GitHub repository of the action.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("gh_action_repository")
+    private Optional<? extends String> ghActionRepository;
+
+    /**
+     * Link to the GitHub action run.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("gh_action_run_link")
+    private Optional<? extends String> ghActionRunLink;
+
+    /**
+     * Version of the GitHub action.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("gh_action_version")
+    private Optional<? extends String> ghActionVersion;
 
     /**
      * Current working directory relative to the git root.
@@ -91,10 +112,50 @@ public class TargetSDK {
     private Optional<? extends String> gitRemoteDefaultRepo;
 
     /**
-     * Unique identifier for each event.
+     * User email from git configuration.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("git_user_email")
+    private Optional<? extends String> gitUserEmail;
+
+    /**
+     * User's name from git configuration. (not GitHub username)
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("git_user_name")
+    private Optional<? extends String> gitUserName;
+
+    /**
+     * Remote hostname.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("hostname")
+    private Optional<? extends String> hostname;
+
+    /**
+     * Unique identifier of the target the same as `generate_gen_lock_id`
      */
     @JsonProperty("id")
     private String id;
+
+    /**
+     * Timestamp when the event was created in the database.
+     */
+    @JsonProperty("last_event_created_at")
+    private OffsetDateTime lastEventCreatedAt;
+
+    /**
+     * Unique identifier of the last event for the target
+     */
+    @JsonProperty("last_event_id")
+    private String lastEventId;
+
+    /**
+     * Label of the git repository.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("repo_label")
+    private Optional<? extends String> repoLabel;
 
     /**
      * Indicates whether the event was successful.
@@ -105,40 +166,67 @@ public class TargetSDK {
 
     public TargetSDK(
             @JsonProperty("commit_head") Optional<? extends String> commitHead,
-            @JsonProperty("created_at") OffsetDateTime createdAt,
             @JsonProperty("generate_config_post_version") Optional<? extends String> generateConfigPostVersion,
-            @JsonProperty("generate_gen_lock_id") Optional<? extends String> generateGenLockId,
+            @JsonProperty("generate_gen_lock_id") String generateGenLockId,
             @JsonProperty("generate_published") Optional<? extends Boolean> generatePublished,
             @JsonProperty("generate_target") String generateTarget,
             @JsonProperty("generate_target_version") Optional<? extends String> generateTargetVersion,
+            @JsonProperty("gh_action_organization") Optional<? extends String> ghActionOrganization,
+            @JsonProperty("gh_action_repository") Optional<? extends String> ghActionRepository,
+            @JsonProperty("gh_action_run_link") Optional<? extends String> ghActionRunLink,
+            @JsonProperty("gh_action_version") Optional<? extends String> ghActionVersion,
             @JsonProperty("git_relative_cwd") Optional<? extends String> gitRelativeCwd,
             @JsonProperty("git_remote_default_owner") Optional<? extends String> gitRemoteDefaultOwner,
             @JsonProperty("git_remote_default_repo") Optional<? extends String> gitRemoteDefaultRepo,
+            @JsonProperty("git_user_email") Optional<? extends String> gitUserEmail,
+            @JsonProperty("git_user_name") Optional<? extends String> gitUserName,
+            @JsonProperty("hostname") Optional<? extends String> hostname,
             @JsonProperty("id") String id,
+            @JsonProperty("last_event_created_at") OffsetDateTime lastEventCreatedAt,
+            @JsonProperty("last_event_id") String lastEventId,
+            @JsonProperty("repo_label") Optional<? extends String> repoLabel,
             @JsonProperty("success") Optional<? extends Boolean> success) {
         Utils.checkNotNull(commitHead, "commitHead");
-        Utils.checkNotNull(createdAt, "createdAt");
         Utils.checkNotNull(generateConfigPostVersion, "generateConfigPostVersion");
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
         Utils.checkNotNull(generatePublished, "generatePublished");
         Utils.checkNotNull(generateTarget, "generateTarget");
         Utils.checkNotNull(generateTargetVersion, "generateTargetVersion");
+        Utils.checkNotNull(ghActionOrganization, "ghActionOrganization");
+        Utils.checkNotNull(ghActionRepository, "ghActionRepository");
+        Utils.checkNotNull(ghActionRunLink, "ghActionRunLink");
+        Utils.checkNotNull(ghActionVersion, "ghActionVersion");
         Utils.checkNotNull(gitRelativeCwd, "gitRelativeCwd");
         Utils.checkNotNull(gitRemoteDefaultOwner, "gitRemoteDefaultOwner");
         Utils.checkNotNull(gitRemoteDefaultRepo, "gitRemoteDefaultRepo");
+        Utils.checkNotNull(gitUserEmail, "gitUserEmail");
+        Utils.checkNotNull(gitUserName, "gitUserName");
+        Utils.checkNotNull(hostname, "hostname");
         Utils.checkNotNull(id, "id");
+        Utils.checkNotNull(lastEventCreatedAt, "lastEventCreatedAt");
+        Utils.checkNotNull(lastEventId, "lastEventId");
+        Utils.checkNotNull(repoLabel, "repoLabel");
         Utils.checkNotNull(success, "success");
         this.commitHead = commitHead;
-        this.createdAt = createdAt;
         this.generateConfigPostVersion = generateConfigPostVersion;
         this.generateGenLockId = generateGenLockId;
         this.generatePublished = generatePublished;
         this.generateTarget = generateTarget;
         this.generateTargetVersion = generateTargetVersion;
+        this.ghActionOrganization = ghActionOrganization;
+        this.ghActionRepository = ghActionRepository;
+        this.ghActionRunLink = ghActionRunLink;
+        this.ghActionVersion = ghActionVersion;
         this.gitRelativeCwd = gitRelativeCwd;
         this.gitRemoteDefaultOwner = gitRemoteDefaultOwner;
         this.gitRemoteDefaultRepo = gitRemoteDefaultRepo;
+        this.gitUserEmail = gitUserEmail;
+        this.gitUserName = gitUserName;
+        this.hostname = hostname;
         this.id = id;
+        this.lastEventCreatedAt = lastEventCreatedAt;
+        this.lastEventId = lastEventId;
+        this.repoLabel = repoLabel;
         this.success = success;
     }
 
@@ -150,13 +238,6 @@ public class TargetSDK {
     }
 
     /**
-     * Timestamp when the event was created in the database.
-     */
-    public OffsetDateTime createdAt() {
-        return createdAt;
-    }
-
-    /**
      * Version of the generated target (post generation)
      */
     public Optional<? extends String> generateConfigPostVersion() {
@@ -164,9 +245,9 @@ public class TargetSDK {
     }
 
     /**
-     * gen.lock ID (expected to be a uuid).
+     * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
      */
-    public Optional<? extends String> generateGenLockId() {
+    public String generateGenLockId() {
         return generateGenLockId;
     }
 
@@ -185,10 +266,38 @@ public class TargetSDK {
     }
 
     /**
-     * The version of the target.
+     * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
      */
     public Optional<? extends String> generateTargetVersion() {
         return generateTargetVersion;
+    }
+
+    /**
+     * GitHub organization of the action.
+     */
+    public Optional<? extends String> ghActionOrganization() {
+        return ghActionOrganization;
+    }
+
+    /**
+     * GitHub repository of the action.
+     */
+    public Optional<? extends String> ghActionRepository() {
+        return ghActionRepository;
+    }
+
+    /**
+     * Link to the GitHub action run.
+     */
+    public Optional<? extends String> ghActionRunLink() {
+        return ghActionRunLink;
+    }
+
+    /**
+     * Version of the GitHub action.
+     */
+    public Optional<? extends String> ghActionVersion() {
+        return ghActionVersion;
     }
 
     /**
@@ -213,10 +322,52 @@ public class TargetSDK {
     }
 
     /**
-     * Unique identifier for each event.
+     * User email from git configuration.
+     */
+    public Optional<? extends String> gitUserEmail() {
+        return gitUserEmail;
+    }
+
+    /**
+     * User's name from git configuration. (not GitHub username)
+     */
+    public Optional<? extends String> gitUserName() {
+        return gitUserName;
+    }
+
+    /**
+     * Remote hostname.
+     */
+    public Optional<? extends String> hostname() {
+        return hostname;
+    }
+
+    /**
+     * Unique identifier of the target the same as `generate_gen_lock_id`
      */
     public String id() {
         return id;
+    }
+
+    /**
+     * Timestamp when the event was created in the database.
+     */
+    public OffsetDateTime lastEventCreatedAt() {
+        return lastEventCreatedAt;
+    }
+
+    /**
+     * Unique identifier of the last event for the target
+     */
+    public String lastEventId() {
+        return lastEventId;
+    }
+
+    /**
+     * Label of the git repository.
+     */
+    public Optional<? extends String> repoLabel() {
+        return repoLabel;
     }
 
     /**
@@ -249,15 +400,6 @@ public class TargetSDK {
     }
 
     /**
-     * Timestamp when the event was created in the database.
-     */
-    public TargetSDK withCreatedAt(OffsetDateTime createdAt) {
-        Utils.checkNotNull(createdAt, "createdAt");
-        this.createdAt = createdAt;
-        return this;
-    }
-
-    /**
      * Version of the generated target (post generation)
      */
     public TargetSDK withGenerateConfigPostVersion(String generateConfigPostVersion) {
@@ -276,18 +418,9 @@ public class TargetSDK {
     }
 
     /**
-     * gen.lock ID (expected to be a uuid).
+     * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
      */
     public TargetSDK withGenerateGenLockId(String generateGenLockId) {
-        Utils.checkNotNull(generateGenLockId, "generateGenLockId");
-        this.generateGenLockId = Optional.ofNullable(generateGenLockId);
-        return this;
-    }
-
-    /**
-     * gen.lock ID (expected to be a uuid).
-     */
-    public TargetSDK withGenerateGenLockId(Optional<? extends String> generateGenLockId) {
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
         this.generateGenLockId = generateGenLockId;
         return this;
@@ -321,7 +454,7 @@ public class TargetSDK {
     }
 
     /**
-     * The version of the target.
+     * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
      */
     public TargetSDK withGenerateTargetVersion(String generateTargetVersion) {
         Utils.checkNotNull(generateTargetVersion, "generateTargetVersion");
@@ -330,11 +463,83 @@ public class TargetSDK {
     }
 
     /**
-     * The version of the target.
+     * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
      */
     public TargetSDK withGenerateTargetVersion(Optional<? extends String> generateTargetVersion) {
         Utils.checkNotNull(generateTargetVersion, "generateTargetVersion");
         this.generateTargetVersion = generateTargetVersion;
+        return this;
+    }
+
+    /**
+     * GitHub organization of the action.
+     */
+    public TargetSDK withGhActionOrganization(String ghActionOrganization) {
+        Utils.checkNotNull(ghActionOrganization, "ghActionOrganization");
+        this.ghActionOrganization = Optional.ofNullable(ghActionOrganization);
+        return this;
+    }
+
+    /**
+     * GitHub organization of the action.
+     */
+    public TargetSDK withGhActionOrganization(Optional<? extends String> ghActionOrganization) {
+        Utils.checkNotNull(ghActionOrganization, "ghActionOrganization");
+        this.ghActionOrganization = ghActionOrganization;
+        return this;
+    }
+
+    /**
+     * GitHub repository of the action.
+     */
+    public TargetSDK withGhActionRepository(String ghActionRepository) {
+        Utils.checkNotNull(ghActionRepository, "ghActionRepository");
+        this.ghActionRepository = Optional.ofNullable(ghActionRepository);
+        return this;
+    }
+
+    /**
+     * GitHub repository of the action.
+     */
+    public TargetSDK withGhActionRepository(Optional<? extends String> ghActionRepository) {
+        Utils.checkNotNull(ghActionRepository, "ghActionRepository");
+        this.ghActionRepository = ghActionRepository;
+        return this;
+    }
+
+    /**
+     * Link to the GitHub action run.
+     */
+    public TargetSDK withGhActionRunLink(String ghActionRunLink) {
+        Utils.checkNotNull(ghActionRunLink, "ghActionRunLink");
+        this.ghActionRunLink = Optional.ofNullable(ghActionRunLink);
+        return this;
+    }
+
+    /**
+     * Link to the GitHub action run.
+     */
+    public TargetSDK withGhActionRunLink(Optional<? extends String> ghActionRunLink) {
+        Utils.checkNotNull(ghActionRunLink, "ghActionRunLink");
+        this.ghActionRunLink = ghActionRunLink;
+        return this;
+    }
+
+    /**
+     * Version of the GitHub action.
+     */
+    public TargetSDK withGhActionVersion(String ghActionVersion) {
+        Utils.checkNotNull(ghActionVersion, "ghActionVersion");
+        this.ghActionVersion = Optional.ofNullable(ghActionVersion);
+        return this;
+    }
+
+    /**
+     * Version of the GitHub action.
+     */
+    public TargetSDK withGhActionVersion(Optional<? extends String> ghActionVersion) {
+        Utils.checkNotNull(ghActionVersion, "ghActionVersion");
+        this.ghActionVersion = ghActionVersion;
         return this;
     }
 
@@ -393,11 +598,101 @@ public class TargetSDK {
     }
 
     /**
-     * Unique identifier for each event.
+     * User email from git configuration.
+     */
+    public TargetSDK withGitUserEmail(String gitUserEmail) {
+        Utils.checkNotNull(gitUserEmail, "gitUserEmail");
+        this.gitUserEmail = Optional.ofNullable(gitUserEmail);
+        return this;
+    }
+
+    /**
+     * User email from git configuration.
+     */
+    public TargetSDK withGitUserEmail(Optional<? extends String> gitUserEmail) {
+        Utils.checkNotNull(gitUserEmail, "gitUserEmail");
+        this.gitUserEmail = gitUserEmail;
+        return this;
+    }
+
+    /**
+     * User's name from git configuration. (not GitHub username)
+     */
+    public TargetSDK withGitUserName(String gitUserName) {
+        Utils.checkNotNull(gitUserName, "gitUserName");
+        this.gitUserName = Optional.ofNullable(gitUserName);
+        return this;
+    }
+
+    /**
+     * User's name from git configuration. (not GitHub username)
+     */
+    public TargetSDK withGitUserName(Optional<? extends String> gitUserName) {
+        Utils.checkNotNull(gitUserName, "gitUserName");
+        this.gitUserName = gitUserName;
+        return this;
+    }
+
+    /**
+     * Remote hostname.
+     */
+    public TargetSDK withHostname(String hostname) {
+        Utils.checkNotNull(hostname, "hostname");
+        this.hostname = Optional.ofNullable(hostname);
+        return this;
+    }
+
+    /**
+     * Remote hostname.
+     */
+    public TargetSDK withHostname(Optional<? extends String> hostname) {
+        Utils.checkNotNull(hostname, "hostname");
+        this.hostname = hostname;
+        return this;
+    }
+
+    /**
+     * Unique identifier of the target the same as `generate_gen_lock_id`
      */
     public TargetSDK withId(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
+        return this;
+    }
+
+    /**
+     * Timestamp when the event was created in the database.
+     */
+    public TargetSDK withLastEventCreatedAt(OffsetDateTime lastEventCreatedAt) {
+        Utils.checkNotNull(lastEventCreatedAt, "lastEventCreatedAt");
+        this.lastEventCreatedAt = lastEventCreatedAt;
+        return this;
+    }
+
+    /**
+     * Unique identifier of the last event for the target
+     */
+    public TargetSDK withLastEventId(String lastEventId) {
+        Utils.checkNotNull(lastEventId, "lastEventId");
+        this.lastEventId = lastEventId;
+        return this;
+    }
+
+    /**
+     * Label of the git repository.
+     */
+    public TargetSDK withRepoLabel(String repoLabel) {
+        Utils.checkNotNull(repoLabel, "repoLabel");
+        this.repoLabel = Optional.ofNullable(repoLabel);
+        return this;
+    }
+
+    /**
+     * Label of the git repository.
+     */
+    public TargetSDK withRepoLabel(Optional<? extends String> repoLabel) {
+        Utils.checkNotNull(repoLabel, "repoLabel");
+        this.repoLabel = repoLabel;
         return this;
     }
 
@@ -430,16 +725,25 @@ public class TargetSDK {
         TargetSDK other = (TargetSDK) o;
         return 
             java.util.Objects.deepEquals(this.commitHead, other.commitHead) &&
-            java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
             java.util.Objects.deepEquals(this.generateConfigPostVersion, other.generateConfigPostVersion) &&
             java.util.Objects.deepEquals(this.generateGenLockId, other.generateGenLockId) &&
             java.util.Objects.deepEquals(this.generatePublished, other.generatePublished) &&
             java.util.Objects.deepEquals(this.generateTarget, other.generateTarget) &&
             java.util.Objects.deepEquals(this.generateTargetVersion, other.generateTargetVersion) &&
+            java.util.Objects.deepEquals(this.ghActionOrganization, other.ghActionOrganization) &&
+            java.util.Objects.deepEquals(this.ghActionRepository, other.ghActionRepository) &&
+            java.util.Objects.deepEquals(this.ghActionRunLink, other.ghActionRunLink) &&
+            java.util.Objects.deepEquals(this.ghActionVersion, other.ghActionVersion) &&
             java.util.Objects.deepEquals(this.gitRelativeCwd, other.gitRelativeCwd) &&
             java.util.Objects.deepEquals(this.gitRemoteDefaultOwner, other.gitRemoteDefaultOwner) &&
             java.util.Objects.deepEquals(this.gitRemoteDefaultRepo, other.gitRemoteDefaultRepo) &&
+            java.util.Objects.deepEquals(this.gitUserEmail, other.gitUserEmail) &&
+            java.util.Objects.deepEquals(this.gitUserName, other.gitUserName) &&
+            java.util.Objects.deepEquals(this.hostname, other.hostname) &&
             java.util.Objects.deepEquals(this.id, other.id) &&
+            java.util.Objects.deepEquals(this.lastEventCreatedAt, other.lastEventCreatedAt) &&
+            java.util.Objects.deepEquals(this.lastEventId, other.lastEventId) &&
+            java.util.Objects.deepEquals(this.repoLabel, other.repoLabel) &&
             java.util.Objects.deepEquals(this.success, other.success);
     }
     
@@ -447,16 +751,25 @@ public class TargetSDK {
     public int hashCode() {
         return java.util.Objects.hash(
             commitHead,
-            createdAt,
             generateConfigPostVersion,
             generateGenLockId,
             generatePublished,
             generateTarget,
             generateTargetVersion,
+            ghActionOrganization,
+            ghActionRepository,
+            ghActionRunLink,
+            ghActionVersion,
             gitRelativeCwd,
             gitRemoteDefaultOwner,
             gitRemoteDefaultRepo,
+            gitUserEmail,
+            gitUserName,
+            hostname,
             id,
+            lastEventCreatedAt,
+            lastEventId,
+            repoLabel,
             success);
     }
     
@@ -464,16 +777,25 @@ public class TargetSDK {
     public String toString() {
         return Utils.toString(TargetSDK.class,
                 "commitHead", commitHead,
-                "createdAt", createdAt,
                 "generateConfigPostVersion", generateConfigPostVersion,
                 "generateGenLockId", generateGenLockId,
                 "generatePublished", generatePublished,
                 "generateTarget", generateTarget,
                 "generateTargetVersion", generateTargetVersion,
+                "ghActionOrganization", ghActionOrganization,
+                "ghActionRepository", ghActionRepository,
+                "ghActionRunLink", ghActionRunLink,
+                "ghActionVersion", ghActionVersion,
                 "gitRelativeCwd", gitRelativeCwd,
                 "gitRemoteDefaultOwner", gitRemoteDefaultOwner,
                 "gitRemoteDefaultRepo", gitRemoteDefaultRepo,
+                "gitUserEmail", gitUserEmail,
+                "gitUserName", gitUserName,
+                "hostname", hostname,
                 "id", id,
+                "lastEventCreatedAt", lastEventCreatedAt,
+                "lastEventId", lastEventId,
+                "repoLabel", repoLabel,
                 "success", success);
     }
     
@@ -481,11 +803,9 @@ public class TargetSDK {
  
         private Optional<? extends String> commitHead = Optional.empty();
  
-        private OffsetDateTime createdAt;
- 
         private Optional<? extends String> generateConfigPostVersion = Optional.empty();
  
-        private Optional<? extends String> generateGenLockId = Optional.empty();
+        private String generateGenLockId;
  
         private Optional<? extends Boolean> generatePublished = Optional.empty();
  
@@ -493,13 +813,33 @@ public class TargetSDK {
  
         private Optional<? extends String> generateTargetVersion = Optional.empty();
  
+        private Optional<? extends String> ghActionOrganization = Optional.empty();
+ 
+        private Optional<? extends String> ghActionRepository = Optional.empty();
+ 
+        private Optional<? extends String> ghActionRunLink = Optional.empty();
+ 
+        private Optional<? extends String> ghActionVersion = Optional.empty();
+ 
         private Optional<? extends String> gitRelativeCwd = Optional.empty();
  
         private Optional<? extends String> gitRemoteDefaultOwner = Optional.empty();
  
         private Optional<? extends String> gitRemoteDefaultRepo = Optional.empty();
  
+        private Optional<? extends String> gitUserEmail = Optional.empty();
+ 
+        private Optional<? extends String> gitUserName = Optional.empty();
+ 
+        private Optional<? extends String> hostname = Optional.empty();
+ 
         private String id;
+ 
+        private OffsetDateTime lastEventCreatedAt;
+ 
+        private String lastEventId;
+ 
+        private Optional<? extends String> repoLabel = Optional.empty();
  
         private Optional<? extends Boolean> success = Optional.empty();  
         
@@ -526,15 +866,6 @@ public class TargetSDK {
         }
 
         /**
-         * Timestamp when the event was created in the database.
-         */
-        public Builder createdAt(OffsetDateTime createdAt) {
-            Utils.checkNotNull(createdAt, "createdAt");
-            this.createdAt = createdAt;
-            return this;
-        }
-
-        /**
          * Version of the generated target (post generation)
          */
         public Builder generateConfigPostVersion(String generateConfigPostVersion) {
@@ -553,18 +884,9 @@ public class TargetSDK {
         }
 
         /**
-         * gen.lock ID (expected to be a uuid).
+         * gen.lock ID (expected to be a uuid). The same as `id`. A unique identifier for the target.
          */
         public Builder generateGenLockId(String generateGenLockId) {
-            Utils.checkNotNull(generateGenLockId, "generateGenLockId");
-            this.generateGenLockId = Optional.ofNullable(generateGenLockId);
-            return this;
-        }
-
-        /**
-         * gen.lock ID (expected to be a uuid).
-         */
-        public Builder generateGenLockId(Optional<? extends String> generateGenLockId) {
             Utils.checkNotNull(generateGenLockId, "generateGenLockId");
             this.generateGenLockId = generateGenLockId;
             return this;
@@ -598,7 +920,7 @@ public class TargetSDK {
         }
 
         /**
-         * The version of the target.
+         * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
          */
         public Builder generateTargetVersion(String generateTargetVersion) {
             Utils.checkNotNull(generateTargetVersion, "generateTargetVersion");
@@ -607,11 +929,83 @@ public class TargetSDK {
         }
 
         /**
-         * The version of the target.
+         * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
          */
         public Builder generateTargetVersion(Optional<? extends String> generateTargetVersion) {
             Utils.checkNotNull(generateTargetVersion, "generateTargetVersion");
             this.generateTargetVersion = generateTargetVersion;
+            return this;
+        }
+
+        /**
+         * GitHub organization of the action.
+         */
+        public Builder ghActionOrganization(String ghActionOrganization) {
+            Utils.checkNotNull(ghActionOrganization, "ghActionOrganization");
+            this.ghActionOrganization = Optional.ofNullable(ghActionOrganization);
+            return this;
+        }
+
+        /**
+         * GitHub organization of the action.
+         */
+        public Builder ghActionOrganization(Optional<? extends String> ghActionOrganization) {
+            Utils.checkNotNull(ghActionOrganization, "ghActionOrganization");
+            this.ghActionOrganization = ghActionOrganization;
+            return this;
+        }
+
+        /**
+         * GitHub repository of the action.
+         */
+        public Builder ghActionRepository(String ghActionRepository) {
+            Utils.checkNotNull(ghActionRepository, "ghActionRepository");
+            this.ghActionRepository = Optional.ofNullable(ghActionRepository);
+            return this;
+        }
+
+        /**
+         * GitHub repository of the action.
+         */
+        public Builder ghActionRepository(Optional<? extends String> ghActionRepository) {
+            Utils.checkNotNull(ghActionRepository, "ghActionRepository");
+            this.ghActionRepository = ghActionRepository;
+            return this;
+        }
+
+        /**
+         * Link to the GitHub action run.
+         */
+        public Builder ghActionRunLink(String ghActionRunLink) {
+            Utils.checkNotNull(ghActionRunLink, "ghActionRunLink");
+            this.ghActionRunLink = Optional.ofNullable(ghActionRunLink);
+            return this;
+        }
+
+        /**
+         * Link to the GitHub action run.
+         */
+        public Builder ghActionRunLink(Optional<? extends String> ghActionRunLink) {
+            Utils.checkNotNull(ghActionRunLink, "ghActionRunLink");
+            this.ghActionRunLink = ghActionRunLink;
+            return this;
+        }
+
+        /**
+         * Version of the GitHub action.
+         */
+        public Builder ghActionVersion(String ghActionVersion) {
+            Utils.checkNotNull(ghActionVersion, "ghActionVersion");
+            this.ghActionVersion = Optional.ofNullable(ghActionVersion);
+            return this;
+        }
+
+        /**
+         * Version of the GitHub action.
+         */
+        public Builder ghActionVersion(Optional<? extends String> ghActionVersion) {
+            Utils.checkNotNull(ghActionVersion, "ghActionVersion");
+            this.ghActionVersion = ghActionVersion;
             return this;
         }
 
@@ -670,11 +1064,101 @@ public class TargetSDK {
         }
 
         /**
-         * Unique identifier for each event.
+         * User email from git configuration.
+         */
+        public Builder gitUserEmail(String gitUserEmail) {
+            Utils.checkNotNull(gitUserEmail, "gitUserEmail");
+            this.gitUserEmail = Optional.ofNullable(gitUserEmail);
+            return this;
+        }
+
+        /**
+         * User email from git configuration.
+         */
+        public Builder gitUserEmail(Optional<? extends String> gitUserEmail) {
+            Utils.checkNotNull(gitUserEmail, "gitUserEmail");
+            this.gitUserEmail = gitUserEmail;
+            return this;
+        }
+
+        /**
+         * User's name from git configuration. (not GitHub username)
+         */
+        public Builder gitUserName(String gitUserName) {
+            Utils.checkNotNull(gitUserName, "gitUserName");
+            this.gitUserName = Optional.ofNullable(gitUserName);
+            return this;
+        }
+
+        /**
+         * User's name from git configuration. (not GitHub username)
+         */
+        public Builder gitUserName(Optional<? extends String> gitUserName) {
+            Utils.checkNotNull(gitUserName, "gitUserName");
+            this.gitUserName = gitUserName;
+            return this;
+        }
+
+        /**
+         * Remote hostname.
+         */
+        public Builder hostname(String hostname) {
+            Utils.checkNotNull(hostname, "hostname");
+            this.hostname = Optional.ofNullable(hostname);
+            return this;
+        }
+
+        /**
+         * Remote hostname.
+         */
+        public Builder hostname(Optional<? extends String> hostname) {
+            Utils.checkNotNull(hostname, "hostname");
+            this.hostname = hostname;
+            return this;
+        }
+
+        /**
+         * Unique identifier of the target the same as `generate_gen_lock_id`
          */
         public Builder id(String id) {
             Utils.checkNotNull(id, "id");
             this.id = id;
+            return this;
+        }
+
+        /**
+         * Timestamp when the event was created in the database.
+         */
+        public Builder lastEventCreatedAt(OffsetDateTime lastEventCreatedAt) {
+            Utils.checkNotNull(lastEventCreatedAt, "lastEventCreatedAt");
+            this.lastEventCreatedAt = lastEventCreatedAt;
+            return this;
+        }
+
+        /**
+         * Unique identifier of the last event for the target
+         */
+        public Builder lastEventId(String lastEventId) {
+            Utils.checkNotNull(lastEventId, "lastEventId");
+            this.lastEventId = lastEventId;
+            return this;
+        }
+
+        /**
+         * Label of the git repository.
+         */
+        public Builder repoLabel(String repoLabel) {
+            Utils.checkNotNull(repoLabel, "repoLabel");
+            this.repoLabel = Optional.ofNullable(repoLabel);
+            return this;
+        }
+
+        /**
+         * Label of the git repository.
+         */
+        public Builder repoLabel(Optional<? extends String> repoLabel) {
+            Utils.checkNotNull(repoLabel, "repoLabel");
+            this.repoLabel = repoLabel;
             return this;
         }
 
@@ -699,16 +1183,25 @@ public class TargetSDK {
         public TargetSDK build() {
             return new TargetSDK(
                 commitHead,
-                createdAt,
                 generateConfigPostVersion,
                 generateGenLockId,
                 generatePublished,
                 generateTarget,
                 generateTargetVersion,
+                ghActionOrganization,
+                ghActionRepository,
+                ghActionRunLink,
+                ghActionVersion,
                 gitRelativeCwd,
                 gitRemoteDefaultOwner,
                 gitRemoteDefaultRepo,
+                gitUserEmail,
+                gitUserName,
+                hostname,
                 id,
+                lastEventCreatedAt,
+                lastEventId,
+                repoLabel,
                 success);
         }
     }

@@ -238,7 +238,7 @@ public class CliEvent {
     private Optional<? extends String> gitUserEmail;
 
     /**
-     * User name from git configuration.
+     * User's name from git configuration. (not GitHub username)
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("git_user_name")
@@ -724,7 +724,7 @@ public class CliEvent {
     }
 
     /**
-     * User name from git configuration.
+     * User's name from git configuration. (not GitHub username)
      */
     public Optional<? extends String> gitUserName() {
         return gitUserName;
@@ -1394,7 +1394,7 @@ public class CliEvent {
     }
 
     /**
-     * User name from git configuration.
+     * User's name from git configuration. (not GitHub username)
      */
     public CliEvent withGitUserName(String gitUserName) {
         Utils.checkNotNull(gitUserName, "gitUserName");
@@ -1403,7 +1403,7 @@ public class CliEvent {
     }
 
     /**
-     * User name from git configuration.
+     * User's name from git configuration. (not GitHub username)
      */
     public CliEvent withGitUserName(Optional<? extends String> gitUserName) {
         Utils.checkNotNull(gitUserName, "gitUserName");
@@ -2468,7 +2468,7 @@ public class CliEvent {
         }
 
         /**
-         * User name from git configuration.
+         * User's name from git configuration. (not GitHub username)
          */
         public Builder gitUserName(String gitUserName) {
             Utils.checkNotNull(gitUserName, "gitUserName");
@@ -2477,7 +2477,7 @@ public class CliEvent {
         }
 
         /**
-         * User name from git configuration.
+         * User's name from git configuration. (not GitHub username)
          */
         public Builder gitUserName(Optional<? extends String> gitUserName) {
             Utils.checkNotNull(gitUserName, "gitUserName");

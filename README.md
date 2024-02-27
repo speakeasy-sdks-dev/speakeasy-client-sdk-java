@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.8.1'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.8.2'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -412,6 +412,7 @@ public class Application {
                 .build();
 
             GetWorkspaceEventsRequest req = GetWorkspaceEventsRequest.builder()
+                .afterCreatedAt(OffsetDateTime.parse("2024-04-02T06:03:54.204Z"))
                 .generateGenLockId("<value>")
                 .build();
 

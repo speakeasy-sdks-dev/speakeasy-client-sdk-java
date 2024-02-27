@@ -12,13 +12,20 @@ import java.io.InputStream;
 import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 
 public class GetWorkspaceEventsRequest {
 
     /**
-     * Filter to only return events corresponding to a particular gen_lock_id
+     * Filter to only return events created after this timestamp
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after_created_at")
+    private Optional<? extends OffsetDateTime> afterCreatedAt;
+
+    /**
+     * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=generate_gen_lock_id")
     private Optional<? extends String> generateGenLockId;
@@ -30,16 +37,26 @@ public class GetWorkspaceEventsRequest {
     private Optional<? extends String> workspaceID;
 
     public GetWorkspaceEventsRequest(
+            Optional<? extends OffsetDateTime> afterCreatedAt,
             Optional<? extends String> generateGenLockId,
             Optional<? extends String> workspaceID) {
+        Utils.checkNotNull(afterCreatedAt, "afterCreatedAt");
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
         Utils.checkNotNull(workspaceID, "workspaceID");
+        this.afterCreatedAt = afterCreatedAt;
         this.generateGenLockId = generateGenLockId;
         this.workspaceID = workspaceID;
     }
 
     /**
-     * Filter to only return events corresponding to a particular gen_lock_id
+     * Filter to only return events created after this timestamp
+     */
+    public Optional<? extends OffsetDateTime> afterCreatedAt() {
+        return afterCreatedAt;
+    }
+
+    /**
+     * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
      */
     public Optional<? extends String> generateGenLockId() {
         return generateGenLockId;
@@ -57,7 +74,25 @@ public class GetWorkspaceEventsRequest {
     }
 
     /**
-     * Filter to only return events corresponding to a particular gen_lock_id
+     * Filter to only return events created after this timestamp
+     */
+    public GetWorkspaceEventsRequest withAfterCreatedAt(OffsetDateTime afterCreatedAt) {
+        Utils.checkNotNull(afterCreatedAt, "afterCreatedAt");
+        this.afterCreatedAt = Optional.ofNullable(afterCreatedAt);
+        return this;
+    }
+
+    /**
+     * Filter to only return events created after this timestamp
+     */
+    public GetWorkspaceEventsRequest withAfterCreatedAt(Optional<? extends OffsetDateTime> afterCreatedAt) {
+        Utils.checkNotNull(afterCreatedAt, "afterCreatedAt");
+        this.afterCreatedAt = afterCreatedAt;
+        return this;
+    }
+
+    /**
+     * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
      */
     public GetWorkspaceEventsRequest withGenerateGenLockId(String generateGenLockId) {
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
@@ -66,7 +101,7 @@ public class GetWorkspaceEventsRequest {
     }
 
     /**
-     * Filter to only return events corresponding to a particular gen_lock_id
+     * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
      */
     public GetWorkspaceEventsRequest withGenerateGenLockId(Optional<? extends String> generateGenLockId) {
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
@@ -102,6 +137,7 @@ public class GetWorkspaceEventsRequest {
         }
         GetWorkspaceEventsRequest other = (GetWorkspaceEventsRequest) o;
         return 
+            java.util.Objects.deepEquals(this.afterCreatedAt, other.afterCreatedAt) &&
             java.util.Objects.deepEquals(this.generateGenLockId, other.generateGenLockId) &&
             java.util.Objects.deepEquals(this.workspaceID, other.workspaceID);
     }
@@ -109,6 +145,7 @@ public class GetWorkspaceEventsRequest {
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
+            afterCreatedAt,
             generateGenLockId,
             workspaceID);
     }
@@ -116,11 +153,14 @@ public class GetWorkspaceEventsRequest {
     @Override
     public String toString() {
         return Utils.toString(GetWorkspaceEventsRequest.class,
+                "afterCreatedAt", afterCreatedAt,
                 "generateGenLockId", generateGenLockId,
                 "workspaceID", workspaceID);
     }
     
     public final static class Builder {
+ 
+        private Optional<? extends OffsetDateTime> afterCreatedAt = Optional.empty();
  
         private Optional<? extends String> generateGenLockId = Optional.empty();
  
@@ -131,7 +171,25 @@ public class GetWorkspaceEventsRequest {
         }
 
         /**
-         * Filter to only return events corresponding to a particular gen_lock_id
+         * Filter to only return events created after this timestamp
+         */
+        public Builder afterCreatedAt(OffsetDateTime afterCreatedAt) {
+            Utils.checkNotNull(afterCreatedAt, "afterCreatedAt");
+            this.afterCreatedAt = Optional.ofNullable(afterCreatedAt);
+            return this;
+        }
+
+        /**
+         * Filter to only return events created after this timestamp
+         */
+        public Builder afterCreatedAt(Optional<? extends OffsetDateTime> afterCreatedAt) {
+            Utils.checkNotNull(afterCreatedAt, "afterCreatedAt");
+            this.afterCreatedAt = afterCreatedAt;
+            return this;
+        }
+
+        /**
+         * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
          */
         public Builder generateGenLockId(String generateGenLockId) {
             Utils.checkNotNull(generateGenLockId, "generateGenLockId");
@@ -140,7 +198,7 @@ public class GetWorkspaceEventsRequest {
         }
 
         /**
-         * Filter to only return events corresponding to a particular gen_lock_id
+         * Filter to only return events corresponding to a particular gen_lock_id (gen_lock_id uniquely identifies a target)
          */
         public Builder generateGenLockId(Optional<? extends String> generateGenLockId) {
             Utils.checkNotNull(generateGenLockId, "generateGenLockId");
@@ -168,6 +226,7 @@ public class GetWorkspaceEventsRequest {
         
         public GetWorkspaceEventsRequest build() {
             return new GetWorkspaceEventsRequest(
+                afterCreatedAt,
                 generateGenLockId,
                 workspaceID);
         }

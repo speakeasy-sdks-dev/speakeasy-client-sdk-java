@@ -12,10 +12,17 @@ import java.io.InputStream;
 import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 
 public class GetWorkspaceTargetsRequest {
+
+    /**
+     * Filter to only return targets with events created after this timestamp
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after_last_event_created_at")
+    private Optional<? extends OffsetDateTime> afterLastEventCreatedAt;
 
     /**
      * Unique identifier of the workspace.
@@ -24,9 +31,19 @@ public class GetWorkspaceTargetsRequest {
     private Optional<? extends String> workspaceID;
 
     public GetWorkspaceTargetsRequest(
+            Optional<? extends OffsetDateTime> afterLastEventCreatedAt,
             Optional<? extends String> workspaceID) {
+        Utils.checkNotNull(afterLastEventCreatedAt, "afterLastEventCreatedAt");
         Utils.checkNotNull(workspaceID, "workspaceID");
+        this.afterLastEventCreatedAt = afterLastEventCreatedAt;
         this.workspaceID = workspaceID;
+    }
+
+    /**
+     * Filter to only return targets with events created after this timestamp
+     */
+    public Optional<? extends OffsetDateTime> afterLastEventCreatedAt() {
+        return afterLastEventCreatedAt;
     }
 
     /**
@@ -38,6 +55,24 @@ public class GetWorkspaceTargetsRequest {
     
     public final static Builder builder() {
         return new Builder();
+    }
+
+    /**
+     * Filter to only return targets with events created after this timestamp
+     */
+    public GetWorkspaceTargetsRequest withAfterLastEventCreatedAt(OffsetDateTime afterLastEventCreatedAt) {
+        Utils.checkNotNull(afterLastEventCreatedAt, "afterLastEventCreatedAt");
+        this.afterLastEventCreatedAt = Optional.ofNullable(afterLastEventCreatedAt);
+        return this;
+    }
+
+    /**
+     * Filter to only return targets with events created after this timestamp
+     */
+    public GetWorkspaceTargetsRequest withAfterLastEventCreatedAt(Optional<? extends OffsetDateTime> afterLastEventCreatedAt) {
+        Utils.checkNotNull(afterLastEventCreatedAt, "afterLastEventCreatedAt");
+        this.afterLastEventCreatedAt = afterLastEventCreatedAt;
+        return this;
     }
 
     /**
@@ -68,27 +103,50 @@ public class GetWorkspaceTargetsRequest {
         }
         GetWorkspaceTargetsRequest other = (GetWorkspaceTargetsRequest) o;
         return 
+            java.util.Objects.deepEquals(this.afterLastEventCreatedAt, other.afterLastEventCreatedAt) &&
             java.util.Objects.deepEquals(this.workspaceID, other.workspaceID);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
+            afterLastEventCreatedAt,
             workspaceID);
     }
     
     @Override
     public String toString() {
         return Utils.toString(GetWorkspaceTargetsRequest.class,
+                "afterLastEventCreatedAt", afterLastEventCreatedAt,
                 "workspaceID", workspaceID);
     }
     
     public final static class Builder {
  
+        private Optional<? extends OffsetDateTime> afterLastEventCreatedAt = Optional.empty();
+ 
         private Optional<? extends String> workspaceID = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
+        }
+
+        /**
+         * Filter to only return targets with events created after this timestamp
+         */
+        public Builder afterLastEventCreatedAt(OffsetDateTime afterLastEventCreatedAt) {
+            Utils.checkNotNull(afterLastEventCreatedAt, "afterLastEventCreatedAt");
+            this.afterLastEventCreatedAt = Optional.ofNullable(afterLastEventCreatedAt);
+            return this;
+        }
+
+        /**
+         * Filter to only return targets with events created after this timestamp
+         */
+        public Builder afterLastEventCreatedAt(Optional<? extends OffsetDateTime> afterLastEventCreatedAt) {
+            Utils.checkNotNull(afterLastEventCreatedAt, "afterLastEventCreatedAt");
+            this.afterLastEventCreatedAt = afterLastEventCreatedAt;
+            return this;
         }
 
         /**
@@ -111,6 +169,7 @@ public class GetWorkspaceTargetsRequest {
         
         public GetWorkspaceTargetsRequest build() {
             return new GetWorkspaceTargetsRequest(
+                afterLastEventCreatedAt,
                 workspaceID);
         }
     }

@@ -45,6 +45,7 @@ public class Application {
                 .build();
 
             GetWorkspaceEventsRequest req = GetWorkspaceEventsRequest.builder()
+                .afterCreatedAt(OffsetDateTime.parse("2024-04-02T06:03:54.204Z"))
                 .generateGenLockId("<value>")
                 .build();
 
@@ -114,6 +115,7 @@ public class Application {
                 .build();
 
             GetWorkspaceTargetsRequest req = GetWorkspaceTargetsRequest.builder()
+                .afterLastEventCreatedAt(OffsetDateTime.parse("2024-11-24T17:59:46.647Z"))
                 .build();
 
             GetWorkspaceTargetsResponse res = sdk.events().getWorkspaceTargets()

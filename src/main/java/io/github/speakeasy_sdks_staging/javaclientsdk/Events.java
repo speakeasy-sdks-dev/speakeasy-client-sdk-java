@@ -150,6 +150,14 @@ public class Events implements
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", this.sdkConfiguration.userAgent);
 
+        java.util.List<NameValuePair> queryParams = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.getQueryParams(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsRequest.class, request, this.sdkConfiguration.globals);
+        if (queryParams != null) {
+            for (NameValuePair queryParam : queryParams) {
+                req.addQueryParam(queryParam);
+            }
+        }
+
         HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
                 this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
 
