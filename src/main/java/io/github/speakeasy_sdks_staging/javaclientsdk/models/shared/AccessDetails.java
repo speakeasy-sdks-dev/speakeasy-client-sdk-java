@@ -19,14 +19,24 @@ public class AccessDetails {
     @JsonProperty("generation_allowed")
     private boolean generationAllowed;
 
+    @JsonProperty("message")
+    private String message;
+
     public AccessDetails(
-            @JsonProperty("generation_allowed") boolean generationAllowed) {
+            @JsonProperty("generation_allowed") boolean generationAllowed,
+            @JsonProperty("message") String message) {
         Utils.checkNotNull(generationAllowed, "generationAllowed");
+        Utils.checkNotNull(message, "message");
         this.generationAllowed = generationAllowed;
+        this.message = message;
     }
 
     public boolean generationAllowed() {
         return generationAllowed;
+    }
+
+    public String message() {
+        return message;
     }
     
     public final static Builder builder() {
@@ -36,6 +46,12 @@ public class AccessDetails {
     public AccessDetails withGenerationAllowed(boolean generationAllowed) {
         Utils.checkNotNull(generationAllowed, "generationAllowed");
         this.generationAllowed = generationAllowed;
+        return this;
+    }
+
+    public AccessDetails withMessage(String message) {
+        Utils.checkNotNull(message, "message");
+        this.message = message;
         return this;
     }
     
@@ -49,24 +65,29 @@ public class AccessDetails {
         }
         AccessDetails other = (AccessDetails) o;
         return 
-            java.util.Objects.deepEquals(this.generationAllowed, other.generationAllowed);
+            java.util.Objects.deepEquals(this.generationAllowed, other.generationAllowed) &&
+            java.util.Objects.deepEquals(this.message, other.message);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
-            generationAllowed);
+            generationAllowed,
+            message);
     }
     
     @Override
     public String toString() {
         return Utils.toString(AccessDetails.class,
-                "generationAllowed", generationAllowed);
+                "generationAllowed", generationAllowed,
+                "message", message);
     }
     
     public final static class Builder {
  
-        private Boolean generationAllowed;  
+        private Boolean generationAllowed;
+ 
+        private String message;  
         
         private Builder() {
           // force use of static builder() method
@@ -77,10 +98,17 @@ public class AccessDetails {
             this.generationAllowed = generationAllowed;
             return this;
         }
+
+        public Builder message(String message) {
+            Utils.checkNotNull(message, "message");
+            this.message = message;
+            return this;
+        }
         
         public AccessDetails build() {
             return new AccessDetails(
-                generationAllowed);
+                generationAllowed,
+                message);
         }
     }
 }

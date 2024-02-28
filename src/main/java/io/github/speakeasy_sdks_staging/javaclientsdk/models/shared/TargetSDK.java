@@ -50,10 +50,17 @@ public class TargetSDK {
     private Optional<? extends Boolean> generatePublished;
 
     /**
-     * The target of the event.
+     * eg `typescript`, `terraform`, `python`
      */
     @JsonProperty("generate_target")
     private String generateTarget;
+
+    /**
+     * The name of the target as defined by the user.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("generate_target_name")
+    private Optional<? extends String> generateTargetName;
 
     /**
      * The version of the Speakeasy generator for this target eg v2 of the typescript generator.
@@ -170,6 +177,7 @@ public class TargetSDK {
             @JsonProperty("generate_gen_lock_id") String generateGenLockId,
             @JsonProperty("generate_published") Optional<? extends Boolean> generatePublished,
             @JsonProperty("generate_target") String generateTarget,
+            @JsonProperty("generate_target_name") Optional<? extends String> generateTargetName,
             @JsonProperty("generate_target_version") Optional<? extends String> generateTargetVersion,
             @JsonProperty("gh_action_organization") Optional<? extends String> ghActionOrganization,
             @JsonProperty("gh_action_repository") Optional<? extends String> ghActionRepository,
@@ -191,6 +199,7 @@ public class TargetSDK {
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
         Utils.checkNotNull(generatePublished, "generatePublished");
         Utils.checkNotNull(generateTarget, "generateTarget");
+        Utils.checkNotNull(generateTargetName, "generateTargetName");
         Utils.checkNotNull(generateTargetVersion, "generateTargetVersion");
         Utils.checkNotNull(ghActionOrganization, "ghActionOrganization");
         Utils.checkNotNull(ghActionRepository, "ghActionRepository");
@@ -212,6 +221,7 @@ public class TargetSDK {
         this.generateGenLockId = generateGenLockId;
         this.generatePublished = generatePublished;
         this.generateTarget = generateTarget;
+        this.generateTargetName = generateTargetName;
         this.generateTargetVersion = generateTargetVersion;
         this.ghActionOrganization = ghActionOrganization;
         this.ghActionRepository = ghActionRepository;
@@ -259,10 +269,17 @@ public class TargetSDK {
     }
 
     /**
-     * The target of the event.
+     * eg `typescript`, `terraform`, `python`
      */
     public String generateTarget() {
         return generateTarget;
+    }
+
+    /**
+     * The name of the target as defined by the user.
+     */
+    public Optional<? extends String> generateTargetName() {
+        return generateTargetName;
     }
 
     /**
@@ -445,11 +462,29 @@ public class TargetSDK {
     }
 
     /**
-     * The target of the event.
+     * eg `typescript`, `terraform`, `python`
      */
     public TargetSDK withGenerateTarget(String generateTarget) {
         Utils.checkNotNull(generateTarget, "generateTarget");
         this.generateTarget = generateTarget;
+        return this;
+    }
+
+    /**
+     * The name of the target as defined by the user.
+     */
+    public TargetSDK withGenerateTargetName(String generateTargetName) {
+        Utils.checkNotNull(generateTargetName, "generateTargetName");
+        this.generateTargetName = Optional.ofNullable(generateTargetName);
+        return this;
+    }
+
+    /**
+     * The name of the target as defined by the user.
+     */
+    public TargetSDK withGenerateTargetName(Optional<? extends String> generateTargetName) {
+        Utils.checkNotNull(generateTargetName, "generateTargetName");
+        this.generateTargetName = generateTargetName;
         return this;
     }
 
@@ -729,6 +764,7 @@ public class TargetSDK {
             java.util.Objects.deepEquals(this.generateGenLockId, other.generateGenLockId) &&
             java.util.Objects.deepEquals(this.generatePublished, other.generatePublished) &&
             java.util.Objects.deepEquals(this.generateTarget, other.generateTarget) &&
+            java.util.Objects.deepEquals(this.generateTargetName, other.generateTargetName) &&
             java.util.Objects.deepEquals(this.generateTargetVersion, other.generateTargetVersion) &&
             java.util.Objects.deepEquals(this.ghActionOrganization, other.ghActionOrganization) &&
             java.util.Objects.deepEquals(this.ghActionRepository, other.ghActionRepository) &&
@@ -755,6 +791,7 @@ public class TargetSDK {
             generateGenLockId,
             generatePublished,
             generateTarget,
+            generateTargetName,
             generateTargetVersion,
             ghActionOrganization,
             ghActionRepository,
@@ -781,6 +818,7 @@ public class TargetSDK {
                 "generateGenLockId", generateGenLockId,
                 "generatePublished", generatePublished,
                 "generateTarget", generateTarget,
+                "generateTargetName", generateTargetName,
                 "generateTargetVersion", generateTargetVersion,
                 "ghActionOrganization", ghActionOrganization,
                 "ghActionRepository", ghActionRepository,
@@ -810,6 +848,8 @@ public class TargetSDK {
         private Optional<? extends Boolean> generatePublished = Optional.empty();
  
         private String generateTarget;
+ 
+        private Optional<? extends String> generateTargetName = Optional.empty();
  
         private Optional<? extends String> generateTargetVersion = Optional.empty();
  
@@ -911,11 +951,29 @@ public class TargetSDK {
         }
 
         /**
-         * The target of the event.
+         * eg `typescript`, `terraform`, `python`
          */
         public Builder generateTarget(String generateTarget) {
             Utils.checkNotNull(generateTarget, "generateTarget");
             this.generateTarget = generateTarget;
+            return this;
+        }
+
+        /**
+         * The name of the target as defined by the user.
+         */
+        public Builder generateTargetName(String generateTargetName) {
+            Utils.checkNotNull(generateTargetName, "generateTargetName");
+            this.generateTargetName = Optional.ofNullable(generateTargetName);
+            return this;
+        }
+
+        /**
+         * The name of the target as defined by the user.
+         */
+        public Builder generateTargetName(Optional<? extends String> generateTargetName) {
+            Utils.checkNotNull(generateTargetName, "generateTargetName");
+            this.generateTargetName = generateTargetName;
             return this;
         }
 
@@ -1187,6 +1245,7 @@ public class TargetSDK {
                 generateGenLockId,
                 generatePublished,
                 generateTarget,
+                generateTargetName,
                 generateTargetVersion,
                 ghActionOrganization,
                 ghActionRepository,

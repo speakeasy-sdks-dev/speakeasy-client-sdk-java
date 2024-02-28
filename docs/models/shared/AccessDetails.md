@@ -6,3 +6,4 @@
 | Field               | Type                | Required            | Description         |
 | ------------------- | ------------------- | ------------------- | ------------------- |
 | `generationAllowed` | *boolean*           | :heavy_check_mark:  | N/A                 |
+| `message`           | *String*            | :heavy_check_mark:  | N/A                 |
