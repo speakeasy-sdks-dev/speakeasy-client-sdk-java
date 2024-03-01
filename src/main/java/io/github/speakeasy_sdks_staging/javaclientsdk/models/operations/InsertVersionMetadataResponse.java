@@ -94,7 +94,7 @@ public class InsertVersionMetadataResponse {
     public Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.VersionMetadata> versionMetadata() {
         return versionMetadata;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

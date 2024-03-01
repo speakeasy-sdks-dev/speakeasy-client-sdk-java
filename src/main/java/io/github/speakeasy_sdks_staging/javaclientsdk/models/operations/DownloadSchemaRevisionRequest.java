@@ -66,7 +66,7 @@ public class DownloadSchemaRevisionRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

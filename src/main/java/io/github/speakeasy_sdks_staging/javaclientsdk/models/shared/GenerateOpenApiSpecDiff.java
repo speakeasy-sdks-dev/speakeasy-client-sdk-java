@@ -38,7 +38,7 @@ public class GenerateOpenApiSpecDiff {
     public String newSchema() {
         return newSchema;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

@@ -39,7 +39,7 @@ public class Security {
     public Optional<? extends String> bearer() {
         return bearer;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

@@ -31,7 +31,7 @@ public class RegisterSchemaRequestBody {
     public File file() {
         return file;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

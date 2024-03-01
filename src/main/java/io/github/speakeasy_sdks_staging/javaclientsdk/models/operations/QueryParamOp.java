@@ -37,7 +37,7 @@ public class QueryParamOp {
     public boolean and() {
         return and;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

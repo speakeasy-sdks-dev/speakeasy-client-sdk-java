@@ -67,7 +67,7 @@ public class GetWorkspaceAccessRequest {
     public Optional<? extends String> targetType() {
         return targetType;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

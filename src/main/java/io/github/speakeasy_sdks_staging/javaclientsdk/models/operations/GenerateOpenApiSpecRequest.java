@@ -50,7 +50,7 @@ public class GenerateOpenApiSpecRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

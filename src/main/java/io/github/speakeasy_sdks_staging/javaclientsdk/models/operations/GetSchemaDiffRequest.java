@@ -82,7 +82,7 @@ public class GetSchemaDiffRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

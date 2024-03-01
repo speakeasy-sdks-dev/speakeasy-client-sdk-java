@@ -67,7 +67,7 @@ public class GetAllApiVersionsRequest {
     public Optional<? extends Op> op() {
         return op;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

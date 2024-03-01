@@ -85,7 +85,7 @@ public class Filters {
     public String operator() {
         return operator;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

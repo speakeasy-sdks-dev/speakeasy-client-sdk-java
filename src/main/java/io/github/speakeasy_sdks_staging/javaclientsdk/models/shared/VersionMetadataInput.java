@@ -53,7 +53,7 @@ public class VersionMetadataInput {
     public String metaValue() {
         return metaValue;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

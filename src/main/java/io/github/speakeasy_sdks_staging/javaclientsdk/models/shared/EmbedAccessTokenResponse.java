@@ -31,7 +31,7 @@ public class EmbedAccessTokenResponse {
     public String accessToken() {
         return accessToken;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

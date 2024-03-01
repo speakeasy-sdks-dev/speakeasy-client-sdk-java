@@ -50,7 +50,7 @@ public class UpsertApiRequest {
     public String apiID() {
         return apiID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

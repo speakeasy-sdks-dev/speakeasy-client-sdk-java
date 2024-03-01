@@ -50,7 +50,7 @@ public class ValueChange {
     public String to() {
         return to;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

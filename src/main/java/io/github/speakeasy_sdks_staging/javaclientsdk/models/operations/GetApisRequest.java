@@ -51,7 +51,7 @@ public class GetApisRequest {
     public Optional<? extends QueryParamOp> op() {
         return op;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

@@ -66,7 +66,7 @@ public class DeleteSchemaRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

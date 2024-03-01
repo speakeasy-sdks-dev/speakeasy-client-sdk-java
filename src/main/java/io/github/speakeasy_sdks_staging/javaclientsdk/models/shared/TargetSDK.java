@@ -393,7 +393,7 @@ public class TargetSDK {
     public Optional<? extends Boolean> success() {
         return success;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

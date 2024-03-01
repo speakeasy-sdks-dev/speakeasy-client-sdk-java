@@ -69,7 +69,7 @@ public class Filter {
     public String value() {
         return value;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

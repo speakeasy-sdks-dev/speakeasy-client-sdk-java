@@ -46,7 +46,7 @@ public class RequestMetadata {
     public Optional<? extends String> value() {
         return value;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

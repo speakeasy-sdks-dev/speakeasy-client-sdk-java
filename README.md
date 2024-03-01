@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.8.3'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.8.4'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -111,6 +111,7 @@ public class Application {
 
 ### [auth()](docs/sdks/auth/README.md)
 
+* [getAccessToken](docs/sdks/auth/README.md#getaccesstoken) - Get or refresh an access token for the current workspace.
 * [getWorkspaceAccess](docs/sdks/auth/README.md#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 

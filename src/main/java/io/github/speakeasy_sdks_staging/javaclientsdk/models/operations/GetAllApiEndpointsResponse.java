@@ -94,7 +94,7 @@ public class GetAllApiEndpointsResponse {
     public HttpResponse<InputStream> rawResponse() {
         return rawResponse;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

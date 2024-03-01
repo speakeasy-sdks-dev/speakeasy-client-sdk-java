@@ -50,7 +50,7 @@ public class GetSchemasRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

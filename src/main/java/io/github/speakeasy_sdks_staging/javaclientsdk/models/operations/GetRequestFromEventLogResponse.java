@@ -94,7 +94,7 @@ public class GetRequestFromEventLogResponse {
     public Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.UnboundedRequest> unboundedRequest() {
         return unboundedRequest;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

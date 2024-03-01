@@ -89,7 +89,7 @@ public class ApiInput {
     public String versionId() {
         return versionId;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

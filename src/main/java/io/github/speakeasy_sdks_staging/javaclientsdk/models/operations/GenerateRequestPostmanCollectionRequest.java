@@ -34,7 +34,7 @@ public class GenerateRequestPostmanCollectionRequest {
     public String requestID() {
         return requestID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

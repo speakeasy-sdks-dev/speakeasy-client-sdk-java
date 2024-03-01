@@ -34,7 +34,7 @@ public class RevokeEmbedAccessTokenRequest {
     public String tokenID() {
         return tokenID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

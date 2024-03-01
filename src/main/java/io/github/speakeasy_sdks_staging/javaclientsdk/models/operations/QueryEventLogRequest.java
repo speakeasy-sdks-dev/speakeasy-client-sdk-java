@@ -35,7 +35,7 @@ public class QueryEventLogRequest {
     public Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Filters> filters() {
         return filters;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

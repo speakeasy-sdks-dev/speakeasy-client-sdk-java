@@ -50,7 +50,7 @@ public class GetVersionMetadataRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

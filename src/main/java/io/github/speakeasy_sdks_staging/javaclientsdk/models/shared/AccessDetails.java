@@ -38,7 +38,7 @@ public class AccessDetails {
     public String message() {
         return message;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

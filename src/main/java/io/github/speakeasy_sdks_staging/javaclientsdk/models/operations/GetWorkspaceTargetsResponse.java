@@ -88,7 +88,7 @@ public class GetWorkspaceTargetsResponse {
     public Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.TargetSDK>> targetSDKList() {
         return targetSDKList;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

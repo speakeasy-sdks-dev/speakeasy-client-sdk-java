@@ -165,6 +165,12 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallGetAccessToken {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAccessTokenResponse getAccessToken(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAccessTokenRequest request) throws Exception;
+    }
+
+
     public interface MethodCallGetWorkspaceAccess {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse getWorkspaceAccess(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request,

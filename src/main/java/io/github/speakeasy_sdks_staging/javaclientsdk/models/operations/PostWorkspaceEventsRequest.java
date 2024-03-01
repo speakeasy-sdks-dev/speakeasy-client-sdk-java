@@ -45,7 +45,7 @@ public class PostWorkspaceEventsRequest {
     public Optional<? extends String> workspaceID() {
         return workspaceID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

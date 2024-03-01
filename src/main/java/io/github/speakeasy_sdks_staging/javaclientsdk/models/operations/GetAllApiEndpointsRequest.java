@@ -34,7 +34,7 @@ public class GetAllApiEndpointsRequest {
     public String apiID() {
         return apiID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

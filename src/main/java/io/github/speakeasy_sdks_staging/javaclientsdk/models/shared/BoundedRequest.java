@@ -252,7 +252,7 @@ public class BoundedRequest {
     public String workspaceId() {
         return workspaceId;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

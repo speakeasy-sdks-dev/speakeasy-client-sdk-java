@@ -117,7 +117,7 @@ public class ApiEndpointInput {
     public String versionId() {
         return versionId;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

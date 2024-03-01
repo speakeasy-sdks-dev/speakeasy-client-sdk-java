@@ -69,7 +69,7 @@ public class SchemaDiff {
     public java.util.Map<String, ValueChange> modifications() {
         return modifications;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

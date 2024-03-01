@@ -38,7 +38,7 @@ public class File {
     public String fileName() {
         return fileName;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

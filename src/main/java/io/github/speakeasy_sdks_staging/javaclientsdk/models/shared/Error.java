@@ -53,7 +53,7 @@ public class Error {
     public int statusCode() {
         return statusCode;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

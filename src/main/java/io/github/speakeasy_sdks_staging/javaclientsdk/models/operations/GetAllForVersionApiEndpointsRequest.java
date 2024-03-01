@@ -50,7 +50,7 @@ public class GetAllForVersionApiEndpointsRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

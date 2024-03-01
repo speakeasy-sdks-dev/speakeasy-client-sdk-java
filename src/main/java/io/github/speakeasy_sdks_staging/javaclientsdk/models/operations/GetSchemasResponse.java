@@ -94,7 +94,7 @@ public class GetSchemasResponse {
     public Optional<? extends java.util.List<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Schema>> classes() {
         return classes;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

@@ -50,7 +50,7 @@ public class GeneratePostmanCollectionRequest {
     public String versionID() {
         return versionID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }

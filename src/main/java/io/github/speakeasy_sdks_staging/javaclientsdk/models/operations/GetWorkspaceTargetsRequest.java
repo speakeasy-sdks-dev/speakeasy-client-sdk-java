@@ -52,7 +52,7 @@ public class GetWorkspaceTargetsRequest {
     public Optional<? extends String> workspaceID() {
         return workspaceID;
     }
-    
+
     public final static Builder builder() {
         return new Builder();
     }
