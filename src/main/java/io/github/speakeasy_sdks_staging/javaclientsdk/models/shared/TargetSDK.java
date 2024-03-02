@@ -171,6 +171,12 @@ public class TargetSDK {
     @JsonProperty("success")
     private Optional<? extends Boolean> success;
 
+    /**
+     * Total number of events for the target
+     */
+    @JsonProperty("total_events")
+    private long totalEvents;
+
     public TargetSDK(
             @JsonProperty("commit_head") Optional<? extends String> commitHead,
             @JsonProperty("generate_config_post_version") Optional<? extends String> generateConfigPostVersion,
@@ -193,7 +199,8 @@ public class TargetSDK {
             @JsonProperty("last_event_created_at") OffsetDateTime lastEventCreatedAt,
             @JsonProperty("last_event_id") String lastEventId,
             @JsonProperty("repo_label") Optional<? extends String> repoLabel,
-            @JsonProperty("success") Optional<? extends Boolean> success) {
+            @JsonProperty("success") Optional<? extends Boolean> success,
+            @JsonProperty("total_events") long totalEvents) {
         Utils.checkNotNull(commitHead, "commitHead");
         Utils.checkNotNull(generateConfigPostVersion, "generateConfigPostVersion");
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
@@ -216,6 +223,7 @@ public class TargetSDK {
         Utils.checkNotNull(lastEventId, "lastEventId");
         Utils.checkNotNull(repoLabel, "repoLabel");
         Utils.checkNotNull(success, "success");
+        Utils.checkNotNull(totalEvents, "totalEvents");
         this.commitHead = commitHead;
         this.generateConfigPostVersion = generateConfigPostVersion;
         this.generateGenLockId = generateGenLockId;
@@ -238,6 +246,7 @@ public class TargetSDK {
         this.lastEventId = lastEventId;
         this.repoLabel = repoLabel;
         this.success = success;
+        this.totalEvents = totalEvents;
     }
 
     /**
@@ -392,6 +401,13 @@ public class TargetSDK {
      */
     public Optional<? extends Boolean> success() {
         return success;
+    }
+
+    /**
+     * Total number of events for the target
+     */
+    public long totalEvents() {
+        return totalEvents;
     }
 
     public final static Builder builder() {
@@ -748,6 +764,15 @@ public class TargetSDK {
         this.success = success;
         return this;
     }
+
+    /**
+     * Total number of events for the target
+     */
+    public TargetSDK withTotalEvents(long totalEvents) {
+        Utils.checkNotNull(totalEvents, "totalEvents");
+        this.totalEvents = totalEvents;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -780,7 +805,8 @@ public class TargetSDK {
             java.util.Objects.deepEquals(this.lastEventCreatedAt, other.lastEventCreatedAt) &&
             java.util.Objects.deepEquals(this.lastEventId, other.lastEventId) &&
             java.util.Objects.deepEquals(this.repoLabel, other.repoLabel) &&
-            java.util.Objects.deepEquals(this.success, other.success);
+            java.util.Objects.deepEquals(this.success, other.success) &&
+            java.util.Objects.deepEquals(this.totalEvents, other.totalEvents);
     }
     
     @Override
@@ -807,7 +833,8 @@ public class TargetSDK {
             lastEventCreatedAt,
             lastEventId,
             repoLabel,
-            success);
+            success,
+            totalEvents);
     }
     
     @Override
@@ -834,7 +861,8 @@ public class TargetSDK {
                 "lastEventCreatedAt", lastEventCreatedAt,
                 "lastEventId", lastEventId,
                 "repoLabel", repoLabel,
-                "success", success);
+                "success", success,
+                "totalEvents", totalEvents);
     }
     
     public final static class Builder {
@@ -881,7 +909,9 @@ public class TargetSDK {
  
         private Optional<? extends String> repoLabel = Optional.empty();
  
-        private Optional<? extends Boolean> success = Optional.empty();  
+        private Optional<? extends Boolean> success = Optional.empty();
+ 
+        private Long totalEvents;  
         
         private Builder() {
           // force use of static builder() method
@@ -1237,6 +1267,15 @@ public class TargetSDK {
             this.success = success;
             return this;
         }
+
+        /**
+         * Total number of events for the target
+         */
+        public Builder totalEvents(long totalEvents) {
+            Utils.checkNotNull(totalEvents, "totalEvents");
+            this.totalEvents = totalEvents;
+            return this;
+        }
         
         public TargetSDK build() {
             return new TargetSDK(
@@ -1261,7 +1300,8 @@ public class TargetSDK {
                 lastEventCreatedAt,
                 lastEventId,
                 repoLabel,
-                success);
+                success,
+                totalEvents);
         }
     }
 }
