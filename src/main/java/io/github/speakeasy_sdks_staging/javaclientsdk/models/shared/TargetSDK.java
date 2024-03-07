@@ -30,6 +30,13 @@ public class TargetSDK {
     private Optional<? extends String> commitHead;
 
     /**
+     * Name of the CI environment.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("continuous_integration_environment")
+    private Optional<? extends String> continuousIntegrationEnvironment;
+
+    /**
      * Version of the generated target (post generation)
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -41,6 +48,20 @@ public class TargetSDK {
      */
     @JsonProperty("generate_gen_lock_id")
     private String generateGenLockId;
+
+    /**
+     * Features prior to generation
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("generate_gen_lock_pre_features")
+    private Optional<? extends String> generateGenLockPreFeatures;
+
+    /**
+     * Artifact version for the Previous Generation
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("generate_gen_lock_pre_version")
+    private Optional<? extends String> generateGenLockPreVersion;
 
     /**
      * Indicates whether the target was considered published.
@@ -171,16 +192,13 @@ public class TargetSDK {
     @JsonProperty("success")
     private Optional<? extends Boolean> success;
 
-    /**
-     * Total number of events for the target
-     */
-    @JsonProperty("total_events")
-    private long totalEvents;
-
     public TargetSDK(
             @JsonProperty("commit_head") Optional<? extends String> commitHead,
+            @JsonProperty("continuous_integration_environment") Optional<? extends String> continuousIntegrationEnvironment,
             @JsonProperty("generate_config_post_version") Optional<? extends String> generateConfigPostVersion,
             @JsonProperty("generate_gen_lock_id") String generateGenLockId,
+            @JsonProperty("generate_gen_lock_pre_features") Optional<? extends String> generateGenLockPreFeatures,
+            @JsonProperty("generate_gen_lock_pre_version") Optional<? extends String> generateGenLockPreVersion,
             @JsonProperty("generate_published") Optional<? extends Boolean> generatePublished,
             @JsonProperty("generate_target") String generateTarget,
             @JsonProperty("generate_target_name") Optional<? extends String> generateTargetName,
@@ -199,11 +217,13 @@ public class TargetSDK {
             @JsonProperty("last_event_created_at") OffsetDateTime lastEventCreatedAt,
             @JsonProperty("last_event_id") String lastEventId,
             @JsonProperty("repo_label") Optional<? extends String> repoLabel,
-            @JsonProperty("success") Optional<? extends Boolean> success,
-            @JsonProperty("total_events") long totalEvents) {
+            @JsonProperty("success") Optional<? extends Boolean> success) {
         Utils.checkNotNull(commitHead, "commitHead");
+        Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
         Utils.checkNotNull(generateConfigPostVersion, "generateConfigPostVersion");
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
+        Utils.checkNotNull(generateGenLockPreFeatures, "generateGenLockPreFeatures");
+        Utils.checkNotNull(generateGenLockPreVersion, "generateGenLockPreVersion");
         Utils.checkNotNull(generatePublished, "generatePublished");
         Utils.checkNotNull(generateTarget, "generateTarget");
         Utils.checkNotNull(generateTargetName, "generateTargetName");
@@ -223,10 +243,12 @@ public class TargetSDK {
         Utils.checkNotNull(lastEventId, "lastEventId");
         Utils.checkNotNull(repoLabel, "repoLabel");
         Utils.checkNotNull(success, "success");
-        Utils.checkNotNull(totalEvents, "totalEvents");
         this.commitHead = commitHead;
+        this.continuousIntegrationEnvironment = continuousIntegrationEnvironment;
         this.generateConfigPostVersion = generateConfigPostVersion;
         this.generateGenLockId = generateGenLockId;
+        this.generateGenLockPreFeatures = generateGenLockPreFeatures;
+        this.generateGenLockPreVersion = generateGenLockPreVersion;
         this.generatePublished = generatePublished;
         this.generateTarget = generateTarget;
         this.generateTargetName = generateTargetName;
@@ -246,7 +268,6 @@ public class TargetSDK {
         this.lastEventId = lastEventId;
         this.repoLabel = repoLabel;
         this.success = success;
-        this.totalEvents = totalEvents;
     }
 
     /**
@@ -254,6 +275,13 @@ public class TargetSDK {
      */
     public Optional<? extends String> commitHead() {
         return commitHead;
+    }
+
+    /**
+     * Name of the CI environment.
+     */
+    public Optional<? extends String> continuousIntegrationEnvironment() {
+        return continuousIntegrationEnvironment;
     }
 
     /**
@@ -268,6 +296,20 @@ public class TargetSDK {
      */
     public String generateGenLockId() {
         return generateGenLockId;
+    }
+
+    /**
+     * Features prior to generation
+     */
+    public Optional<? extends String> generateGenLockPreFeatures() {
+        return generateGenLockPreFeatures;
+    }
+
+    /**
+     * Artifact version for the Previous Generation
+     */
+    public Optional<? extends String> generateGenLockPreVersion() {
+        return generateGenLockPreVersion;
     }
 
     /**
@@ -403,13 +445,6 @@ public class TargetSDK {
         return success;
     }
 
-    /**
-     * Total number of events for the target
-     */
-    public long totalEvents() {
-        return totalEvents;
-    }
-
     public final static Builder builder() {
         return new Builder();
     }
@@ -429,6 +464,24 @@ public class TargetSDK {
     public TargetSDK withCommitHead(Optional<? extends String> commitHead) {
         Utils.checkNotNull(commitHead, "commitHead");
         this.commitHead = commitHead;
+        return this;
+    }
+
+    /**
+     * Name of the CI environment.
+     */
+    public TargetSDK withContinuousIntegrationEnvironment(String continuousIntegrationEnvironment) {
+        Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+        this.continuousIntegrationEnvironment = Optional.ofNullable(continuousIntegrationEnvironment);
+        return this;
+    }
+
+    /**
+     * Name of the CI environment.
+     */
+    public TargetSDK withContinuousIntegrationEnvironment(Optional<? extends String> continuousIntegrationEnvironment) {
+        Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+        this.continuousIntegrationEnvironment = continuousIntegrationEnvironment;
         return this;
     }
 
@@ -456,6 +509,42 @@ public class TargetSDK {
     public TargetSDK withGenerateGenLockId(String generateGenLockId) {
         Utils.checkNotNull(generateGenLockId, "generateGenLockId");
         this.generateGenLockId = generateGenLockId;
+        return this;
+    }
+
+    /**
+     * Features prior to generation
+     */
+    public TargetSDK withGenerateGenLockPreFeatures(String generateGenLockPreFeatures) {
+        Utils.checkNotNull(generateGenLockPreFeatures, "generateGenLockPreFeatures");
+        this.generateGenLockPreFeatures = Optional.ofNullable(generateGenLockPreFeatures);
+        return this;
+    }
+
+    /**
+     * Features prior to generation
+     */
+    public TargetSDK withGenerateGenLockPreFeatures(Optional<? extends String> generateGenLockPreFeatures) {
+        Utils.checkNotNull(generateGenLockPreFeatures, "generateGenLockPreFeatures");
+        this.generateGenLockPreFeatures = generateGenLockPreFeatures;
+        return this;
+    }
+
+    /**
+     * Artifact version for the Previous Generation
+     */
+    public TargetSDK withGenerateGenLockPreVersion(String generateGenLockPreVersion) {
+        Utils.checkNotNull(generateGenLockPreVersion, "generateGenLockPreVersion");
+        this.generateGenLockPreVersion = Optional.ofNullable(generateGenLockPreVersion);
+        return this;
+    }
+
+    /**
+     * Artifact version for the Previous Generation
+     */
+    public TargetSDK withGenerateGenLockPreVersion(Optional<? extends String> generateGenLockPreVersion) {
+        Utils.checkNotNull(generateGenLockPreVersion, "generateGenLockPreVersion");
+        this.generateGenLockPreVersion = generateGenLockPreVersion;
         return this;
     }
 
@@ -764,15 +853,6 @@ public class TargetSDK {
         this.success = success;
         return this;
     }
-
-    /**
-     * Total number of events for the target
-     */
-    public TargetSDK withTotalEvents(long totalEvents) {
-        Utils.checkNotNull(totalEvents, "totalEvents");
-        this.totalEvents = totalEvents;
-        return this;
-    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -785,8 +865,11 @@ public class TargetSDK {
         TargetSDK other = (TargetSDK) o;
         return 
             java.util.Objects.deepEquals(this.commitHead, other.commitHead) &&
+            java.util.Objects.deepEquals(this.continuousIntegrationEnvironment, other.continuousIntegrationEnvironment) &&
             java.util.Objects.deepEquals(this.generateConfigPostVersion, other.generateConfigPostVersion) &&
             java.util.Objects.deepEquals(this.generateGenLockId, other.generateGenLockId) &&
+            java.util.Objects.deepEquals(this.generateGenLockPreFeatures, other.generateGenLockPreFeatures) &&
+            java.util.Objects.deepEquals(this.generateGenLockPreVersion, other.generateGenLockPreVersion) &&
             java.util.Objects.deepEquals(this.generatePublished, other.generatePublished) &&
             java.util.Objects.deepEquals(this.generateTarget, other.generateTarget) &&
             java.util.Objects.deepEquals(this.generateTargetName, other.generateTargetName) &&
@@ -805,16 +888,18 @@ public class TargetSDK {
             java.util.Objects.deepEquals(this.lastEventCreatedAt, other.lastEventCreatedAt) &&
             java.util.Objects.deepEquals(this.lastEventId, other.lastEventId) &&
             java.util.Objects.deepEquals(this.repoLabel, other.repoLabel) &&
-            java.util.Objects.deepEquals(this.success, other.success) &&
-            java.util.Objects.deepEquals(this.totalEvents, other.totalEvents);
+            java.util.Objects.deepEquals(this.success, other.success);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
             commitHead,
+            continuousIntegrationEnvironment,
             generateConfigPostVersion,
             generateGenLockId,
+            generateGenLockPreFeatures,
+            generateGenLockPreVersion,
             generatePublished,
             generateTarget,
             generateTargetName,
@@ -833,16 +918,18 @@ public class TargetSDK {
             lastEventCreatedAt,
             lastEventId,
             repoLabel,
-            success,
-            totalEvents);
+            success);
     }
     
     @Override
     public String toString() {
         return Utils.toString(TargetSDK.class,
                 "commitHead", commitHead,
+                "continuousIntegrationEnvironment", continuousIntegrationEnvironment,
                 "generateConfigPostVersion", generateConfigPostVersion,
                 "generateGenLockId", generateGenLockId,
+                "generateGenLockPreFeatures", generateGenLockPreFeatures,
+                "generateGenLockPreVersion", generateGenLockPreVersion,
                 "generatePublished", generatePublished,
                 "generateTarget", generateTarget,
                 "generateTargetName", generateTargetName,
@@ -861,17 +948,22 @@ public class TargetSDK {
                 "lastEventCreatedAt", lastEventCreatedAt,
                 "lastEventId", lastEventId,
                 "repoLabel", repoLabel,
-                "success", success,
-                "totalEvents", totalEvents);
+                "success", success);
     }
     
     public final static class Builder {
  
         private Optional<? extends String> commitHead = Optional.empty();
  
+        private Optional<? extends String> continuousIntegrationEnvironment = Optional.empty();
+ 
         private Optional<? extends String> generateConfigPostVersion = Optional.empty();
  
         private String generateGenLockId;
+ 
+        private Optional<? extends String> generateGenLockPreFeatures = Optional.empty();
+ 
+        private Optional<? extends String> generateGenLockPreVersion = Optional.empty();
  
         private Optional<? extends Boolean> generatePublished = Optional.empty();
  
@@ -909,9 +1001,7 @@ public class TargetSDK {
  
         private Optional<? extends String> repoLabel = Optional.empty();
  
-        private Optional<? extends Boolean> success = Optional.empty();
- 
-        private Long totalEvents;  
+        private Optional<? extends Boolean> success = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -932,6 +1022,24 @@ public class TargetSDK {
         public Builder commitHead(Optional<? extends String> commitHead) {
             Utils.checkNotNull(commitHead, "commitHead");
             this.commitHead = commitHead;
+            return this;
+        }
+
+        /**
+         * Name of the CI environment.
+         */
+        public Builder continuousIntegrationEnvironment(String continuousIntegrationEnvironment) {
+            Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+            this.continuousIntegrationEnvironment = Optional.ofNullable(continuousIntegrationEnvironment);
+            return this;
+        }
+
+        /**
+         * Name of the CI environment.
+         */
+        public Builder continuousIntegrationEnvironment(Optional<? extends String> continuousIntegrationEnvironment) {
+            Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+            this.continuousIntegrationEnvironment = continuousIntegrationEnvironment;
             return this;
         }
 
@@ -959,6 +1067,42 @@ public class TargetSDK {
         public Builder generateGenLockId(String generateGenLockId) {
             Utils.checkNotNull(generateGenLockId, "generateGenLockId");
             this.generateGenLockId = generateGenLockId;
+            return this;
+        }
+
+        /**
+         * Features prior to generation
+         */
+        public Builder generateGenLockPreFeatures(String generateGenLockPreFeatures) {
+            Utils.checkNotNull(generateGenLockPreFeatures, "generateGenLockPreFeatures");
+            this.generateGenLockPreFeatures = Optional.ofNullable(generateGenLockPreFeatures);
+            return this;
+        }
+
+        /**
+         * Features prior to generation
+         */
+        public Builder generateGenLockPreFeatures(Optional<? extends String> generateGenLockPreFeatures) {
+            Utils.checkNotNull(generateGenLockPreFeatures, "generateGenLockPreFeatures");
+            this.generateGenLockPreFeatures = generateGenLockPreFeatures;
+            return this;
+        }
+
+        /**
+         * Artifact version for the Previous Generation
+         */
+        public Builder generateGenLockPreVersion(String generateGenLockPreVersion) {
+            Utils.checkNotNull(generateGenLockPreVersion, "generateGenLockPreVersion");
+            this.generateGenLockPreVersion = Optional.ofNullable(generateGenLockPreVersion);
+            return this;
+        }
+
+        /**
+         * Artifact version for the Previous Generation
+         */
+        public Builder generateGenLockPreVersion(Optional<? extends String> generateGenLockPreVersion) {
+            Utils.checkNotNull(generateGenLockPreVersion, "generateGenLockPreVersion");
+            this.generateGenLockPreVersion = generateGenLockPreVersion;
             return this;
         }
 
@@ -1267,21 +1411,15 @@ public class TargetSDK {
             this.success = success;
             return this;
         }
-
-        /**
-         * Total number of events for the target
-         */
-        public Builder totalEvents(long totalEvents) {
-            Utils.checkNotNull(totalEvents, "totalEvents");
-            this.totalEvents = totalEvents;
-            return this;
-        }
         
         public TargetSDK build() {
             return new TargetSDK(
                 commitHead,
+                continuousIntegrationEnvironment,
                 generateConfigPostVersion,
                 generateGenLockId,
+                generateGenLockPreFeatures,
+                generateGenLockPreVersion,
                 generatePublished,
                 generateTarget,
                 generateTargetName,
@@ -1300,8 +1438,7 @@ public class TargetSDK {
                 lastEventCreatedAt,
                 lastEventId,
                 repoLabel,
-                success,
-                totalEvents);
+                success);
         }
     }
 }

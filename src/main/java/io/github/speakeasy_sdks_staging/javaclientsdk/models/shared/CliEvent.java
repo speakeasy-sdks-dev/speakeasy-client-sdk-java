@@ -30,6 +30,13 @@ public class CliEvent {
     private Optional<? extends String> commitHead;
 
     /**
+     * Name of the CI environment.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("continuous_integration_environment")
+    private Optional<? extends String> continuousIntegrationEnvironment;
+
+    /**
      * Timestamp when the event was created in the database.
      */
     @JsonProperty("created_at")
@@ -358,6 +365,7 @@ public class CliEvent {
 
     public CliEvent(
             @JsonProperty("commit_head") Optional<? extends String> commitHead,
+            @JsonProperty("continuous_integration_environment") Optional<? extends String> continuousIntegrationEnvironment,
             @JsonProperty("created_at") OffsetDateTime createdAt,
             @JsonProperty("duration_ms") Optional<? extends Long> durationMs,
             @JsonProperty("execution_id") String executionId,
@@ -407,6 +415,7 @@ public class CliEvent {
             @JsonProperty("success") boolean success,
             @JsonProperty("workspace_id") String workspaceId) {
         Utils.checkNotNull(commitHead, "commitHead");
+        Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
         Utils.checkNotNull(createdAt, "createdAt");
         Utils.checkNotNull(durationMs, "durationMs");
         Utils.checkNotNull(executionId, "executionId");
@@ -456,6 +465,7 @@ public class CliEvent {
         Utils.checkNotNull(success, "success");
         Utils.checkNotNull(workspaceId, "workspaceId");
         this.commitHead = commitHead;
+        this.continuousIntegrationEnvironment = continuousIntegrationEnvironment;
         this.createdAt = createdAt;
         this.durationMs = durationMs;
         this.executionId = executionId;
@@ -511,6 +521,13 @@ public class CliEvent {
      */
     public Optional<? extends String> commitHead() {
         return commitHead;
+    }
+
+    /**
+     * Name of the CI environment.
+     */
+    public Optional<? extends String> continuousIntegrationEnvironment() {
+        return continuousIntegrationEnvironment;
     }
 
     /**
@@ -868,6 +885,24 @@ public class CliEvent {
     public CliEvent withCommitHead(Optional<? extends String> commitHead) {
         Utils.checkNotNull(commitHead, "commitHead");
         this.commitHead = commitHead;
+        return this;
+    }
+
+    /**
+     * Name of the CI environment.
+     */
+    public CliEvent withContinuousIntegrationEnvironment(String continuousIntegrationEnvironment) {
+        Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+        this.continuousIntegrationEnvironment = Optional.ofNullable(continuousIntegrationEnvironment);
+        return this;
+    }
+
+    /**
+     * Name of the CI environment.
+     */
+    public CliEvent withContinuousIntegrationEnvironment(Optional<? extends String> continuousIntegrationEnvironment) {
+        Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+        this.continuousIntegrationEnvironment = continuousIntegrationEnvironment;
         return this;
     }
 
@@ -1665,6 +1700,7 @@ public class CliEvent {
         CliEvent other = (CliEvent) o;
         return 
             java.util.Objects.deepEquals(this.commitHead, other.commitHead) &&
+            java.util.Objects.deepEquals(this.continuousIntegrationEnvironment, other.continuousIntegrationEnvironment) &&
             java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
             java.util.Objects.deepEquals(this.durationMs, other.durationMs) &&
             java.util.Objects.deepEquals(this.executionId, other.executionId) &&
@@ -1719,6 +1755,7 @@ public class CliEvent {
     public int hashCode() {
         return java.util.Objects.hash(
             commitHead,
+            continuousIntegrationEnvironment,
             createdAt,
             durationMs,
             executionId,
@@ -1773,6 +1810,7 @@ public class CliEvent {
     public String toString() {
         return Utils.toString(CliEvent.class,
                 "commitHead", commitHead,
+                "continuousIntegrationEnvironment", continuousIntegrationEnvironment,
                 "createdAt", createdAt,
                 "durationMs", durationMs,
                 "executionId", executionId,
@@ -1826,6 +1864,8 @@ public class CliEvent {
     public final static class Builder {
  
         private Optional<? extends String> commitHead = Optional.empty();
+ 
+        private Optional<? extends String> continuousIntegrationEnvironment = Optional.empty();
  
         private OffsetDateTime createdAt;
  
@@ -1942,6 +1982,24 @@ public class CliEvent {
         public Builder commitHead(Optional<? extends String> commitHead) {
             Utils.checkNotNull(commitHead, "commitHead");
             this.commitHead = commitHead;
+            return this;
+        }
+
+        /**
+         * Name of the CI environment.
+         */
+        public Builder continuousIntegrationEnvironment(String continuousIntegrationEnvironment) {
+            Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+            this.continuousIntegrationEnvironment = Optional.ofNullable(continuousIntegrationEnvironment);
+            return this;
+        }
+
+        /**
+         * Name of the CI environment.
+         */
+        public Builder continuousIntegrationEnvironment(Optional<? extends String> continuousIntegrationEnvironment) {
+            Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
+            this.continuousIntegrationEnvironment = continuousIntegrationEnvironment;
             return this;
         }
 
@@ -2731,6 +2789,7 @@ public class CliEvent {
         public CliEvent build() {
             return new CliEvent(
                 commitHead,
+                continuousIntegrationEnvironment,
                 createdAt,
                 durationMs,
                 executionId,
