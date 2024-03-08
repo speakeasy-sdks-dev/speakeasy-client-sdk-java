@@ -81,9 +81,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiEndpointResponse>](../../models/operations/DeleteApiEndpointResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## findApiEndpoint
 
@@ -153,9 +153,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FindApiEndpointResponse>](../../models/operations/FindApiEndpointResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## generateOpenApiSpecForApiEndpoint
 
@@ -225,9 +225,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecForApiEndpointResponse>](../../models/operations/GenerateOpenApiSpecForApiEndpointResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## generatePostmanCollectionForApiEndpoint
 
@@ -296,9 +296,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionForApiEndpointResponse>](../../models/operations/GeneratePostmanCollectionForApiEndpointResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getAllApiEndpoints
 
@@ -365,9 +365,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiEndpointsResponse>](../../models/operations/GetAllApiEndpointsResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getAllForVersionApiEndpoints
 
@@ -435,9 +435,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllForVersionApiEndpointsResponse>](../../models/operations/GetAllForVersionApiEndpointsResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getApiEndpoint
 
@@ -506,9 +506,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApiEndpointResponse>](../../models/operations/GetApiEndpointResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## upsertApiEndpoint
 
@@ -586,6 +586,6 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiEndpointResponse>](../../models/operations/UpsertApiEndpointResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |

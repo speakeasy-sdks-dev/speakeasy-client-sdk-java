@@ -17,8 +17,10 @@ import java.math.BigInteger;
  * InteractionType - Type of interaction.
  */
 public enum InteractionType {
+    CI_EXEC("CI_EXEC"),
     CLI_EXEC("CLI_EXEC"),
     TARGET_GENERATE("TARGET_GENERATE"),
+    TOMBSTONE("TOMBSTONE"),
     AUTHENTICATE("AUTHENTICATE"),
     QUICKSTART("QUICKSTART"),
     RUN("RUN"),

@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 import java.util.Optional;
 
 
-public class GenerateOpenApiSpecForApiEndpointResponse {
+public class GenerateOpenApiSpecForApiEndpointResponse implements io.github.speakeasy_sdks_staging.javaclientsdk.utils.Response {
 
     /**
      * HTTP response content type for this operation

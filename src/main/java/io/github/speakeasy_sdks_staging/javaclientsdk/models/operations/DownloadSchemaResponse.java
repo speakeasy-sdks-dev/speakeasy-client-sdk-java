@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 import java.util.Optional;
 
 
-public class DownloadSchemaResponse {
+public class DownloadSchemaResponse implements io.github.speakeasy_sdks_staging.javaclientsdk.utils.Response {
 
     /**
      * OK

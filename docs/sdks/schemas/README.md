@@ -81,9 +81,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse>](../../models/operations/DeleteSchemaResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## downloadSchema
 
@@ -151,9 +151,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse>](../../models/operations/DownloadSchemaResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## downloadSchemaRevision
 
@@ -222,9 +222,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse>](../../models/operations/DownloadSchemaRevisionResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getSchema
 
@@ -293,9 +293,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse>](../../models/operations/GetSchemaResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getSchemaDiff
 
@@ -365,9 +365,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse>](../../models/operations/GetSchemaDiffResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getSchemaRevision
 
@@ -437,9 +437,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse>](../../models/operations/GetSchemaRevisionResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getSchemas
 
@@ -508,9 +508,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse>](../../models/operations/GetSchemasResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## registerSchema
 
@@ -585,6 +585,6 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse>](../../models/operations/RegisterSchemaResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |

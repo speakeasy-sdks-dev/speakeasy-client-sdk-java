@@ -5,6 +5,7 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.operations;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.LazySingletonValue;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options.Builder;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Options;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.stream.Stream;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 

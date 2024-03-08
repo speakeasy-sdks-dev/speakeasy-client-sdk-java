@@ -77,9 +77,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsResponse>](../../models/operations/GetWorkspaceEventsResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## getWorkspaceTargets
 
@@ -146,9 +146,9 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse>](../../models/operations/GetWorkspaceTargetsResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
 
 ## postWorkspaceEvents
 
@@ -192,7 +192,7 @@ public class Application {
                             .createdAt(OffsetDateTime.parse("2023-10-28T06:47:51.791Z"))
                             .executionId("<value>")
                             .id("<value>")
-                            .interactionType(InteractionType.AUTHENTICATE)
+                            .interactionType(InteractionType.TOMBSTONE)
                             .localStartedAt(OffsetDateTime.parse("2024-02-25T22:57:22.933Z"))
                             .speakeasyApiKeyName("<value>")
                             .speakeasyVersion("<value>")
@@ -227,6 +227,6 @@ public class Application {
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse>](../../models/operations/PostWorkspaceEventsResponse.md)**
 ### Errors
 
-| Error Object          | Status Code           | Content Type          |
-| --------------------- | --------------------- | --------------------- |
-| models/errorsSDKError | 4xx-5xx               | */*                   |
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |

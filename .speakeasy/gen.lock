@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 66f99777-b2f2-4e45-9581-501d199e5c0c
 management:
-  docChecksum: 78317aabbf8200a3d43be677bd6fe435
+  docChecksum: 64b423d1904e6c12d31973957d033247
   docVersion: 0.4.0
-  speakeasyVersion: 1.202.0
-  generationVersion: 2.277.0
-  releaseVersion: 7.8.6
-  configChecksum: 954aea8da1d3449a279df150c534af0c
+  speakeasyVersion: 1.204.1
+  generationVersion: 2.279.1
+  releaseVersion: 7.9.0
+  configChecksum: e10baf52b3fba7910a4a975436f1f96a
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
   repoSubDirectory: .
   published: true
 features:
   java:
-    core: 3.13.3
+    core: 3.14.1
     downloadStreams: 0.1.1
     examples: 2.81.3
     globalSecurity: 2.82.4
@@ -81,6 +81,7 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/BackoffStrategy.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/BigDecimalString.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/BigIntegerString.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/Deserializers.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/FormMetadata.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/HTTPClient.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/HTTPRequest.java
@@ -96,6 +97,7 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/QueryParamsMetadata.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/RequestBody.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/RequestMetadata.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/Response.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/Retries.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/RetryConfig.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/Security.java
@@ -210,8 +212,8 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/EmbedAccessTokenResponse.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/EmbedToken.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GenerateBumpType.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/InteractionType.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/CliEvent.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/InteractionType.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/TargetSDK.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Security.java
   - docs/models/operations/DeleteApiRequest.md
@@ -316,8 +318,8 @@ generatedFiles:
   - docs/models/shared/EmbedAccessTokenResponse.md
   - docs/models/shared/EmbedToken.md
   - docs/models/shared/GenerateBumpType.md
-  - docs/models/shared/InteractionType.md
   - docs/models/shared/CliEvent.md
+  - docs/models/shared/InteractionType.md
   - docs/models/shared/TargetSDK.md
   - docs/models/shared/Security.md
   - docs/sdks/sdk/README.md

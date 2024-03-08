@@ -179,6 +179,12 @@ public class TargetSDK {
     private String lastEventId;
 
     /**
+     * Type of interaction.
+     */
+    @JsonProperty("last_event_interaction_type")
+    private InteractionType lastEventInteractionType;
+
+    /**
      * Label of the git repository.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -216,6 +222,7 @@ public class TargetSDK {
             @JsonProperty("id") String id,
             @JsonProperty("last_event_created_at") OffsetDateTime lastEventCreatedAt,
             @JsonProperty("last_event_id") String lastEventId,
+            @JsonProperty("last_event_interaction_type") InteractionType lastEventInteractionType,
             @JsonProperty("repo_label") Optional<? extends String> repoLabel,
             @JsonProperty("success") Optional<? extends Boolean> success) {
         Utils.checkNotNull(commitHead, "commitHead");
@@ -241,6 +248,7 @@ public class TargetSDK {
         Utils.checkNotNull(id, "id");
         Utils.checkNotNull(lastEventCreatedAt, "lastEventCreatedAt");
         Utils.checkNotNull(lastEventId, "lastEventId");
+        Utils.checkNotNull(lastEventInteractionType, "lastEventInteractionType");
         Utils.checkNotNull(repoLabel, "repoLabel");
         Utils.checkNotNull(success, "success");
         this.commitHead = commitHead;
@@ -266,6 +274,7 @@ public class TargetSDK {
         this.id = id;
         this.lastEventCreatedAt = lastEventCreatedAt;
         this.lastEventId = lastEventId;
+        this.lastEventInteractionType = lastEventInteractionType;
         this.repoLabel = repoLabel;
         this.success = success;
     }
@@ -429,6 +438,13 @@ public class TargetSDK {
      */
     public String lastEventId() {
         return lastEventId;
+    }
+
+    /**
+     * Type of interaction.
+     */
+    public InteractionType lastEventInteractionType() {
+        return lastEventInteractionType;
     }
 
     /**
@@ -819,6 +835,15 @@ public class TargetSDK {
     }
 
     /**
+     * Type of interaction.
+     */
+    public TargetSDK withLastEventInteractionType(InteractionType lastEventInteractionType) {
+        Utils.checkNotNull(lastEventInteractionType, "lastEventInteractionType");
+        this.lastEventInteractionType = lastEventInteractionType;
+        return this;
+    }
+
+    /**
      * Label of the git repository.
      */
     public TargetSDK withRepoLabel(String repoLabel) {
@@ -887,6 +912,7 @@ public class TargetSDK {
             java.util.Objects.deepEquals(this.id, other.id) &&
             java.util.Objects.deepEquals(this.lastEventCreatedAt, other.lastEventCreatedAt) &&
             java.util.Objects.deepEquals(this.lastEventId, other.lastEventId) &&
+            java.util.Objects.deepEquals(this.lastEventInteractionType, other.lastEventInteractionType) &&
             java.util.Objects.deepEquals(this.repoLabel, other.repoLabel) &&
             java.util.Objects.deepEquals(this.success, other.success);
     }
@@ -917,6 +943,7 @@ public class TargetSDK {
             id,
             lastEventCreatedAt,
             lastEventId,
+            lastEventInteractionType,
             repoLabel,
             success);
     }
@@ -947,6 +974,7 @@ public class TargetSDK {
                 "id", id,
                 "lastEventCreatedAt", lastEventCreatedAt,
                 "lastEventId", lastEventId,
+                "lastEventInteractionType", lastEventInteractionType,
                 "repoLabel", repoLabel,
                 "success", success);
     }
@@ -998,6 +1026,8 @@ public class TargetSDK {
         private OffsetDateTime lastEventCreatedAt;
  
         private String lastEventId;
+ 
+        private InteractionType lastEventInteractionType;
  
         private Optional<? extends String> repoLabel = Optional.empty();
  
@@ -1377,6 +1407,15 @@ public class TargetSDK {
         }
 
         /**
+         * Type of interaction.
+         */
+        public Builder lastEventInteractionType(InteractionType lastEventInteractionType) {
+            Utils.checkNotNull(lastEventInteractionType, "lastEventInteractionType");
+            this.lastEventInteractionType = lastEventInteractionType;
+            return this;
+        }
+
+        /**
          * Label of the git repository.
          */
         public Builder repoLabel(String repoLabel) {
@@ -1437,6 +1476,7 @@ public class TargetSDK {
                 id,
                 lastEventCreatedAt,
                 lastEventId,
+                lastEventInteractionType,
                 repoLabel,
                 success);
         }
