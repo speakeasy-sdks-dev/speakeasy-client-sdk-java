@@ -201,6 +201,11 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallGetOrganizations {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationsResponse getOrganizationsDirect() throws Exception;
+    }
+
+
     public interface MethodCallGetEmbedAccessToken {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenResponse getEmbedAccessToken(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetEmbedAccessTokenRequest request) throws Exception;

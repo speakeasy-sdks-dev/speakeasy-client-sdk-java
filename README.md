@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.9.0'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.9.1'
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -120,6 +120,10 @@ public class Application {
 * [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
 * [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
 * [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
+
+### [organizations()](docs/sdks/organizations/README.md)
+
+* [getOrganizations](docs/sdks/organizations/README.md#getorganizations) - Get organizations for a user
 
 ### [embeds()](docs/sdks/embeds/README.md)
 

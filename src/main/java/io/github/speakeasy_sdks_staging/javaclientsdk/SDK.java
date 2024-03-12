@@ -77,6 +77,8 @@ PROD("prod");
      */
     private final Requests requests;
 
+    private final Organizations organizations;
+
     /**
      * REST APIs for managing embeds
      */
@@ -127,6 +129,10 @@ PROD("prod");
      */
     public Requests requests() {
         return requests;
+    }
+
+    public Organizations organizations() {
+        return organizations;
     }
 
     /**
@@ -286,9 +292,11 @@ PROD("prod");
         this.schemas = new Schemas(sdkConfiguration);
         this.auth = new Auth(sdkConfiguration);
         this.requests = new Requests(sdkConfiguration);
+        this.organizations = new Organizations(sdkConfiguration);
         this.embeds = new Embeds(sdkConfiguration);
         this.events = new Events(sdkConfiguration);
     }
+
 
 
 

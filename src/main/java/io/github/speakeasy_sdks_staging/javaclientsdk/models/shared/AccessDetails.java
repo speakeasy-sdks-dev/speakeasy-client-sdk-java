@@ -5,6 +5,8 @@
 package io.github.speakeasy_sdks_staging.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils;
@@ -12,6 +14,7 @@ import java.io.InputStream;
 import java.lang.Deprecated;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Optional;
 
 
 public class AccessDetails {
@@ -19,20 +22,31 @@ public class AccessDetails {
     @JsonProperty("generation_allowed")
     private boolean generationAllowed;
 
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("level")
+    private Optional<? extends Level> level;
+
     @JsonProperty("message")
     private String message;
 
     public AccessDetails(
             @JsonProperty("generation_allowed") boolean generationAllowed,
+            @JsonProperty("level") Optional<? extends Level> level,
             @JsonProperty("message") String message) {
         Utils.checkNotNull(generationAllowed, "generationAllowed");
+        Utils.checkNotNull(level, "level");
         Utils.checkNotNull(message, "message");
         this.generationAllowed = generationAllowed;
+        this.level = level;
         this.message = message;
     }
 
     public boolean generationAllowed() {
         return generationAllowed;
+    }
+
+    public Optional<? extends Level> level() {
+        return level;
     }
 
     public String message() {
@@ -46,6 +60,18 @@ public class AccessDetails {
     public AccessDetails withGenerationAllowed(boolean generationAllowed) {
         Utils.checkNotNull(generationAllowed, "generationAllowed");
         this.generationAllowed = generationAllowed;
+        return this;
+    }
+
+    public AccessDetails withLevel(Level level) {
+        Utils.checkNotNull(level, "level");
+        this.level = Optional.ofNullable(level);
+        return this;
+    }
+
+    public AccessDetails withLevel(Optional<? extends Level> level) {
+        Utils.checkNotNull(level, "level");
+        this.level = level;
         return this;
     }
 
@@ -66,6 +92,7 @@ public class AccessDetails {
         AccessDetails other = (AccessDetails) o;
         return 
             java.util.Objects.deepEquals(this.generationAllowed, other.generationAllowed) &&
+            java.util.Objects.deepEquals(this.level, other.level) &&
             java.util.Objects.deepEquals(this.message, other.message);
     }
     
@@ -73,6 +100,7 @@ public class AccessDetails {
     public int hashCode() {
         return java.util.Objects.hash(
             generationAllowed,
+            level,
             message);
     }
     
@@ -80,12 +108,15 @@ public class AccessDetails {
     public String toString() {
         return Utils.toString(AccessDetails.class,
                 "generationAllowed", generationAllowed,
+                "level", level,
                 "message", message);
     }
     
     public final static class Builder {
  
         private Boolean generationAllowed;
+ 
+        private Optional<? extends Level> level = Optional.empty();
  
         private String message;  
         
@@ -99,6 +130,18 @@ public class AccessDetails {
             return this;
         }
 
+        public Builder level(Level level) {
+            Utils.checkNotNull(level, "level");
+            this.level = Optional.ofNullable(level);
+            return this;
+        }
+
+        public Builder level(Optional<? extends Level> level) {
+            Utils.checkNotNull(level, "level");
+            this.level = level;
+            return this;
+        }
+
         public Builder message(String message) {
             Utils.checkNotNull(message, "message");
             this.message = message;
@@ -108,6 +151,7 @@ public class AccessDetails {
         public AccessDetails build() {
             return new AccessDetails(
                 generationAllowed,
+                level,
                 message);
         }
     }
