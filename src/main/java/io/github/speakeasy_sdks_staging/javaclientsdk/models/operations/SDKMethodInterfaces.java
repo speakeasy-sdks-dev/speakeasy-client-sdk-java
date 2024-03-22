@@ -171,6 +171,11 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallGetUser {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse getUserDirect() throws Exception;
+    }
+
+
     public interface MethodCallGetWorkspaceAccess {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse getWorkspaceAccess(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest request,

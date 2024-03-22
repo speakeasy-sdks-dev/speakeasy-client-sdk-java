@@ -8,6 +8,7 @@ REST APIs for managing Authentication
 ### Available Operations
 
 * [getAccessToken](#getaccesstoken) - Get or refresh an access token for the current workspace.
+* [getUser](#getuser) - Get information about the current user.
 * [getWorkspaceAccess](#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](#validateapikey) - Validate the current api key.
 
@@ -70,6 +71,63 @@ public class Application {
 ### Response
 
 **[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAccessTokenResponse>](../../models/operations/GetAccessTokenResponse.md)**
+### Errors
+
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | */*                    |
+
+## getUser
+
+Get information about the current user.
+
+### Example Usage
+
+```java
+package hello.world;
+
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import static java.util.Map.entry;
+
+public class Application {
+
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .workspaceID("<value>")
+                .build();
+
+            GetUserResponse res = sdk.auth().getUser()
+                .call();
+
+            if (res.user().isPresent()) {
+                // handle response
+            }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+
+### Response
+
+**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse>](../../models/operations/GetUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |

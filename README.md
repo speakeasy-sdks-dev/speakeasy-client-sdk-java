@@ -11,7 +11,7 @@ Once published to a repository (local or otherwise), the SDK artifact is used as
 
 Gradle:
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.11.0'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.11.1'
 ```
 
 Maven:
@@ -19,7 +19,7 @@ Maven:
 <dependency>
     <groupId>io.github.speakeasy_sdks_staging.javaclientsdk</groupId>
     <artifactId>speakeasy-client-sdk-java</artifactId>
-    <version>7.11.0</version>
+    <version>7.11.1</version>
 </dependency>
 ```
 
@@ -140,6 +140,7 @@ public class Application {
 ### [auth()](docs/sdks/auth/README.md)
 
 * [getAccessToken](docs/sdks/auth/README.md#getaccesstoken) - Get or refresh an access token for the current workspace.
+* [getUser](docs/sdks/auth/README.md#getuser) - Get information about the current user.
 * [getWorkspaceAccess](docs/sdks/auth/README.md#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 

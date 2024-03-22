@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 public class Auth implements
             MethodCallGetAccessToken,
+            MethodCallGetUser,
             MethodCallGetWorkspaceAccess,
             MethodCallValidateApiKey {
 
@@ -99,6 +101,76 @@ public class Auth implements
                     Utils.toUtf8AndClose(httpRes.body()),
                     new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.AccessToken>() {});
                 res.withAccessToken(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        }else {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Error>() {});
+                res.withError(java.util.Optional.ofNullable(out));
+            } else {
+                throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
+            }
+        }
+
+        return res;
+    }
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserRequestBuilder getUser() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserRequestBuilder(this);
+    }
+
+    /**
+     * Get information about the current user.
+     * @return The response from the API call.
+     * @throws Exception if the API call fails.
+     */
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse getUserDirect() throws Exception {
+
+        String baseUrl = this.sdkConfiguration.serverUrl;
+
+        String url = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.generateURL(
+                baseUrl,
+                "/v1/user");
+
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("GET");
+        req.setURL(url);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", this.sdkConfiguration.userAgent);
+
+        HTTPClient client = io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.configureSecurityClient(
+                this.sdkConfiguration.defaultClient, this.sdkConfiguration.securitySource.getSecurity());
+
+        HttpResponse<InputStream> httpRes = client.send(req);
+
+        String contentType = httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse.Builder resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse
+                .builder()
+                .contentType(contentType)
+                .statusCode(httpRes.statusCode())
+                .rawResponse(httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse res = resBuilder.build();
+
+        res.withRawResponse(httpRes);
+
+        if (httpRes.statusCode() == 200) {
+            if (io.github.speakeasy_sdks_staging.javaclientsdk.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.User out = mapper.readValue(
+                    Utils.toUtf8AndClose(httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.User>() {});
+                res.withUser(java.util.Optional.ofNullable(out));
             } else {
                 throw new SDKError(httpRes, httpRes.statusCode(), "Unknown content-type received: " + contentType, Utils.toByteArrayAndClose(httpRes.body()));
             }

@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 66f99777-b2f2-4e45-9581-501d199e5c0c
 management:
-  docChecksum: 3d1ffb0cc7307a0362c5389c0fa1fdb5
+  docChecksum: 17e2e733dfd588a7103c3c70e91b24b5
   docVersion: 0.4.0
-  speakeasyVersion: 1.215.1
-  generationVersion: 2.286.4
-  releaseVersion: 7.11.0
-  configChecksum: 4ed8355b93adaca7e6bfe62bd7e99d59
+  speakeasyVersion: 1.219.2
+  generationVersion: 2.286.7
+  releaseVersion: 7.11.1
+  configChecksum: 4bf8e59e2413fd9b8b2eb5de3e0d9fba
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
   repoSubDirectory: .
   published: true
 features:
   java:
-    core: 3.16.0
+    core: 3.16.1
     downloadStreams: 0.1.1
     examples: 2.81.3
     globalSecurity: 2.82.5
@@ -59,6 +59,7 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemasRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetUserRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ValidateApiKeyRequestBuilder.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateRequestPostmanCollectionRequestBuilder.java
@@ -168,6 +169,7 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaResponse.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenRequest.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetUserResponse.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessRequest.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessResponse.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ValidateApiKeyResponse.java
@@ -201,9 +203,10 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ValueChange.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SchemaDiff.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Claims.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/User.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessTokenUser.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Workspaces.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessToken.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/User.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Level.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessDetails.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccountType.java
@@ -278,6 +281,7 @@ generatedFiles:
   - docs/models/operations/RegisterSchemaResponse.md
   - docs/models/operations/GetAccessTokenRequest.md
   - docs/models/operations/GetAccessTokenResponse.md
+  - docs/models/operations/GetUserResponse.md
   - docs/models/operations/GetWorkspaceAccessRequest.md
   - docs/models/operations/GetWorkspaceAccessResponse.md
   - docs/models/operations/ValidateApiKeyResponse.md
@@ -311,9 +315,10 @@ generatedFiles:
   - docs/models/shared/ValueChange.md
   - docs/models/shared/SchemaDiff.md
   - docs/models/shared/Claims.md
-  - docs/models/shared/User.md
+  - docs/models/shared/AccessTokenUser.md
   - docs/models/shared/Workspaces.md
   - docs/models/shared/AccessToken.md
+  - docs/models/shared/User.md
   - docs/models/shared/Level.md
   - docs/models/shared/AccessDetails.md
   - docs/models/shared/AccountType.md

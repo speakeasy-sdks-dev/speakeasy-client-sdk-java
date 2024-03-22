@@ -29,7 +29,7 @@ public class AccessToken {
     private Claims claims;
 
     @JsonProperty("user")
-    private User user;
+    private AccessTokenUser user;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workspaces")
@@ -38,7 +38,7 @@ public class AccessToken {
     public AccessToken(
             @JsonProperty("access_token") String accessToken,
             @JsonProperty("claims") Claims claims,
-            @JsonProperty("user") User user,
+            @JsonProperty("user") AccessTokenUser user,
             @JsonProperty("workspaces") Optional<? extends java.util.List<Workspaces>> workspaces) {
         Utils.checkNotNull(accessToken, "accessToken");
         Utils.checkNotNull(claims, "claims");
@@ -58,7 +58,7 @@ public class AccessToken {
         return claims;
     }
 
-    public User user() {
+    public AccessTokenUser user() {
         return user;
     }
 
@@ -82,7 +82,7 @@ public class AccessToken {
         return this;
     }
 
-    public AccessToken withUser(User user) {
+    public AccessToken withUser(AccessTokenUser user) {
         Utils.checkNotNull(user, "user");
         this.user = user;
         return this;
@@ -140,7 +140,7 @@ public class AccessToken {
  
         private Claims claims;
  
-        private User user;
+        private AccessTokenUser user;
  
         private Optional<? extends java.util.List<Workspaces>> workspaces = Optional.empty();  
         
@@ -160,7 +160,7 @@ public class AccessToken {
             return this;
         }
 
-        public Builder user(User user) {
+        public Builder user(AccessTokenUser user) {
             Utils.checkNotNull(user, "user");
             this.user = user;
             return this;

@@ -22,148 +22,365 @@ import java.util.Optional;
 
 public class User {
 
-    @JsonInclude(Include.NON_ABSENT)
+    /**
+     * Indicates whether the user is an admin.
+     */
     @JsonProperty("admin")
-    private Optional<? extends Boolean> admin;
+    private boolean admin;
 
-    @JsonInclude(Include.NON_ABSENT)
+    /**
+     * Indicates whether the user has been confirmed.
+     */
+    @JsonProperty("confirmed")
+    private boolean confirmed;
+
+    /**
+     * Timestamp of the user's creation.
+     */
     @JsonProperty("created_at")
-    private Optional<? extends OffsetDateTime> createdAt;
+    private OffsetDateTime createdAt;
 
+    /**
+     * Identifier of the default workspace.
+     */
     @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("default_workspace_id")
+    private Optional<? extends String> defaultWorkspaceId;
+
+    /**
+     * Display name of the user.
+     */
     @JsonProperty("display_name")
-    private Optional<? extends String> displayName;
+    private String displayName;
 
-    @JsonInclude(Include.NON_ABSENT)
+    /**
+     * Email address of the user.
+     */
     @JsonProperty("email")
-    private Optional<? extends String> email;
+    private String email;
 
-    @JsonInclude(Include.NON_ABSENT)
+    /**
+     * Indicates whether the email address has been verified.
+     */
     @JsonProperty("email_verified")
-    private Optional<? extends Boolean> emailVerified;
+    private boolean emailVerified;
 
+    /**
+     * GitHub handle of the user.
+     */
     @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("github_handle")
+    private Optional<? extends String> githubHandle;
+
+    /**
+     * Unique identifier for the user.
+     */
     @JsonProperty("id")
-    private Optional<? extends String> id;
+    private String id;
+
+    /**
+     * Timestamp of the last login.
+     */
+    @JsonProperty("last_login_at")
+    private OffsetDateTime lastLoginAt;
+
+    /**
+     * URL of the user's photo.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("photo_url")
+    private Optional<? extends String> photoUrl;
+
+    /**
+     * Timestamp of the user's last update.
+     */
+    @JsonProperty("updated_at")
+    private OffsetDateTime updatedAt;
+
+    /**
+     * Indicates whether the user has been whitelisted.
+     */
+    @JsonProperty("whitelisted")
+    private boolean whitelisted;
 
     public User(
-            @JsonProperty("admin") Optional<? extends Boolean> admin,
-            @JsonProperty("created_at") Optional<? extends OffsetDateTime> createdAt,
-            @JsonProperty("display_name") Optional<? extends String> displayName,
-            @JsonProperty("email") Optional<? extends String> email,
-            @JsonProperty("email_verified") Optional<? extends Boolean> emailVerified,
-            @JsonProperty("id") Optional<? extends String> id) {
+            @JsonProperty("admin") boolean admin,
+            @JsonProperty("confirmed") boolean confirmed,
+            @JsonProperty("created_at") OffsetDateTime createdAt,
+            @JsonProperty("default_workspace_id") Optional<? extends String> defaultWorkspaceId,
+            @JsonProperty("display_name") String displayName,
+            @JsonProperty("email") String email,
+            @JsonProperty("email_verified") boolean emailVerified,
+            @JsonProperty("github_handle") Optional<? extends String> githubHandle,
+            @JsonProperty("id") String id,
+            @JsonProperty("last_login_at") OffsetDateTime lastLoginAt,
+            @JsonProperty("photo_url") Optional<? extends String> photoUrl,
+            @JsonProperty("updated_at") OffsetDateTime updatedAt,
+            @JsonProperty("whitelisted") boolean whitelisted) {
         Utils.checkNotNull(admin, "admin");
+        Utils.checkNotNull(confirmed, "confirmed");
         Utils.checkNotNull(createdAt, "createdAt");
+        Utils.checkNotNull(defaultWorkspaceId, "defaultWorkspaceId");
         Utils.checkNotNull(displayName, "displayName");
         Utils.checkNotNull(email, "email");
         Utils.checkNotNull(emailVerified, "emailVerified");
+        Utils.checkNotNull(githubHandle, "githubHandle");
         Utils.checkNotNull(id, "id");
+        Utils.checkNotNull(lastLoginAt, "lastLoginAt");
+        Utils.checkNotNull(photoUrl, "photoUrl");
+        Utils.checkNotNull(updatedAt, "updatedAt");
+        Utils.checkNotNull(whitelisted, "whitelisted");
         this.admin = admin;
+        this.confirmed = confirmed;
         this.createdAt = createdAt;
+        this.defaultWorkspaceId = defaultWorkspaceId;
         this.displayName = displayName;
         this.email = email;
         this.emailVerified = emailVerified;
+        this.githubHandle = githubHandle;
         this.id = id;
+        this.lastLoginAt = lastLoginAt;
+        this.photoUrl = photoUrl;
+        this.updatedAt = updatedAt;
+        this.whitelisted = whitelisted;
     }
 
-    public Optional<? extends Boolean> admin() {
+    /**
+     * Indicates whether the user is an admin.
+     */
+    public boolean admin() {
         return admin;
     }
 
-    public Optional<? extends OffsetDateTime> createdAt() {
+    /**
+     * Indicates whether the user has been confirmed.
+     */
+    public boolean confirmed() {
+        return confirmed;
+    }
+
+    /**
+     * Timestamp of the user's creation.
+     */
+    public OffsetDateTime createdAt() {
         return createdAt;
     }
 
-    public Optional<? extends String> displayName() {
+    /**
+     * Identifier of the default workspace.
+     */
+    public Optional<? extends String> defaultWorkspaceId() {
+        return defaultWorkspaceId;
+    }
+
+    /**
+     * Display name of the user.
+     */
+    public String displayName() {
         return displayName;
     }
 
-    public Optional<? extends String> email() {
+    /**
+     * Email address of the user.
+     */
+    public String email() {
         return email;
     }
 
-    public Optional<? extends Boolean> emailVerified() {
+    /**
+     * Indicates whether the email address has been verified.
+     */
+    public boolean emailVerified() {
         return emailVerified;
     }
 
-    public Optional<? extends String> id() {
+    /**
+     * GitHub handle of the user.
+     */
+    public Optional<? extends String> githubHandle() {
+        return githubHandle;
+    }
+
+    /**
+     * Unique identifier for the user.
+     */
+    public String id() {
         return id;
+    }
+
+    /**
+     * Timestamp of the last login.
+     */
+    public OffsetDateTime lastLoginAt() {
+        return lastLoginAt;
+    }
+
+    /**
+     * URL of the user's photo.
+     */
+    public Optional<? extends String> photoUrl() {
+        return photoUrl;
+    }
+
+    /**
+     * Timestamp of the user's last update.
+     */
+    public OffsetDateTime updatedAt() {
+        return updatedAt;
+    }
+
+    /**
+     * Indicates whether the user has been whitelisted.
+     */
+    public boolean whitelisted() {
+        return whitelisted;
     }
 
     public final static Builder builder() {
         return new Builder();
     }
 
+    /**
+     * Indicates whether the user is an admin.
+     */
     public User withAdmin(boolean admin) {
-        Utils.checkNotNull(admin, "admin");
-        this.admin = Optional.ofNullable(admin);
-        return this;
-    }
-
-    public User withAdmin(Optional<? extends Boolean> admin) {
         Utils.checkNotNull(admin, "admin");
         this.admin = admin;
         return this;
     }
 
-    public User withCreatedAt(OffsetDateTime createdAt) {
-        Utils.checkNotNull(createdAt, "createdAt");
-        this.createdAt = Optional.ofNullable(createdAt);
+    /**
+     * Indicates whether the user has been confirmed.
+     */
+    public User withConfirmed(boolean confirmed) {
+        Utils.checkNotNull(confirmed, "confirmed");
+        this.confirmed = confirmed;
         return this;
     }
 
-    public User withCreatedAt(Optional<? extends OffsetDateTime> createdAt) {
+    /**
+     * Timestamp of the user's creation.
+     */
+    public User withCreatedAt(OffsetDateTime createdAt) {
         Utils.checkNotNull(createdAt, "createdAt");
         this.createdAt = createdAt;
         return this;
     }
 
-    public User withDisplayName(String displayName) {
-        Utils.checkNotNull(displayName, "displayName");
-        this.displayName = Optional.ofNullable(displayName);
+    /**
+     * Identifier of the default workspace.
+     */
+    public User withDefaultWorkspaceId(String defaultWorkspaceId) {
+        Utils.checkNotNull(defaultWorkspaceId, "defaultWorkspaceId");
+        this.defaultWorkspaceId = Optional.ofNullable(defaultWorkspaceId);
         return this;
     }
 
-    public User withDisplayName(Optional<? extends String> displayName) {
+    /**
+     * Identifier of the default workspace.
+     */
+    public User withDefaultWorkspaceId(Optional<? extends String> defaultWorkspaceId) {
+        Utils.checkNotNull(defaultWorkspaceId, "defaultWorkspaceId");
+        this.defaultWorkspaceId = defaultWorkspaceId;
+        return this;
+    }
+
+    /**
+     * Display name of the user.
+     */
+    public User withDisplayName(String displayName) {
         Utils.checkNotNull(displayName, "displayName");
         this.displayName = displayName;
         return this;
     }
 
+    /**
+     * Email address of the user.
+     */
     public User withEmail(String email) {
-        Utils.checkNotNull(email, "email");
-        this.email = Optional.ofNullable(email);
-        return this;
-    }
-
-    public User withEmail(Optional<? extends String> email) {
         Utils.checkNotNull(email, "email");
         this.email = email;
         return this;
     }
 
+    /**
+     * Indicates whether the email address has been verified.
+     */
     public User withEmailVerified(boolean emailVerified) {
-        Utils.checkNotNull(emailVerified, "emailVerified");
-        this.emailVerified = Optional.ofNullable(emailVerified);
-        return this;
-    }
-
-    public User withEmailVerified(Optional<? extends Boolean> emailVerified) {
         Utils.checkNotNull(emailVerified, "emailVerified");
         this.emailVerified = emailVerified;
         return this;
     }
 
-    public User withId(String id) {
-        Utils.checkNotNull(id, "id");
-        this.id = Optional.ofNullable(id);
+    /**
+     * GitHub handle of the user.
+     */
+    public User withGithubHandle(String githubHandle) {
+        Utils.checkNotNull(githubHandle, "githubHandle");
+        this.githubHandle = Optional.ofNullable(githubHandle);
         return this;
     }
 
-    public User withId(Optional<? extends String> id) {
+    /**
+     * GitHub handle of the user.
+     */
+    public User withGithubHandle(Optional<? extends String> githubHandle) {
+        Utils.checkNotNull(githubHandle, "githubHandle");
+        this.githubHandle = githubHandle;
+        return this;
+    }
+
+    /**
+     * Unique identifier for the user.
+     */
+    public User withId(String id) {
         Utils.checkNotNull(id, "id");
         this.id = id;
+        return this;
+    }
+
+    /**
+     * Timestamp of the last login.
+     */
+    public User withLastLoginAt(OffsetDateTime lastLoginAt) {
+        Utils.checkNotNull(lastLoginAt, "lastLoginAt");
+        this.lastLoginAt = lastLoginAt;
+        return this;
+    }
+
+    /**
+     * URL of the user's photo.
+     */
+    public User withPhotoUrl(String photoUrl) {
+        Utils.checkNotNull(photoUrl, "photoUrl");
+        this.photoUrl = Optional.ofNullable(photoUrl);
+        return this;
+    }
+
+    /**
+     * URL of the user's photo.
+     */
+    public User withPhotoUrl(Optional<? extends String> photoUrl) {
+        Utils.checkNotNull(photoUrl, "photoUrl");
+        this.photoUrl = photoUrl;
+        return this;
+    }
+
+    /**
+     * Timestamp of the user's last update.
+     */
+    public User withUpdatedAt(OffsetDateTime updatedAt) {
+        Utils.checkNotNull(updatedAt, "updatedAt");
+        this.updatedAt = updatedAt;
+        return this;
+    }
+
+    /**
+     * Indicates whether the user has been whitelisted.
+     */
+    public User withWhitelisted(boolean whitelisted) {
+        Utils.checkNotNull(whitelisted, "whitelisted");
+        this.whitelisted = whitelisted;
         return this;
     }
     
@@ -178,133 +395,247 @@ public class User {
         User other = (User) o;
         return 
             java.util.Objects.deepEquals(this.admin, other.admin) &&
+            java.util.Objects.deepEquals(this.confirmed, other.confirmed) &&
             java.util.Objects.deepEquals(this.createdAt, other.createdAt) &&
+            java.util.Objects.deepEquals(this.defaultWorkspaceId, other.defaultWorkspaceId) &&
             java.util.Objects.deepEquals(this.displayName, other.displayName) &&
             java.util.Objects.deepEquals(this.email, other.email) &&
             java.util.Objects.deepEquals(this.emailVerified, other.emailVerified) &&
-            java.util.Objects.deepEquals(this.id, other.id);
+            java.util.Objects.deepEquals(this.githubHandle, other.githubHandle) &&
+            java.util.Objects.deepEquals(this.id, other.id) &&
+            java.util.Objects.deepEquals(this.lastLoginAt, other.lastLoginAt) &&
+            java.util.Objects.deepEquals(this.photoUrl, other.photoUrl) &&
+            java.util.Objects.deepEquals(this.updatedAt, other.updatedAt) &&
+            java.util.Objects.deepEquals(this.whitelisted, other.whitelisted);
     }
     
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
             admin,
+            confirmed,
             createdAt,
+            defaultWorkspaceId,
             displayName,
             email,
             emailVerified,
-            id);
+            githubHandle,
+            id,
+            lastLoginAt,
+            photoUrl,
+            updatedAt,
+            whitelisted);
     }
     
     @Override
     public String toString() {
         return Utils.toString(User.class,
                 "admin", admin,
+                "confirmed", confirmed,
                 "createdAt", createdAt,
+                "defaultWorkspaceId", defaultWorkspaceId,
                 "displayName", displayName,
                 "email", email,
                 "emailVerified", emailVerified,
-                "id", id);
+                "githubHandle", githubHandle,
+                "id", id,
+                "lastLoginAt", lastLoginAt,
+                "photoUrl", photoUrl,
+                "updatedAt", updatedAt,
+                "whitelisted", whitelisted);
     }
     
     public final static class Builder {
  
-        private Optional<? extends Boolean> admin = Optional.empty();
+        private Boolean admin;
  
-        private Optional<? extends OffsetDateTime> createdAt = Optional.empty();
+        private Boolean confirmed;
  
-        private Optional<? extends String> displayName = Optional.empty();
+        private OffsetDateTime createdAt;
  
-        private Optional<? extends String> email = Optional.empty();
+        private Optional<? extends String> defaultWorkspaceId = Optional.empty();
  
-        private Optional<? extends Boolean> emailVerified = Optional.empty();
+        private String displayName;
  
-        private Optional<? extends String> id = Optional.empty();  
+        private String email;
+ 
+        private Boolean emailVerified;
+ 
+        private Optional<? extends String> githubHandle = Optional.empty();
+ 
+        private String id;
+ 
+        private OffsetDateTime lastLoginAt;
+ 
+        private Optional<? extends String> photoUrl = Optional.empty();
+ 
+        private OffsetDateTime updatedAt;
+ 
+        private Boolean whitelisted;  
         
         private Builder() {
           // force use of static builder() method
         }
 
+        /**
+         * Indicates whether the user is an admin.
+         */
         public Builder admin(boolean admin) {
-            Utils.checkNotNull(admin, "admin");
-            this.admin = Optional.ofNullable(admin);
-            return this;
-        }
-
-        public Builder admin(Optional<? extends Boolean> admin) {
             Utils.checkNotNull(admin, "admin");
             this.admin = admin;
             return this;
         }
 
-        public Builder createdAt(OffsetDateTime createdAt) {
-            Utils.checkNotNull(createdAt, "createdAt");
-            this.createdAt = Optional.ofNullable(createdAt);
+        /**
+         * Indicates whether the user has been confirmed.
+         */
+        public Builder confirmed(boolean confirmed) {
+            Utils.checkNotNull(confirmed, "confirmed");
+            this.confirmed = confirmed;
             return this;
         }
 
-        public Builder createdAt(Optional<? extends OffsetDateTime> createdAt) {
+        /**
+         * Timestamp of the user's creation.
+         */
+        public Builder createdAt(OffsetDateTime createdAt) {
             Utils.checkNotNull(createdAt, "createdAt");
             this.createdAt = createdAt;
             return this;
         }
 
-        public Builder displayName(String displayName) {
-            Utils.checkNotNull(displayName, "displayName");
-            this.displayName = Optional.ofNullable(displayName);
+        /**
+         * Identifier of the default workspace.
+         */
+        public Builder defaultWorkspaceId(String defaultWorkspaceId) {
+            Utils.checkNotNull(defaultWorkspaceId, "defaultWorkspaceId");
+            this.defaultWorkspaceId = Optional.ofNullable(defaultWorkspaceId);
             return this;
         }
 
-        public Builder displayName(Optional<? extends String> displayName) {
+        /**
+         * Identifier of the default workspace.
+         */
+        public Builder defaultWorkspaceId(Optional<? extends String> defaultWorkspaceId) {
+            Utils.checkNotNull(defaultWorkspaceId, "defaultWorkspaceId");
+            this.defaultWorkspaceId = defaultWorkspaceId;
+            return this;
+        }
+
+        /**
+         * Display name of the user.
+         */
+        public Builder displayName(String displayName) {
             Utils.checkNotNull(displayName, "displayName");
             this.displayName = displayName;
             return this;
         }
 
+        /**
+         * Email address of the user.
+         */
         public Builder email(String email) {
-            Utils.checkNotNull(email, "email");
-            this.email = Optional.ofNullable(email);
-            return this;
-        }
-
-        public Builder email(Optional<? extends String> email) {
             Utils.checkNotNull(email, "email");
             this.email = email;
             return this;
         }
 
+        /**
+         * Indicates whether the email address has been verified.
+         */
         public Builder emailVerified(boolean emailVerified) {
-            Utils.checkNotNull(emailVerified, "emailVerified");
-            this.emailVerified = Optional.ofNullable(emailVerified);
-            return this;
-        }
-
-        public Builder emailVerified(Optional<? extends Boolean> emailVerified) {
             Utils.checkNotNull(emailVerified, "emailVerified");
             this.emailVerified = emailVerified;
             return this;
         }
 
-        public Builder id(String id) {
-            Utils.checkNotNull(id, "id");
-            this.id = Optional.ofNullable(id);
+        /**
+         * GitHub handle of the user.
+         */
+        public Builder githubHandle(String githubHandle) {
+            Utils.checkNotNull(githubHandle, "githubHandle");
+            this.githubHandle = Optional.ofNullable(githubHandle);
             return this;
         }
 
-        public Builder id(Optional<? extends String> id) {
+        /**
+         * GitHub handle of the user.
+         */
+        public Builder githubHandle(Optional<? extends String> githubHandle) {
+            Utils.checkNotNull(githubHandle, "githubHandle");
+            this.githubHandle = githubHandle;
+            return this;
+        }
+
+        /**
+         * Unique identifier for the user.
+         */
+        public Builder id(String id) {
             Utils.checkNotNull(id, "id");
             this.id = id;
+            return this;
+        }
+
+        /**
+         * Timestamp of the last login.
+         */
+        public Builder lastLoginAt(OffsetDateTime lastLoginAt) {
+            Utils.checkNotNull(lastLoginAt, "lastLoginAt");
+            this.lastLoginAt = lastLoginAt;
+            return this;
+        }
+
+        /**
+         * URL of the user's photo.
+         */
+        public Builder photoUrl(String photoUrl) {
+            Utils.checkNotNull(photoUrl, "photoUrl");
+            this.photoUrl = Optional.ofNullable(photoUrl);
+            return this;
+        }
+
+        /**
+         * URL of the user's photo.
+         */
+        public Builder photoUrl(Optional<? extends String> photoUrl) {
+            Utils.checkNotNull(photoUrl, "photoUrl");
+            this.photoUrl = photoUrl;
+            return this;
+        }
+
+        /**
+         * Timestamp of the user's last update.
+         */
+        public Builder updatedAt(OffsetDateTime updatedAt) {
+            Utils.checkNotNull(updatedAt, "updatedAt");
+            this.updatedAt = updatedAt;
+            return this;
+        }
+
+        /**
+         * Indicates whether the user has been whitelisted.
+         */
+        public Builder whitelisted(boolean whitelisted) {
+            Utils.checkNotNull(whitelisted, "whitelisted");
+            this.whitelisted = whitelisted;
             return this;
         }
         
         public User build() {
             return new User(
                 admin,
+                confirmed,
                 createdAt,
+                defaultWorkspaceId,
                 displayName,
                 email,
                 emailVerified,
-                id);
+                githubHandle,
+                id,
+                lastLoginAt,
+                photoUrl,
+                updatedAt,
+                whitelisted);
         }
     }
 }
