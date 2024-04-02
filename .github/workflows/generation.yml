@@ -1,5 +1,12 @@
 name: Generate
 on:
+    pull_request:
+        types:
+          - opened
+          - reopened
+          - edited
+          - synchronize
+          - ready_for_review
     workflow_dispatch:
         inputs:
             force:
