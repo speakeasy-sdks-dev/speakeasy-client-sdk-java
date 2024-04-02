@@ -5,13 +5,11 @@
 
 ### Getting started
 
-Speakeasy offers [automatic publishing](https://www.speakeasyapi.dev/docs/advanced-setup/publish-sdks) of SDK artifacts via GitHub Actions. 
-
-Once published to a repository (local or otherwise), the SDK artifact is used as below:
+The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.12.0'
+implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.12.1'
 ```
 
 Maven:
@@ -19,7 +17,7 @@ Maven:
 <dependency>
     <groupId>io.github.speakeasy_sdks_staging.javaclientsdk</groupId>
     <artifactId>speakeasy-client-sdk-java</artifactId>
-    <version>7.12.0</version>
+    <version>7.12.1</version>
 </dependency>
 ```
 
