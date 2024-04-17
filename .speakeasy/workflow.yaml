@@ -1,5 +1,4 @@
 workflowVersion: 1.0.0
-speakeasyVersion: v1.240.0
 sources:
     my-source:
         inputs:
