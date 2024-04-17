@@ -1,1 +1,25 @@
 speakeasyVersion: 1.240.0
+sources:
+    first-source: {}
+targets:
+    py:
+        source: first-source
+        outLocation: /Users/robertcrumbaugh/code/speakeasy
+    ts:
+        source: first-source
+        outLocation: ../test-sdk
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        first-source:
+            inputs:
+                - location: ../openapi.yaml
+    targets:
+        py:
+            target: python
+            source: first-source
+        ts:
+            target: typescript
+            source: first-source
+            output: ../test-sdk
