@@ -8,6 +8,8 @@ targets:
     java-target:
         target: java
         source: my-source
+        codeSamples:
+            registry: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/java-codesamples
         publish:
             java:
                 ossrhUsername: $OSSRH_USERNAME
