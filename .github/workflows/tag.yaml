@@ -8,7 +8,7 @@ jobs:
     tag:
         uses: speakeasy-api/sdk-generation-action/.github/workflows/tag.yaml@v15
         with:
-            tags: chase-main
+            registry_tags: chase-main
         secrets:
             speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
           
