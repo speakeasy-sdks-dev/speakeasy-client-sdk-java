@@ -1,18 +1,21 @@
-speakeasyVersion: 1.269.1
+speakeasyVersion: 1.305.0
 sources:
     first-source: {}
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:3da9526650b8d39c65e2efd3453a4c92503bd9b6a86d3f221d6a2e80d6632b24
-        sourceBlobDigest: sha256:be621d8c6307bb77377bf4a28fcfab0a126bb1655fd6e881b5af03b9e9758709
+        sourceRevisionDigest: sha256:d08660adb7d003f3f96dfdf4ab8cfdda0720eb3282df046bd21d0d9e4c98accf
+        sourceBlobDigest: sha256:ff16330e0c7ba774b3e27cfc9f3ee5d75bf59ac6e36b6fbfc53b8c51175a93ec
         tags:
             - latest
+            - main
 targets:
     java-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:3da9526650b8d39c65e2efd3453a4c92503bd9b6a86d3f221d6a2e80d6632b24
-        sourceBlobDigest: sha256:be621d8c6307bb77377bf4a28fcfab0a126bb1655fd6e881b5af03b9e9758709
+        sourceRevisionDigest: sha256:d08660adb7d003f3f96dfdf4ab8cfdda0720eb3282df046bd21d0d9e4c98accf
+        sourceBlobDigest: sha256:ff16330e0c7ba774b3e27cfc9f3ee5d75bf59ac6e36b6fbfc53b8c51175a93ec
+        codeSamplesNamespace: java-codesamples
+        codeSamplesRevisionDigest: sha256:90a0abb0ead211df98afb54aba384a74c0ecfb3442b599923ea9e4e04432e45e
         outLocation: /github/workspace/repo
     py:
         source: first-source
@@ -27,6 +30,8 @@ workflow:
         my-source:
             inputs:
                 - location: https://docs.speakeasyapi.dev/openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/my-source
     targets:
         java-target:
             target: java
@@ -37,3 +42,7 @@ workflow:
                     ossrhPassword: $OSSRH_PASSWORD
                     gpgSecretKey: $JAVA_GPG_SECRET_KEY
                     gpgPassPhrase: $JAVA_GPG_PASSPHRASE
+            codeSamples:
+                output: ""
+                registry:
+                    location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/java-codesamples

@@ -4,16 +4,19 @@ sources:
     my-source:
         inputs:
             - location: https://docs.speakeasyapi.dev/openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/my-source
 targets:
     java-target:
         target: java
         source: my-source
-        codeSamples:
-            registry: 
-                location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/java-codesamples
         publish:
             java:
                 ossrhUsername: $OSSRH_USERNAME
                 ossrhPassword: $OSSRH_PASSWORD
                 gpgSecretKey: $JAVA_GPG_SECRET_KEY
                 gpgPassPhrase: $JAVA_GPG_PASSPHRASE
+        codeSamples:
+            output: ""
+            registry:
+                location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/java-codesamples
