@@ -64,6 +64,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -77,12 +78,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse>](../../models/operations/DeleteApiResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse](../../models/operations/DeleteApiResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## generateOpenApiSpec
 
@@ -137,6 +138,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -150,12 +152,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse>](../../models/operations/GenerateOpenApiSpecResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateOpenApiSpecResponse](../../models/operations/GenerateOpenApiSpecResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## generatePostmanCollection
 
@@ -209,6 +211,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -222,12 +225,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse>](../../models/operations/GeneratePostmanCollectionResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GeneratePostmanCollectionResponse](../../models/operations/GeneratePostmanCollectionResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getAllApiVersions
 
@@ -281,6 +284,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -294,12 +298,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse>](../../models/operations/GetAllApiVersionsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAllApiVersionsResponse](../../models/operations/GetAllApiVersionsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getApis
 
@@ -352,6 +356,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -365,12 +370,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse>](../../models/operations/GetApisResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse](../../models/operations/GetApisResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## upsertApi
 
@@ -429,6 +434,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -442,9 +448,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse>](../../models/operations/UpsertApiResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UpsertApiResponse](../../models/operations/UpsertApiResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

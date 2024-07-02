@@ -40,6 +40,7 @@ public class Embeds implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Get an embed access token for the current workspace.
      * Returns an embed access token for the current workspace. This can be used to authenticate access to externally embedded content.
@@ -82,7 +83,7 @@ public class Embeds implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getEmbedAccessToken", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -90,18 +91,18 @@ public class Embeds implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getEmbedAccessToken", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getEmbedAccessToken", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getEmbedAccessToken", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -164,6 +165,7 @@ public class Embeds implements
     }
 
 
+
     /**
      * Get all valid embed access tokens for the current workspace.
      * @return The call builder
@@ -195,7 +197,7 @@ public class Embeds implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getValidEmbedAccessTokens", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getValidEmbedAccessTokens", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -203,18 +205,18 @@ public class Embeds implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getValidEmbedAccessTokens", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getValidEmbedAccessTokens", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getValidEmbedAccessTokens", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getValidEmbedAccessTokens", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getValidEmbedAccessTokens", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getValidEmbedAccessTokens", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -277,6 +279,7 @@ public class Embeds implements
     }
 
 
+
     /**
      * Revoke an embed access EmbedToken.
      * @return The call builder
@@ -312,7 +315,7 @@ public class Embeds implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("revokeEmbedAccessToken", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("revokeEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -320,18 +323,18 @@ public class Embeds implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("revokeEmbedAccessToken", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("revokeEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("revokeEmbedAccessToken", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("revokeEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("revokeEmbedAccessToken", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("revokeEmbedAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

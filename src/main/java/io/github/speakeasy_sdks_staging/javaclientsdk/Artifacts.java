@@ -27,10 +27,14 @@ import java.util.Optional;
 import org.apache.http.NameValuePair;
 import org.openapitools.jackson.nullable.JsonNullable;
 
+/**
+ * REST APIs for working with Registry artifacts
+ */
 public class Artifacts implements
             MethodCallGetBlob,
             MethodCallGetManifest,
             MethodCallGetNamespaces,
+            MethodCallGetOASSummary,
             MethodCallGetRevisions,
             MethodCallGetTags,
             MethodCallPostTags,
@@ -41,6 +45,7 @@ public class Artifacts implements
     Artifacts(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
     }
+
 
     /**
      * Get blob for a particular digest
@@ -77,7 +82,7 @@ public class Artifacts implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getBlob", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getBlob", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -85,18 +90,18 @@ public class Artifacts implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getBlob", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getBlob", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getBlob", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getBlob", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getBlob", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getBlob", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -158,6 +163,7 @@ public class Artifacts implements
     }
 
 
+
     /**
      * Get manifest for a particular reference
      * @return The call builder
@@ -193,7 +199,7 @@ public class Artifacts implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getManifest", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getManifest", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -201,18 +207,18 @@ public class Artifacts implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getManifest", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getManifest", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getManifest", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getManifest", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getManifest", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getManifest", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -275,6 +281,7 @@ public class Artifacts implements
     }
 
 
+
     /**
      * Each namespace contains many revisions.
      * @return The call builder
@@ -306,7 +313,7 @@ public class Artifacts implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getNamespaces", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getNamespaces", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -314,18 +321,18 @@ public class Artifacts implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getNamespaces", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getNamespaces", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getNamespaces", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getNamespaces", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getNamespaces", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getNamespaces", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -388,6 +395,115 @@ public class Artifacts implements
     }
 
 
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryRequestBuilder getOASSummary() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryRequestBuilder(this);
+    }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryResponse getOASSummary(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryRequest request) throws Exception {
+        String _baseUrl = this.sdkConfiguration.serverUrl;
+        String _url = Utils.generateURL(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryRequest.class,
+                _baseUrl,
+                "/v1/artifacts/namespaces/{namespace_name}/revisions/{revision_reference}/summary",
+                request, this.sdkConfiguration.globals);
+        
+        HTTPRequest _req = new HTTPRequest(_url, "GET");
+        _req.addHeader("Accept", "application/json")
+            .addHeader("user-agent", 
+                this.sdkConfiguration.userAgent);
+
+        Utils.configureSecurity(_req,  
+                this.sdkConfiguration.securitySource.getSecurity());
+
+        HTTPClient _client = this.sdkConfiguration.defaultClient;
+        HttpRequest _r = 
+            sdkConfiguration.hooks()
+               .beforeRequest(
+                  new BeforeRequestContextImpl("getOASSummary", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                  _req.build());
+        HttpResponse<InputStream> _httpRes;
+        try {
+            _httpRes = _client.send(_r);
+            if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterError(
+                        new AfterErrorContextImpl("getOASSummary", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                        Optional.of(_httpRes),
+                        Optional.empty());
+            } else {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterSuccess(
+                        new AfterSuccessContextImpl("getOASSummary", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                         _httpRes);
+            }
+        } catch (Exception _e) {
+            _httpRes = sdkConfiguration.hooks()
+                    .afterError(new AfterErrorContextImpl("getOASSummary", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
+                        Optional.empty(),
+                        Optional.of(_e));
+        }
+        String _contentType = _httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryResponse
+                .builder()
+                .contentType(_contentType)
+                .statusCode(_httpRes.statusCode())
+                .rawResponse(_httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryResponse _res = _resBuilder.build();
+        
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.OASSummary _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.OASSummary>() {});
+                _res.withOASSummary(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+            // no content 
+            throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "API error occurred", 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error>() {});
+                _res.withError(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        throw new SDKError(
+            _httpRes, 
+            _httpRes.statusCode(), 
+            "Unexpected status code received: " + _httpRes.statusCode(), 
+            Utils.toByteArrayAndClose(_httpRes.body()));
+    }
+
+
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRevisionsRequestBuilder getRevisions() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRevisionsRequestBuilder(this);
     }
@@ -418,7 +534,7 @@ public class Artifacts implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getRevisions", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getRevisions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -426,18 +542,18 @@ public class Artifacts implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getRevisions", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getRevisions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getRevisions", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getRevisions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getRevisions", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getRevisions", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -500,6 +616,7 @@ public class Artifacts implements
     }
 
 
+
     public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetTagsRequestBuilder getTags() {
         return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetTagsRequestBuilder(this);
     }
@@ -525,7 +642,7 @@ public class Artifacts implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getTags", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -533,18 +650,18 @@ public class Artifacts implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getTags", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getTags", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getTags", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -607,6 +724,7 @@ public class Artifacts implements
     }
 
 
+
     /**
      * Add tags to an existing revision
      * @return The call builder
@@ -647,7 +765,7 @@ public class Artifacts implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("postTags", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("postTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -655,18 +773,18 @@ public class Artifacts implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("postTags", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("postTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("postTags", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("postTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("postTags", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("postTags", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -718,6 +836,7 @@ public class Artifacts implements
     }
 
 
+
     /**
      * Get access token for communicating with OCI distribution endpoints
      * @return The call builder
@@ -764,7 +883,7 @@ public class Artifacts implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("preflight", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("preflight", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -772,18 +891,18 @@ public class Artifacts implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("preflight", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("preflight", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("preflight", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("preflight", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("preflight", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("preflight", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

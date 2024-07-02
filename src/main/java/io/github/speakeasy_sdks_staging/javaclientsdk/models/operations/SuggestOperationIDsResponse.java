@@ -36,22 +36,22 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
     /**
      * OK
      */
-    private Optional<? extends SuggestOperationIDsSuggestion> suggestion;
+    private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs> suggestedOperationIDs;
 
     @JsonCreator
     public SuggestOperationIDsResponse(
             String contentType,
             int statusCode,
             HttpResponse<InputStream> rawResponse,
-            Optional<? extends SuggestOperationIDsSuggestion> suggestion) {
+            Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs> suggestedOperationIDs) {
         Utils.checkNotNull(contentType, "contentType");
         Utils.checkNotNull(statusCode, "statusCode");
         Utils.checkNotNull(rawResponse, "rawResponse");
-        Utils.checkNotNull(suggestion, "suggestion");
+        Utils.checkNotNull(suggestedOperationIDs, "suggestedOperationIDs");
         this.contentType = contentType;
         this.statusCode = statusCode;
         this.rawResponse = rawResponse;
-        this.suggestion = suggestion;
+        this.suggestedOperationIDs = suggestedOperationIDs;
     }
     
     public SuggestOperationIDsResponse(
@@ -90,8 +90,8 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<SuggestOperationIDsSuggestion> suggestion() {
-        return (Optional<SuggestOperationIDsSuggestion>) suggestion;
+    public Optional<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs> suggestedOperationIDs() {
+        return (Optional<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs>) suggestedOperationIDs;
     }
 
     public final static Builder builder() {
@@ -128,18 +128,18 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
     /**
      * OK
      */
-    public SuggestOperationIDsResponse withSuggestion(SuggestOperationIDsSuggestion suggestion) {
-        Utils.checkNotNull(suggestion, "suggestion");
-        this.suggestion = Optional.ofNullable(suggestion);
+    public SuggestOperationIDsResponse withSuggestedOperationIDs(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs suggestedOperationIDs) {
+        Utils.checkNotNull(suggestedOperationIDs, "suggestedOperationIDs");
+        this.suggestedOperationIDs = Optional.ofNullable(suggestedOperationIDs);
         return this;
     }
 
     /**
      * OK
      */
-    public SuggestOperationIDsResponse withSuggestion(Optional<? extends SuggestOperationIDsSuggestion> suggestion) {
-        Utils.checkNotNull(suggestion, "suggestion");
-        this.suggestion = suggestion;
+    public SuggestOperationIDsResponse withSuggestedOperationIDs(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs> suggestedOperationIDs) {
+        Utils.checkNotNull(suggestedOperationIDs, "suggestedOperationIDs");
+        this.suggestedOperationIDs = suggestedOperationIDs;
         return this;
     }
     
@@ -156,7 +156,7 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
             java.util.Objects.deepEquals(this.contentType, other.contentType) &&
             java.util.Objects.deepEquals(this.statusCode, other.statusCode) &&
             java.util.Objects.deepEquals(this.rawResponse, other.rawResponse) &&
-            java.util.Objects.deepEquals(this.suggestion, other.suggestion);
+            java.util.Objects.deepEquals(this.suggestedOperationIDs, other.suggestedOperationIDs);
     }
     
     @Override
@@ -165,7 +165,7 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
             contentType,
             statusCode,
             rawResponse,
-            suggestion);
+            suggestedOperationIDs);
     }
     
     @Override
@@ -174,7 +174,7 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
                 "contentType", contentType,
                 "statusCode", statusCode,
                 "rawResponse", rawResponse,
-                "suggestion", suggestion);
+                "suggestedOperationIDs", suggestedOperationIDs);
     }
     
     public final static class Builder {
@@ -185,7 +185,7 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
  
         private HttpResponse<InputStream> rawResponse;
  
-        private Optional<? extends SuggestOperationIDsSuggestion> suggestion = Optional.empty();  
+        private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs> suggestedOperationIDs = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -221,18 +221,18 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
         /**
          * OK
          */
-        public Builder suggestion(SuggestOperationIDsSuggestion suggestion) {
-            Utils.checkNotNull(suggestion, "suggestion");
-            this.suggestion = Optional.ofNullable(suggestion);
+        public Builder suggestedOperationIDs(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs suggestedOperationIDs) {
+            Utils.checkNotNull(suggestedOperationIDs, "suggestedOperationIDs");
+            this.suggestedOperationIDs = Optional.ofNullable(suggestedOperationIDs);
             return this;
         }
 
         /**
          * OK
          */
-        public Builder suggestion(Optional<? extends SuggestOperationIDsSuggestion> suggestion) {
-            Utils.checkNotNull(suggestion, "suggestion");
-            this.suggestion = suggestion;
+        public Builder suggestedOperationIDs(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestedOperationIDs> suggestedOperationIDs) {
+            Utils.checkNotNull(suggestedOperationIDs, "suggestedOperationIDs");
+            this.suggestedOperationIDs = suggestedOperationIDs;
             return this;
         }
         
@@ -241,7 +241,7 @@ public class SuggestOperationIDsResponse implements io.github.speakeasy_sdks_sta
                 contentType,
                 statusCode,
                 rawResponse,
-                suggestion);
+                suggestedOperationIDs);
         }
     }
 }

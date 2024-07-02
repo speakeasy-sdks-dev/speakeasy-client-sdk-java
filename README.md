@@ -5,19 +5,21 @@
 
 ### Getting started
 
+JDK 11 or later is required.
+
 The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'io.github.speakeasy_sdks_staging.javaclientsdk:speakeasy-client-sdk-java:7.14.0'
+implementation 'io.github.speakeasy-sdks-staging:javaclientsdk:7.15.0'
 ```
 
 Maven:
 ```xml
 <dependency>
-    <groupId>io.github.speakeasy_sdks_staging.javaclientsdk</groupId>
-    <artifactId>speakeasy-client-sdk-java</artifactId>
-    <version>7.14.0</version>
+    <groupId>io.github.speakeasy-sdks-staging</groupId>
+    <artifactId>javaclientsdk</artifactId>
+    <version>7.15.0</version>
 </dependency>
 ```
 
@@ -85,6 +87,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -135,6 +138,7 @@ public class Application {
 * [getBlob](docs/sdks/artifacts/README.md#getblob) - Get blob for a particular digest
 * [getManifest](docs/sdks/artifacts/README.md#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](docs/sdks/artifacts/README.md#getnamespaces) - Each namespace contains many revisions.
+* [getOASSummary](docs/sdks/artifacts/README.md#getoassummary)
 * [getRevisions](docs/sdks/artifacts/README.md#getrevisions)
 * [getTags](docs/sdks/artifacts/README.md#gettags)
 * [postTags](docs/sdks/artifacts/README.md#posttags) - Add tags to an existing revision
@@ -155,9 +159,15 @@ public class Application {
 
 ### [github()](docs/sdks/github/README.md)
 
-* [githubCheckAccess](docs/sdks/github/README.md#githubcheckaccess)
-* [githubConfigureTarget](docs/sdks/github/README.md#githubconfiguretarget)
-* [githubTriggerAction](docs/sdks/github/README.md#githubtriggeraction)
+* [checkAccess](docs/sdks/github/README.md#checkaccess)
+* [configureCodeSamples](docs/sdks/github/README.md#configurecodesamples)
+* [configureMintlifyRepo](docs/sdks/github/README.md#configuremintlifyrepo)
+* [configureTarget](docs/sdks/github/README.md#configuretarget)
+* [fetchPublishingPRs](docs/sdks/github/README.md#fetchpublishingprs)
+* [getAction](docs/sdks/github/README.md#getaction)
+* [githubCheckPublishingSecrets](docs/sdks/github/README.md#githubcheckpublishingsecrets)
+* [githubStorePublishingSecrets](docs/sdks/github/README.md#githubstorepublishingsecrets)
+* [triggerAction](docs/sdks/github/README.md#triggeraction)
 
 ### [organizations()](docs/sdks/organizations/README.md)
 
@@ -173,7 +183,9 @@ public class Application {
 
 ### [suggest()](docs/sdks/suggest/README.md)
 
+* [applyOperationIDs](docs/sdks/suggest/README.md#applyoperationids) - Apply operation ID suggestions and download result.
 * [suggestOperationIDs](docs/sdks/suggest/README.md#suggestoperationids) - Generate operation ID suggestions.
+* [suggestOperationIDsRegistry](docs/sdks/suggest/README.md#suggestoperationidsregistry) - Generate operation ID suggestions.
 
 ### [embeds()](docs/sdks/embeds/README.md)
 
@@ -249,6 +261,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -302,6 +315,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -315,7 +329,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 5XX                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ### Example
 
@@ -367,6 +381,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -429,6 +444,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -501,6 +517,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -569,6 +586,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -631,6 +649,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```

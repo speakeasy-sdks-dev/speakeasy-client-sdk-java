@@ -46,6 +46,7 @@ public class Auth implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Get or refresh an access token for the current workspace.
      * @return The call builder
@@ -81,7 +82,7 @@ public class Auth implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getAccessToken", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -89,18 +90,18 @@ public class Auth implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getAccessToken", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getAccessToken", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getAccessToken", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getAccessToken", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -163,6 +164,7 @@ public class Auth implements
     }
 
 
+
     /**
      * Get information about the current user.
      * @return The call builder
@@ -194,7 +196,7 @@ public class Auth implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getUser", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getUser", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -202,18 +204,18 @@ public class Auth implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getUser", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getUser", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getUser", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getUser", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getUser", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getUser", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -274,6 +276,7 @@ public class Auth implements
             "Unexpected status code received: " + _httpRes.statusCode(), 
             Utils.toByteArrayAndClose(_httpRes.body()));
     }
+
 
 
     /**
@@ -359,7 +362,7 @@ public class Auth implements
                 try {
                     _r = sdkConfiguration.hooks()
                         .beforeRequest(
-                            new BeforeRequestContextImpl("getWorkspaceAccess", sdkConfiguration.securitySource()),
+                            new BeforeRequestContextImpl("getWorkspaceAccess", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                             _finalReq.build());
                 } catch (Exception _e) {
                     throw new NonRetryableException(_e);
@@ -369,7 +372,7 @@ public class Auth implements
                 } catch (Exception _e) {
                     return sdkConfiguration.hooks()
                         .afterError(
-                            new AfterErrorContextImpl("getWorkspaceAccess", sdkConfiguration.securitySource()), 
+                            new AfterErrorContextImpl("getWorkspaceAccess", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                             Optional.empty(),
                             Optional.of(_e));
                 }
@@ -379,7 +382,7 @@ public class Auth implements
             .build();
         HttpResponse<InputStream> _httpRes = sdkConfiguration.hooks()
                  .afterSuccess(
-                     new AfterSuccessContextImpl("getWorkspaceAccess", sdkConfiguration.securitySource()),
+                     new AfterSuccessContextImpl("getWorkspaceAccess", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                      _retries.run());
         String _contentType = _httpRes
             .headers()
@@ -425,6 +428,7 @@ public class Auth implements
     }
 
 
+
     /**
      * Validate the current api key.
      * @return The call builder
@@ -456,7 +460,7 @@ public class Auth implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("validateApiKey", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("validateApiKey", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -464,18 +468,18 @@ public class Auth implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("validateApiKey", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("validateApiKey", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("validateApiKey", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("validateApiKey", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("validateApiKey", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("validateApiKey", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

@@ -74,6 +74,9 @@ public class SDK {
      */
     private final Schemas schemas;
 
+    /**
+     * REST APIs for working with Registry artifacts
+     */
     private final Artifacts artifacts;
 
     /**
@@ -138,6 +141,9 @@ public class SDK {
         return schemas;
     }
 
+    /**
+     * REST APIs for working with Registry artifacts
+     */
     public Artifacts artifacts() {
         return artifacts;
     }

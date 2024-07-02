@@ -23,12 +23,17 @@ class SDKConfiguration {
       public String server;
     public String language = "java";
     public String openapiDocVersion = "0.4.0 .";
-    public String sdkVersion = "7.14.0";
-    public String genVersion = "2.340.3";
-    public String userAgent = "speakeasy-sdk/java 7.14.0 2.340.3 0.4.0 . io.github.speakeasy_sdks_staging.javaclientsdk";
+    public String sdkVersion = "7.15.0";
+    public String genVersion = "2.356.0";
+    public String userAgent = "speakeasy-sdk/java 7.15.0 2.356.0 0.4.0 . io.github.speakeasy_sdks_staging.javaclientsdk";
 
-    private io.github.speakeasy_sdks_staging.javaclientsdk.utils.Hooks _hooks = new io.github.speakeasy_sdks_staging.javaclientsdk.utils.Hooks();
+    private io.github.speakeasy_sdks_staging.javaclientsdk.utils.Hooks _hooks = createHooks();
 
+    private static io.github.speakeasy_sdks_staging.javaclientsdk.utils.Hooks createHooks() {
+        io.github.speakeasy_sdks_staging.javaclientsdk.utils.Hooks hooks = new io.github.speakeasy_sdks_staging.javaclientsdk.utils.Hooks();
+        return hooks;
+    }
+    
     public io.github.speakeasy_sdks_staging.javaclientsdk.utils.Hooks hooks() {
         return _hooks;
     }

@@ -19,14 +19,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 public class SuggestOperationIDsRequestBuilder {
 
-    private SuggestOperationIDsRequestBody request;
+    private SuggestOperationIDsRequest request;
     private final SDKMethodInterfaces.MethodCallSuggestOperationIDs sdk;
 
     public SuggestOperationIDsRequestBuilder(SDKMethodInterfaces.MethodCallSuggestOperationIDs sdk) {
         this.sdk = sdk;
     }
 
-    public SuggestOperationIDsRequestBuilder request(SuggestOperationIDsRequestBody request) {
+    public SuggestOperationIDsRequestBuilder request(SuggestOperationIDsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

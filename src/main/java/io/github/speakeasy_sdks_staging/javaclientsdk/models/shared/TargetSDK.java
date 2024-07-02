@@ -106,7 +106,7 @@ public class TargetSDK {
     private String generateTarget;
 
     /**
-     * The name of the target as defined by the user.
+     * The workflow name of the target.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generate_target_name")
@@ -255,6 +255,20 @@ public class TargetSDK {
     @JsonProperty("success")
     private Optional<? extends Boolean> success;
 
+    /**
+     * Workflow file (post execution)
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("workflow_post_raw")
+    private Optional<? extends String> workflowPostRaw;
+
+    /**
+     * Workflow file (prior to execution)
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("workflow_pre_raw")
+    private Optional<? extends String> workflowPreRaw;
+
     @JsonCreator
     public TargetSDK(
             @JsonProperty("commit_head") Optional<? extends String> commitHead,
@@ -290,7 +304,9 @@ public class TargetSDK {
             @JsonProperty("source_blob_digest") Optional<? extends String> sourceBlobDigest,
             @JsonProperty("source_namespace_name") Optional<? extends String> sourceNamespaceName,
             @JsonProperty("source_revision_digest") Optional<? extends String> sourceRevisionDigest,
-            @JsonProperty("success") Optional<? extends Boolean> success) {
+            @JsonProperty("success") Optional<? extends Boolean> success,
+            @JsonProperty("workflow_post_raw") Optional<? extends String> workflowPostRaw,
+            @JsonProperty("workflow_pre_raw") Optional<? extends String> workflowPreRaw) {
         Utils.checkNotNull(commitHead, "commitHead");
         Utils.checkNotNull(continuousIntegrationEnvironment, "continuousIntegrationEnvironment");
         Utils.checkNotNull(error, "error");
@@ -325,6 +341,8 @@ public class TargetSDK {
         Utils.checkNotNull(sourceNamespaceName, "sourceNamespaceName");
         Utils.checkNotNull(sourceRevisionDigest, "sourceRevisionDigest");
         Utils.checkNotNull(success, "success");
+        Utils.checkNotNull(workflowPostRaw, "workflowPostRaw");
+        Utils.checkNotNull(workflowPreRaw, "workflowPreRaw");
         this.commitHead = commitHead;
         this.continuousIntegrationEnvironment = continuousIntegrationEnvironment;
         this.error = error;
@@ -359,6 +377,8 @@ public class TargetSDK {
         this.sourceNamespaceName = sourceNamespaceName;
         this.sourceRevisionDigest = sourceRevisionDigest;
         this.success = success;
+        this.workflowPostRaw = workflowPostRaw;
+        this.workflowPreRaw = workflowPreRaw;
     }
     
     public TargetSDK(
@@ -368,7 +388,7 @@ public class TargetSDK {
             OffsetDateTime lastEventCreatedAt,
             String lastEventId,
             InteractionType lastEventInteractionType) {
-        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), generateGenLockId, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), generateTarget, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), id, lastEventCreatedAt, lastEventId, lastEventInteractionType, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), generateGenLockId, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), generateTarget, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), id, lastEventCreatedAt, lastEventId, lastEventInteractionType, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
     }
 
     /**
@@ -478,7 +498,7 @@ public class TargetSDK {
     }
 
     /**
-     * The name of the target as defined by the user.
+     * The workflow name of the target.
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
@@ -669,6 +689,24 @@ public class TargetSDK {
     @JsonIgnore
     public Optional<Boolean> success() {
         return (Optional<Boolean>) success;
+    }
+
+    /**
+     * Workflow file (post execution)
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> workflowPostRaw() {
+        return (Optional<String>) workflowPostRaw;
+    }
+
+    /**
+     * Workflow file (prior to execution)
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> workflowPreRaw() {
+        return (Optional<String>) workflowPreRaw;
     }
 
     public final static Builder builder() {
@@ -874,7 +912,7 @@ public class TargetSDK {
     }
 
     /**
-     * The name of the target as defined by the user.
+     * The workflow name of the target.
      */
     public TargetSDK withGenerateTargetName(String generateTargetName) {
         Utils.checkNotNull(generateTargetName, "generateTargetName");
@@ -883,7 +921,7 @@ public class TargetSDK {
     }
 
     /**
-     * The name of the target as defined by the user.
+     * The workflow name of the target.
      */
     public TargetSDK withGenerateTargetName(Optional<? extends String> generateTargetName) {
         Utils.checkNotNull(generateTargetName, "generateTargetName");
@@ -1232,6 +1270,42 @@ public class TargetSDK {
         this.success = success;
         return this;
     }
+
+    /**
+     * Workflow file (post execution)
+     */
+    public TargetSDK withWorkflowPostRaw(String workflowPostRaw) {
+        Utils.checkNotNull(workflowPostRaw, "workflowPostRaw");
+        this.workflowPostRaw = Optional.ofNullable(workflowPostRaw);
+        return this;
+    }
+
+    /**
+     * Workflow file (post execution)
+     */
+    public TargetSDK withWorkflowPostRaw(Optional<? extends String> workflowPostRaw) {
+        Utils.checkNotNull(workflowPostRaw, "workflowPostRaw");
+        this.workflowPostRaw = workflowPostRaw;
+        return this;
+    }
+
+    /**
+     * Workflow file (prior to execution)
+     */
+    public TargetSDK withWorkflowPreRaw(String workflowPreRaw) {
+        Utils.checkNotNull(workflowPreRaw, "workflowPreRaw");
+        this.workflowPreRaw = Optional.ofNullable(workflowPreRaw);
+        return this;
+    }
+
+    /**
+     * Workflow file (prior to execution)
+     */
+    public TargetSDK withWorkflowPreRaw(Optional<? extends String> workflowPreRaw) {
+        Utils.checkNotNull(workflowPreRaw, "workflowPreRaw");
+        this.workflowPreRaw = workflowPreRaw;
+        return this;
+    }
     
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1276,7 +1350,9 @@ public class TargetSDK {
             java.util.Objects.deepEquals(this.sourceBlobDigest, other.sourceBlobDigest) &&
             java.util.Objects.deepEquals(this.sourceNamespaceName, other.sourceNamespaceName) &&
             java.util.Objects.deepEquals(this.sourceRevisionDigest, other.sourceRevisionDigest) &&
-            java.util.Objects.deepEquals(this.success, other.success);
+            java.util.Objects.deepEquals(this.success, other.success) &&
+            java.util.Objects.deepEquals(this.workflowPostRaw, other.workflowPostRaw) &&
+            java.util.Objects.deepEquals(this.workflowPreRaw, other.workflowPreRaw);
     }
     
     @Override
@@ -1315,7 +1391,9 @@ public class TargetSDK {
             sourceBlobDigest,
             sourceNamespaceName,
             sourceRevisionDigest,
-            success);
+            success,
+            workflowPostRaw,
+            workflowPreRaw);
     }
     
     @Override
@@ -1354,7 +1432,9 @@ public class TargetSDK {
                 "sourceBlobDigest", sourceBlobDigest,
                 "sourceNamespaceName", sourceNamespaceName,
                 "sourceRevisionDigest", sourceRevisionDigest,
-                "success", success);
+                "success", success,
+                "workflowPostRaw", workflowPostRaw,
+                "workflowPreRaw", workflowPreRaw);
     }
     
     public final static class Builder {
@@ -1425,7 +1505,11 @@ public class TargetSDK {
  
         private Optional<? extends String> sourceRevisionDigest = Optional.empty();
  
-        private Optional<? extends Boolean> success = Optional.empty();  
+        private Optional<? extends Boolean> success = Optional.empty();
+ 
+        private Optional<? extends String> workflowPostRaw = Optional.empty();
+ 
+        private Optional<? extends String> workflowPreRaw = Optional.empty();  
         
         private Builder() {
           // force use of static builder() method
@@ -1630,7 +1714,7 @@ public class TargetSDK {
         }
 
         /**
-         * The name of the target as defined by the user.
+         * The workflow name of the target.
          */
         public Builder generateTargetName(String generateTargetName) {
             Utils.checkNotNull(generateTargetName, "generateTargetName");
@@ -1639,7 +1723,7 @@ public class TargetSDK {
         }
 
         /**
-         * The name of the target as defined by the user.
+         * The workflow name of the target.
          */
         public Builder generateTargetName(Optional<? extends String> generateTargetName) {
             Utils.checkNotNull(generateTargetName, "generateTargetName");
@@ -1988,6 +2072,42 @@ public class TargetSDK {
             this.success = success;
             return this;
         }
+
+        /**
+         * Workflow file (post execution)
+         */
+        public Builder workflowPostRaw(String workflowPostRaw) {
+            Utils.checkNotNull(workflowPostRaw, "workflowPostRaw");
+            this.workflowPostRaw = Optional.ofNullable(workflowPostRaw);
+            return this;
+        }
+
+        /**
+         * Workflow file (post execution)
+         */
+        public Builder workflowPostRaw(Optional<? extends String> workflowPostRaw) {
+            Utils.checkNotNull(workflowPostRaw, "workflowPostRaw");
+            this.workflowPostRaw = workflowPostRaw;
+            return this;
+        }
+
+        /**
+         * Workflow file (prior to execution)
+         */
+        public Builder workflowPreRaw(String workflowPreRaw) {
+            Utils.checkNotNull(workflowPreRaw, "workflowPreRaw");
+            this.workflowPreRaw = Optional.ofNullable(workflowPreRaw);
+            return this;
+        }
+
+        /**
+         * Workflow file (prior to execution)
+         */
+        public Builder workflowPreRaw(Optional<? extends String> workflowPreRaw) {
+            Utils.checkNotNull(workflowPreRaw, "workflowPreRaw");
+            this.workflowPreRaw = workflowPreRaw;
+            return this;
+        }
         
         public TargetSDK build() {
             return new TargetSDK(
@@ -2024,7 +2144,9 @@ public class TargetSDK {
                 sourceBlobDigest,
                 sourceNamespaceName,
                 sourceRevisionDigest,
-                success);
+                success,
+                workflowPostRaw,
+                workflowPreRaw);
         }
     }
 }

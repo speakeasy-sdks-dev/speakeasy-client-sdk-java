@@ -62,6 +62,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -75,12 +76,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetChangesReportSignedUrlResponse>](../../models/operations/GetChangesReportSignedUrlResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetChangesReportSignedUrlResponse](../../models/operations/GetChangesReportSignedUrlResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getLintingReportSignedUrl
 
@@ -133,6 +134,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -146,12 +148,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetLintingReportSignedUrlResponse>](../../models/operations/GetLintingReportSignedUrlResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetLintingReportSignedUrlResponse](../../models/operations/GetLintingReportSignedUrlResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## uploadReport
 
@@ -209,6 +211,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -222,9 +225,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UploadReportResponse>](../../models/operations/UploadReportResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.UploadReportResponse](../../models/operations/UploadReportResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

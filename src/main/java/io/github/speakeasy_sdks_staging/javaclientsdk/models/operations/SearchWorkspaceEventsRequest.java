@@ -19,6 +19,18 @@ import java.util.Optional;
 public class SearchWorkspaceEventsRequest {
 
     /**
+     * A specific gen lock ID for the events.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=generate_gen_lock_id")
+    private Optional<? extends String> generateGenLockId;
+
+    /**
+     * Specified interaction type for events.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=interaction_type")
+    private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType> interactionType;
+
+    /**
      * Unique identifier of the lint report digest.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=lint_report_digest")
@@ -44,14 +56,20 @@ public class SearchWorkspaceEventsRequest {
 
     @JsonCreator
     public SearchWorkspaceEventsRequest(
+            Optional<? extends String> generateGenLockId,
+            Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType> interactionType,
             Optional<? extends String> lintReportDigest,
             Optional<? extends String> openapiDiffReportDigest,
             Optional<? extends String> sourceRevisionDigest,
             Optional<? extends String> workspaceID) {
+        Utils.checkNotNull(generateGenLockId, "generateGenLockId");
+        Utils.checkNotNull(interactionType, "interactionType");
         Utils.checkNotNull(lintReportDigest, "lintReportDigest");
         Utils.checkNotNull(openapiDiffReportDigest, "openapiDiffReportDigest");
         Utils.checkNotNull(sourceRevisionDigest, "sourceRevisionDigest");
         Utils.checkNotNull(workspaceID, "workspaceID");
+        this.generateGenLockId = generateGenLockId;
+        this.interactionType = interactionType;
         this.lintReportDigest = lintReportDigest;
         this.openapiDiffReportDigest = openapiDiffReportDigest;
         this.sourceRevisionDigest = sourceRevisionDigest;
@@ -59,7 +77,25 @@ public class SearchWorkspaceEventsRequest {
     }
     
     public SearchWorkspaceEventsRequest() {
-        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+        this(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+    }
+
+    /**
+     * A specific gen lock ID for the events.
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> generateGenLockId() {
+        return (Optional<String>) generateGenLockId;
+    }
+
+    /**
+     * Specified interaction type for events.
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType> interactionType() {
+        return (Optional<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType>) interactionType;
     }
 
     /**
@@ -100,6 +136,42 @@ public class SearchWorkspaceEventsRequest {
 
     public final static Builder builder() {
         return new Builder();
+    }
+
+    /**
+     * A specific gen lock ID for the events.
+     */
+    public SearchWorkspaceEventsRequest withGenerateGenLockId(String generateGenLockId) {
+        Utils.checkNotNull(generateGenLockId, "generateGenLockId");
+        this.generateGenLockId = Optional.ofNullable(generateGenLockId);
+        return this;
+    }
+
+    /**
+     * A specific gen lock ID for the events.
+     */
+    public SearchWorkspaceEventsRequest withGenerateGenLockId(Optional<? extends String> generateGenLockId) {
+        Utils.checkNotNull(generateGenLockId, "generateGenLockId");
+        this.generateGenLockId = generateGenLockId;
+        return this;
+    }
+
+    /**
+     * Specified interaction type for events.
+     */
+    public SearchWorkspaceEventsRequest withInteractionType(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType interactionType) {
+        Utils.checkNotNull(interactionType, "interactionType");
+        this.interactionType = Optional.ofNullable(interactionType);
+        return this;
+    }
+
+    /**
+     * Specified interaction type for events.
+     */
+    public SearchWorkspaceEventsRequest withInteractionType(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType> interactionType) {
+        Utils.checkNotNull(interactionType, "interactionType");
+        this.interactionType = interactionType;
+        return this;
     }
 
     /**
@@ -184,6 +256,8 @@ public class SearchWorkspaceEventsRequest {
         }
         SearchWorkspaceEventsRequest other = (SearchWorkspaceEventsRequest) o;
         return 
+            java.util.Objects.deepEquals(this.generateGenLockId, other.generateGenLockId) &&
+            java.util.Objects.deepEquals(this.interactionType, other.interactionType) &&
             java.util.Objects.deepEquals(this.lintReportDigest, other.lintReportDigest) &&
             java.util.Objects.deepEquals(this.openapiDiffReportDigest, other.openapiDiffReportDigest) &&
             java.util.Objects.deepEquals(this.sourceRevisionDigest, other.sourceRevisionDigest) &&
@@ -193,6 +267,8 @@ public class SearchWorkspaceEventsRequest {
     @Override
     public int hashCode() {
         return java.util.Objects.hash(
+            generateGenLockId,
+            interactionType,
             lintReportDigest,
             openapiDiffReportDigest,
             sourceRevisionDigest,
@@ -202,6 +278,8 @@ public class SearchWorkspaceEventsRequest {
     @Override
     public String toString() {
         return Utils.toString(SearchWorkspaceEventsRequest.class,
+                "generateGenLockId", generateGenLockId,
+                "interactionType", interactionType,
                 "lintReportDigest", lintReportDigest,
                 "openapiDiffReportDigest", openapiDiffReportDigest,
                 "sourceRevisionDigest", sourceRevisionDigest,
@@ -209,6 +287,10 @@ public class SearchWorkspaceEventsRequest {
     }
     
     public final static class Builder {
+ 
+        private Optional<? extends String> generateGenLockId = Optional.empty();
+ 
+        private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType> interactionType = Optional.empty();
  
         private Optional<? extends String> lintReportDigest = Optional.empty();
  
@@ -220,6 +302,42 @@ public class SearchWorkspaceEventsRequest {
         
         private Builder() {
           // force use of static builder() method
+        }
+
+        /**
+         * A specific gen lock ID for the events.
+         */
+        public Builder generateGenLockId(String generateGenLockId) {
+            Utils.checkNotNull(generateGenLockId, "generateGenLockId");
+            this.generateGenLockId = Optional.ofNullable(generateGenLockId);
+            return this;
+        }
+
+        /**
+         * A specific gen lock ID for the events.
+         */
+        public Builder generateGenLockId(Optional<? extends String> generateGenLockId) {
+            Utils.checkNotNull(generateGenLockId, "generateGenLockId");
+            this.generateGenLockId = generateGenLockId;
+            return this;
+        }
+
+        /**
+         * Specified interaction type for events.
+         */
+        public Builder interactionType(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType interactionType) {
+            Utils.checkNotNull(interactionType, "interactionType");
+            this.interactionType = Optional.ofNullable(interactionType);
+            return this;
+        }
+
+        /**
+         * Specified interaction type for events.
+         */
+        public Builder interactionType(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType> interactionType) {
+            Utils.checkNotNull(interactionType, "interactionType");
+            this.interactionType = interactionType;
+            return this;
         }
 
         /**
@@ -296,6 +414,8 @@ public class SearchWorkspaceEventsRequest {
         
         public SearchWorkspaceEventsRequest build() {
             return new SearchWorkspaceEventsRequest(
+                generateGenLockId,
+                interactionType,
                 lintReportDigest,
                 openapiDiffReportDigest,
                 sourceRevisionDigest,

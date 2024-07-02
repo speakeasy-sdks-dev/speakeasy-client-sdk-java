@@ -41,6 +41,7 @@ public class Metadata implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Delete metadata for a particular apiID and versionID.
      * @return The call builder
@@ -76,7 +77,7 @@ public class Metadata implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteVersionMetadata", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -84,18 +85,18 @@ public class Metadata implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteVersionMetadata", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteVersionMetadata", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteVersionMetadata", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -147,6 +148,7 @@ public class Metadata implements
     }
 
 
+
     /**
      * Get all metadata for a particular apiID and versionID.
      * @return The call builder
@@ -182,7 +184,7 @@ public class Metadata implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getVersionMetadata", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -190,18 +192,18 @@ public class Metadata implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getVersionMetadata", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getVersionMetadata", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getVersionMetadata", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -264,6 +266,7 @@ public class Metadata implements
     }
 
 
+
     /**
      * Insert metadata for a particular apiID and versionID.
      * @return The call builder
@@ -307,7 +310,7 @@ public class Metadata implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("insertVersionMetadata", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("insertVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -315,18 +318,18 @@ public class Metadata implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("insertVersionMetadata", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("insertVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("insertVersionMetadata", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("insertVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("insertVersionMetadata", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("insertVersionMetadata", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

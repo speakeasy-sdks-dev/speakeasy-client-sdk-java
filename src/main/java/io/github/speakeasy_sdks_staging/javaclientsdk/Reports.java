@@ -40,6 +40,7 @@ public class Reports implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Get the signed access url for the change reports for a particular document.
      * @return The call builder
@@ -75,7 +76,7 @@ public class Reports implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getChangesReportSignedUrl", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getChangesReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -83,18 +84,18 @@ public class Reports implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getChangesReportSignedUrl", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getChangesReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getChangesReportSignedUrl", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getChangesReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getChangesReportSignedUrl", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getChangesReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -142,6 +143,7 @@ public class Reports implements
     }
 
 
+
     /**
      * Get the signed access url for the linting reports for a particular document.
      * @return The call builder
@@ -177,7 +179,7 @@ public class Reports implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getLintingReportSignedUrl", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getLintingReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -185,18 +187,18 @@ public class Reports implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getLintingReportSignedUrl", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getLintingReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getLintingReportSignedUrl", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getLintingReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getLintingReportSignedUrl", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getLintingReportSignedUrl", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -244,6 +246,7 @@ public class Reports implements
     }
 
 
+
     /**
      * Upload a report.
      * @return The call builder
@@ -285,7 +288,7 @@ public class Reports implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("uploadReport", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("uploadReport", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -293,18 +296,18 @@ public class Reports implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("uploadReport", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("uploadReport", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("uploadReport", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("uploadReport", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("uploadReport", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("uploadReport", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

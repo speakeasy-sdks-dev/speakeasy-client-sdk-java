@@ -41,6 +41,7 @@ public class Requests implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Generate a Postman collection for a particular request.
      * Generates a Postman collection for a particular request. 
@@ -80,7 +81,7 @@ public class Requests implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("generateRequestPostmanCollection", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("generateRequestPostmanCollection", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -88,18 +89,18 @@ public class Requests implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("generateRequestPostmanCollection", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("generateRequestPostmanCollection", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("generateRequestPostmanCollection", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("generateRequestPostmanCollection", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("generateRequestPostmanCollection", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("generateRequestPostmanCollection", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -161,6 +162,7 @@ public class Requests implements
     }
 
 
+
     /**
      * Get information about a particular request.
      * @return The call builder
@@ -196,7 +198,7 @@ public class Requests implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getRequestFromEventLog", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getRequestFromEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -204,18 +206,18 @@ public class Requests implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getRequestFromEventLog", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getRequestFromEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getRequestFromEventLog", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getRequestFromEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getRequestFromEventLog", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getRequestFromEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -278,6 +280,7 @@ public class Requests implements
     }
 
 
+
     /**
      * Query the event log to retrieve a list of requests.
      * Supports retrieving a list of request captured by the SDK for this workspace.
@@ -320,7 +323,7 @@ public class Requests implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("queryEventLog", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("queryEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -328,18 +331,18 @@ public class Requests implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("queryEventLog", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("queryEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("queryEventLog", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("queryEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("queryEventLog", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("queryEventLog", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

@@ -66,6 +66,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -79,13 +80,13 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse>](../../models/operations/GetWorkspaceEventsByTargetResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse](../../models/operations/GetWorkspaceEventsByTargetResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 5XX                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getWorkspaceTargets
 
@@ -140,6 +141,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -153,13 +155,13 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse>](../../models/operations/GetWorkspaceTargetsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse](../../models/operations/GetWorkspaceTargetsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 5XX                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## postWorkspaceEvents
 
@@ -224,6 +226,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -237,13 +240,13 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse>](../../models/operations/PostWorkspaceEventsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse](../../models/operations/PostWorkspaceEventsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 5XX                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## searchWorkspaceEvents
 
@@ -298,6 +301,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -311,10 +315,10 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SearchWorkspaceEventsResponse>](../../models/operations/SearchWorkspaceEventsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SearchWorkspaceEventsResponse](../../models/operations/SearchWorkspaceEventsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 5XX                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

@@ -1,11 +1,16 @@
 # Artifacts
 (*artifacts()*)
 
+## Overview
+
+REST APIs for working with Registry artifacts
+
 ### Available Operations
 
 * [getBlob](#getblob) - Get blob for a particular digest
 * [getManifest](#getmanifest) - Get manifest for a particular reference
 * [getNamespaces](#getnamespaces) - Each namespace contains many revisions.
+* [getOASSummary](#getoassummary)
 * [getRevisions](#getrevisions)
 * [getTags](#gettags)
 * [postTags](#posttags) - Add tags to an existing revision
@@ -65,6 +70,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -78,12 +84,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetBlobResponse>](../../models/operations/GetBlobResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetBlobResponse](../../models/operations/GetBlobResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getManifest
 
@@ -139,6 +145,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -152,12 +159,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetManifestResponse>](../../models/operations/GetManifestResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetManifestResponse](../../models/operations/GetManifestResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getNamespaces
 
@@ -205,6 +212,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -212,12 +220,83 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetNamespacesResponse>](../../models/operations/GetNamespacesResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetNamespacesResponse](../../models/operations/GetNamespacesResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+
+## getOASSummary
+
+### Example Usage
+
+```java
+package hello.world;
+
+import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
+import java.math.BigDecimal;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Optional;
+import org.openapitools.jackson.nullable.JsonNullable;
+import static java.util.Map.entry;
+
+public class Application {
+
+    public static void main(String[] args) throws Exception {
+        try {
+            SDK sdk = SDK.builder()
+                .security(Security.builder()
+                    .apiKey("<YOUR_API_KEY_HERE>")
+                    .build())
+                .build();
+
+            GetOASSummaryRequest req = GetOASSummaryRequest.builder()
+                .namespaceName("<value>")
+                .revisionReference("<value>")
+                .build();
+
+            GetOASSummaryResponse res = sdk.artifacts().getOASSummary()
+                .request(req)
+                .call();
+
+            if (res.oasSummary().isPresent()) {
+                // handle response
+            }
+        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+            // handle exception
+            throw e;
+        } catch (Exception e) {
+            // handle exception
+            throw e;
+        }
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                | Type                                                                                                                                     | Required                                                                                                                                 | Description                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                | [io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryRequest](../../models/operations/GetOASSummaryRequest.md) | :heavy_check_mark:                                                                                                                       | The request object to use for the request.                                                                                               |
+
+
+### Response
+
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryResponse](../../models/operations/GetOASSummaryResponse.md)**
+### Errors
+
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getRevisions
 
@@ -268,6 +347,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -281,12 +361,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRevisionsResponse>](../../models/operations/GetRevisionsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRevisionsResponse](../../models/operations/GetRevisionsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getTags
 
@@ -337,6 +417,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -350,12 +431,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetTagsResponse>](../../models/operations/GetTagsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetTagsResponse](../../models/operations/GetTagsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## postTags
 
@@ -406,6 +487,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -419,12 +501,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostTagsResponse>](../../models/operations/PostTagsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostTagsResponse](../../models/operations/PostTagsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## preflight
 
@@ -477,6 +559,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -490,9 +573,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PreflightResponse>](../../models/operations/PreflightResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PreflightResponse](../../models/operations/PreflightResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
