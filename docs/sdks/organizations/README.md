@@ -51,6 +51,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -58,12 +59,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CreateFreeTrialResponse>](../../models/operations/CreateFreeTrialResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CreateFreeTrialResponse](../../models/operations/CreateFreeTrialResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getOrganizationUsage
 
@@ -111,6 +112,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -118,12 +120,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationUsageResponse>](../../models/operations/GetOrganizationUsageResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationUsageResponse](../../models/operations/GetOrganizationUsageResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getOrganizations
 
@@ -171,6 +173,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -178,9 +181,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationsResponse>](../../models/operations/GetOrganizationsResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationsResponse](../../models/operations/GetOrganizationsResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

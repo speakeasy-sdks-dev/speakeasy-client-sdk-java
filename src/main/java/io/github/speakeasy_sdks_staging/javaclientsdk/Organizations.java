@@ -37,6 +37,7 @@ public class Organizations implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Create a free trial for an organization
      * Creates a free trial for an organization
@@ -70,7 +71,7 @@ public class Organizations implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("createFreeTrial", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("createFreeTrial", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -78,18 +79,18 @@ public class Organizations implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("createFreeTrial", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("createFreeTrial", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("createFreeTrial", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("createFreeTrial", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("createFreeTrial", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("createFreeTrial", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -141,6 +142,7 @@ public class Organizations implements
     }
 
 
+
     /**
      * Get billing usage summary for a particular organization
      * Returns a billing usage summary by target languages for a particular organization
@@ -174,7 +176,7 @@ public class Organizations implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getOrganizationUsage", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getOrganizationUsage", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -182,18 +184,18 @@ public class Organizations implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getOrganizationUsage", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getOrganizationUsage", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getOrganizationUsage", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getOrganizationUsage", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getOrganizationUsage", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getOrganizationUsage", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -256,6 +258,7 @@ public class Organizations implements
     }
 
 
+
     /**
      * Get organizations for a user
      * Returns a list of organizations a user has access too
@@ -289,7 +292,7 @@ public class Organizations implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getOrganizations", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getOrganizations", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -297,18 +300,18 @@ public class Organizations implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getOrganizations", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getOrganizations", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getOrganizations", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getOrganizations", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getOrganizations", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getOrganizations", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

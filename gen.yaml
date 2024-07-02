@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 java:
-  version: 7.14.0
+  version: 7.15.0
   additionalDependencies: []
   additionalPlugins: []
   artifactID: javaclientsdk
@@ -30,6 +30,10 @@ java:
       shared: models/shared
       webhooks: models/webhooks
   inputModelSuffix: input
+  license:
+    name: The MIT License (MIT)
+    shortName: MIT
+    url: https://mit-license.org/
   maxMethodParams: 0
   outputModelSuffix: output
   projectName: speakeasy-client-sdk-java

@@ -63,6 +63,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -76,12 +77,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse>](../../models/operations/DeleteVersionMetadataResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteVersionMetadataResponse](../../models/operations/DeleteVersionMetadataResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getVersionMetadata
 
@@ -135,6 +136,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -148,12 +150,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse>](../../models/operations/GetVersionMetadataResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetVersionMetadataResponse](../../models/operations/GetVersionMetadataResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## insertVersionMetadata
 
@@ -211,6 +213,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -224,9 +227,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse>](../../models/operations/InsertVersionMetadataResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.InsertVersionMetadataResponse](../../models/operations/InsertVersionMetadataResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

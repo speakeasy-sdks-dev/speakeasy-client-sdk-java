@@ -59,6 +59,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -72,12 +73,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAccessTokenResponse>](../../models/operations/GetAccessTokenResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetAccessTokenResponse](../../models/operations/GetAccessTokenResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getUser
 
@@ -125,6 +126,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -132,12 +134,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse>](../../models/operations/GetUserResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetUserResponse](../../models/operations/GetUserResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## getWorkspaceAccess
 
@@ -189,6 +191,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -202,12 +205,12 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse>](../../models/operations/GetWorkspaceAccessResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse](../../models/operations/GetWorkspaceAccessResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
 
 ## validateApiKey
 
@@ -255,6 +258,7 @@ public class Application {
             // handle exception
             throw e;
         }
+
     }
 }
 ```
@@ -262,9 +266,9 @@ public class Application {
 
 ### Response
 
-**[Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse>](../../models/operations/ValidateApiKeyResponse.md)**
+**[io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ValidateApiKeyResponse](../../models/operations/ValidateApiKeyResponse.md)**
 ### Errors
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | */*                    |
+| models/errors/SDKError | 4xx-5xx                | \*\/*                  |

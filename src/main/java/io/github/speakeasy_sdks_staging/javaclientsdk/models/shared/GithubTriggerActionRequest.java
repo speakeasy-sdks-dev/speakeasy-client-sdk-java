@@ -42,6 +42,13 @@ public class GithubTriggerActionRequest {
     private String repoName;
 
     /**
+     * A version to override the SDK too in workflow dispatch
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("set_version")
+    private Optional<? extends String> setVersion;
+
+    /**
      * The target name for the action
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -53,14 +60,17 @@ public class GithubTriggerActionRequest {
             @JsonProperty("gen_lock_id") String genLockId,
             @JsonProperty("org") String org,
             @JsonProperty("repo_name") String repoName,
+            @JsonProperty("set_version") Optional<? extends String> setVersion,
             @JsonProperty("target_name") Optional<? extends String> targetName) {
         Utils.checkNotNull(genLockId, "genLockId");
         Utils.checkNotNull(org, "org");
         Utils.checkNotNull(repoName, "repoName");
+        Utils.checkNotNull(setVersion, "setVersion");
         Utils.checkNotNull(targetName, "targetName");
         this.genLockId = genLockId;
         this.org = org;
         this.repoName = repoName;
+        this.setVersion = setVersion;
         this.targetName = targetName;
     }
     
@@ -68,7 +78,7 @@ public class GithubTriggerActionRequest {
             String genLockId,
             String org,
             String repoName) {
-        this(genLockId, org, repoName, Optional.empty());
+        this(genLockId, org, repoName, Optional.empty(), Optional.empty());
     }
 
     /**
@@ -93,6 +103,15 @@ public class GithubTriggerActionRequest {
     @JsonIgnore
     public String repoName() {
         return repoName;
+    }
+
+    /**
+     * A version to override the SDK too in workflow dispatch
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> setVersion() {
+        return (Optional<String>) setVersion;
     }
 
     /**
@@ -136,6 +155,24 @@ public class GithubTriggerActionRequest {
     }
 
     /**
+     * A version to override the SDK too in workflow dispatch
+     */
+    public GithubTriggerActionRequest withSetVersion(String setVersion) {
+        Utils.checkNotNull(setVersion, "setVersion");
+        this.setVersion = Optional.ofNullable(setVersion);
+        return this;
+    }
+
+    /**
+     * A version to override the SDK too in workflow dispatch
+     */
+    public GithubTriggerActionRequest withSetVersion(Optional<? extends String> setVersion) {
+        Utils.checkNotNull(setVersion, "setVersion");
+        this.setVersion = setVersion;
+        return this;
+    }
+
+    /**
      * The target name for the action
      */
     public GithubTriggerActionRequest withTargetName(String targetName) {
@@ -166,6 +203,7 @@ public class GithubTriggerActionRequest {
             java.util.Objects.deepEquals(this.genLockId, other.genLockId) &&
             java.util.Objects.deepEquals(this.org, other.org) &&
             java.util.Objects.deepEquals(this.repoName, other.repoName) &&
+            java.util.Objects.deepEquals(this.setVersion, other.setVersion) &&
             java.util.Objects.deepEquals(this.targetName, other.targetName);
     }
     
@@ -175,6 +213,7 @@ public class GithubTriggerActionRequest {
             genLockId,
             org,
             repoName,
+            setVersion,
             targetName);
     }
     
@@ -184,6 +223,7 @@ public class GithubTriggerActionRequest {
                 "genLockId", genLockId,
                 "org", org,
                 "repoName", repoName,
+                "setVersion", setVersion,
                 "targetName", targetName);
     }
     
@@ -194,6 +234,8 @@ public class GithubTriggerActionRequest {
         private String org;
  
         private String repoName;
+ 
+        private Optional<? extends String> setVersion = Optional.empty();
  
         private Optional<? extends String> targetName = Optional.empty();  
         
@@ -229,6 +271,24 @@ public class GithubTriggerActionRequest {
         }
 
         /**
+         * A version to override the SDK too in workflow dispatch
+         */
+        public Builder setVersion(String setVersion) {
+            Utils.checkNotNull(setVersion, "setVersion");
+            this.setVersion = Optional.ofNullable(setVersion);
+            return this;
+        }
+
+        /**
+         * A version to override the SDK too in workflow dispatch
+         */
+        public Builder setVersion(Optional<? extends String> setVersion) {
+            Utils.checkNotNull(setVersion, "setVersion");
+            this.setVersion = setVersion;
+            return this;
+        }
+
+        /**
          * The target name for the action
          */
         public Builder targetName(String targetName) {
@@ -251,6 +311,7 @@ public class GithubTriggerActionRequest {
                 genLockId,
                 org,
                 repoName,
+                setVersion,
                 targetName);
         }
     }

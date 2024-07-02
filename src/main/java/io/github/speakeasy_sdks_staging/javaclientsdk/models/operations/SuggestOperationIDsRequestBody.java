@@ -22,14 +22,14 @@ import java.util.Optional;
 public class SuggestOperationIDsRequestBody {
 
     @SpeakeasyMetadata("multipartForm:name=opts,json")
-    private Optional<? extends Opts> opts;
+    private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts> opts;
 
     @SpeakeasyMetadata("multipartForm:file")
     private Schema schema;
 
     @JsonCreator
     public SuggestOperationIDsRequestBody(
-            Optional<? extends Opts> opts,
+            Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts> opts,
             Schema schema) {
         Utils.checkNotNull(opts, "opts");
         Utils.checkNotNull(schema, "schema");
@@ -44,8 +44,8 @@ public class SuggestOperationIDsRequestBody {
 
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<Opts> opts() {
-        return (Optional<Opts>) opts;
+    public Optional<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts> opts() {
+        return (Optional<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts>) opts;
     }
 
     @JsonIgnore
@@ -57,13 +57,13 @@ public class SuggestOperationIDsRequestBody {
         return new Builder();
     }
 
-    public SuggestOperationIDsRequestBody withOpts(Opts opts) {
+    public SuggestOperationIDsRequestBody withOpts(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts opts) {
         Utils.checkNotNull(opts, "opts");
         this.opts = Optional.ofNullable(opts);
         return this;
     }
 
-    public SuggestOperationIDsRequestBody withOpts(Optional<? extends Opts> opts) {
+    public SuggestOperationIDsRequestBody withOpts(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts> opts) {
         Utils.checkNotNull(opts, "opts");
         this.opts = opts;
         return this;
@@ -105,7 +105,7 @@ public class SuggestOperationIDsRequestBody {
     
     public final static class Builder {
  
-        private Optional<? extends Opts> opts = Optional.empty();
+        private Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts> opts = Optional.empty();
  
         private Schema schema;  
         
@@ -113,13 +113,13 @@ public class SuggestOperationIDsRequestBody {
           // force use of static builder() method
         }
 
-        public Builder opts(Opts opts) {
+        public Builder opts(io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts opts) {
             Utils.checkNotNull(opts, "opts");
             this.opts = Optional.ofNullable(opts);
             return this;
         }
 
-        public Builder opts(Optional<? extends Opts> opts) {
+        public Builder opts(Optional<? extends io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.SuggestOperationIDsOpts> opts) {
             Utils.checkNotNull(opts, "opts");
             this.opts = opts;
             return this;

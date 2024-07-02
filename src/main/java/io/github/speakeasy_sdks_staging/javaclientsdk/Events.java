@@ -46,6 +46,7 @@ public class Events implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Load recent events for a particular workspace
      * @return The call builder
@@ -86,7 +87,7 @@ public class Events implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getWorkspaceEventsByTarget", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getWorkspaceEventsByTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -94,18 +95,18 @@ public class Events implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getWorkspaceEventsByTarget", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getWorkspaceEventsByTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getWorkspaceEventsByTarget", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getWorkspaceEventsByTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getWorkspaceEventsByTarget", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getWorkspaceEventsByTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -167,6 +168,7 @@ public class Events implements
     }
 
 
+
     /**
      * Load targets for a particular workspace
      * @return The call builder
@@ -207,7 +209,7 @@ public class Events implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getWorkspaceTargets", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getWorkspaceTargets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -215,18 +217,18 @@ public class Events implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getWorkspaceTargets", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getWorkspaceTargets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getWorkspaceTargets", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getWorkspaceTargets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getWorkspaceTargets", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getWorkspaceTargets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -286,6 +288,7 @@ public class Events implements
             "Unexpected status code received: " + _httpRes.statusCode(), 
             Utils.toByteArrayAndClose(_httpRes.body()));
     }
+
 
 
     /**
@@ -376,7 +379,7 @@ public class Events implements
                 try {
                     _r = sdkConfiguration.hooks()
                         .beforeRequest(
-                            new BeforeRequestContextImpl("postWorkspaceEvents", sdkConfiguration.securitySource()),
+                            new BeforeRequestContextImpl("postWorkspaceEvents", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                             _finalReq.build());
                 } catch (Exception _e) {
                     throw new NonRetryableException(_e);
@@ -386,7 +389,7 @@ public class Events implements
                 } catch (Exception _e) {
                     return sdkConfiguration.hooks()
                         .afterError(
-                            new AfterErrorContextImpl("postWorkspaceEvents", sdkConfiguration.securitySource()), 
+                            new AfterErrorContextImpl("postWorkspaceEvents", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                             Optional.empty(),
                             Optional.of(_e));
                 }
@@ -396,7 +399,7 @@ public class Events implements
             .build();
         HttpResponse<InputStream> _httpRes = sdkConfiguration.hooks()
                  .afterSuccess(
-                     new AfterSuccessContextImpl("postWorkspaceEvents", sdkConfiguration.securitySource()),
+                     new AfterSuccessContextImpl("postWorkspaceEvents", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                      _retries.run());
         String _contentType = _httpRes
             .headers()
@@ -445,6 +448,7 @@ public class Events implements
     }
 
 
+
     /**
      * Search events for a particular workspace by any field
      * @return The call builder
@@ -485,7 +489,7 @@ public class Events implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("searchWorkspaceEvents", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("searchWorkspaceEvents", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -493,18 +497,18 @@ public class Events implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("searchWorkspaceEvents", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("searchWorkspaceEvents", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("searchWorkspaceEvents", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("searchWorkspaceEvents", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("searchWorkspaceEvents", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("searchWorkspaceEvents", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

@@ -46,6 +46,7 @@ public class Schemas implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Delete a particular schema revision for an Api.
      * @return The call builder
@@ -81,7 +82,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteSchema", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -89,18 +90,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteSchema", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteSchema", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteSchema", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -152,6 +153,7 @@ public class Schemas implements
     }
 
 
+
     /**
      * Download the latest schema for a particular apiID.
      * @return The call builder
@@ -187,7 +189,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("downloadSchema", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("downloadSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -195,18 +197,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("downloadSchema", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("downloadSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("downloadSchema", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("downloadSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("downloadSchema", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("downloadSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -273,6 +275,7 @@ public class Schemas implements
     }
 
 
+
     /**
      * Download a particular schema revision for an Api.
      * @return The call builder
@@ -308,7 +311,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("downloadSchemaRevision", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("downloadSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -316,18 +319,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("downloadSchemaRevision", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("downloadSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("downloadSchemaRevision", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("downloadSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("downloadSchemaRevision", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("downloadSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -394,6 +397,7 @@ public class Schemas implements
     }
 
 
+
     /**
      * Get information about the latest schema.
      * Returns information about the last uploaded schema for a particular API version. 
@@ -433,7 +437,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSchema", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -441,18 +445,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSchema", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSchema", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSchema", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -515,6 +519,7 @@ public class Schemas implements
     }
 
 
+
     /**
      * Get a diff of two schema revisions for an Api.
      * @return The call builder
@@ -550,7 +555,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSchemaDiff", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSchemaDiff", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -558,18 +563,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSchemaDiff", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSchemaDiff", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSchemaDiff", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSchemaDiff", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSchemaDiff", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSchemaDiff", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -632,6 +637,7 @@ public class Schemas implements
     }
 
 
+
     /**
      * Get information about a particular schema revision for an Api.
      * Returns information about the last uploaded schema for a particular schema revision. 
@@ -671,7 +677,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSchemaRevision", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -679,18 +685,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSchemaRevision", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSchemaRevision", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSchemaRevision", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSchemaRevision", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -753,6 +759,7 @@ public class Schemas implements
     }
 
 
+
     /**
      * Get information about all schemas associated with a particular apiID.
      * Returns information the schemas associated with a particular apiID. 
@@ -792,7 +799,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getSchemas", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getSchemas", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -800,18 +807,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getSchemas", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getSchemas", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getSchemas", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getSchemas", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getSchemas", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getSchemas", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -874,6 +881,7 @@ public class Schemas implements
     }
 
 
+
     /**
      * Register a schema.
      * Allows uploading a schema for a particular API version.
@@ -921,7 +929,7 @@ public class Schemas implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("registerSchema", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("registerSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -929,18 +937,18 @@ public class Schemas implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("registerSchema", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("registerSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("registerSchema", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("registerSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("registerSchema", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("registerSchema", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

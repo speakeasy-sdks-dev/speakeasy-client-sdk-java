@@ -225,6 +225,13 @@ public class CliEvent {
     private Optional<? extends String> generateTarget;
 
     /**
+     * The workflow name of the target.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("generate_target_name")
+    private Optional<? extends String> generateTargetName;
+
+    /**
      * The version of the target.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -584,6 +591,7 @@ public class CliEvent {
             @JsonProperty("generate_published") Optional<? extends Boolean> generatePublished,
             @JsonProperty("generate_repo_url") Optional<? extends String> generateRepoUrl,
             @JsonProperty("generate_target") Optional<? extends String> generateTarget,
+            @JsonProperty("generate_target_name") Optional<? extends String> generateTargetName,
             @JsonProperty("generate_target_version") Optional<? extends String> generateTargetVersion,
             @JsonProperty("generate_version") Optional<? extends String> generateVersion,
             @JsonProperty("gh_action_organization") Optional<? extends String> ghActionOrganization,
@@ -661,6 +669,7 @@ public class CliEvent {
         Utils.checkNotNull(generatePublished, "generatePublished");
         Utils.checkNotNull(generateRepoUrl, "generateRepoUrl");
         Utils.checkNotNull(generateTarget, "generateTarget");
+        Utils.checkNotNull(generateTargetName, "generateTargetName");
         Utils.checkNotNull(generateTargetVersion, "generateTargetVersion");
         Utils.checkNotNull(generateVersion, "generateVersion");
         Utils.checkNotNull(ghActionOrganization, "ghActionOrganization");
@@ -738,6 +747,7 @@ public class CliEvent {
         this.generatePublished = generatePublished;
         this.generateRepoUrl = generateRepoUrl;
         this.generateTarget = generateTarget;
+        this.generateTargetName = generateTargetName;
         this.generateTargetVersion = generateTargetVersion;
         this.generateVersion = generateVersion;
         this.ghActionOrganization = ghActionOrganization;
@@ -798,7 +808,7 @@ public class CliEvent {
             String speakeasyVersion,
             boolean success,
             String workspaceId) {
-        this(Optional.empty(), Optional.empty(), createdAt, Optional.empty(), Optional.empty(), executionId, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), id, interactionType, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), localStartedAt, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), speakeasyApiKeyName, speakeasyVersion, success, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), workspaceId);
+        this(Optional.empty(), Optional.empty(), createdAt, Optional.empty(), Optional.empty(), executionId, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), id, interactionType, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), localStartedAt, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), speakeasyApiKeyName, speakeasyVersion, success, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), workspaceId);
     }
 
     /**
@@ -1058,6 +1068,15 @@ public class CliEvent {
     @JsonIgnore
     public Optional<String> generateTarget() {
         return (Optional<String>) generateTarget;
+    }
+
+    /**
+     * The workflow name of the target.
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<String> generateTargetName() {
+        return (Optional<String>) generateTargetName;
     }
 
     /**
@@ -1994,6 +2013,24 @@ public class CliEvent {
     }
 
     /**
+     * The workflow name of the target.
+     */
+    public CliEvent withGenerateTargetName(String generateTargetName) {
+        Utils.checkNotNull(generateTargetName, "generateTargetName");
+        this.generateTargetName = Optional.ofNullable(generateTargetName);
+        return this;
+    }
+
+    /**
+     * The workflow name of the target.
+     */
+    public CliEvent withGenerateTargetName(Optional<? extends String> generateTargetName) {
+        Utils.checkNotNull(generateTargetName, "generateTargetName");
+        this.generateTargetName = generateTargetName;
+        return this;
+    }
+
+    /**
      * The version of the target.
      */
     public CliEvent withGenerateTargetVersion(String generateTargetVersion) {
@@ -2833,6 +2870,7 @@ public class CliEvent {
             java.util.Objects.deepEquals(this.generatePublished, other.generatePublished) &&
             java.util.Objects.deepEquals(this.generateRepoUrl, other.generateRepoUrl) &&
             java.util.Objects.deepEquals(this.generateTarget, other.generateTarget) &&
+            java.util.Objects.deepEquals(this.generateTargetName, other.generateTargetName) &&
             java.util.Objects.deepEquals(this.generateTargetVersion, other.generateTargetVersion) &&
             java.util.Objects.deepEquals(this.generateVersion, other.generateVersion) &&
             java.util.Objects.deepEquals(this.ghActionOrganization, other.ghActionOrganization) &&
@@ -2915,6 +2953,7 @@ public class CliEvent {
             generatePublished,
             generateRepoUrl,
             generateTarget,
+            generateTargetName,
             generateTargetVersion,
             generateVersion,
             ghActionOrganization,
@@ -2997,6 +3036,7 @@ public class CliEvent {
                 "generatePublished", generatePublished,
                 "generateRepoUrl", generateRepoUrl,
                 "generateTarget", generateTarget,
+                "generateTargetName", generateTargetName,
                 "generateTargetVersion", generateTargetVersion,
                 "generateVersion", generateVersion,
                 "ghActionOrganization", ghActionOrganization,
@@ -3106,6 +3146,8 @@ public class CliEvent {
         private Optional<? extends String> generateRepoUrl = Optional.empty();
  
         private Optional<? extends String> generateTarget = Optional.empty();
+ 
+        private Optional<? extends String> generateTargetName = Optional.empty();
  
         private Optional<? extends String> generateTargetVersion = Optional.empty();
  
@@ -3708,6 +3750,24 @@ public class CliEvent {
         public Builder generateTarget(Optional<? extends String> generateTarget) {
             Utils.checkNotNull(generateTarget, "generateTarget");
             this.generateTarget = generateTarget;
+            return this;
+        }
+
+        /**
+         * The workflow name of the target.
+         */
+        public Builder generateTargetName(String generateTargetName) {
+            Utils.checkNotNull(generateTargetName, "generateTargetName");
+            this.generateTargetName = Optional.ofNullable(generateTargetName);
+            return this;
+        }
+
+        /**
+         * The workflow name of the target.
+         */
+        public Builder generateTargetName(Optional<? extends String> generateTargetName) {
+            Utils.checkNotNull(generateTargetName, "generateTargetName");
+            this.generateTargetName = generateTargetName;
             return this;
         }
 
@@ -4543,6 +4603,7 @@ public class CliEvent {
                 generatePublished,
                 generateRepoUrl,
                 generateTarget,
+                generateTargetName,
                 generateTargetVersion,
                 generateVersion,
                 ghActionOrganization,

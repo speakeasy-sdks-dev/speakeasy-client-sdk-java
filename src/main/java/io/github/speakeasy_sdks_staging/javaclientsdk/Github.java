@@ -28,9 +28,15 @@ import org.apache.http.NameValuePair;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 public class Github implements
-            MethodCallGithubCheckAccess,
-            MethodCallGithubConfigureTarget,
-            MethodCallGithubTriggerAction {
+            MethodCallCheckAccess,
+            MethodCallConfigureCodeSamples,
+            MethodCallConfigureMintlifyRepo,
+            MethodCallConfigureTarget,
+            MethodCallFetchPublishingPRs,
+            MethodCallGetAction,
+            MethodCallGithubCheckPublishingSecrets,
+            MethodCallGithubStorePublishingSecrets,
+            MethodCallTriggerAction {
 
     private final SDKConfiguration sdkConfiguration;
 
@@ -38,12 +44,13 @@ public class Github implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessRequestBuilder githubCheckAccess() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessRequestBuilder(this);
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessRequestBuilder checkAccess() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessRequestBuilder(this);
     }
 
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessResponse githubCheckAccess(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessRequest request) throws Exception {
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessResponse checkAccess(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessRequest request) throws Exception {
         String _baseUrl = this.sdkConfiguration.serverUrl;
         String _url = Utils.generateURL(
                 _baseUrl,
@@ -55,7 +62,7 @@ public class Github implements
                 this.sdkConfiguration.userAgent);
 
         _req.addQueryParams(Utils.getQueryParams(
-                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessRequest.class,
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessRequest.class,
                 request, 
                 this.sdkConfiguration.globals));
 
@@ -66,7 +73,7 @@ public class Github implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("githubCheckAccess", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("checkAccess", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -74,18 +81,18 @@ public class Github implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("githubCheckAccess", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("checkAccess", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("githubCheckAccess", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("checkAccess", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("githubCheckAccess", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("checkAccess", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -93,14 +100,14 @@ public class Github implements
             .headers()
             .firstValue("Content-Type")
             .orElse("application/octet-stream");
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessResponse.Builder _resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessResponse
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessResponse
                 .builder()
                 .contentType(_contentType)
                 .statusCode(_httpRes.statusCode())
                 .rawResponse(_httpRes);
 
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessResponse _res = _resBuilder.build();
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessResponse _res = _resBuilder.build();
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             // no content 
@@ -137,11 +144,229 @@ public class Github implements
     }
 
 
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubConfigureTargetRequestBuilder githubConfigureTarget() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubConfigureTargetRequestBuilder(this);
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesRequestBuilder configureCodeSamples() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesRequestBuilder(this);
     }
 
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubConfigureTargetResponse githubConfigureTarget(
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesResponse configureCodeSamples(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest request) throws Exception {
+        String _baseUrl = this.sdkConfiguration.serverUrl;
+        String _url = Utils.generateURL(
+                _baseUrl,
+                "/v1/github/configure_code_samples");
+        
+        HTTPRequest _req = new HTTPRequest(_url, "POST");
+        Object _convertedRequest = Utils.convertToShape(request, Utils.JsonShape.DEFAULT,
+            new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest>() {});
+        SerializedBody _serializedRequestBody = Utils.serializeRequestBody(
+                _convertedRequest, "request", "json", false);
+        if (_serializedRequestBody == null) {
+            throw new Exception("Request body is required");
+        }
+        _req.setBody(Optional.ofNullable(_serializedRequestBody));
+        _req.addHeader("Accept", "application/json")
+            .addHeader("user-agent", 
+                this.sdkConfiguration.userAgent);
+
+        Utils.configureSecurity(_req,  
+                this.sdkConfiguration.securitySource.getSecurity());
+
+        HTTPClient _client = this.sdkConfiguration.defaultClient;
+        HttpRequest _r = 
+            sdkConfiguration.hooks()
+               .beforeRequest(
+                  new BeforeRequestContextImpl("configureCodeSamples", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                  _req.build());
+        HttpResponse<InputStream> _httpRes;
+        try {
+            _httpRes = _client.send(_r);
+            if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterError(
+                        new AfterErrorContextImpl("configureCodeSamples", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                        Optional.of(_httpRes),
+                        Optional.empty());
+            } else {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterSuccess(
+                        new AfterSuccessContextImpl("configureCodeSamples", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                         _httpRes);
+            }
+        } catch (Exception _e) {
+            _httpRes = sdkConfiguration.hooks()
+                    .afterError(new AfterErrorContextImpl("configureCodeSamples", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
+                        Optional.empty(),
+                        Optional.of(_e));
+        }
+        String _contentType = _httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesResponse
+                .builder()
+                .contentType(_contentType)
+                .statusCode(_httpRes.statusCode())
+                .rawResponse(_httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesResponse _res = _resBuilder.build();
+        
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureCodeSamplesResponse _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureCodeSamplesResponse>() {});
+                _res.withGithubConfigureCodeSamplesResponse(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+            // no content 
+            throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "API error occurred", 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error>() {});
+                _res.withError(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        throw new SDKError(
+            _httpRes, 
+            _httpRes.statusCode(), 
+            "Unexpected status code received: " + _httpRes.statusCode(), 
+            Utils.toByteArrayAndClose(_httpRes.body()));
+    }
+
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoRequestBuilder configureMintlifyRepo() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoRequestBuilder(this);
+    }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse configureMintlifyRepo(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest request) throws Exception {
+        String _baseUrl = this.sdkConfiguration.serverUrl;
+        String _url = Utils.generateURL(
+                _baseUrl,
+                "/v1/github/configure_mintlify_repo");
+        
+        HTTPRequest _req = new HTTPRequest(_url, "POST");
+        Object _convertedRequest = Utils.convertToShape(request, Utils.JsonShape.DEFAULT,
+            new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest>() {});
+        SerializedBody _serializedRequestBody = Utils.serializeRequestBody(
+                _convertedRequest, "request", "json", false);
+        if (_serializedRequestBody == null) {
+            throw new Exception("Request body is required");
+        }
+        _req.setBody(Optional.ofNullable(_serializedRequestBody));
+        _req.addHeader("Accept", "application/json")
+            .addHeader("user-agent", 
+                this.sdkConfiguration.userAgent);
+
+        Utils.configureSecurity(_req,  
+                this.sdkConfiguration.securitySource.getSecurity());
+
+        HTTPClient _client = this.sdkConfiguration.defaultClient;
+        HttpRequest _r = 
+            sdkConfiguration.hooks()
+               .beforeRequest(
+                  new BeforeRequestContextImpl("configureMintlifyRepo", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                  _req.build());
+        HttpResponse<InputStream> _httpRes;
+        try {
+            _httpRes = _client.send(_r);
+            if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterError(
+                        new AfterErrorContextImpl("configureMintlifyRepo", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                        Optional.of(_httpRes),
+                        Optional.empty());
+            } else {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterSuccess(
+                        new AfterSuccessContextImpl("configureMintlifyRepo", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                         _httpRes);
+            }
+        } catch (Exception _e) {
+            _httpRes = sdkConfiguration.hooks()
+                    .afterError(new AfterErrorContextImpl("configureMintlifyRepo", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
+                        Optional.empty(),
+                        Optional.of(_e));
+        }
+        String _contentType = _httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse
+                .builder()
+                .contentType(_contentType)
+                .statusCode(_httpRes.statusCode())
+                .rawResponse(_httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse _res = _resBuilder.build();
+        
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
+            // no content 
+            return _res;
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+            // no content 
+            throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "API error occurred", 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error>() {});
+                _res.withError(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        throw new SDKError(
+            _httpRes, 
+            _httpRes.statusCode(), 
+            "Unexpected status code received: " + _httpRes.statusCode(), 
+            Utils.toByteArrayAndClose(_httpRes.body()));
+    }
+
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetRequestBuilder configureTarget() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetRequestBuilder(this);
+    }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetResponse configureTarget(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureTargetRequest request) throws Exception {
         String _baseUrl = this.sdkConfiguration.serverUrl;
         String _url = Utils.generateURL(
@@ -168,7 +393,7 @@ public class Github implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("githubConfigureTarget", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("configureTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -176,18 +401,18 @@ public class Github implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("githubConfigureTarget", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("configureTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("githubConfigureTarget", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("configureTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("githubConfigureTarget", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("configureTarget", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -195,14 +420,14 @@ public class Github implements
             .headers()
             .firstValue("Content-Type")
             .orElse("application/octet-stream");
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubConfigureTargetResponse.Builder _resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubConfigureTargetResponse
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetResponse
                 .builder()
                 .contentType(_contentType)
                 .statusCode(_httpRes.statusCode())
                 .rawResponse(_httpRes);
 
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubConfigureTargetResponse _res = _resBuilder.build();
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetResponse _res = _resBuilder.build();
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             // no content 
@@ -239,11 +464,448 @@ public class Github implements
     }
 
 
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubTriggerActionRequestBuilder githubTriggerAction() {
-        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubTriggerActionRequestBuilder(this);
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsRequestBuilder fetchPublishingPRs() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsRequestBuilder(this);
     }
 
-    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubTriggerActionResponse githubTriggerAction(
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsResponse fetchPublishingPRs(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsRequest request) throws Exception {
+        String _baseUrl = this.sdkConfiguration.serverUrl;
+        String _url = Utils.generateURL(
+                _baseUrl,
+                "/v1/github/publishing_prs");
+        
+        HTTPRequest _req = new HTTPRequest(_url, "GET");
+        _req.addHeader("Accept", "application/json")
+            .addHeader("user-agent", 
+                this.sdkConfiguration.userAgent);
+
+        _req.addQueryParams(Utils.getQueryParams(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsRequest.class,
+                request, 
+                this.sdkConfiguration.globals));
+
+        Utils.configureSecurity(_req,  
+                this.sdkConfiguration.securitySource.getSecurity());
+
+        HTTPClient _client = this.sdkConfiguration.defaultClient;
+        HttpRequest _r = 
+            sdkConfiguration.hooks()
+               .beforeRequest(
+                  new BeforeRequestContextImpl("fetchPublishingPRs", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                  _req.build());
+        HttpResponse<InputStream> _httpRes;
+        try {
+            _httpRes = _client.send(_r);
+            if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterError(
+                        new AfterErrorContextImpl("fetchPublishingPRs", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                        Optional.of(_httpRes),
+                        Optional.empty());
+            } else {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterSuccess(
+                        new AfterSuccessContextImpl("fetchPublishingPRs", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                         _httpRes);
+            }
+        } catch (Exception _e) {
+            _httpRes = sdkConfiguration.hooks()
+                    .afterError(new AfterErrorContextImpl("fetchPublishingPRs", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
+                        Optional.empty(),
+                        Optional.of(_e));
+        }
+        String _contentType = _httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsResponse
+                .builder()
+                .contentType(_contentType)
+                .statusCode(_httpRes.statusCode())
+                .rawResponse(_httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsResponse _res = _resBuilder.build();
+        
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubPublishingPRResponse _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubPublishingPRResponse>() {});
+                _res.withGithubPublishingPRResponse(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+            // no content 
+            throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "API error occurred", 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error>() {});
+                _res.withError(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        throw new SDKError(
+            _httpRes, 
+            _httpRes.statusCode(), 
+            "Unexpected status code received: " + _httpRes.statusCode(), 
+            Utils.toByteArrayAndClose(_httpRes.body()));
+    }
+
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionRequestBuilder getAction() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionRequestBuilder(this);
+    }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionResponse getAction(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionRequest request) throws Exception {
+        String _baseUrl = this.sdkConfiguration.serverUrl;
+        String _url = Utils.generateURL(
+                _baseUrl,
+                "/v1/github/action");
+        
+        HTTPRequest _req = new HTTPRequest(_url, "GET");
+        _req.addHeader("Accept", "application/json")
+            .addHeader("user-agent", 
+                this.sdkConfiguration.userAgent);
+
+        _req.addQueryParams(Utils.getQueryParams(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionRequest.class,
+                request, 
+                this.sdkConfiguration.globals));
+
+        Utils.configureSecurity(_req,  
+                this.sdkConfiguration.securitySource.getSecurity());
+
+        HTTPClient _client = this.sdkConfiguration.defaultClient;
+        HttpRequest _r = 
+            sdkConfiguration.hooks()
+               .beforeRequest(
+                  new BeforeRequestContextImpl("getAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                  _req.build());
+        HttpResponse<InputStream> _httpRes;
+        try {
+            _httpRes = _client.send(_r);
+            if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterError(
+                        new AfterErrorContextImpl("getAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                        Optional.of(_httpRes),
+                        Optional.empty());
+            } else {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterSuccess(
+                        new AfterSuccessContextImpl("getAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                         _httpRes);
+            }
+        } catch (Exception _e) {
+            _httpRes = sdkConfiguration.hooks()
+                    .afterError(new AfterErrorContextImpl("getAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
+                        Optional.empty(),
+                        Optional.of(_e));
+        }
+        String _contentType = _httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionResponse
+                .builder()
+                .contentType(_contentType)
+                .statusCode(_httpRes.statusCode())
+                .rawResponse(_httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionResponse _res = _resBuilder.build();
+        
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubGetActionResponse _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubGetActionResponse>() {});
+                _res.withGithubGetActionResponse(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+            // no content 
+            throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "API error occurred", 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error>() {});
+                _res.withError(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        throw new SDKError(
+            _httpRes, 
+            _httpRes.statusCode(), 
+            "Unexpected status code received: " + _httpRes.statusCode(), 
+            Utils.toByteArrayAndClose(_httpRes.body()));
+    }
+
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequestBuilder githubCheckPublishingSecrets() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequestBuilder(this);
+    }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse githubCheckPublishingSecrets(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequest request) throws Exception {
+        String _baseUrl = this.sdkConfiguration.serverUrl;
+        String _url = Utils.generateURL(
+                _baseUrl,
+                "/v1/github/publishing_secrets");
+        
+        HTTPRequest _req = new HTTPRequest(_url, "GET");
+        _req.addHeader("Accept", "application/json")
+            .addHeader("user-agent", 
+                this.sdkConfiguration.userAgent);
+
+        _req.addQueryParams(Utils.getQueryParams(
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequest.class,
+                request, 
+                this.sdkConfiguration.globals));
+
+        Utils.configureSecurity(_req,  
+                this.sdkConfiguration.securitySource.getSecurity());
+
+        HTTPClient _client = this.sdkConfiguration.defaultClient;
+        HttpRequest _r = 
+            sdkConfiguration.hooks()
+               .beforeRequest(
+                  new BeforeRequestContextImpl("githubCheckPublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                  _req.build());
+        HttpResponse<InputStream> _httpRes;
+        try {
+            _httpRes = _client.send(_r);
+            if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterError(
+                        new AfterErrorContextImpl("githubCheckPublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                        Optional.of(_httpRes),
+                        Optional.empty());
+            } else {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterSuccess(
+                        new AfterSuccessContextImpl("githubCheckPublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                         _httpRes);
+            }
+        } catch (Exception _e) {
+            _httpRes = sdkConfiguration.hooks()
+                    .afterError(new AfterErrorContextImpl("githubCheckPublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
+                        Optional.empty(),
+                        Optional.of(_e));
+        }
+        String _contentType = _httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse
+                .builder()
+                .contentType(_contentType)
+                .statusCode(_httpRes.statusCode())
+                .rawResponse(_httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse _res = _resBuilder.build();
+        
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubMissingPublishingSecretsResponse _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubMissingPublishingSecretsResponse>() {});
+                _res.withGithubMissingPublishingSecretsResponse(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+            // no content 
+            throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "API error occurred", 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error>() {});
+                _res.withError(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        throw new SDKError(
+            _httpRes, 
+            _httpRes.statusCode(), 
+            "Unexpected status code received: " + _httpRes.statusCode(), 
+            Utils.toByteArrayAndClose(_httpRes.body()));
+    }
+
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsRequestBuilder githubStorePublishingSecrets() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsRequestBuilder(this);
+    }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse githubStorePublishingSecrets(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubStorePublishingSecretsRequest request) throws Exception {
+        String _baseUrl = this.sdkConfiguration.serverUrl;
+        String _url = Utils.generateURL(
+                _baseUrl,
+                "/v1/github/publishing_secrets");
+        
+        HTTPRequest _req = new HTTPRequest(_url, "POST");
+        Object _convertedRequest = Utils.convertToShape(request, Utils.JsonShape.DEFAULT,
+            new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubStorePublishingSecretsRequest>() {});
+        SerializedBody _serializedRequestBody = Utils.serializeRequestBody(
+                _convertedRequest, "request", "json", false);
+        if (_serializedRequestBody == null) {
+            throw new Exception("Request body is required");
+        }
+        _req.setBody(Optional.ofNullable(_serializedRequestBody));
+        _req.addHeader("Accept", "application/json")
+            .addHeader("user-agent", 
+                this.sdkConfiguration.userAgent);
+
+        Utils.configureSecurity(_req,  
+                this.sdkConfiguration.securitySource.getSecurity());
+
+        HTTPClient _client = this.sdkConfiguration.defaultClient;
+        HttpRequest _r = 
+            sdkConfiguration.hooks()
+               .beforeRequest(
+                  new BeforeRequestContextImpl("githubStorePublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                  _req.build());
+        HttpResponse<InputStream> _httpRes;
+        try {
+            _httpRes = _client.send(_r);
+            if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterError(
+                        new AfterErrorContextImpl("githubStorePublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                        Optional.of(_httpRes),
+                        Optional.empty());
+            } else {
+                _httpRes = sdkConfiguration.hooks()
+                    .afterSuccess(
+                        new AfterSuccessContextImpl("githubStorePublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
+                         _httpRes);
+            }
+        } catch (Exception _e) {
+            _httpRes = sdkConfiguration.hooks()
+                    .afterError(new AfterErrorContextImpl("githubStorePublishingSecrets", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
+                        Optional.empty(),
+                        Optional.of(_e));
+        }
+        String _contentType = _httpRes
+            .headers()
+            .firstValue("Content-Type")
+            .orElse("application/octet-stream");
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse
+                .builder()
+                .contentType(_contentType)
+                .statusCode(_httpRes.statusCode())
+                .rawResponse(_httpRes);
+
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse _res = _resBuilder.build();
+        
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
+            // no content 
+            return _res;
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
+            // no content 
+            throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "API error occurred", 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+        }
+        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
+            if (Utils.contentTypeMatches(_contentType, "application/json")) {
+                io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
+                    Utils.toUtf8AndClose(_httpRes.body()),
+                    new TypeReference<io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error>() {});
+                _res.withError(java.util.Optional.ofNullable(_out));
+                return _res;
+            } else {
+                throw new SDKError(
+                    _httpRes, 
+                    _httpRes.statusCode(), 
+                    "Unexpected content-type received: " + _contentType, 
+                    Utils.toByteArrayAndClose(_httpRes.body()));
+            }
+        }
+        throw new SDKError(
+            _httpRes, 
+            _httpRes.statusCode(), 
+            "Unexpected status code received: " + _httpRes.statusCode(), 
+            Utils.toByteArrayAndClose(_httpRes.body()));
+    }
+
+
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionRequestBuilder triggerAction() {
+        return new io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionRequestBuilder(this);
+    }
+
+    public io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionResponse triggerAction(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubTriggerActionRequest request) throws Exception {
         String _baseUrl = this.sdkConfiguration.serverUrl;
         String _url = Utils.generateURL(
@@ -270,7 +932,7 @@ public class Github implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("githubTriggerAction", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("triggerAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -278,18 +940,18 @@ public class Github implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("githubTriggerAction", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("triggerAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("githubTriggerAction", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("triggerAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("githubTriggerAction", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("triggerAction", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -297,14 +959,14 @@ public class Github implements
             .headers()
             .firstValue("Content-Type")
             .orElse("application/octet-stream");
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubTriggerActionResponse.Builder _resBuilder = 
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubTriggerActionResponse
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionResponse.Builder _resBuilder = 
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionResponse
                 .builder()
                 .contentType(_contentType)
                 .statusCode(_httpRes.statusCode())
                 .rawResponse(_httpRes);
 
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubTriggerActionResponse _res = _resBuilder.build();
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionResponse _res = _resBuilder.build();
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             // no content 

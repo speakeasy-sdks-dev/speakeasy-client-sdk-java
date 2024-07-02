@@ -43,6 +43,9 @@ public class Organization {
     @JsonProperty("slug")
     private Optional<? extends String> slug;
 
+    @JsonProperty("telemetry_disabled")
+    private boolean telemetryDisabled;
+
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("updated_at")
     private Optional<? extends OffsetDateTime> updatedAt;
@@ -54,26 +57,30 @@ public class Organization {
             @JsonProperty("id") String id,
             @JsonProperty("name") String name,
             @JsonProperty("slug") Optional<? extends String> slug,
+            @JsonProperty("telemetry_disabled") boolean telemetryDisabled,
             @JsonProperty("updated_at") Optional<? extends OffsetDateTime> updatedAt) {
         Utils.checkNotNull(accountType, "accountType");
         Utils.checkNotNull(createdAt, "createdAt");
         Utils.checkNotNull(id, "id");
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(slug, "slug");
+        Utils.checkNotNull(telemetryDisabled, "telemetryDisabled");
         Utils.checkNotNull(updatedAt, "updatedAt");
         this.accountType = accountType;
         this.createdAt = createdAt;
         this.id = id;
         this.name = name;
         this.slug = slug;
+        this.telemetryDisabled = telemetryDisabled;
         this.updatedAt = updatedAt;
     }
     
     public Organization(
             OrganizationAccountType accountType,
             String id,
-            String name) {
-        this(accountType, Optional.empty(), id, name, Optional.empty(), Optional.empty());
+            String name,
+            boolean telemetryDisabled) {
+        this(accountType, Optional.empty(), id, name, Optional.empty(), telemetryDisabled, Optional.empty());
     }
 
     @JsonIgnore
@@ -101,6 +108,11 @@ public class Organization {
     @JsonIgnore
     public Optional<String> slug() {
         return (Optional<String>) slug;
+    }
+
+    @JsonIgnore
+    public boolean telemetryDisabled() {
+        return telemetryDisabled;
     }
 
     @SuppressWarnings("unchecked")
@@ -155,6 +167,12 @@ public class Organization {
         return this;
     }
 
+    public Organization withTelemetryDisabled(boolean telemetryDisabled) {
+        Utils.checkNotNull(telemetryDisabled, "telemetryDisabled");
+        this.telemetryDisabled = telemetryDisabled;
+        return this;
+    }
+
     public Organization withUpdatedAt(OffsetDateTime updatedAt) {
         Utils.checkNotNull(updatedAt, "updatedAt");
         this.updatedAt = Optional.ofNullable(updatedAt);
@@ -182,6 +200,7 @@ public class Organization {
             java.util.Objects.deepEquals(this.id, other.id) &&
             java.util.Objects.deepEquals(this.name, other.name) &&
             java.util.Objects.deepEquals(this.slug, other.slug) &&
+            java.util.Objects.deepEquals(this.telemetryDisabled, other.telemetryDisabled) &&
             java.util.Objects.deepEquals(this.updatedAt, other.updatedAt);
     }
     
@@ -193,6 +212,7 @@ public class Organization {
             id,
             name,
             slug,
+            telemetryDisabled,
             updatedAt);
     }
     
@@ -204,6 +224,7 @@ public class Organization {
                 "id", id,
                 "name", name,
                 "slug", slug,
+                "telemetryDisabled", telemetryDisabled,
                 "updatedAt", updatedAt);
     }
     
@@ -218,6 +239,8 @@ public class Organization {
         private String name;
  
         private Optional<? extends String> slug = Optional.empty();
+ 
+        private Boolean telemetryDisabled;
  
         private Optional<? extends OffsetDateTime> updatedAt = Optional.empty();  
         
@@ -267,6 +290,12 @@ public class Organization {
             return this;
         }
 
+        public Builder telemetryDisabled(boolean telemetryDisabled) {
+            Utils.checkNotNull(telemetryDisabled, "telemetryDisabled");
+            this.telemetryDisabled = telemetryDisabled;
+            return this;
+        }
+
         public Builder updatedAt(OffsetDateTime updatedAt) {
             Utils.checkNotNull(updatedAt, "updatedAt");
             this.updatedAt = Optional.ofNullable(updatedAt);
@@ -286,6 +315,7 @@ public class Organization {
                 id,
                 name,
                 slug,
+                telemetryDisabled,
                 updatedAt);
         }
     }

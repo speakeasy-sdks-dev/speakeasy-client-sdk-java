@@ -41,6 +41,9 @@ public class ApiKeyDetails {
     @JsonProperty("org_slug")
     private String orgSlug;
 
+    @JsonProperty("telemetry_disabled")
+    private boolean telemetryDisabled;
+
     @JsonProperty("workspace_id")
     private String workspaceId;
 
@@ -54,6 +57,7 @@ public class ApiKeyDetails {
             @JsonProperty("feature_flags") Optional<? extends java.util.List<String>> featureFlags,
             @JsonProperty("generation_access_unlimited") Optional<? extends Boolean> generationAccessUnlimited,
             @JsonProperty("org_slug") String orgSlug,
+            @JsonProperty("telemetry_disabled") boolean telemetryDisabled,
             @JsonProperty("workspace_id") String workspaceId,
             @JsonProperty("workspace_slug") String workspaceSlug) {
         Utils.checkNotNull(accountType, "accountType");
@@ -61,6 +65,7 @@ public class ApiKeyDetails {
         Utils.checkNotNull(featureFlags, "featureFlags");
         Utils.checkNotNull(generationAccessUnlimited, "generationAccessUnlimited");
         Utils.checkNotNull(orgSlug, "orgSlug");
+        Utils.checkNotNull(telemetryDisabled, "telemetryDisabled");
         Utils.checkNotNull(workspaceId, "workspaceId");
         Utils.checkNotNull(workspaceSlug, "workspaceSlug");
         this.accountType = accountType;
@@ -68,6 +73,7 @@ public class ApiKeyDetails {
         this.featureFlags = featureFlags;
         this.generationAccessUnlimited = generationAccessUnlimited;
         this.orgSlug = orgSlug;
+        this.telemetryDisabled = telemetryDisabled;
         this.workspaceId = workspaceId;
         this.workspaceSlug = workspaceSlug;
     }
@@ -76,9 +82,10 @@ public class ApiKeyDetails {
             AccountType accountType,
             java.util.List<String> enabledFeatures,
             String orgSlug,
+            boolean telemetryDisabled,
             String workspaceId,
             String workspaceSlug) {
-        this(accountType, enabledFeatures, Optional.empty(), Optional.empty(), orgSlug, workspaceId, workspaceSlug);
+        this(accountType, enabledFeatures, Optional.empty(), Optional.empty(), orgSlug, telemetryDisabled, workspaceId, workspaceSlug);
     }
 
     @JsonIgnore
@@ -110,6 +117,11 @@ public class ApiKeyDetails {
     @JsonIgnore
     public String orgSlug() {
         return orgSlug;
+    }
+
+    @JsonIgnore
+    public boolean telemetryDisabled() {
+        return telemetryDisabled;
     }
 
     @JsonIgnore
@@ -176,6 +188,12 @@ public class ApiKeyDetails {
         return this;
     }
 
+    public ApiKeyDetails withTelemetryDisabled(boolean telemetryDisabled) {
+        Utils.checkNotNull(telemetryDisabled, "telemetryDisabled");
+        this.telemetryDisabled = telemetryDisabled;
+        return this;
+    }
+
     public ApiKeyDetails withWorkspaceId(String workspaceId) {
         Utils.checkNotNull(workspaceId, "workspaceId");
         this.workspaceId = workspaceId;
@@ -203,6 +221,7 @@ public class ApiKeyDetails {
             java.util.Objects.deepEquals(this.featureFlags, other.featureFlags) &&
             java.util.Objects.deepEquals(this.generationAccessUnlimited, other.generationAccessUnlimited) &&
             java.util.Objects.deepEquals(this.orgSlug, other.orgSlug) &&
+            java.util.Objects.deepEquals(this.telemetryDisabled, other.telemetryDisabled) &&
             java.util.Objects.deepEquals(this.workspaceId, other.workspaceId) &&
             java.util.Objects.deepEquals(this.workspaceSlug, other.workspaceSlug);
     }
@@ -215,6 +234,7 @@ public class ApiKeyDetails {
             featureFlags,
             generationAccessUnlimited,
             orgSlug,
+            telemetryDisabled,
             workspaceId,
             workspaceSlug);
     }
@@ -227,6 +247,7 @@ public class ApiKeyDetails {
                 "featureFlags", featureFlags,
                 "generationAccessUnlimited", generationAccessUnlimited,
                 "orgSlug", orgSlug,
+                "telemetryDisabled", telemetryDisabled,
                 "workspaceId", workspaceId,
                 "workspaceSlug", workspaceSlug);
     }
@@ -243,6 +264,8 @@ public class ApiKeyDetails {
         private Optional<? extends Boolean> generationAccessUnlimited = Optional.empty();
  
         private String orgSlug;
+ 
+        private Boolean telemetryDisabled;
  
         private String workspaceId;
  
@@ -302,6 +325,12 @@ public class ApiKeyDetails {
             return this;
         }
 
+        public Builder telemetryDisabled(boolean telemetryDisabled) {
+            Utils.checkNotNull(telemetryDisabled, "telemetryDisabled");
+            this.telemetryDisabled = telemetryDisabled;
+            return this;
+        }
+
         public Builder workspaceId(String workspaceId) {
             Utils.checkNotNull(workspaceId, "workspaceId");
             this.workspaceId = workspaceId;
@@ -321,6 +350,7 @@ public class ApiKeyDetails {
                 featureFlags,
                 generationAccessUnlimited,
                 orgSlug,
+                telemetryDisabled,
                 workspaceId,
                 workspaceSlug);
         }

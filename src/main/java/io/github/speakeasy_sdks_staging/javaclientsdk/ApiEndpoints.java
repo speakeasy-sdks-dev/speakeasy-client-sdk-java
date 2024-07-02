@@ -46,6 +46,7 @@ public class ApiEndpoints implements
         this.sdkConfiguration = sdkConfiguration;
     }
 
+
     /**
      * Delete an ApiEndpoint.
      * Delete an ApiEndpoint. This will also delete all associated Request Logs (if using a Postgres datastore).
@@ -83,7 +84,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("deleteApiEndpoint", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("deleteApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -91,18 +92,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("deleteApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("deleteApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("deleteApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("deleteApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("deleteApiEndpoint", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("deleteApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -154,6 +155,7 @@ public class ApiEndpoints implements
     }
 
 
+
     /**
      * Find an ApiEndpoint via its displayName.
      * Find an ApiEndpoint via its displayName (set by operationId from a registered OpenAPI schema).
@@ -193,7 +195,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("findApiEndpoint", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("findApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -201,18 +203,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("findApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("findApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("findApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("findApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("findApiEndpoint", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("findApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -275,6 +277,7 @@ public class ApiEndpoints implements
     }
 
 
+
     /**
      * Generate an OpenAPI specification for a particular ApiEndpoint.
      * This endpoint will generate a new operation in any registered OpenAPI document if the operation does not already exist in the document.
@@ -314,7 +317,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("generateOpenApiSpecForApiEndpoint", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("generateOpenApiSpecForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -322,18 +325,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("generateOpenApiSpecForApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("generateOpenApiSpecForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("generateOpenApiSpecForApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("generateOpenApiSpecForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("generateOpenApiSpecForApiEndpoint", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("generateOpenApiSpecForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -396,6 +399,7 @@ public class ApiEndpoints implements
     }
 
 
+
     /**
      * Generate a Postman collection for a particular ApiEndpoint.
      * Generates a postman collection that allows the endpoint to be called from postman variables produced for any path/query/header parameters included in the OpenAPI document.
@@ -433,7 +437,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("generatePostmanCollectionForApiEndpoint", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("generatePostmanCollectionForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -441,18 +445,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("generatePostmanCollectionForApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("generatePostmanCollectionForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("generatePostmanCollectionForApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("generatePostmanCollectionForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("generatePostmanCollectionForApiEndpoint", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("generatePostmanCollectionForApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -514,6 +518,7 @@ public class ApiEndpoints implements
     }
 
 
+
     /**
      * Get all Api endpoints for a particular apiID.
      * @return The call builder
@@ -549,7 +554,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getAllApiEndpoints", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getAllApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -557,18 +562,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getAllApiEndpoints", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getAllApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getAllApiEndpoints", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getAllApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getAllApiEndpoints", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getAllApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -631,6 +636,7 @@ public class ApiEndpoints implements
     }
 
 
+
     /**
      * Get all ApiEndpoints for a particular apiID and versionID.
      * @return The call builder
@@ -666,7 +672,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getAllForVersionApiEndpoints", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getAllForVersionApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -674,18 +680,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getAllForVersionApiEndpoints", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getAllForVersionApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getAllForVersionApiEndpoints", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getAllForVersionApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getAllForVersionApiEndpoints", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getAllForVersionApiEndpoints", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -748,6 +754,7 @@ public class ApiEndpoints implements
     }
 
 
+
     /**
      * Get an ApiEndpoint.
      * @return The call builder
@@ -783,7 +790,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("getApiEndpoint", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("getApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -791,18 +798,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("getApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("getApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("getApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("getApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("getApiEndpoint", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("getApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }
@@ -865,6 +872,7 @@ public class ApiEndpoints implements
     }
 
 
+
     /**
      * Upsert an ApiEndpoint.
      * Upsert an ApiEndpoint. If the ApiEndpoint does not exist it will be created, otherwise it will be updated.
@@ -910,7 +918,7 @@ public class ApiEndpoints implements
         HttpRequest _r = 
             sdkConfiguration.hooks()
                .beforeRequest(
-                  new BeforeRequestContextImpl("upsertApiEndpoint", sdkConfiguration.securitySource()),
+                  new BeforeRequestContextImpl("upsertApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                   _req.build());
         HttpResponse<InputStream> _httpRes;
         try {
@@ -918,18 +926,18 @@ public class ApiEndpoints implements
             if (Utils.statusCodeMatches(_httpRes.statusCode(), "4XX", "5XX")) {
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
-                        new AfterErrorContextImpl("upsertApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterErrorContextImpl("upsertApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
                         Optional.empty());
             } else {
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
-                        new AfterSuccessContextImpl("upsertApiEndpoint", sdkConfiguration.securitySource()),
+                        new AfterSuccessContextImpl("upsertApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()),
                          _httpRes);
             }
         } catch (Exception _e) {
             _httpRes = sdkConfiguration.hooks()
-                    .afterError(new AfterErrorContextImpl("upsertApiEndpoint", sdkConfiguration.securitySource()), 
+                    .afterError(new AfterErrorContextImpl("upsertApiEndpoint", Optional.of(java.util.List.of()), sdkConfiguration.securitySource()), 
                         Optional.empty(),
                         Optional.of(_e));
         }

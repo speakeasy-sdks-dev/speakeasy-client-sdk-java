@@ -1,0 +1,9 @@
+# OASSummary
+
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `info`                                                                                                                 | [io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.OASInfo](../../models/shared/OASInfo.md)                 | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `operations`                                                                                                           | List<[io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.OASOperation](../../models/shared/OASOperation.md)> | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

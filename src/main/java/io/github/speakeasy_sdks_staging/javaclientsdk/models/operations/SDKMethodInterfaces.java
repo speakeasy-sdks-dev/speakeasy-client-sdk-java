@@ -182,6 +182,12 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallGetOASSummary {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryResponse getOASSummary(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOASSummaryRequest request) throws Exception;
+    }
+
+
     public interface MethodCallGetRevisions {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRevisionsResponse getRevisions(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRevisionsRequest request) throws Exception;
@@ -247,20 +253,56 @@ public class SDKMethodInterfaces {
     }
 
 
-    public interface MethodCallGithubCheckAccess {
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessResponse githubCheckAccess(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckAccessRequest request) throws Exception;
+    public interface MethodCallCheckAccess {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessResponse checkAccess(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGithubConfigureTarget {
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubConfigureTargetResponse githubConfigureTarget(
+    public interface MethodCallConfigureCodeSamples {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesResponse configureCodeSamples(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallConfigureMintlifyRepo {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse configureMintlifyRepo(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallConfigureTarget {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetResponse configureTarget(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureTargetRequest request) throws Exception;
     }
 
 
-    public interface MethodCallGithubTriggerAction {
-        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubTriggerActionResponse githubTriggerAction(
+    public interface MethodCallFetchPublishingPRs {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsResponse fetchPublishingPRs(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallGetAction {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionResponse getAction(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallGithubCheckPublishingSecrets {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse githubCheckPublishingSecrets(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallGithubStorePublishingSecrets {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse githubStorePublishingSecrets(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubStorePublishingSecretsRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallTriggerAction {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionResponse triggerAction(
             io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubTriggerActionRequest request) throws Exception;
     }
 
@@ -298,9 +340,21 @@ public class SDKMethodInterfaces {
     }
 
 
+    public interface MethodCallApplyOperationIDs {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ApplyOperationIDsResponse applyOperationIDs(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ApplyOperationIDsRequest request) throws Exception;
+    }
+
+
     public interface MethodCallSuggestOperationIDs {
         io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOperationIDsResponse suggestOperationIDs(
-            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOperationIDsRequestBody request) throws Exception;
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOperationIDsRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallSuggestOperationIDsRegistry {
+        io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOperationIDsRegistryResponse suggestOperationIDsRegistry(
+            io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOperationIDsRegistryRequest request) throws Exception;
     }
 
 
