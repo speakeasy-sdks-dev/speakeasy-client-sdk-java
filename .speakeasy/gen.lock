@@ -1,10 +1,10 @@
 lockVersion: 2.0.0
 id: 66f99777-b2f2-4e45-9581-501d199e5c0c
 management:
-  docChecksum: e4cb9ecada8b35163db080ecaaf60fe3
+  docChecksum: 08d7487f3dcc47fe23c920107ed88e4c
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.325.0
-  generationVersion: 2.356.0
+  speakeasyVersion: internal
+  generationVersion: 2.404.10
   releaseVersion: 7.15.0
   configChecksum: a3ea02804746cdbf178a1af0b64eb6a1
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
@@ -14,11 +14,11 @@ features:
   java:
     acceptHeaders: 2.81.2
     additionalDependencies: 0.1.0
-    core: 3.26.1
+    core: 3.29.4
     deprecations: 2.81.1
     downloadStreams: 0.1.1
     examples: 2.81.3
-    globalSecurity: 2.82.5
+    globalSecurity: 2.82.7
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.1
     globals: 2.82.1
@@ -487,11 +487,8 @@ generatedFiles:
   - docs/models/errors/Error.md
   - docs/models/shared/GenerateOpenApiSpecDiff.md
   - docs/models/shared/Api.md
-  - docs/models/shared/ApiInput.md
   - docs/models/shared/ApiEndpoint.md
-  - docs/models/shared/ApiEndpointInput.md
   - docs/models/shared/VersionMetadata.md
-  - docs/models/shared/VersionMetadataInput.md
   - docs/models/shared/Schema.md
   - docs/models/shared/ValueChange.md
   - docs/models/shared/SchemaDiff.md
@@ -571,3 +568,4 @@ generatedFiles:
   - docs/sdks/embeds/README.md
   - docs/sdks/events/README.md
   - USAGE.md
+  - CONTRIBUTING.md
