@@ -27,9 +27,9 @@ class SDKConfiguration {
     public String server;
     public String language = "java";
     public String openapiDocVersion = "0.4.0 .";
-    public String sdkVersion = "7.16.2";
+    public String sdkVersion = "7.16.3";
     public String genVersion = "2.409.8";
-    public String userAgent = "speakeasy-sdk/java 7.16.2 2.409.8 0.4.0 . io.github.speakeasy_sdks_staging.javaclientsdk";
+    public String userAgent = "speakeasy-sdk/java 7.16.3 2.409.8 0.4.0 . io.github.speakeasy_sdks_staging.javaclientsdk";
 
     private Hooks _hooks = createHooks();
 

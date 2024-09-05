@@ -3,7 +3,7 @@ sources:
     first-source: {}
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:904994b66fd4dd8287e13ee80fb133a6e5ea1e2040c51efeb4cc8c609b764c5b
+        sourceRevisionDigest: sha256:3e50e49f446a75e8a8ae4955881d540d63548639212e3f16baf97118015b8406
         sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
         tags:
             - latest
@@ -12,10 +12,10 @@ targets:
     java-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:904994b66fd4dd8287e13ee80fb133a6e5ea1e2040c51efeb4cc8c609b764c5b
+        sourceRevisionDigest: sha256:3e50e49f446a75e8a8ae4955881d540d63548639212e3f16baf97118015b8406
         sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
         codeSamplesNamespace: code-samples-java-java-target
-        codeSamplesRevisionDigest: sha256:d1ba27fc696b3b031832b86bdde34a5557b5951b5f1dffcd3d5d37f2b2afb7fd
+        codeSamplesRevisionDigest: sha256:14c29fc882819244bd0e768161d7900d3af910deef99cafd941a4343c2727a6b
         outLocation: /github/workspace/repo
     py:
         source: first-source
@@ -42,6 +42,7 @@ workflow:
                     ossrhPassword: $OSSRH_PASSWORD
                     gpgSecretKey: $JAVA_GPG_SECRET_KEY
                     gpgPassPhrase: $JAVA_GPG_PASSPHRASE
+                    useSonatypeLegacy: true
             codeSamples:
                 output: codeSamples.yaml
                 registry:
