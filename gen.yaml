@@ -20,7 +20,7 @@ java:
   companyURL: www.speakeasyapi.dev
   flattenGlobalSecurity: false
   githubURL: github.com/speakeasy-api/speakeasy-client-sdk-java
-  groupID: io.github.speakeasy-sdks-staging
+  groupID: dev.speakeasyapi
   imports:
     option: openapi
     paths:
