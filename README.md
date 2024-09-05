@@ -32,7 +32,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'io.github.speakeasy-sdks-staging:javaclientsdk:7.16.4'
+implementation 'io.github.speakeasy-sdks-staging:javaclientsdk:7.16.5'
 ```
 
 Maven:
@@ -40,7 +40,7 @@ Maven:
 <dependency>
     <groupId>io.github.speakeasy-sdks-staging</groupId>
     <artifactId>javaclientsdk</artifactId>
-    <version>7.16.4</version>
+    <version>7.16.5</version>
 </dependency>
 ```
 
