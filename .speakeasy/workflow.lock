@@ -1,10 +1,10 @@
-speakeasyVersion: 1.325.0
+speakeasyVersion: 1.390.7
 sources:
     first-source: {}
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:2b4c874418fe4ba6669a22f1a54398eb870ac42eb7cc30dba47224cbff85f14e
-        sourceBlobDigest: sha256:36bc1fa09148e56476004daab307e439ca1122cd3f1f7abc3cb4a19a45efcccc
+        sourceRevisionDigest: sha256:93134ffcb8aa5a4bd954770bc595a79077473cef88906f597542bd56d6348e4c
+        sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
         tags:
             - latest
             - main
@@ -12,10 +12,10 @@ targets:
     java-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:2b4c874418fe4ba6669a22f1a54398eb870ac42eb7cc30dba47224cbff85f14e
-        sourceBlobDigest: sha256:36bc1fa09148e56476004daab307e439ca1122cd3f1f7abc3cb4a19a45efcccc
-        codeSamplesNamespace: java-codesamples
-        codeSamplesRevisionDigest: sha256:fbd961dc1252c82e0bc5a05408eb695ed9d0d31633eb019ae5dfc5b2cc0e2a91
+        sourceRevisionDigest: sha256:93134ffcb8aa5a4bd954770bc595a79077473cef88906f597542bd56d6348e4c
+        sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
+        codeSamplesNamespace: code-samples-java-java-target
+        codeSamplesRevisionDigest: sha256:205c559a277f4b7bbd41d3043107c5c6c4a233ba1fda106c25e396ff431fea16
         outLocation: /github/workspace/repo
     py:
         source: first-source
@@ -43,6 +43,6 @@ workflow:
                     gpgSecretKey: $JAVA_GPG_SECRET_KEY
                     gpgPassPhrase: $JAVA_GPG_PASSPHRASE
             codeSamples:
-                output: ""
+                output: codeSamples.yaml
                 registry:
-                    location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/java-codesamples
+                    location: registry.speakeasyapi.dev/speakeasy-self/speakeasy-self/code-samples-java-java-target
