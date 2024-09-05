@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 java:
-  version: 7.16.5
+  version: 7.16.6
   additionalDependencies: []
   additionalPlugins: []
   artifactID: javaclientsdk
