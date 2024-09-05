@@ -15,7 +15,6 @@ jobs:
         with:
             mode: direct
             force: ${{ github.event.inputs.force }}
-            use_sonatype_legacy: true
         secrets:
             github_access_token: ${{ secrets.GITHUB_TOKEN }}
             speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
