@@ -3,7 +3,7 @@ sources:
     first-source: {}
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:3e50e49f446a75e8a8ae4955881d540d63548639212e3f16baf97118015b8406
+        sourceRevisionDigest: sha256:ee38816eb2bfe6c5b7794d91664100b80ac0cbd00680bc6b176751773d814a32
         sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
         tags:
             - latest
@@ -12,10 +12,10 @@ targets:
     java-target:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:3e50e49f446a75e8a8ae4955881d540d63548639212e3f16baf97118015b8406
+        sourceRevisionDigest: sha256:ee38816eb2bfe6c5b7794d91664100b80ac0cbd00680bc6b176751773d814a32
         sourceBlobDigest: sha256:a4bfd0ba65778a5104220868c475a6a29870a95c9018891ea04ffe956383d374
         codeSamplesNamespace: code-samples-java-java-target
-        codeSamplesRevisionDigest: sha256:14c29fc882819244bd0e768161d7900d3af910deef99cafd941a4343c2727a6b
+        codeSamplesRevisionDigest: sha256:65d327fc010fcb741e8a1cd2c084c32163129880b80421605cc48281cdadd527
         outLocation: /github/workspace/repo
     py:
         source: first-source

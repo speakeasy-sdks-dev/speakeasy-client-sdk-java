@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 java:
-  version: 7.16.3
+  version: 7.16.4
   additionalDependencies: []
   additionalPlugins: []
   artifactID: javaclientsdk
@@ -21,7 +21,6 @@ java:
   flattenGlobalSecurity: false
   githubURL: github.com/speakeasy-api/speakeasy-client-sdk-java
   groupID: io.github.speakeasy-sdks-staging
-  ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
   imports:
     option: openapi
     paths:
@@ -36,6 +35,7 @@ java:
     shortName: MIT
     url: https://mit-license.org/
   maxMethodParams: 0
+  ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
   outputModelSuffix: output
   projectName: speakeasy-client-sdk-java
   templateVersion: v2
