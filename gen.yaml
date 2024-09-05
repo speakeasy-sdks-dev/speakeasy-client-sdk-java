@@ -21,6 +21,7 @@ java:
   flattenGlobalSecurity: false
   githubURL: github.com/speakeasy-api/speakeasy-client-sdk-java
   groupID: io.github.speakeasy-sdks-staging
+  ossrhURL: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
   imports:
     option: openapi
     paths:
