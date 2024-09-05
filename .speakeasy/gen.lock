@@ -5,8 +5,8 @@ management:
   docVersion: 0.4.0 .
   speakeasyVersion: 1.390.7
   generationVersion: 2.409.8
-  releaseVersion: 7.16.1
-  configChecksum: 8c617f3b22fced22515ef329daaba09c
+  releaseVersion: 7.16.2
+  configChecksum: 7da257b01eb96c9ddb27373c017119d5
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
   repoSubDirectory: .
   published: true
