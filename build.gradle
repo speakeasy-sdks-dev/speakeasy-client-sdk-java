@@ -63,7 +63,7 @@ tasks.withType(Javadoc) {
 }
 
 group = "io.github.speakeasy-sdks-staging"
-version = "7.16.0"
+version = "7.16.1"
 
 sourcesJar {
     archiveBaseName = "javaclientsdk"
@@ -101,7 +101,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'io.github.speakeasy-sdks-staging'
             artifactId = 'javaclientsdk'
-            version = '7.16.0'
+            version = '7.16.1'
 
             from components.java
 
