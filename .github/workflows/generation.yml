@@ -18,7 +18,7 @@ jobs:
         secrets:
             github_access_token: ${{ secrets.GITHUB_TOKEN }}
             speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
-            ossrh_username: abc
+            ossrh_username: HA+3Y2eH
             ossrh_password: ${{ secrets.SONATYPE_PASSWORD }}
             java_gpg_secret_key: ${{ secrets.PGP_SECRET_KEY }}
             java_gpg_passphrase: ${{ secrets.PGP_PASSPHRASE }}
