@@ -22,11 +22,11 @@
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CheckAccessResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.CheckAccessRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.CheckAccessResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -85,11 +85,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureCodeSamplesResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.ConfigureCodeSamplesResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -151,11 +151,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 import java.util.List;
 
@@ -218,11 +218,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ConfigureTargetResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubConfigureTargetRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.ConfigureTargetResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureTargetRequest;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -281,11 +281,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.FetchPublishingPRsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.FetchPublishingPRsRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.FetchPublishingPRsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -347,11 +347,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetActionResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetActionRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetActionResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -412,11 +412,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -476,11 +476,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubStorePublishingSecretsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.GithubStorePublishingSecretsRequest;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -538,11 +538,11 @@ public class Application {
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.TriggerActionResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.GithubTriggerActionRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.TriggerActionResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.GithubTriggerActionRequest;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {

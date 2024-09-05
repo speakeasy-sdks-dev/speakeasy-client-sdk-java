@@ -19,10 +19,10 @@ Creates a free trial for an organization
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.CreateFreeTrialResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.CreateFreeTrialResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -71,11 +71,11 @@ Get information about a particular organization.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -137,10 +137,10 @@ Returns a billing usage summary by target languages for a particular organizatio
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationUsageResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationUsageResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -191,10 +191,10 @@ Returns a list of organizations a user has access too
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetOrganizationsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {

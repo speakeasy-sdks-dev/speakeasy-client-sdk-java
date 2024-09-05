@@ -41,7 +41,7 @@ model {
 jar {
     dependsOn(":generatePomFileForMavenPublication")
 
-    into("META-INF/maven/io.github.speakeasy-sdks-staging/javaclientsdk") {
+    into("META-INF/maven/dev.speakeasyapi/javaclientsdk") {
         from("$buildDir/pom.xml")
     }
 }
@@ -60,8 +60,8 @@ tasks.withType(Javadoc) {
   options.addStringOption('Xdoclint:none', '-quiet')
 }
 
-group = "io.github.speakeasy-sdks-staging"
-version = "7.16.7"
+group = "dev.speakeasyapi"
+version = "7.16.8"
 
 sourcesJar {
     archiveBaseName = "javaclientsdk"
@@ -86,9 +86,9 @@ publishing {
 
     publications {
         maven(MavenPublication) {
-            groupId = 'io.github.speakeasy-sdks-staging'
+            groupId = 'dev.speakeasyapi'
             artifactId = 'javaclientsdk'
-            version = '7.16.7'
+            version = '7.16.8'
 
             from components.java
 

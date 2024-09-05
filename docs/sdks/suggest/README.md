@@ -20,11 +20,11 @@ Apply operation ID suggestions and download result.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ApplyOperationIDsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.ApplyOperationIDsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -86,13 +86,13 @@ Get suggestions from an LLM model for improving an OpenAPI document.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.Schema;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOpenAPIRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOpenAPIRequestBody;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOpenAPIResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.Schema;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRequestBody;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -160,11 +160,11 @@ Get suggestions from an LLM model for improving an OpenAPI document stored in th
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOpenAPIRegistryRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SuggestOpenAPIRegistryResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRegistryRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRegistryResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {

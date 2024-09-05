@@ -21,11 +21,11 @@ Allowing it to be replayed with the same inputs that were captured by the SDK.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -87,11 +87,11 @@ Get information about a particular request.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetRequestFromEventLogResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -154,11 +154,11 @@ Allows the filtering of requests on a number of criteria such as ApiID, VersionI
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.QueryEventLogResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {

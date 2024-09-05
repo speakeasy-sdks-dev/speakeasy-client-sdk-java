@@ -25,11 +25,11 @@ Delete a particular schema revision for an Api.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteSchemaResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -91,11 +91,11 @@ Download the latest schema for a particular apiID.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -158,11 +158,11 @@ Download a particular schema revision for an Api.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DownloadSchemaRevisionResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DownloadSchemaRevisionResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -227,11 +227,11 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -294,11 +294,11 @@ Get a diff of two schema revisions for an Api.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaDiffResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaDiffResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -364,11 +364,11 @@ This won't include the schema itself, that can be retrieved via the downloadSche
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemaRevisionResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemaRevisionResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -433,11 +433,11 @@ This won't include the schemas themselves, they can be retrieved via the downloa
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetSchemasResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetSchemasResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -501,13 +501,13 @@ This will be used to populate ApiEndpoints and used as a base for any schema gen
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaFile;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaRequestBody;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.RegisterSchemaResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaFile;
+import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaRequestBody;
+import dev.speakeasyapi.javaclientsdk.models.operations.RegisterSchemaResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {

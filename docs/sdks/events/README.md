@@ -21,11 +21,11 @@ Load recent events for a particular workspace
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceEventsByTargetRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -49,7 +49,7 @@ public class Application {
             if (res.cliEventBatch().isPresent()) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error e) {
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.Error e) {
             // handle exception
             throw e;
         } catch (SDKError e) {
@@ -91,11 +91,11 @@ Load targets for a particular workspace
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceTargetsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceTargetsRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceTargetsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -118,7 +118,7 @@ public class Application {
             if (res.targetSDKList().isPresent()) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error e) {
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.Error e) {
             // handle exception
             throw e;
         } catch (SDKError e) {
@@ -160,13 +160,13 @@ Sends an array of events to be stored for a particular workspace.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.CliEvent;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.InteractionType;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.CliEvent;
+import dev.speakeasyapi.javaclientsdk.models.shared.InteractionType;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -201,7 +201,7 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error e) {
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.Error e) {
             // handle exception
             throw e;
         } catch (SDKError e) {
@@ -243,11 +243,11 @@ Search events for a particular workspace by any field
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SearchWorkspaceEventsRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.SearchWorkspaceEventsResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.SearchWorkspaceEventsRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.SearchWorkspaceEventsResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -270,7 +270,7 @@ public class Application {
             if (res.cliEventBatch().isPresent()) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error e) {
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.Error e) {
             // handle exception
             throw e;
         } catch (SDKError e) {

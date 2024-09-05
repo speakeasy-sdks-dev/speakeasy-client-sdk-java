@@ -32,15 +32,15 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'io.github.speakeasy-sdks-staging:javaclientsdk:7.16.7'
+implementation 'dev.speakeasyapi:javaclientsdk:7.16.8'
 ```
 
 Maven:
 ```xml
 <dependency>
-    <groupId>io.github.speakeasy-sdks-staging</groupId>
+    <groupId>dev.speakeasyapi</groupId>
     <artifactId>javaclientsdk</artifactId>
-    <version>7.16.7</version>
+    <version>7.16.8</version>
 </dependency>
 ```
 
@@ -67,11 +67,11 @@ gradlew.bat publishToMavenLocal -Pskip.signing
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -242,11 +242,11 @@ You can override the default server globally by passing a server name to the `se
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -289,11 +289,11 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -345,11 +345,11 @@ Handling errors in this SDK should largely match your expectations.  All operati
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceEventsByTargetRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -373,7 +373,7 @@ public class Application {
             if (res.cliEventBatch().isPresent()) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error e) {
+        } catch (dev.speakeasyapi.javaclientsdk.models.errors.Error e) {
             // handle exception
             throw e;
         } catch (SDKError e) {
@@ -405,11 +405,11 @@ You can set the security parameters through the `security` builder method when i
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -467,11 +467,11 @@ The following global parameter is available.
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
 
 public class Application {
@@ -516,13 +516,13 @@ To change the default retry strategy for a single API call, you can provide a `R
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.utils.BackoffStrategy;
+import dev.speakeasyapi.javaclientsdk.utils.RetryConfig;
 import java.lang.Exception;
 import java.util.concurrent.TimeUnit;
 
@@ -572,13 +572,13 @@ If you'd like to override the default retry strategy for all operations that sup
 ```java
 package hello.world;
 
-import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig;
+import dev.speakeasyapi.javaclientsdk.SDK;
+import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.utils.BackoffStrategy;
+import dev.speakeasyapi.javaclientsdk.utils.RetryConfig;
 import java.lang.Exception;
 import java.util.concurrent.TimeUnit;
 
