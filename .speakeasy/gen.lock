@@ -1,10 +1,10 @@
 lockVersion: 2.0.0
 id: 66f99777-b2f2-4e45-9581-501d199e5c0c
 management:
-  docChecksum: e4cb9ecada8b35163db080ecaaf60fe3
+  docChecksum: 08d7487f3dcc47fe23c920107ed88e4c
   docVersion: 0.4.0 .
-  speakeasyVersion: 1.325.0
-  generationVersion: 2.356.0
+  speakeasyVersion: internal
+  generationVersion: 2.411.4
   releaseVersion: 7.15.0
   configChecksum: a3ea02804746cdbf178a1af0b64eb6a1
   repoURL: https://github.com/speakeasy-api/speakeasy-client-sdk-java.git
@@ -14,11 +14,11 @@ features:
   java:
     acceptHeaders: 2.81.2
     additionalDependencies: 0.1.0
-    core: 3.26.1
+    core: 3.29.5
     deprecations: 2.81.1
     downloadStreams: 0.1.1
     examples: 2.81.3
-    globalSecurity: 2.82.5
+    globalSecurity: 2.82.7
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.1
     globals: 2.82.1
@@ -28,95 +28,510 @@ features:
     sdkHooks: 0.1.0
     serverIDs: 2.81.1
 generatedFiles:
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/SecuritySource.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/SDKConfiguration.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Apis.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/ApiEndpoints.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Metadata.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Schemas.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Artifacts.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Auth.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Requests.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Github.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Organizations.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Reports.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Suggest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Embeds.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Events.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiVersionsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApisRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiEndpointRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FindApiEndpointRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecForApiEndpointRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionForApiEndpointRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiEndpointsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllForVersionApiEndpointsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApiEndpointRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiEndpointRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteVersionMetadataRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetVersionMetadataRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/InsertVersionMetadataRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteSchemaRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRevisionRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaDiffRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRevisionRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemasRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetBlobRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetManifestRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetNamespacesRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOASSummaryRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRevisionsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetTagsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostTagsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PreflightRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetUserRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ValidateApiKeyRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateRequestPostmanCollectionRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRequestFromEventLogRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryEventLogRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CheckAccessRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureCodeSamplesRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureMintlifyRepoRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureTargetRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FetchPublishingPRsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetActionRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubCheckPublishingSecretsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubStorePublishingSecretsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/TriggerActionRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CreateFreeTrialRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationUsageRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRegistryRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetEmbedAccessTokenRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetValidEmbedAccessTokensRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsByTargetRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SearchWorkspaceEventsRequestBuilder.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SDKMethodInterfaces.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/SDK.java
   - .gitattributes
+  - CONTRIBUTING.md
+  - USAGE.md
   - build.gradle
+  - docs/models/errors/Error.md
+  - docs/models/operations/ApplyOperationIDsRequest.md
+  - docs/models/operations/ApplyOperationIDsRequestBody.md
+  - docs/models/operations/ApplyOperationIDsResponse.md
+  - docs/models/operations/CheckAccessRequest.md
+  - docs/models/operations/CheckAccessResponse.md
+  - docs/models/operations/ConfigureCodeSamplesResponse.md
+  - docs/models/operations/ConfigureMintlifyRepoResponse.md
+  - docs/models/operations/ConfigureTargetResponse.md
+  - docs/models/operations/CreateFreeTrialResponse.md
+  - docs/models/operations/DeleteApiEndpointRequest.md
+  - docs/models/operations/DeleteApiEndpointResponse.md
+  - docs/models/operations/DeleteApiRequest.md
+  - docs/models/operations/DeleteApiResponse.md
+  - docs/models/operations/DeleteSchemaRequest.md
+  - docs/models/operations/DeleteSchemaResponse.md
+  - docs/models/operations/DeleteVersionMetadataRequest.md
+  - docs/models/operations/DeleteVersionMetadataResponse.md
+  - docs/models/operations/DownloadSchemaRequest.md
+  - docs/models/operations/DownloadSchemaResponse.md
+  - docs/models/operations/DownloadSchemaRevisionRequest.md
+  - docs/models/operations/DownloadSchemaRevisionResponse.md
+  - docs/models/operations/FetchPublishingPRsRequest.md
+  - docs/models/operations/FetchPublishingPRsResponse.md
+  - docs/models/operations/File.md
+  - docs/models/operations/FindApiEndpointRequest.md
+  - docs/models/operations/FindApiEndpointResponse.md
+  - docs/models/operations/GenerateOpenApiSpecForApiEndpointRequest.md
+  - docs/models/operations/GenerateOpenApiSpecForApiEndpointResponse.md
+  - docs/models/operations/GenerateOpenApiSpecRequest.md
+  - docs/models/operations/GenerateOpenApiSpecResponse.md
+  - docs/models/operations/GeneratePostmanCollectionForApiEndpointRequest.md
+  - docs/models/operations/GeneratePostmanCollectionForApiEndpointResponse.md
+  - docs/models/operations/GeneratePostmanCollectionRequest.md
+  - docs/models/operations/GeneratePostmanCollectionResponse.md
+  - docs/models/operations/GenerateRequestPostmanCollectionRequest.md
+  - docs/models/operations/GenerateRequestPostmanCollectionResponse.md
+  - docs/models/operations/GetAccessTokenRequest.md
+  - docs/models/operations/GetAccessTokenResponse.md
+  - docs/models/operations/GetActionRequest.md
+  - docs/models/operations/GetActionResponse.md
+  - docs/models/operations/GetAllApiEndpointsRequest.md
+  - docs/models/operations/GetAllApiEndpointsResponse.md
+  - docs/models/operations/GetAllApiVersionsRequest.md
+  - docs/models/operations/GetAllApiVersionsResponse.md
+  - docs/models/operations/GetAllForVersionApiEndpointsRequest.md
+  - docs/models/operations/GetAllForVersionApiEndpointsResponse.md
+  - docs/models/operations/GetApiEndpointRequest.md
+  - docs/models/operations/GetApiEndpointResponse.md
+  - docs/models/operations/GetApisRequest.md
+  - docs/models/operations/GetApisResponse.md
+  - docs/models/operations/GetBlobRequest.md
+  - docs/models/operations/GetBlobResponse.md
+  - docs/models/operations/GetChangesReportSignedUrlRequest.md
+  - docs/models/operations/GetChangesReportSignedUrlResponse.md
+  - docs/models/operations/GetChangesReportSignedUrlSignedAccess.md
+  - docs/models/operations/GetEmbedAccessTokenRequest.md
+  - docs/models/operations/GetEmbedAccessTokenResponse.md
+  - docs/models/operations/GetLintingReportSignedUrlRequest.md
+  - docs/models/operations/GetLintingReportSignedUrlResponse.md
+  - docs/models/operations/GetLintingReportSignedUrlSignedAccess.md
+  - docs/models/operations/GetManifestRequest.md
+  - docs/models/operations/GetManifestResponse.md
+  - docs/models/operations/GetNamespacesResponse.md
+  - docs/models/operations/GetOASSummaryRequest.md
+  - docs/models/operations/GetOASSummaryResponse.md
+  - docs/models/operations/GetOrganizationUsageResponse.md
+  - docs/models/operations/GetOrganizationsResponse.md
+  - docs/models/operations/GetRequestFromEventLogRequest.md
+  - docs/models/operations/GetRequestFromEventLogResponse.md
+  - docs/models/operations/GetRevisionsRequest.md
+  - docs/models/operations/GetRevisionsResponse.md
+  - docs/models/operations/GetSchemaDiffRequest.md
+  - docs/models/operations/GetSchemaDiffResponse.md
+  - docs/models/operations/GetSchemaRequest.md
+  - docs/models/operations/GetSchemaResponse.md
+  - docs/models/operations/GetSchemaRevisionRequest.md
+  - docs/models/operations/GetSchemaRevisionResponse.md
+  - docs/models/operations/GetSchemasRequest.md
+  - docs/models/operations/GetSchemasResponse.md
+  - docs/models/operations/GetTagsRequest.md
+  - docs/models/operations/GetTagsResponse.md
+  - docs/models/operations/GetUserResponse.md
+  - docs/models/operations/GetValidEmbedAccessTokensResponse.md
+  - docs/models/operations/GetVersionMetadataRequest.md
+  - docs/models/operations/GetVersionMetadataResponse.md
+  - docs/models/operations/GetWorkspaceAccessRequest.md
+  - docs/models/operations/GetWorkspaceAccessResponse.md
+  - docs/models/operations/GetWorkspaceEventsByTargetRequest.md
+  - docs/models/operations/GetWorkspaceEventsByTargetResponse.md
+  - docs/models/operations/GetWorkspaceTargetsRequest.md
+  - docs/models/operations/GetWorkspaceTargetsResponse.md
+  - docs/models/operations/GithubCheckPublishingSecretsRequest.md
+  - docs/models/operations/GithubCheckPublishingSecretsResponse.md
+  - docs/models/operations/GithubStorePublishingSecretsResponse.md
+  - docs/models/operations/InsertVersionMetadataRequest.md
+  - docs/models/operations/InsertVersionMetadataResponse.md
+  - docs/models/operations/Op.md
+  - docs/models/operations/PostTagsRequest.md
+  - docs/models/operations/PostTagsResponse.md
+  - docs/models/operations/PostWorkspaceEventsRequest.md
+  - docs/models/operations/PostWorkspaceEventsResponse.md
+  - docs/models/operations/PreflightResponse.md
+  - docs/models/operations/QueryEventLogRequest.md
+  - docs/models/operations/QueryEventLogResponse.md
+  - docs/models/operations/QueryParamOp.md
+  - docs/models/operations/RegisterSchemaFile.md
+  - docs/models/operations/RegisterSchemaRequest.md
+  - docs/models/operations/RegisterSchemaRequestBody.md
+  - docs/models/operations/RegisterSchemaResponse.md
+  - docs/models/operations/RevokeEmbedAccessTokenRequest.md
+  - docs/models/operations/RevokeEmbedAccessTokenResponse.md
+  - docs/models/operations/Schema.md
+  - docs/models/operations/SearchWorkspaceEventsRequest.md
+  - docs/models/operations/SearchWorkspaceEventsResponse.md
+  - docs/models/operations/SuggestOperationIDsRegistryRequest.md
+  - docs/models/operations/SuggestOperationIDsRegistryResponse.md
+  - docs/models/operations/SuggestOperationIDsRequest.md
+  - docs/models/operations/SuggestOperationIDsRequestBody.md
+  - docs/models/operations/SuggestOperationIDsResponse.md
+  - docs/models/operations/TriggerActionResponse.md
+  - docs/models/operations/UploadReportRequestBody.md
+  - docs/models/operations/UploadReportResponse.md
+  - docs/models/operations/UploadReportUploadedReport.md
+  - docs/models/operations/UpsertApiEndpointRequest.md
+  - docs/models/operations/UpsertApiEndpointResponse.md
+  - docs/models/operations/UpsertApiRequest.md
+  - docs/models/operations/UpsertApiResponse.md
+  - docs/models/operations/ValidateApiKeyResponse.md
+  - docs/models/shared/AccessDetails.md
+  - docs/models/shared/AccessToken.md
+  - docs/models/shared/AccessTokenAccountType.md
+  - docs/models/shared/AccessTokenUser.md
+  - docs/models/shared/AccountType.md
+  - docs/models/shared/AddTags.md
+  - docs/models/shared/Annotations.md
+  - docs/models/shared/Api.md
+  - docs/models/shared/ApiEndpoint.md
+  - docs/models/shared/ApiKeyDetails.md
+  - docs/models/shared/Auth.md
+  - docs/models/shared/BoundedRequest.md
+  - docs/models/shared/Claims.md
+  - docs/models/shared/CliEvent.md
+  - docs/models/shared/DepthStyle.md
+  - docs/models/shared/EmbedAccessTokenResponse.md
+  - docs/models/shared/EmbedToken.md
+  - docs/models/shared/FeatureFlag.md
+  - docs/models/shared/Filter.md
+  - docs/models/shared/Filters.md
+  - docs/models/shared/GenerateBumpType.md
+  - docs/models/shared/GenerateOpenApiSpecDiff.md
+  - docs/models/shared/GetNamespacesResponse.md
+  - docs/models/shared/GetRevisionsResponse.md
+  - docs/models/shared/GetTagsResponse.md
+  - docs/models/shared/GithubConfigureCodeSamplesRequest.md
+  - docs/models/shared/GithubConfigureCodeSamplesResponse.md
+  - docs/models/shared/GithubConfigureMintlifyRepoRequest.md
+  - docs/models/shared/GithubConfigureTargetRequest.md
+  - docs/models/shared/GithubGetActionResponse.md
+  - docs/models/shared/GithubMissingPublishingSecretsResponse.md
+  - docs/models/shared/GithubPublishingPRResponse.md
+  - docs/models/shared/GithubStorePublishingSecretsRequest.md
+  - docs/models/shared/GithubTriggerActionRequest.md
+  - docs/models/shared/InteractionType.md
+  - docs/models/shared/Level.md
+  - docs/models/shared/License.md
+  - docs/models/shared/Manifest.md
+  - docs/models/shared/Namespace.md
+  - docs/models/shared/OASInfo.md
+  - docs/models/shared/OASOperation.md
+  - docs/models/shared/OASSummary.md
+  - docs/models/shared/OpenapiDiffBumpType.md
+  - docs/models/shared/Organization.md
+  - docs/models/shared/OrganizationAccountType.md
+  - docs/models/shared/OrganizationUsage.md
+  - docs/models/shared/OrganizationUsageResponse.md
+  - docs/models/shared/PreflightRequest.md
+  - docs/models/shared/PreflightToken.md
+  - docs/models/shared/Report.md
+  - docs/models/shared/RequestMetadata.md
+  - docs/models/shared/Revision.md
+  - docs/models/shared/Schema.md
+  - docs/models/shared/SchemaDiff.md
+  - docs/models/shared/Security.md
+  - docs/models/shared/Style.md
+  - docs/models/shared/SuggestOperationIDsOpts.md
+  - docs/models/shared/SuggestedOperationIDs.md
+  - docs/models/shared/Tag.md
+  - docs/models/shared/TargetSDK.md
+  - docs/models/shared/Type.md
+  - docs/models/shared/UnboundedRequest.md
+  - docs/models/shared/User.md
+  - docs/models/shared/V2Descriptor.md
+  - docs/models/shared/ValueChange.md
+  - docs/models/shared/VersionMetadata.md
+  - docs/models/shared/WorkflowDocument.md
+  - docs/models/shared/Workspaces.md
+  - docs/sdks/apiendpoints/README.md
+  - docs/sdks/apis/README.md
+  - docs/sdks/artifacts/README.md
+  - docs/sdks/auth/README.md
+  - docs/sdks/embeds/README.md
+  - docs/sdks/events/README.md
+  - docs/sdks/github/README.md
+  - docs/sdks/metadata/README.md
+  - docs/sdks/organizations/README.md
+  - docs/sdks/reports/README.md
+  - docs/sdks/requests/README.md
+  - docs/sdks/schemas/README.md
+  - docs/sdks/sdk/README.md
+  - docs/sdks/suggest/README.md
   - gradle/wrapper/gradle-wrapper.jar
   - gradle/wrapper/gradle-wrapper.properties
   - gradlew
   - gradlew.bat
   - settings.gradle
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/ApiEndpoints.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Apis.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Artifacts.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Auth.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Embeds.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Events.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Github.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Metadata.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Organizations.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Reports.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Requests.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/SDK.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/SDKConfiguration.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Schemas.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/SecuritySource.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/Suggest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/errors/AuthException.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/errors/Error.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/errors/SDKError.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsRequestBody.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CheckAccessRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CheckAccessRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CheckAccessResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureCodeSamplesRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureCodeSamplesResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureMintlifyRepoRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureMintlifyRepoResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureTargetRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureTargetResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CreateFreeTrialRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CreateFreeTrialResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiEndpointRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiEndpointRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiEndpointResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteSchemaRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteSchemaRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteSchemaResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteVersionMetadataRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteVersionMetadataRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteVersionMetadataResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRevisionRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRevisionRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRevisionResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FetchPublishingPRsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FetchPublishingPRsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FetchPublishingPRsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/File.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FindApiEndpointRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FindApiEndpointRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FindApiEndpointResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecForApiEndpointRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecForApiEndpointRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecForApiEndpointResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionForApiEndpointRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionForApiEndpointRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionForApiEndpointResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateRequestPostmanCollectionRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateRequestPostmanCollectionRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateRequestPostmanCollectionResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetActionRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetActionRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetActionResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiEndpointsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiEndpointsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiEndpointsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiVersionsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiVersionsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiVersionsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllForVersionApiEndpointsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllForVersionApiEndpointsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllForVersionApiEndpointsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApiEndpointRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApiEndpointRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApiEndpointResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApisRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApisRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApisResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetBlobRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetBlobRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetBlobResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlSignedAccess.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetEmbedAccessTokenRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetEmbedAccessTokenRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetEmbedAccessTokenResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlSignedAccess.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetManifestRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetManifestRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetManifestResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetNamespacesRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetNamespacesResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOASSummaryRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOASSummaryRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOASSummaryResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationUsageRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationUsageResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRequestFromEventLogRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRequestFromEventLogRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRequestFromEventLogResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRevisionsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRevisionsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRevisionsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaDiffRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaDiffRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaDiffResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRevisionRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRevisionRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRevisionResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemasRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemasRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemasResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetTagsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetTagsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetTagsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetUserRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetUserResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetValidEmbedAccessTokensRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetValidEmbedAccessTokensResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetVersionMetadataRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetVersionMetadataRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetVersionMetadataResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsByTargetRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsByTargetRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsByTargetResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubCheckPublishingSecretsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubCheckPublishingSecretsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubCheckPublishingSecretsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubStorePublishingSecretsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubStorePublishingSecretsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/InsertVersionMetadataRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/InsertVersionMetadataRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/InsertVersionMetadataResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/Op.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostTagsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostTagsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostTagsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PreflightRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PreflightResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryEventLogRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryEventLogRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryEventLogResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryParamOp.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaFile.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaRequestBody.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SDKMethodInterfaces.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/Schema.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SearchWorkspaceEventsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SearchWorkspaceEventsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SearchWorkspaceEventsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRegistryRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRegistryRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRegistryResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRequestBody.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/TriggerActionRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/TriggerActionResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportRequestBody.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportUploadedReport.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiEndpointRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiEndpointRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiEndpointResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ValidateApiKeyRequestBuilder.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ValidateApiKeyResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessDetails.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessToken.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessTokenAccountType.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessTokenUser.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccountType.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AddTags.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Annotations.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Api.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiEndpoint.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiEndpointInput.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiInput.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiKeyDetails.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Auth.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/BoundedRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Claims.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/CliEvent.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/DepthStyle.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/EmbedAccessTokenResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/EmbedToken.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/FeatureFlag.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Filter.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Filters.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GenerateBumpType.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GenerateOpenApiSpecDiff.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GetNamespacesResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GetRevisionsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GetTagsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureCodeSamplesRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureCodeSamplesResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureMintlifyRepoRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureTargetRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubGetActionResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubMissingPublishingSecretsResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubPublishingPRResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubStorePublishingSecretsRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubTriggerActionRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/InteractionType.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Level.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/License.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Manifest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Namespace.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OASInfo.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OASOperation.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OASSummary.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OpenapiDiffBumpType.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Organization.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OrganizationAccountType.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OrganizationUsage.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OrganizationUsageResponse.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/PreflightRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/PreflightToken.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Report.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/RequestMetadata.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Revision.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Schema.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SchemaDiff.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Security.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Style.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SuggestOperationIDsOpts.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SuggestedOperationIDs.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Tag.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/TargetSDK.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Type.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/UnboundedRequest.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/User.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/V2Descriptor.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ValueChange.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/VersionMetadata.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/VersionMetadataInput.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/WorkflowDocument.java
+  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Workspaces.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/BackoffStrategy.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/BigDecimalString.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/BigIntegerString.java
@@ -154,420 +569,350 @@ generatedFiles:
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/TypedObject.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/Types.java
   - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/utils/Utils.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/errors/AuthException.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/errors/SDKError.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/Op.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiVersionsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiVersionsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryParamOp.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApisRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApisResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiEndpointRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteApiEndpointResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FindApiEndpointRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FindApiEndpointResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecForApiEndpointRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateOpenApiSpecForApiEndpointResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionForApiEndpointRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GeneratePostmanCollectionForApiEndpointResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiEndpointsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllApiEndpointsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllForVersionApiEndpointsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAllForVersionApiEndpointsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApiEndpointRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetApiEndpointResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiEndpointRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UpsertApiEndpointResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteVersionMetadataRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteVersionMetadataResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetVersionMetadataRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetVersionMetadataResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/InsertVersionMetadataRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/InsertVersionMetadataResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteSchemaRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DeleteSchemaResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRevisionRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/DownloadSchemaRevisionResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaDiffRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaDiffResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRevisionRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemaRevisionResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemasRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetSchemasResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaFile.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaRequestBody.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RegisterSchemaResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetBlobRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetBlobResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetManifestRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetManifestResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetNamespacesResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOASSummaryRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOASSummaryResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRevisionsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRevisionsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetTagsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetTagsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostTagsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostTagsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PreflightResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetAccessTokenResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetUserResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceAccessResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ValidateApiKeyResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateRequestPostmanCollectionRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GenerateRequestPostmanCollectionResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRequestFromEventLogRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetRequestFromEventLogResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryEventLogRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/QueryEventLogResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CheckAccessRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CheckAccessResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureCodeSamplesResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureMintlifyRepoResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ConfigureTargetResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FetchPublishingPRsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/FetchPublishingPRsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetActionRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetActionResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubCheckPublishingSecretsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubCheckPublishingSecretsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GithubStorePublishingSecretsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/TriggerActionResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/CreateFreeTrialResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationUsageResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetOrganizationsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlSignedAccess.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetChangesReportSignedUrlResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlSignedAccess.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetLintingReportSignedUrlResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/File.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportRequestBody.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportUploadedReport.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/UploadReportResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsRequestBody.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/ApplyOperationIDsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/Schema.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRequestBody.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRegistryRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SuggestOperationIDsRegistryResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetEmbedAccessTokenRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetEmbedAccessTokenResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetValidEmbedAccessTokensResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/RevokeEmbedAccessTokenResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsByTargetRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceEventsByTargetResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/GetWorkspaceTargetsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/PostWorkspaceEventsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SearchWorkspaceEventsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/operations/SearchWorkspaceEventsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/errors/Error.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GenerateOpenApiSpecDiff.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Api.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiInput.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiEndpoint.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiEndpointInput.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/VersionMetadata.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/VersionMetadataInput.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Schema.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ValueChange.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SchemaDiff.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Manifest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/V2Descriptor.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Annotations.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GetNamespacesResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Namespace.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OASSummary.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OASOperation.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/License.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OASInfo.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GetRevisionsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Revision.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GetTagsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Tag.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AddTags.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/PreflightToken.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/PreflightRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Claims.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessTokenUser.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessTokenAccountType.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Workspaces.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessToken.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/FeatureFlag.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/User.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Level.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccessDetails.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/AccountType.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/ApiKeyDetails.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/UnboundedRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/BoundedRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/RequestMetadata.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Filters.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Filter.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureCodeSamplesResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Auth.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/WorkflowDocument.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureCodeSamplesRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureMintlifyRepoRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubConfigureTargetRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubPublishingPRResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubGetActionResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubMissingPublishingSecretsResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubStorePublishingSecretsRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GithubTriggerActionRequest.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OrganizationUsageResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OrganizationUsage.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OrganizationAccountType.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Organization.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Type.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Report.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SuggestedOperationIDs.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/DepthStyle.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Style.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/SuggestOperationIDsOpts.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/EmbedAccessTokenResponse.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/EmbedToken.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/GenerateBumpType.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/OpenapiDiffBumpType.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/CliEvent.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/InteractionType.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/TargetSDK.java
-  - src/main/java/io/github/speakeasy_sdks_staging/javaclientsdk/models/shared/Security.java
-  - docs/models/operations/DeleteApiRequest.md
-  - docs/models/operations/DeleteApiResponse.md
-  - docs/models/operations/GenerateOpenApiSpecRequest.md
-  - docs/models/operations/GenerateOpenApiSpecResponse.md
-  - docs/models/operations/GeneratePostmanCollectionRequest.md
-  - docs/models/operations/GeneratePostmanCollectionResponse.md
-  - docs/models/operations/Op.md
-  - docs/models/operations/GetAllApiVersionsRequest.md
-  - docs/models/operations/GetAllApiVersionsResponse.md
-  - docs/models/operations/QueryParamOp.md
-  - docs/models/operations/GetApisRequest.md
-  - docs/models/operations/GetApisResponse.md
-  - docs/models/operations/UpsertApiRequest.md
-  - docs/models/operations/UpsertApiResponse.md
-  - docs/models/operations/DeleteApiEndpointRequest.md
-  - docs/models/operations/DeleteApiEndpointResponse.md
-  - docs/models/operations/FindApiEndpointRequest.md
-  - docs/models/operations/FindApiEndpointResponse.md
-  - docs/models/operations/GenerateOpenApiSpecForApiEndpointRequest.md
-  - docs/models/operations/GenerateOpenApiSpecForApiEndpointResponse.md
-  - docs/models/operations/GeneratePostmanCollectionForApiEndpointRequest.md
-  - docs/models/operations/GeneratePostmanCollectionForApiEndpointResponse.md
-  - docs/models/operations/GetAllApiEndpointsRequest.md
-  - docs/models/operations/GetAllApiEndpointsResponse.md
-  - docs/models/operations/GetAllForVersionApiEndpointsRequest.md
-  - docs/models/operations/GetAllForVersionApiEndpointsResponse.md
-  - docs/models/operations/GetApiEndpointRequest.md
-  - docs/models/operations/GetApiEndpointResponse.md
-  - docs/models/operations/UpsertApiEndpointRequest.md
-  - docs/models/operations/UpsertApiEndpointResponse.md
-  - docs/models/operations/DeleteVersionMetadataRequest.md
-  - docs/models/operations/DeleteVersionMetadataResponse.md
-  - docs/models/operations/GetVersionMetadataRequest.md
-  - docs/models/operations/GetVersionMetadataResponse.md
-  - docs/models/operations/InsertVersionMetadataRequest.md
-  - docs/models/operations/InsertVersionMetadataResponse.md
-  - docs/models/operations/DeleteSchemaRequest.md
-  - docs/models/operations/DeleteSchemaResponse.md
-  - docs/models/operations/DownloadSchemaRequest.md
-  - docs/models/operations/DownloadSchemaResponse.md
-  - docs/models/operations/DownloadSchemaRevisionRequest.md
-  - docs/models/operations/DownloadSchemaRevisionResponse.md
-  - docs/models/operations/GetSchemaRequest.md
-  - docs/models/operations/GetSchemaResponse.md
-  - docs/models/operations/GetSchemaDiffRequest.md
-  - docs/models/operations/GetSchemaDiffResponse.md
-  - docs/models/operations/GetSchemaRevisionRequest.md
-  - docs/models/operations/GetSchemaRevisionResponse.md
-  - docs/models/operations/GetSchemasRequest.md
-  - docs/models/operations/GetSchemasResponse.md
-  - docs/models/operations/RegisterSchemaFile.md
-  - docs/models/operations/RegisterSchemaRequestBody.md
-  - docs/models/operations/RegisterSchemaRequest.md
-  - docs/models/operations/RegisterSchemaResponse.md
-  - docs/models/operations/GetBlobRequest.md
-  - docs/models/operations/GetBlobResponse.md
-  - docs/models/operations/GetManifestRequest.md
-  - docs/models/operations/GetManifestResponse.md
-  - docs/models/operations/GetNamespacesResponse.md
-  - docs/models/operations/GetOASSummaryRequest.md
-  - docs/models/operations/GetOASSummaryResponse.md
-  - docs/models/operations/GetRevisionsRequest.md
-  - docs/models/operations/GetRevisionsResponse.md
-  - docs/models/operations/GetTagsRequest.md
-  - docs/models/operations/GetTagsResponse.md
-  - docs/models/operations/PostTagsRequest.md
-  - docs/models/operations/PostTagsResponse.md
-  - docs/models/operations/PreflightResponse.md
-  - docs/models/operations/GetAccessTokenRequest.md
-  - docs/models/operations/GetAccessTokenResponse.md
-  - docs/models/operations/GetUserResponse.md
-  - docs/models/operations/GetWorkspaceAccessRequest.md
-  - docs/models/operations/GetWorkspaceAccessResponse.md
-  - docs/models/operations/ValidateApiKeyResponse.md
-  - docs/models/operations/GenerateRequestPostmanCollectionRequest.md
-  - docs/models/operations/GenerateRequestPostmanCollectionResponse.md
-  - docs/models/operations/GetRequestFromEventLogRequest.md
-  - docs/models/operations/GetRequestFromEventLogResponse.md
-  - docs/models/operations/QueryEventLogRequest.md
-  - docs/models/operations/QueryEventLogResponse.md
-  - docs/models/operations/CheckAccessRequest.md
-  - docs/models/operations/CheckAccessResponse.md
-  - docs/models/operations/ConfigureCodeSamplesResponse.md
-  - docs/models/operations/ConfigureMintlifyRepoResponse.md
-  - docs/models/operations/ConfigureTargetResponse.md
-  - docs/models/operations/FetchPublishingPRsRequest.md
-  - docs/models/operations/FetchPublishingPRsResponse.md
-  - docs/models/operations/GetActionRequest.md
-  - docs/models/operations/GetActionResponse.md
-  - docs/models/operations/GithubCheckPublishingSecretsRequest.md
-  - docs/models/operations/GithubCheckPublishingSecretsResponse.md
-  - docs/models/operations/GithubStorePublishingSecretsResponse.md
-  - docs/models/operations/TriggerActionResponse.md
-  - docs/models/operations/CreateFreeTrialResponse.md
-  - docs/models/operations/GetOrganizationUsageResponse.md
-  - docs/models/operations/GetOrganizationsResponse.md
-  - docs/models/operations/GetChangesReportSignedUrlRequest.md
-  - docs/models/operations/GetChangesReportSignedUrlSignedAccess.md
-  - docs/models/operations/GetChangesReportSignedUrlResponse.md
-  - docs/models/operations/GetLintingReportSignedUrlRequest.md
-  - docs/models/operations/GetLintingReportSignedUrlSignedAccess.md
-  - docs/models/operations/GetLintingReportSignedUrlResponse.md
-  - docs/models/operations/File.md
-  - docs/models/operations/UploadReportRequestBody.md
-  - docs/models/operations/UploadReportUploadedReport.md
-  - docs/models/operations/UploadReportResponse.md
-  - docs/models/operations/ApplyOperationIDsRequestBody.md
-  - docs/models/operations/ApplyOperationIDsRequest.md
-  - docs/models/operations/ApplyOperationIDsResponse.md
-  - docs/models/operations/Schema.md
-  - docs/models/operations/SuggestOperationIDsRequestBody.md
-  - docs/models/operations/SuggestOperationIDsRequest.md
-  - docs/models/operations/SuggestOperationIDsResponse.md
-  - docs/models/operations/SuggestOperationIDsRegistryRequest.md
-  - docs/models/operations/SuggestOperationIDsRegistryResponse.md
-  - docs/models/operations/GetEmbedAccessTokenRequest.md
-  - docs/models/operations/GetEmbedAccessTokenResponse.md
-  - docs/models/operations/GetValidEmbedAccessTokensResponse.md
-  - docs/models/operations/RevokeEmbedAccessTokenRequest.md
-  - docs/models/operations/RevokeEmbedAccessTokenResponse.md
-  - docs/models/operations/GetWorkspaceEventsByTargetRequest.md
-  - docs/models/operations/GetWorkspaceEventsByTargetResponse.md
-  - docs/models/operations/GetWorkspaceTargetsRequest.md
-  - docs/models/operations/GetWorkspaceTargetsResponse.md
-  - docs/models/operations/PostWorkspaceEventsRequest.md
-  - docs/models/operations/PostWorkspaceEventsResponse.md
-  - docs/models/operations/SearchWorkspaceEventsRequest.md
-  - docs/models/operations/SearchWorkspaceEventsResponse.md
-  - docs/models/errors/Error.md
-  - docs/models/shared/GenerateOpenApiSpecDiff.md
-  - docs/models/shared/Api.md
-  - docs/models/shared/ApiInput.md
-  - docs/models/shared/ApiEndpoint.md
-  - docs/models/shared/ApiEndpointInput.md
-  - docs/models/shared/VersionMetadata.md
-  - docs/models/shared/VersionMetadataInput.md
-  - docs/models/shared/Schema.md
-  - docs/models/shared/ValueChange.md
-  - docs/models/shared/SchemaDiff.md
-  - docs/models/shared/Manifest.md
-  - docs/models/shared/V2Descriptor.md
-  - docs/models/shared/Annotations.md
-  - docs/models/shared/GetNamespacesResponse.md
-  - docs/models/shared/Namespace.md
-  - docs/models/shared/OASSummary.md
-  - docs/models/shared/OASOperation.md
-  - docs/models/shared/License.md
-  - docs/models/shared/OASInfo.md
-  - docs/models/shared/GetRevisionsResponse.md
-  - docs/models/shared/Revision.md
-  - docs/models/shared/GetTagsResponse.md
-  - docs/models/shared/Tag.md
-  - docs/models/shared/AddTags.md
-  - docs/models/shared/PreflightToken.md
-  - docs/models/shared/PreflightRequest.md
-  - docs/models/shared/Claims.md
-  - docs/models/shared/AccessTokenUser.md
-  - docs/models/shared/AccessTokenAccountType.md
-  - docs/models/shared/Workspaces.md
-  - docs/models/shared/AccessToken.md
-  - docs/models/shared/FeatureFlag.md
-  - docs/models/shared/User.md
-  - docs/models/shared/Level.md
-  - docs/models/shared/AccessDetails.md
-  - docs/models/shared/AccountType.md
-  - docs/models/shared/ApiKeyDetails.md
-  - docs/models/shared/UnboundedRequest.md
-  - docs/models/shared/BoundedRequest.md
-  - docs/models/shared/RequestMetadata.md
-  - docs/models/shared/Filters.md
-  - docs/models/shared/Filter.md
-  - docs/models/shared/GithubConfigureCodeSamplesResponse.md
-  - docs/models/shared/Auth.md
-  - docs/models/shared/WorkflowDocument.md
-  - docs/models/shared/GithubConfigureCodeSamplesRequest.md
-  - docs/models/shared/GithubConfigureMintlifyRepoRequest.md
-  - docs/models/shared/GithubConfigureTargetRequest.md
-  - docs/models/shared/GithubPublishingPRResponse.md
-  - docs/models/shared/GithubGetActionResponse.md
-  - docs/models/shared/GithubMissingPublishingSecretsResponse.md
-  - docs/models/shared/GithubStorePublishingSecretsRequest.md
-  - docs/models/shared/GithubTriggerActionRequest.md
-  - docs/models/shared/OrganizationUsageResponse.md
-  - docs/models/shared/OrganizationUsage.md
-  - docs/models/shared/OrganizationAccountType.md
-  - docs/models/shared/Organization.md
-  - docs/models/shared/Type.md
-  - docs/models/shared/Report.md
-  - docs/models/shared/SuggestedOperationIDs.md
-  - docs/models/shared/DepthStyle.md
-  - docs/models/shared/Style.md
-  - docs/models/shared/SuggestOperationIDsOpts.md
-  - docs/models/shared/EmbedAccessTokenResponse.md
-  - docs/models/shared/EmbedToken.md
-  - docs/models/shared/GenerateBumpType.md
-  - docs/models/shared/OpenapiDiffBumpType.md
-  - docs/models/shared/CliEvent.md
-  - docs/models/shared/InteractionType.md
-  - docs/models/shared/TargetSDK.md
-  - docs/models/shared/Security.md
-  - docs/sdks/sdk/README.md
-  - docs/sdks/apis/README.md
-  - docs/sdks/apiendpoints/README.md
-  - docs/sdks/metadata/README.md
-  - docs/sdks/schemas/README.md
-  - docs/sdks/artifacts/README.md
-  - docs/sdks/auth/README.md
-  - docs/sdks/requests/README.md
-  - docs/sdks/github/README.md
-  - docs/sdks/organizations/README.md
-  - docs/sdks/reports/README.md
-  - docs/sdks/suggest/README.md
-  - docs/sdks/embeds/README.md
-  - docs/sdks/events/README.md
-  - USAGE.md
+examples:
+  deleteApi:
+    speakeasy-default-delete-api:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  generateOpenApiSpec:
+    speakeasy-default-generate-open-api-spec:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  generatePostmanCollection:
+    speakeasy-default-generate-postman-collection:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  getAllApiVersions:
+    speakeasy-default-get-all-api-versions:
+      parameters:
+        path:
+          apiID: "<value>"
+        query: {}
+  getApis:
+    speakeasy-default-get-apis: {}
+  upsertApi:
+    speakeasy-default-upsert-api:
+      parameters:
+        path:
+          apiID: "<value>"
+      requestBody:
+        application/json: {"api_id": "<value>", "description": "Synchronised 5th generation knowledge user", "version_id": "<value>"}
+  deleteApiEndpoint:
+    speakeasy-default-delete-api-endpoint:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          apiEndpointID: "<value>"
+  findApiEndpoint:
+    speakeasy-default-find-api-endpoint:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          displayName: "Don.Strosin"
+  generateOpenApiSpecForApiEndpoint:
+    speakeasy-default-generate-open-api-spec-for-api-endpoint:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          apiEndpointID: "<value>"
+  generatePostmanCollectionForApiEndpoint:
+    speakeasy-default-generate-postman-collection-for-api-endpoint:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          apiEndpointID: "<value>"
+  getAllApiEndpoints:
+    speakeasy-default-get-all-api-endpoints:
+      parameters:
+        path:
+          apiID: "<value>"
+  getAllForVersionApiEndpoints:
+    speakeasy-default-get-all-for-version-api-endpoints:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  getApiEndpoint:
+    speakeasy-default-get-api-endpoint:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          apiEndpointID: "<value>"
+  upsertApiEndpoint:
+    speakeasy-default-upsert-api-endpoint:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          apiEndpointID: "<value>"
+      requestBody:
+        application/json: {"api_endpoint_id": "<value>", "description": "Public-key systematic attitude", "display_name": "Camille.Schaefer11", "method": "<value>", "path": "/Library", "version_id": "<value>"}
+  deleteVersionMetadata:
+    speakeasy-default-delete-version-metadata:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          metaKey: "<value>"
+          metaValue: "<value>"
+  getVersionMetadata:
+    speakeasy-default-get-version-metadata:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  insertVersionMetadata:
+    speakeasy-default-insert-version-metadata:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+      requestBody:
+        application/json: {"meta_key": "<value>", "meta_value": "<value>"}
+  deleteSchema:
+    speakeasy-default-delete-schema:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          revisionID: "<value>"
+  downloadSchema:
+    speakeasy-default-download-schema:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  downloadSchemaRevision:
+    speakeasy-default-download-schema-revision:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          revisionID: "<value>"
+  getSchema:
+    speakeasy-default-get-schema:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  getSchemaDiff:
+    speakeasy-default-get-schema-diff:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          baseRevisionID: "<value>"
+          targetRevisionID: "<value>"
+  getSchemaRevision:
+    speakeasy-default-get-schema-revision:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+          revisionID: "<value>"
+  getSchemas:
+    speakeasy-default-get-schemas:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+  registerSchema:
+    speakeasy-default-register-schema:
+      parameters:
+        path:
+          apiID: "<value>"
+          versionID: "<value>"
+      requestBody:
+        multipart/form-data: {"file": {"": "your_file_here"}}
+  getBlob:
+    speakeasy-default-get-blob:
+      parameters:
+        path:
+          organization_slug: "<value>"
+          workspace_slug: "<value>"
+          namespace_name: "<value>"
+          digest: "<value>"
+  getManifest:
+    speakeasy-default-get-manifest:
+      parameters:
+        path:
+          organization_slug: "<value>"
+          workspace_slug: "<value>"
+          namespace_name: "<value>"
+          revision_reference: "<value>"
+      responses:
+        "200":
+          application/vnd.oci.image.manifest.v1+json: {"layers": [{"digest": "sha256:5d20c808ce198565ff70b3ed23a991dd49afac45dece63474b27ce6ed036adc6", "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip", "size": 2107098}], "mediaType": "application/vnd.docker.distribution.manifest.v2+json", "schemaVersion": 2}
+        default: {}
+  getNamespaces:
+    speakeasy-default-get-namespaces: {}
+  getOASSummary:
+    speakeasy-default-get-OAS-summary:
+      parameters:
+        path:
+          namespace_name: "<value>"
+          revision_reference: "<value>"
+  getRevisions:
+    speakeasy-default-get-revisions:
+      parameters:
+        path:
+          namespace_name: "<value>"
+        query: {}
+      responses:
+        "200":
+          application/json: {"items": [], "next_page_token": "<value>"}
+        default: {}
+  getTags:
+    speakeasy-default-get-tags:
+      parameters:
+        path:
+          namespace_name: "<value>"
+  postTags:
+    speakeasy-default-post-tags:
+      parameters:
+        path:
+          namespace_name: "<value>"
+  preflight:
+    speakeasy-default-preflight: {}
+  getAccessToken:
+    speakeasy-default-get-access-token:
+      parameters:
+        query:
+          workspace_id: "<value>"
+  getUser:
+    speakeasy-default-get-user: {}
+  getWorkspaceAccess:
+    speakeasy-default-get-workspace-access: {}
+  validateApiKey:
+    speakeasy-default-validate-api-key: {}
+  generateRequestPostmanCollection:
+    speakeasy-default-generate-request-postman-collection:
+      parameters:
+        path:
+          requestID: "<value>"
+  getRequestFromEventLog:
+    speakeasy-default-get-request-from-event-log:
+      parameters:
+        path:
+          requestID: "<value>"
+  queryEventLog:
+    speakeasy-default-query-event-log: {}
+  checkAccess:
+    speakeasy-default-check-access:
+      parameters:
+        query:
+          org: "<value>"
+          repo: "<value>"
+  configureCodeSamples:
+    speakeasy-default-configure-code-samples:
+      requestBody:
+        application/json: {"org": "<value>", "repo": "<value>", "targetName": "<value>"}
+  configureMintlifyRepo:
+    speakeasy-default-configure-mintlify-repo:
+      requestBody:
+        application/json: {"input": "<value>", "org": "<value>", "overlays": [], "repo": "<value>"}
+  configureTarget:
+    speakeasy-default-configure-target:
+      requestBody:
+        application/json: {"org": "<value>", "repo_name": "<value>"}
+  fetchPublishingPRs:
+    speakeasy-default-fetch-publishing-P-rs:
+      parameters:
+        query:
+          generate_gen_lock_id: "<value>"
+          org: "<value>"
+          repo: "<value>"
+  getAction:
+    speakeasy-default-get-action:
+      parameters:
+        query:
+          org: "<value>"
+          repo: "<value>"
+  githubCheckPublishingSecrets:
+    speakeasy-default-github-check-publishing-secrets:
+      parameters:
+        query:
+          generate_gen_lock_id: "<value>"
+  githubStorePublishingSecrets:
+    speakeasy-default-github-store-publishing-secrets:
+      requestBody:
+        application/json: {"generate_gen_lock_id": "<value>"}
+  triggerAction:
+    speakeasy-default-trigger-action:
+      requestBody:
+        application/json: {"gen_lock_id": "<value>", "org": "<value>", "repo_name": "<value>"}
+  createFreeTrial:
+    speakeasy-default-create-free-trial: {}
+  getOrganizationUsage:
+    speakeasy-default-get-organization-usage: {}
+  getOrganizations:
+    speakeasy-default-get-organizations: {}
+  getChangesReportSignedUrl:
+    speakeasy-default-get-changes-report-signed-url:
+      parameters:
+        path:
+          documentChecksum: "<value>"
+  getLintingReportSignedUrl:
+    speakeasy-default-get-linting-report-signed-url:
+      parameters:
+        path:
+          documentChecksum: "<value>"
+  uploadReport:
+    speakeasy-default-upload-report:
+      requestBody:
+        multipart/form-data: {"file": {"": "your_file_here"}}
+  applyOperationIDs:
+    speakeasy-default-apply-operation-I-ds:
+      parameters:
+        header:
+          x-session-id: "<value>"
+  suggestOperationIDs:
+    speakeasy-default-suggest-operation-I-ds:
+      parameters:
+        header:
+          x-session-id: "<value>"
+      requestBody:
+        multipart/form-data: {"schema": {"": "your_file_here"}}
+  suggestOperationIDsRegistry:
+    speakeasy-default-suggest-operation-I-ds-registry:
+      parameters:
+        path:
+          namespace_name: "<value>"
+          revision_reference: "<value>"
+        query: {}
+        header:
+          x-session-id: "<value>"
+  getEmbedAccessToken:
+    speakeasy-default-get-embed-access-token: {}
+  getValidEmbedAccessTokens:
+    speakeasy-default-get-valid-embed-access-tokens: {}
+  revokeEmbedAccessToken:
+    speakeasy-default-revoke-embed-access-token:
+      parameters:
+        path:
+          tokenID: "<value>"
+  getWorkspaceEventsByTarget:
+    speakeasy-default-get-workspace-events-by-target:
+      parameters:
+        path:
+          targetID: "<value>"
+        query: {}
+  getWorkspaceTargets:
+    speakeasy-default-get-workspace-targets: {}
+  postWorkspaceEvents:
+    speakeasy-default-post-workspace-events:
+      requestBody:
+        application/json: []
+  searchWorkspaceEvents:
+    speakeasy-default-search-workspace-events: {}
