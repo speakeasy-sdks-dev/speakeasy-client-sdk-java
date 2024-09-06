@@ -329,7 +329,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | models/errors/Error    | 5XX                    | application/json       |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ### Example
 
