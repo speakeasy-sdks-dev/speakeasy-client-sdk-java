@@ -76,8 +76,7 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ## generateOpenApiSpec
 
@@ -144,8 +143,7 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ## generatePostmanCollection
 
@@ -211,8 +209,7 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ## getAllApiVersions
 
@@ -278,8 +275,7 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ## getApis
 
@@ -344,8 +340,7 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ## upsertApi
 
@@ -417,4 +412,4 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |

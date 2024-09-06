@@ -74,8 +74,7 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ## getValidEmbedAccessTokens
 
@@ -128,8 +127,7 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
-
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
 
 ## revokeEmbedAccessToken
 
@@ -192,4 +190,4 @@ public class Application {
 
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
-| models/errors/SDKError | 4xx-5xx                | \*\/*                  |
+| models/errors/SDKError | 4xx-5xx                | \*/\*                  |
