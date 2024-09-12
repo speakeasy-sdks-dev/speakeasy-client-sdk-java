@@ -1,5 +1,26 @@
 # <no value>
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Speakeasy API: The Speakeasy API allows teams to manage common operations with their APIs
+
+For more information about the API: [The Speakeasy Platform Documentation](/docs)
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Global Parameters](#global-parameters)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
@@ -47,18 +68,11 @@ gradlew.bat publishToMavenLocal -Pskip.signing
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetApisResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 
 public class Application {
 
@@ -80,7 +94,7 @@ public class Application {
             if (res.apis().isPresent()) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
@@ -96,14 +110,8 @@ public class Application {
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [apis()](docs/sdks/apis/README.md)
-
-* [deleteApi](docs/sdks/apis/README.md#deleteapi) - Delete an Api.
-* [generateOpenApiSpec](docs/sdks/apis/README.md#generateopenapispec) - Generate an OpenAPI specification for a particular Api.
-* [generatePostmanCollection](docs/sdks/apis/README.md#generatepostmancollection) - Generate a Postman collection for a particular Api.
-* [getAllApiVersions](docs/sdks/apis/README.md#getallapiversions) - Get all Api versions for a particular ApiEndpoint.
-* [getApis](docs/sdks/apis/README.md#getapis) - Get a list of Apis for a given workspace
-* [upsertApi](docs/sdks/apis/README.md#upsertapi) - Upsert an Api
+<details open>
+<summary>Available methods</summary>
 
 ### [apiEndpoints()](docs/sdks/apiendpoints/README.md)
 
@@ -116,22 +124,14 @@ public class Application {
 * [getApiEndpoint](docs/sdks/apiendpoints/README.md#getapiendpoint) - Get an ApiEndpoint.
 * [upsertApiEndpoint](docs/sdks/apiendpoints/README.md#upsertapiendpoint) - Upsert an ApiEndpoint.
 
-### [metadata()](docs/sdks/metadata/README.md)
+### [apis()](docs/sdks/apis/README.md)
 
-* [deleteVersionMetadata](docs/sdks/metadata/README.md#deleteversionmetadata) - Delete metadata for a particular apiID and versionID.
-* [getVersionMetadata](docs/sdks/metadata/README.md#getversionmetadata) - Get all metadata for a particular apiID and versionID.
-* [insertVersionMetadata](docs/sdks/metadata/README.md#insertversionmetadata) - Insert metadata for a particular apiID and versionID.
-
-### [schemas()](docs/sdks/schemas/README.md)
-
-* [deleteSchema](docs/sdks/schemas/README.md#deleteschema) - Delete a particular schema revision for an Api.
-* [downloadSchema](docs/sdks/schemas/README.md#downloadschema) - Download the latest schema for a particular apiID.
-* [downloadSchemaRevision](docs/sdks/schemas/README.md#downloadschemarevision) - Download a particular schema revision for an Api.
-* [getSchema](docs/sdks/schemas/README.md#getschema) - Get information about the latest schema.
-* [getSchemaDiff](docs/sdks/schemas/README.md#getschemadiff) - Get a diff of two schema revisions for an Api.
-* [getSchemaRevision](docs/sdks/schemas/README.md#getschemarevision) - Get information about a particular schema revision for an Api.
-* [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
-* [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
+* [deleteApi](docs/sdks/apis/README.md#deleteapi) - Delete an Api.
+* [generateOpenApiSpec](docs/sdks/apis/README.md#generateopenapispec) - Generate an OpenAPI specification for a particular Api.
+* [generatePostmanCollection](docs/sdks/apis/README.md#generatepostmancollection) - Generate a Postman collection for a particular Api.
+* [getAllApiVersions](docs/sdks/apis/README.md#getallapiversions) - Get all Api versions for a particular ApiEndpoint.
+* [getApis](docs/sdks/apis/README.md#getapis) - Get a list of Apis for a given workspace
+* [upsertApi](docs/sdks/apis/README.md#upsertapi) - Upsert an Api
 
 ### [artifacts()](docs/sdks/artifacts/README.md)
 
@@ -151,11 +151,18 @@ public class Application {
 * [getWorkspaceAccess](docs/sdks/auth/README.md#getworkspaceaccess) - Get access allowances for a particular workspace
 * [validateApiKey](docs/sdks/auth/README.md#validateapikey) - Validate the current api key.
 
-### [requests()](docs/sdks/requests/README.md)
+### [embeds()](docs/sdks/embeds/README.md)
 
-* [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
-* [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
-* [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
+* [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
+* [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
+* [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
+
+### [events()](docs/sdks/events/README.md)
+
+* [getWorkspaceEventsByTarget](docs/sdks/events/README.md#getworkspaceeventsbytarget) - Load recent events for a particular workspace
+* [getWorkspaceTargets](docs/sdks/events/README.md#getworkspacetargets) - Load targets for a particular workspace
+* [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
+* [searchWorkspaceEvents](docs/sdks/events/README.md#searchworkspaceevents) - Search events for a particular workspace by any field
 
 ### [github()](docs/sdks/github/README.md)
 
@@ -169,6 +176,12 @@ public class Application {
 * [githubStorePublishingSecrets](docs/sdks/github/README.md#githubstorepublishingsecrets)
 * [triggerAction](docs/sdks/github/README.md#triggeraction)
 
+### [metadata()](docs/sdks/metadata/README.md)
+
+* [deleteVersionMetadata](docs/sdks/metadata/README.md#deleteversionmetadata) - Delete metadata for a particular apiID and versionID.
+* [getVersionMetadata](docs/sdks/metadata/README.md#getversionmetadata) - Get all metadata for a particular apiID and versionID.
+* [insertVersionMetadata](docs/sdks/metadata/README.md#insertversionmetadata) - Insert metadata for a particular apiID and versionID.
+
 ### [organizations()](docs/sdks/organizations/README.md)
 
 * [createFreeTrial](docs/sdks/organizations/README.md#createfreetrial) - Create a free trial for an organization
@@ -181,24 +194,31 @@ public class Application {
 * [getLintingReportSignedUrl](docs/sdks/reports/README.md#getlintingreportsignedurl) - Get the signed access url for the linting reports for a particular document.
 * [uploadReport](docs/sdks/reports/README.md#uploadreport) - Upload a report.
 
+### [requests()](docs/sdks/requests/README.md)
+
+* [generateRequestPostmanCollection](docs/sdks/requests/README.md#generaterequestpostmancollection) - Generate a Postman collection for a particular request.
+* [getRequestFromEventLog](docs/sdks/requests/README.md#getrequestfromeventlog) - Get information about a particular request.
+* [queryEventLog](docs/sdks/requests/README.md#queryeventlog) - Query the event log to retrieve a list of requests.
+
+### [schemas()](docs/sdks/schemas/README.md)
+
+* [deleteSchema](docs/sdks/schemas/README.md#deleteschema) - Delete a particular schema revision for an Api.
+* [downloadSchema](docs/sdks/schemas/README.md#downloadschema) - Download the latest schema for a particular apiID.
+* [downloadSchemaRevision](docs/sdks/schemas/README.md#downloadschemarevision) - Download a particular schema revision for an Api.
+* [getSchema](docs/sdks/schemas/README.md#getschema) - Get information about the latest schema.
+* [getSchemaDiff](docs/sdks/schemas/README.md#getschemadiff) - Get a diff of two schema revisions for an Api.
+* [getSchemaRevision](docs/sdks/schemas/README.md#getschemarevision) - Get information about a particular schema revision for an Api.
+* [getSchemas](docs/sdks/schemas/README.md#getschemas) - Get information about all schemas associated with a particular apiID.
+* [registerSchema](docs/sdks/schemas/README.md#registerschema) - Register a schema.
+
+
 ### [suggest()](docs/sdks/suggest/README.md)
 
 * [applyOperationIDs](docs/sdks/suggest/README.md#applyoperationids) - Apply operation ID suggestions and download result.
 * [suggestOperationIDs](docs/sdks/suggest/README.md#suggestoperationids) - Generate operation ID suggestions.
 * [suggestOperationIDsRegistry](docs/sdks/suggest/README.md#suggestoperationidsregistry) - Generate operation ID suggestions.
 
-### [embeds()](docs/sdks/embeds/README.md)
-
-* [getEmbedAccessToken](docs/sdks/embeds/README.md#getembedaccesstoken) - Get an embed access token for the current workspace.
-* [getValidEmbedAccessTokens](docs/sdks/embeds/README.md#getvalidembedaccesstokens) - Get all valid embed access tokens for the current workspace.
-* [revokeEmbedAccessToken](docs/sdks/embeds/README.md#revokeembedaccesstoken) - Revoke an embed access EmbedToken.
-
-### [events()](docs/sdks/events/README.md)
-
-* [getWorkspaceEventsByTarget](docs/sdks/events/README.md#getworkspaceeventsbytarget) - Load recent events for a particular workspace
-* [getWorkspaceTargets](docs/sdks/events/README.md#getworkspacetargets) - Load targets for a particular workspace
-* [postWorkspaceEvents](docs/sdks/events/README.md#postworkspaceevents) - Post events for a specific workspace
-* [searchWorkspaceEvents](docs/sdks/events/README.md#searchworkspaceevents) - Search events for a particular workspace by any field
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -220,18 +240,11 @@ You can override the default server globally by passing a server name to the `se
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 
 public class Application {
 
@@ -254,7 +267,7 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
@@ -274,18 +287,11 @@ The default server can also be overridden globally by passing a URL to the `serv
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 
 public class Application {
 
@@ -308,7 +314,7 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
@@ -337,18 +343,11 @@ Handling errors in this SDK should largely match your expectations.  All operati
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 
 public class Application {
 
@@ -374,7 +373,7 @@ public class Application {
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error e) {
             // handle exception
             throw e;
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
@@ -404,18 +403,11 @@ You can set the security parameters through the `security` builder method when i
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.DeleteApiResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 
 public class Application {
 
@@ -437,7 +429,7 @@ public class Application {
                 .call();
 
             // handle response
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
@@ -464,7 +456,7 @@ The following global parameter is available.
 
 | Name | Type | Required | Description |
 | ---- | ---- |:--------:| ----------- |
-| workspaceID | String |  | The workspaceID parameter. |
+| workspaceID | java.lang.String |  | The workspaceID parameter. |
 
 
 ### Example
@@ -473,18 +465,11 @@ The following global parameter is available.
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceEventsByTargetResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
+import java.lang.Exception;
 
 public class Application {
 
@@ -510,7 +495,7 @@ public class Application {
         } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.Error e) {
             // handle exception
             throw e;
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
@@ -533,21 +518,14 @@ To change the default retry strategy for a single API call, you can provide a `R
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
+import java.lang.Exception;
 import java.util.concurrent.TimeUnit;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
 
 public class Application {
 
@@ -565,21 +543,21 @@ public class Application {
             GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
                 .request(req)
                 .retryConfig(RetryConfig.builder()
-                                .backoff(BackoffStrategy.builder()
-                                            .initialInterval(1L, TimeUnit.MILLISECONDS)
-                                            .maxInterval(50L, TimeUnit.MILLISECONDS)
-                                            .maxElapsedTime(1000L, TimeUnit.MILLISECONDS)
-                                            .baseFactor(1.1)
-                                            .jitterFactor(0.15)
-                                            .retryConnectError(false)
-                                            .build())
-                                .build())
+                    .backoff(BackoffStrategy.builder()
+                        .initialInterval(1L, TimeUnit.MILLISECONDS)
+                        .maxInterval(50L, TimeUnit.MILLISECONDS)
+                        .maxElapsedTime(1000L, TimeUnit.MILLISECONDS)
+                        .baseFactor(1.1)
+                        .jitterFactor(0.15)
+                        .retryConnectError(false)
+                        .build())
+                    .build())
                 .call();
 
             if (res.accessDetails().isPresent()) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
@@ -596,21 +574,14 @@ If you'd like to override the default retry strategy for all operations that sup
 package hello.world;
 
 import io.github.speakeasy_sdks_staging.javaclientsdk.SDK;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.*;
-import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.*;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
+import io.github.speakeasy_sdks_staging.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
 import io.github.speakeasy_sdks_staging.javaclientsdk.models.shared.Security;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.BackoffStrategy;
-import io.github.speakeasy_sdks_staging.javaclientsdk.utils.EventStream;
 import io.github.speakeasy_sdks_staging.javaclientsdk.utils.RetryConfig;
-import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.util.Optional;
+import java.lang.Exception;
 import java.util.concurrent.TimeUnit;
-import org.openapitools.jackson.nullable.JsonNullable;
-import static java.util.Map.entry;
 
 public class Application {
 
@@ -618,15 +589,15 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .retryConfig(RetryConfig.builder()
-                                .backoff(BackoffStrategy.builder()
-                                            .initialInterval(1L, TimeUnit.MILLISECONDS)
-                                            .maxInterval(50L, TimeUnit.MILLISECONDS)
-                                            .maxElapsedTime(1000L, TimeUnit.MILLISECONDS)
-                                            .baseFactor(1.1)
-                                            .jitterFactor(0.15)
-                                            .retryConnectError(false)
-                                            .build())
-                                .build())
+                    .backoff(BackoffStrategy.builder()
+                        .initialInterval(1L, TimeUnit.MILLISECONDS)
+                        .maxInterval(50L, TimeUnit.MILLISECONDS)
+                        .maxElapsedTime(1000L, TimeUnit.MILLISECONDS)
+                        .baseFactor(1.1)
+                        .jitterFactor(0.15)
+                        .retryConnectError(false)
+                        .build())
+                    .build())
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
@@ -642,7 +613,7 @@ public class Application {
             if (res.accessDetails().isPresent()) {
                 // handle response
             }
-        } catch (io.github.speakeasy_sdks_staging.javaclientsdk.models.errors.SDKError e) {
+        } catch (SDKError e) {
             // handle exception
             throw e;
         } catch (Exception e) {
