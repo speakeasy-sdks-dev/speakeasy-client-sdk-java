@@ -173,7 +173,7 @@ public class Application {
                 .input("<value>")
                 .org("<value>")
                 .overlays(List.of(
-                        "<value>"))
+                    "<value>"))
                 .repo("<value>")
                 .build();
 

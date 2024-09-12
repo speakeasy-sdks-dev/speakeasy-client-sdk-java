@@ -111,7 +111,7 @@ public class Application {
 
             FindApiEndpointRequest req = FindApiEndpointRequest.builder()
                 .apiID("<value>")
-                .displayName("<value>")
+                .displayName("Don.Strosin")
                 .versionID("<value>")
                 .build();
 
@@ -518,13 +518,13 @@ public class Application {
 
             UpsertApiEndpointRequest req = UpsertApiEndpointRequest.builder()
                 .apiEndpoint(ApiEndpointInput.builder()
-                        .apiEndpointId("<value>")
-                        .description("<value>")
-                        .displayName("<value>")
-                        .method("<value>")
-                        .path("<value>")
-                        .versionId("<value>")
-                        .build())
+                    .apiEndpointId("<value>")
+                    .description("Public-key systematic attitude")
+                    .displayName("Camille.Schaefer11")
+                    .method("<value>")
+                    .path("/Library")
+                    .versionId("<value>")
+                    .build())
                 .apiEndpointID("<value>")
                 .apiID("<value>")
                 .versionID("<value>")

@@ -173,11 +173,11 @@ public class Application {
 
             UploadReportRequestBody req = UploadReportRequestBody.builder()
                 .data(Report.builder()
-                        .build())
+                    .build())
                 .file(File.builder()
-                        .content("0xA329C0ad85".getBytes())
-                        .fileName("<value>")
-                        .build())
+                    .content("0xA329C0ad85".getBytes())
+                    .fileName("example.file")
+                    .build())
                 .build();
 
             UploadReportResponse res = sdk.reports().uploadReport()

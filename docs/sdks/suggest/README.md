@@ -107,11 +107,11 @@ public class Application {
 
             SuggestOperationIDsRequest req = SuggestOperationIDsRequest.builder()
                 .requestBody(SuggestOperationIDsRequestBody.builder()
-                        .schema(Schema.builder()
-                                .content("0xb2de88c98a".getBytes())
-                                .fileName("<value>")
-                                .build())
+                    .schema(Schema.builder()
+                        .content("0xb2de88c98a".getBytes())
+                        .fileName("example.file")
                         .build())
+                    .build())
                 .xSessionId("<value>")
                 .build();
 
