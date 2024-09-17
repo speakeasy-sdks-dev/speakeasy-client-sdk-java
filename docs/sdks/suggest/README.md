@@ -7,13 +7,13 @@ REST APIs for managing LLM OAS suggestions
 
 ### Available Operations
 
-* [applyOperationIDs](#applyoperationids) - Apply operation ID suggestions and download result.
-* [suggestOpenAPI](#suggestopenapi) - Generate suggestions for improving an OpenAPI document.
+* [suggest](#suggest) - Generate suggestions for improving an OpenAPI document.
+* [suggestOpenAPI](#suggestopenapi) - (DEPRECATED) Generate suggestions for improving an OpenAPI document.
 * [suggestOpenAPIRegistry](#suggestopenapiregistry) - Generate suggestions for improving an OpenAPI document stored in the registry.
 
-## applyOperationIDs
+## suggest
 
-Apply operation ID suggestions and download result.
+Get suggestions from an LLM model for improving an OpenAPI document.
 
 ### Example Usage
 
@@ -22,10 +22,18 @@ package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
-import dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Diagnostic;
+import dev.speakeasyapi.javaclientsdk.models.shared.License;
+import dev.speakeasyapi.javaclientsdk.models.shared.OASInfo;
+import dev.speakeasyapi.javaclientsdk.models.shared.OASOperation;
+import dev.speakeasyapi.javaclientsdk.models.shared.OASSummary;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
+import dev.speakeasyapi.javaclientsdk.models.shared.SuggestRequestBody;
+import dev.speakeasyapi.javaclientsdk.models.shared.SuggestRequestBodySuggestionType;
 import java.lang.Exception;
+import java.util.List;
 
 public class Application {
 
@@ -37,15 +45,44 @@ public class Application {
                     .build())
                 .build();
 
-            ApplyOperationIDsRequest req = ApplyOperationIDsRequest.builder()
+            SuggestRequest req = SuggestRequest.builder()
+                .suggestRequestBody(SuggestRequestBody.builder()
+                    .diagnostics(List.of(
+                        Diagnostic.builder()
+                            .message("<value>")
+                            .path(List.of(
+                                "/rescue"))
+                            .type("<value>")
+                            .build()))
+                    .oasSummary(OASSummary.builder()
+                        .info(OASInfo.builder()
+                            .description("Object-based multi-state pricing structure")
+                            .license(License.builder()
+                                .build())
+                            .summary("<value>")
+                            .title("<value>")
+                            .version("<value>")
+                            .build())
+                        .operations(List.of(
+                            OASOperation.builder()
+                                .description("Innovative tangible hierarchy")
+                                .method("<value>")
+                                .operationId("<value>")
+                                .path("/usr/include")
+                                .tags(List.of(
+                                    "<value>"))
+                                .build()))
+                        .build())
+                    .suggestionType(SuggestRequestBodySuggestionType.METHOD_NAMES)
+                    .build())
                 .xSessionId("<value>")
                 .build();
 
-            ApplyOperationIDsResponse res = sdk.suggest().applyOperationIDs()
+            SuggestResponse res = sdk.suggest().suggest()
                 .request(req)
                 .call();
 
-            if (res.twoHundredApplicationJsonSchema().isPresent()) {
+            if (res.schema().isPresent()) {
                 // handle response
             }
         } catch (SDKError e) {
@@ -62,13 +99,13 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `request`                                                                       | [ApplyOperationIDsRequest](../../models/operations/ApplyOperationIDsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `request`                                                   | [SuggestRequest](../../models/operations/SuggestRequest.md) | :heavy_check_mark:                                          | The request object to use for the request.                  |
 
 ### Response
 
-**[ApplyOperationIDsResponse](../../models/operations/ApplyOperationIDsResponse.md)**
+**[SuggestResponse](../../models/operations/SuggestResponse.md)**
 
 ### Errors
 
@@ -107,11 +144,11 @@ public class Application {
 
             SuggestOpenAPIRequest req = SuggestOpenAPIRequest.builder()
                 .requestBody(SuggestOpenAPIRequestBody.builder()
-                        .schema(Schema.builder()
-                                .content("0x0FbfeAEcc8".getBytes())
-                                .fileName("<value>")
-                                .build())
+                    .schema(Schema.builder()
+                        .content("0x0FbfeAEcc8".getBytes())
+                        .fileName("example.file")
                         .build())
+                    .build())
                 .xSessionId("<value>")
                 .build();
 

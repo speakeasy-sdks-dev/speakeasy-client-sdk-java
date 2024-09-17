@@ -174,9 +174,9 @@ public class Application {
 
             InsertVersionMetadataRequest req = InsertVersionMetadataRequest.builder()
                 .versionMetadata(VersionMetadataInput.builder()
-                        .metaKey("<value>")
-                        .metaValue("<value>")
-                        .build())
+                    .metaKey("<value>")
+                    .metaValue("<value>")
+                    .build())
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();

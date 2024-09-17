@@ -7,7 +7,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.speakeasyapi.javaclientsdk.models.shared.SuggestOpts;
+import dev.speakeasyapi.javaclientsdk.models.shared.SuggestRequestBody;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.lang.Override;
@@ -23,7 +23,7 @@ public class SuggestOpenAPIRegistryRequest {
      * Suggest options
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private Optional<? extends SuggestOpts> suggestOpts;
+    private Optional<? extends SuggestRequestBody> suggestRequestBody;
 
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=namespace_name")
     private String namespaceName;
@@ -39,15 +39,15 @@ public class SuggestOpenAPIRegistryRequest {
 
     @JsonCreator
     public SuggestOpenAPIRegistryRequest(
-            Optional<? extends SuggestOpts> suggestOpts,
+            Optional<? extends SuggestRequestBody> suggestRequestBody,
             String namespaceName,
             String revisionReference,
             String xSessionId) {
-        Utils.checkNotNull(suggestOpts, "suggestOpts");
+        Utils.checkNotNull(suggestRequestBody, "suggestRequestBody");
         Utils.checkNotNull(namespaceName, "namespaceName");
         Utils.checkNotNull(revisionReference, "revisionReference");
         Utils.checkNotNull(xSessionId, "xSessionId");
-        this.suggestOpts = suggestOpts;
+        this.suggestRequestBody = suggestRequestBody;
         this.namespaceName = namespaceName;
         this.revisionReference = revisionReference;
         this.xSessionId = xSessionId;
@@ -65,8 +65,8 @@ public class SuggestOpenAPIRegistryRequest {
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<SuggestOpts> suggestOpts() {
-        return (Optional<SuggestOpts>) suggestOpts;
+    public Optional<SuggestRequestBody> suggestRequestBody() {
+        return (Optional<SuggestRequestBody>) suggestRequestBody;
     }
 
     @JsonIgnore
@@ -94,18 +94,18 @@ public class SuggestOpenAPIRegistryRequest {
     /**
      * Suggest options
      */
-    public SuggestOpenAPIRegistryRequest withSuggestOpts(SuggestOpts suggestOpts) {
-        Utils.checkNotNull(suggestOpts, "suggestOpts");
-        this.suggestOpts = Optional.ofNullable(suggestOpts);
+    public SuggestOpenAPIRegistryRequest withSuggestRequestBody(SuggestRequestBody suggestRequestBody) {
+        Utils.checkNotNull(suggestRequestBody, "suggestRequestBody");
+        this.suggestRequestBody = Optional.ofNullable(suggestRequestBody);
         return this;
     }
 
     /**
      * Suggest options
      */
-    public SuggestOpenAPIRegistryRequest withSuggestOpts(Optional<? extends SuggestOpts> suggestOpts) {
-        Utils.checkNotNull(suggestOpts, "suggestOpts");
-        this.suggestOpts = suggestOpts;
+    public SuggestOpenAPIRegistryRequest withSuggestRequestBody(Optional<? extends SuggestRequestBody> suggestRequestBody) {
+        Utils.checkNotNull(suggestRequestBody, "suggestRequestBody");
+        this.suggestRequestBody = suggestRequestBody;
         return this;
     }
 
@@ -140,7 +140,7 @@ public class SuggestOpenAPIRegistryRequest {
         }
         SuggestOpenAPIRegistryRequest other = (SuggestOpenAPIRegistryRequest) o;
         return 
-            Objects.deepEquals(this.suggestOpts, other.suggestOpts) &&
+            Objects.deepEquals(this.suggestRequestBody, other.suggestRequestBody) &&
             Objects.deepEquals(this.namespaceName, other.namespaceName) &&
             Objects.deepEquals(this.revisionReference, other.revisionReference) &&
             Objects.deepEquals(this.xSessionId, other.xSessionId);
@@ -149,7 +149,7 @@ public class SuggestOpenAPIRegistryRequest {
     @Override
     public int hashCode() {
         return Objects.hash(
-            suggestOpts,
+            suggestRequestBody,
             namespaceName,
             revisionReference,
             xSessionId);
@@ -158,7 +158,7 @@ public class SuggestOpenAPIRegistryRequest {
     @Override
     public String toString() {
         return Utils.toString(SuggestOpenAPIRegistryRequest.class,
-                "suggestOpts", suggestOpts,
+                "suggestRequestBody", suggestRequestBody,
                 "namespaceName", namespaceName,
                 "revisionReference", revisionReference,
                 "xSessionId", xSessionId);
@@ -166,7 +166,7 @@ public class SuggestOpenAPIRegistryRequest {
     
     public final static class Builder {
  
-        private Optional<? extends SuggestOpts> suggestOpts = Optional.empty();
+        private Optional<? extends SuggestRequestBody> suggestRequestBody = Optional.empty();
  
         private String namespaceName;
  
@@ -181,18 +181,18 @@ public class SuggestOpenAPIRegistryRequest {
         /**
          * Suggest options
          */
-        public Builder suggestOpts(SuggestOpts suggestOpts) {
-            Utils.checkNotNull(suggestOpts, "suggestOpts");
-            this.suggestOpts = Optional.ofNullable(suggestOpts);
+        public Builder suggestRequestBody(SuggestRequestBody suggestRequestBody) {
+            Utils.checkNotNull(suggestRequestBody, "suggestRequestBody");
+            this.suggestRequestBody = Optional.ofNullable(suggestRequestBody);
             return this;
         }
 
         /**
          * Suggest options
          */
-        public Builder suggestOpts(Optional<? extends SuggestOpts> suggestOpts) {
-            Utils.checkNotNull(suggestOpts, "suggestOpts");
-            this.suggestOpts = suggestOpts;
+        public Builder suggestRequestBody(Optional<? extends SuggestRequestBody> suggestRequestBody) {
+            Utils.checkNotNull(suggestRequestBody, "suggestRequestBody");
+            this.suggestRequestBody = suggestRequestBody;
             return this;
         }
 
@@ -219,7 +219,7 @@ public class SuggestOpenAPIRegistryRequest {
         
         public SuggestOpenAPIRegistryRequest build() {
             return new SuggestOpenAPIRegistryRequest(
-                suggestOpts,
+                suggestRequestBody,
                 namespaceName,
                 revisionReference,
                 xSessionId);

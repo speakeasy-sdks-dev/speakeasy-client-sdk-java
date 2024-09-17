@@ -353,9 +353,9 @@ public class SDKMethodInterfaces {
     }
 
 
-    public interface MethodCallApplyOperationIDs {
-        dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsResponse applyOperationIDs(
-            ApplyOperationIDsRequest request) throws Exception;
+    public interface MethodCallSuggest {
+        dev.speakeasyapi.javaclientsdk.models.operations.SuggestResponse suggest(
+            SuggestRequest request) throws Exception;
     }
 
 
@@ -391,6 +391,12 @@ public class SDKMethodInterfaces {
     public interface MethodCallGetWorkspace {
         dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceResponse getWorkspace(
             GetWorkspaceRequest request) throws Exception;
+    }
+
+
+    public interface MethodCallGetWorkspaceFeatureFlags {
+        dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceFeatureFlagsResponse getWorkspaceFeatureFlags(
+            GetWorkspaceFeatureFlagsRequest request) throws Exception;
     }
 
 

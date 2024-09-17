@@ -7,12 +7,15 @@ package dev.speakeasyapi.javaclientsdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.lang.Override;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 
 public class OASOperation {
@@ -20,8 +23,16 @@ public class OASOperation {
     @JsonProperty("description")
     private String description;
 
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("group_override")
+    private Optional<String> groupOverride;
+
     @JsonProperty("method")
     private String method;
+
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("method_name_override")
+    private Optional<String> methodNameOverride;
 
     @JsonProperty("operation_id")
     private String operationId;
@@ -35,20 +46,35 @@ public class OASOperation {
     @JsonCreator
     public OASOperation(
             @JsonProperty("description") String description,
+            @JsonProperty("group_override") Optional<String> groupOverride,
             @JsonProperty("method") String method,
+            @JsonProperty("method_name_override") Optional<String> methodNameOverride,
             @JsonProperty("operation_id") String operationId,
             @JsonProperty("path") String path,
             @JsonProperty("tags") List<String> tags) {
         Utils.checkNotNull(description, "description");
+        Utils.checkNotNull(groupOverride, "groupOverride");
         Utils.checkNotNull(method, "method");
+        Utils.checkNotNull(methodNameOverride, "methodNameOverride");
         Utils.checkNotNull(operationId, "operationId");
         Utils.checkNotNull(path, "path");
         Utils.checkNotNull(tags, "tags");
         this.description = description;
+        this.groupOverride = groupOverride;
         this.method = method;
+        this.methodNameOverride = methodNameOverride;
         this.operationId = operationId;
         this.path = path;
         this.tags = tags;
+    }
+    
+    public OASOperation(
+            String description,
+            String method,
+            String operationId,
+            String path,
+            List<String> tags) {
+        this(description, Optional.empty(), method, Optional.empty(), operationId, path, tags);
     }
 
     @JsonIgnore
@@ -57,8 +83,18 @@ public class OASOperation {
     }
 
     @JsonIgnore
+    public Optional<String> groupOverride() {
+        return groupOverride;
+    }
+
+    @JsonIgnore
     public String method() {
         return method;
+    }
+
+    @JsonIgnore
+    public Optional<String> methodNameOverride() {
+        return methodNameOverride;
     }
 
     @JsonIgnore
@@ -86,9 +122,33 @@ public class OASOperation {
         return this;
     }
 
+    public OASOperation withGroupOverride(String groupOverride) {
+        Utils.checkNotNull(groupOverride, "groupOverride");
+        this.groupOverride = Optional.ofNullable(groupOverride);
+        return this;
+    }
+
+    public OASOperation withGroupOverride(Optional<String> groupOverride) {
+        Utils.checkNotNull(groupOverride, "groupOverride");
+        this.groupOverride = groupOverride;
+        return this;
+    }
+
     public OASOperation withMethod(String method) {
         Utils.checkNotNull(method, "method");
         this.method = method;
+        return this;
+    }
+
+    public OASOperation withMethodNameOverride(String methodNameOverride) {
+        Utils.checkNotNull(methodNameOverride, "methodNameOverride");
+        this.methodNameOverride = Optional.ofNullable(methodNameOverride);
+        return this;
+    }
+
+    public OASOperation withMethodNameOverride(Optional<String> methodNameOverride) {
+        Utils.checkNotNull(methodNameOverride, "methodNameOverride");
+        this.methodNameOverride = methodNameOverride;
         return this;
     }
 
@@ -121,7 +181,9 @@ public class OASOperation {
         OASOperation other = (OASOperation) o;
         return 
             Objects.deepEquals(this.description, other.description) &&
+            Objects.deepEquals(this.groupOverride, other.groupOverride) &&
             Objects.deepEquals(this.method, other.method) &&
+            Objects.deepEquals(this.methodNameOverride, other.methodNameOverride) &&
             Objects.deepEquals(this.operationId, other.operationId) &&
             Objects.deepEquals(this.path, other.path) &&
             Objects.deepEquals(this.tags, other.tags);
@@ -131,7 +193,9 @@ public class OASOperation {
     public int hashCode() {
         return Objects.hash(
             description,
+            groupOverride,
             method,
+            methodNameOverride,
             operationId,
             path,
             tags);
@@ -141,7 +205,9 @@ public class OASOperation {
     public String toString() {
         return Utils.toString(OASOperation.class,
                 "description", description,
+                "groupOverride", groupOverride,
                 "method", method,
+                "methodNameOverride", methodNameOverride,
                 "operationId", operationId,
                 "path", path,
                 "tags", tags);
@@ -151,7 +217,11 @@ public class OASOperation {
  
         private String description;
  
+        private Optional<String> groupOverride = Optional.empty();
+ 
         private String method;
+ 
+        private Optional<String> methodNameOverride = Optional.empty();
  
         private String operationId;
  
@@ -169,9 +239,33 @@ public class OASOperation {
             return this;
         }
 
+        public Builder groupOverride(String groupOverride) {
+            Utils.checkNotNull(groupOverride, "groupOverride");
+            this.groupOverride = Optional.ofNullable(groupOverride);
+            return this;
+        }
+
+        public Builder groupOverride(Optional<String> groupOverride) {
+            Utils.checkNotNull(groupOverride, "groupOverride");
+            this.groupOverride = groupOverride;
+            return this;
+        }
+
         public Builder method(String method) {
             Utils.checkNotNull(method, "method");
             this.method = method;
+            return this;
+        }
+
+        public Builder methodNameOverride(String methodNameOverride) {
+            Utils.checkNotNull(methodNameOverride, "methodNameOverride");
+            this.methodNameOverride = Optional.ofNullable(methodNameOverride);
+            return this;
+        }
+
+        public Builder methodNameOverride(Optional<String> methodNameOverride) {
+            Utils.checkNotNull(methodNameOverride, "methodNameOverride");
+            this.methodNameOverride = methodNameOverride;
             return this;
         }
 
@@ -196,7 +290,9 @@ public class OASOperation {
         public OASOperation build() {
             return new OASOperation(
                 description,
+                groupOverride,
                 method,
+                methodNameOverride,
                 operationId,
                 path,
                 tags);

@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-public class SuggestOpts {
+public class SuggestOptsOld {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("diagnostics")
@@ -29,7 +29,7 @@ public class SuggestOpts {
     private SuggestionType suggestionType;
 
     @JsonCreator
-    public SuggestOpts(
+    public SuggestOptsOld(
             @JsonProperty("diagnostics") Optional<? extends List<Diagnostic>> diagnostics,
             @JsonProperty("suggestion_type") SuggestionType suggestionType) {
         Utils.checkNotNull(diagnostics, "diagnostics");
@@ -38,7 +38,7 @@ public class SuggestOpts {
         this.suggestionType = suggestionType;
     }
     
-    public SuggestOpts(
+    public SuggestOptsOld(
             SuggestionType suggestionType) {
         this(Optional.empty(), suggestionType);
     }
@@ -58,19 +58,19 @@ public class SuggestOpts {
         return new Builder();
     }
 
-    public SuggestOpts withDiagnostics(List<Diagnostic> diagnostics) {
+    public SuggestOptsOld withDiagnostics(List<Diagnostic> diagnostics) {
         Utils.checkNotNull(diagnostics, "diagnostics");
         this.diagnostics = Optional.ofNullable(diagnostics);
         return this;
     }
 
-    public SuggestOpts withDiagnostics(Optional<? extends List<Diagnostic>> diagnostics) {
+    public SuggestOptsOld withDiagnostics(Optional<? extends List<Diagnostic>> diagnostics) {
         Utils.checkNotNull(diagnostics, "diagnostics");
         this.diagnostics = diagnostics;
         return this;
     }
 
-    public SuggestOpts withSuggestionType(SuggestionType suggestionType) {
+    public SuggestOptsOld withSuggestionType(SuggestionType suggestionType) {
         Utils.checkNotNull(suggestionType, "suggestionType");
         this.suggestionType = suggestionType;
         return this;
@@ -84,7 +84,7 @@ public class SuggestOpts {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        SuggestOpts other = (SuggestOpts) o;
+        SuggestOptsOld other = (SuggestOptsOld) o;
         return 
             Objects.deepEquals(this.diagnostics, other.diagnostics) &&
             Objects.deepEquals(this.suggestionType, other.suggestionType);
@@ -99,7 +99,7 @@ public class SuggestOpts {
     
     @Override
     public String toString() {
-        return Utils.toString(SuggestOpts.class,
+        return Utils.toString(SuggestOptsOld.class,
                 "diagnostics", diagnostics,
                 "suggestionType", suggestionType);
     }
@@ -132,8 +132,8 @@ public class SuggestOpts {
             return this;
         }
         
-        public SuggestOpts build() {
-            return new SuggestOpts(
+        public SuggestOptsOld build() {
+            return new SuggestOptsOld(
                 diagnostics,
                 suggestionType);
         }

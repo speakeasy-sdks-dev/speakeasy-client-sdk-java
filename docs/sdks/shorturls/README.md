@@ -36,7 +36,7 @@ public class Application {
                 .build();
 
             CreateRequestBody req = CreateRequestBody.builder()
-                .url("<value>")
+                .url("http://limp-pastry.org")
                 .build();
 
             CreateResponse res = sdk.shortURLs().create()

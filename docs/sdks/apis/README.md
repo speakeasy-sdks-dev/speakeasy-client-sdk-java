@@ -377,10 +377,10 @@ public class Application {
 
             UpsertApiRequest req = UpsertApiRequest.builder()
                 .api(ApiInput.builder()
-                        .apiId("<value>")
-                        .description("<value>")
-                        .versionId("<value>")
-                        .build())
+                    .apiId("<value>")
+                    .description("Synchronised 5th generation knowledge user")
+                    .versionId("<value>")
+                    .build())
                 .apiID("<value>")
                 .build();
 

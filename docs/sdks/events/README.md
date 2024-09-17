@@ -183,17 +183,17 @@ public class Application {
 
             PostWorkspaceEventsRequest req = PostWorkspaceEventsRequest.builder()
                 .requestBody(List.of(
-                        CliEvent.builder()
-                            .createdAt(OffsetDateTime.parse("2024-11-21T06:58:42.120Z"))
-                            .executionId("<value>")
-                            .id("<value>")
-                            .interactionType(InteractionType.CLI_EXEC)
-                            .localStartedAt(OffsetDateTime.parse("2024-05-07T12:35:47.182Z"))
-                            .speakeasyApiKeyName("<value>")
-                            .speakeasyVersion("<value>")
-                            .success(false)
-                            .workspaceId("<value>")
-                            .build()))
+                    CliEvent.builder()
+                        .createdAt(OffsetDateTime.parse("2024-11-21T06:58:42.120Z"))
+                        .executionId("<value>")
+                        .id("<id>")
+                        .interactionType(InteractionType.CLI_EXEC)
+                        .localStartedAt(OffsetDateTime.parse("2024-05-07T12:35:47.182Z"))
+                        .speakeasyApiKeyName("<value>")
+                        .speakeasyVersion("<value>")
+                        .success(false)
+                        .workspaceId("<value>")
+                        .build()))
                 .build();
 
             PostWorkspaceEventsResponse res = sdk.events().postWorkspaceEvents()

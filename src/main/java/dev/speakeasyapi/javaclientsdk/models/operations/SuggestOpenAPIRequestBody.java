@@ -7,7 +7,7 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.speakeasyapi.javaclientsdk.models.shared.SuggestOpts;
+import dev.speakeasyapi.javaclientsdk.models.shared.SuggestOptsOld;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyMetadata;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.lang.Override;
@@ -23,14 +23,14 @@ import java.util.Optional;
 public class SuggestOpenAPIRequestBody {
 
     @SpeakeasyMetadata("multipartForm:name=opts,json")
-    private Optional<? extends SuggestOpts> opts;
+    private Optional<? extends SuggestOptsOld> opts;
 
     @SpeakeasyMetadata("multipartForm:file")
     private Schema schema;
 
     @JsonCreator
     public SuggestOpenAPIRequestBody(
-            Optional<? extends SuggestOpts> opts,
+            Optional<? extends SuggestOptsOld> opts,
             Schema schema) {
         Utils.checkNotNull(opts, "opts");
         Utils.checkNotNull(schema, "schema");
@@ -45,8 +45,8 @@ public class SuggestOpenAPIRequestBody {
 
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<SuggestOpts> opts() {
-        return (Optional<SuggestOpts>) opts;
+    public Optional<SuggestOptsOld> opts() {
+        return (Optional<SuggestOptsOld>) opts;
     }
 
     @JsonIgnore
@@ -58,13 +58,13 @@ public class SuggestOpenAPIRequestBody {
         return new Builder();
     }
 
-    public SuggestOpenAPIRequestBody withOpts(SuggestOpts opts) {
+    public SuggestOpenAPIRequestBody withOpts(SuggestOptsOld opts) {
         Utils.checkNotNull(opts, "opts");
         this.opts = Optional.ofNullable(opts);
         return this;
     }
 
-    public SuggestOpenAPIRequestBody withOpts(Optional<? extends SuggestOpts> opts) {
+    public SuggestOpenAPIRequestBody withOpts(Optional<? extends SuggestOptsOld> opts) {
         Utils.checkNotNull(opts, "opts");
         this.opts = opts;
         return this;
@@ -106,7 +106,7 @@ public class SuggestOpenAPIRequestBody {
     
     public final static class Builder {
  
-        private Optional<? extends SuggestOpts> opts = Optional.empty();
+        private Optional<? extends SuggestOptsOld> opts = Optional.empty();
  
         private Schema schema;  
         
@@ -114,13 +114,13 @@ public class SuggestOpenAPIRequestBody {
           // force use of static builder() method
         }
 
-        public Builder opts(SuggestOpts opts) {
+        public Builder opts(SuggestOptsOld opts) {
             Utils.checkNotNull(opts, "opts");
             this.opts = Optional.ofNullable(opts);
             return this;
         }
 
-        public Builder opts(Optional<? extends SuggestOpts> opts) {
+        public Builder opts(Optional<? extends SuggestOptsOld> opts) {
             Utils.checkNotNull(opts, "opts");
             this.opts = opts;
             return this;

@@ -5,11 +5,7 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
-import dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsRequest;
-import dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsRequestBuilder;
-import dev.speakeasyapi.javaclientsdk.models.operations.ApplyOperationIDsResponse;
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRegistryRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRegistryRequestBuilder;
@@ -17,6 +13,9 @@ import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRegistryRe
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRequestBuilder;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIResponse;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestRequest;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestRequestBuilder;
+import dev.speakeasyapi.javaclientsdk.models.operations.SuggestResponse;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
 import dev.speakeasyapi.javaclientsdk.utils.Hook.AfterErrorContextImpl;
@@ -38,7 +37,7 @@ import java.util.Optional;
  * REST APIs for managing LLM OAS suggestions
  */
 public class Suggest implements
-            MethodCallApplyOperationIDs,
+            MethodCallSuggest,
             MethodCallSuggestOpenAPI,
             MethodCallSuggestOpenAPIRegistry {
 
@@ -50,38 +49,43 @@ public class Suggest implements
 
 
     /**
-     * Apply operation ID suggestions and download result.
+     * Generate suggestions for improving an OpenAPI document.
+     * Get suggestions from an LLM model for improving an OpenAPI document.
      * @return The call builder
      */
-    public ApplyOperationIDsRequestBuilder applyOperationIDs() {
-        return new ApplyOperationIDsRequestBuilder(this);
+    public SuggestRequestBuilder suggest() {
+        return new SuggestRequestBuilder(this);
     }
 
     /**
-     * Apply operation ID suggestions and download result.
+     * Generate suggestions for improving an OpenAPI document.
+     * Get suggestions from an LLM model for improving an OpenAPI document.
      * @param request The request object containing all of the parameters for the API call.
      * @return The response from the API call
      * @throws Exception if the API call fails
      */
-    public ApplyOperationIDsResponse applyOperationIDs(
-            ApplyOperationIDsRequest request) throws Exception {
+    public SuggestResponse suggest(
+            SuggestRequest request) throws Exception {
         String _baseUrl = this.sdkConfiguration.serverUrl;
         String _url = Utils.generateURL(
                 _baseUrl,
-                "/v1/suggest/operation_ids/apply");
+                "/v1/suggest/openapi_from_summary");
         
         HTTPRequest _req = new HTTPRequest(_url, "POST");
         Object _convertedRequest = Utils.convertToShape(
                 request, 
                 JsonShape.DEFAULT,
-                new TypeReference<ApplyOperationIDsRequest>() {});
+                new TypeReference<SuggestRequest>() {});
         SerializedBody _serializedRequestBody = Utils.serializeRequestBody(
                 _convertedRequest, 
-                "requestBody",
+                "suggestRequestBody",
                 "json",
                 false);
+        if (_serializedRequestBody == null) {
+            throw new Exception("Request body is required");
+        }
         _req.setBody(Optional.ofNullable(_serializedRequestBody));
-        _req.addHeader("Accept", "application/json;q=1, application/x-yaml;q=0")
+        _req.addHeader("Accept", "application/json")
             .addHeader("user-agent", 
                 this.sdkConfiguration.userAgent);
         _req.addHeaders(Utils.getHeadersFromMetadata(request, this.sdkConfiguration.globals));
@@ -94,7 +98,7 @@ public class Suggest implements
             sdkConfiguration.hooks()
                .beforeRequest(
                   new BeforeRequestContextImpl(
-                      "applyOperationIDs", 
+                      "suggest", 
                       Optional.of(List.of()), 
                       sdkConfiguration.securitySource()),
                   _req.build());
@@ -105,7 +109,7 @@ public class Suggest implements
                 _httpRes = sdkConfiguration.hooks()
                     .afterError(
                         new AfterErrorContextImpl(
-                            "applyOperationIDs",
+                            "suggest",
                             Optional.of(List.of()),
                             sdkConfiguration.securitySource()),
                         Optional.of(_httpRes),
@@ -114,7 +118,7 @@ public class Suggest implements
                 _httpRes = sdkConfiguration.hooks()
                     .afterSuccess(
                         new AfterSuccessContextImpl(
-                            "applyOperationIDs",
+                            "suggest",
                             Optional.of(List.of()), 
                             sdkConfiguration.securitySource()),
                          _httpRes);
@@ -123,7 +127,7 @@ public class Suggest implements
             _httpRes = sdkConfiguration.hooks()
                     .afterError(
                         new AfterErrorContextImpl(
-                            "applyOperationIDs",
+                            "suggest",
                             Optional.of(List.of()),
                             sdkConfiguration.securitySource()), 
                         Optional.empty(),
@@ -133,25 +137,20 @@ public class Suggest implements
             .headers()
             .firstValue("Content-Type")
             .orElse("application/octet-stream");
-        ApplyOperationIDsResponse.Builder _resBuilder = 
-            ApplyOperationIDsResponse
+        SuggestResponse.Builder _resBuilder = 
+            SuggestResponse
                 .builder()
                 .contentType(_contentType)
                 .statusCode(_httpRes.statusCode())
                 .rawResponse(_httpRes);
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200") && Utils.contentTypeMatches(_contentType, "application/json")) {
-            _resBuilder.twoHundredApplicationJsonSchema(_httpRes.body());
-        }
-        if (Utils.statusCodeMatches(_httpRes.statusCode(), "200") && Utils.contentTypeMatches(_contentType, "application/x-yaml")) {
-            _resBuilder.twoHundredApplicationXYamlSchema(_httpRes.body());
+            _resBuilder.schema(_httpRes.body());
         }
 
-        ApplyOperationIDsResponse _res = _resBuilder.build();
+        SuggestResponse _res = _resBuilder.build();
         
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "200")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                return _res;
-            } else if (Utils.contentTypeMatches(_contentType, "application/x-yaml")) {
                 return _res;
             } else {
                 throw new SDKError(
@@ -169,21 +168,6 @@ public class Suggest implements
                     "API error occurred", 
                     Utils.extractByteArrayFromBody(_httpRes));
         }
-        if (Utils.statusCodeMatches(_httpRes.statusCode(), "default")) {
-            if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                Error _out = Utils.mapper().readValue(
-                    Utils.toUtf8AndClose(_httpRes.body()),
-                    new TypeReference<Error>() {});
-                _res.withError(Optional.ofNullable(_out));
-                return _res;
-            } else {
-                throw new SDKError(
-                    _httpRes, 
-                    _httpRes.statusCode(), 
-                    "Unexpected content-type received: " + _contentType, 
-                    Utils.extractByteArrayFromBody(_httpRes));
-            }
-        }
         throw new SDKError(
             _httpRes, 
             _httpRes.statusCode(), 
@@ -194,7 +178,7 @@ public class Suggest implements
 
 
     /**
-     * Generate suggestions for improving an OpenAPI document.
+     * (DEPRECATED) Generate suggestions for improving an OpenAPI document.
      * Get suggestions from an LLM model for improving an OpenAPI document.
      * @return The call builder
      */
@@ -203,7 +187,7 @@ public class Suggest implements
     }
 
     /**
-     * Generate suggestions for improving an OpenAPI document.
+     * (DEPRECATED) Generate suggestions for improving an OpenAPI document.
      * Get suggestions from an LLM model for improving an OpenAPI document.
      * @param request The request object containing all of the parameters for the API call.
      * @return The response from the API call
@@ -354,7 +338,7 @@ public class Suggest implements
                 new TypeReference<SuggestOpenAPIRegistryRequest>() {});
         SerializedBody _serializedRequestBody = Utils.serializeRequestBody(
                 _convertedRequest, 
-                "suggestOpts",
+                "suggestRequestBody",
                 "json",
                 false);
         _req.setBody(Optional.ofNullable(_serializedRequestBody));

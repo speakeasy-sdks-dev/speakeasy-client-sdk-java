@@ -522,11 +522,11 @@ public class Application {
 
             RegisterSchemaRequest req = RegisterSchemaRequest.builder()
                 .requestBody(RegisterSchemaRequestBody.builder()
-                        .file(RegisterSchemaFile.builder()
-                                .content("0xCAFCA03e0e".getBytes())
-                                .fileName("<value>")
-                                .build())
+                    .file(RegisterSchemaFile.builder()
+                        .content("0xCAFCA03e0e".getBytes())
+                        .fileName("example.file")
                         .build())
+                    .build())
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();
