@@ -7,8 +7,8 @@ package dev.speakeasyapi.javaclientsdk.models.operations;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.shared.ApiEndpoint;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.utils.Response;
 import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.io.InputStream;

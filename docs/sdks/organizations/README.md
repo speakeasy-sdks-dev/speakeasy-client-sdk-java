@@ -79,7 +79,7 @@ public class Application {
             .build();
 
         GetOrganizationRequest req = GetOrganizationRequest.builder()
-                .organizationID("<value>")
+                .organizationID("<id>")
                 .build();
 
         GetOrganizationResponse res = sdk.organizations().getOrganization()

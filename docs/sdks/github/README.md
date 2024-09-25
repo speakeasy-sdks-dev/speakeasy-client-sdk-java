@@ -262,7 +262,7 @@ public class Application {
             .build();
 
         FetchPublishingPRsRequest req = FetchPublishingPRsRequest.builder()
-                .generateGenLockId("<value>")
+                .generateGenLockId("<id>")
                 .org("<value>")
                 .repo("<value>")
                 .build();
@@ -375,7 +375,7 @@ public class Application {
             .build();
 
         GithubCheckPublishingSecretsRequest req = GithubCheckPublishingSecretsRequest.builder()
-                .generateGenLockId("<value>")
+                .generateGenLockId("<id>")
                 .build();
 
         GithubCheckPublishingSecretsResponse res = sdk.github().githubCheckPublishingSecrets()
@@ -430,7 +430,7 @@ public class Application {
             .build();
 
         GithubStorePublishingSecretsRequest req = GithubStorePublishingSecretsRequest.builder()
-                .generateGenLockId("<value>")
+                .generateGenLockId("<id>")
                 .build();
 
         GithubStorePublishingSecretsResponse res = sdk.github().githubStorePublishingSecrets()
@@ -483,7 +483,7 @@ public class Application {
             .build();
 
         GithubTriggerActionRequest req = GithubTriggerActionRequest.builder()
-                .genLockId("<value>")
+                .genLockId("<id>")
                 .org("<value>")
                 .repoName("<value>")
                 .build();

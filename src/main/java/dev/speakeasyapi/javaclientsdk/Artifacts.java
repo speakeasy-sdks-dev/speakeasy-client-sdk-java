@@ -5,7 +5,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetBlobRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetBlobRequestBuilder;
@@ -30,6 +29,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.PostTagsResponse;
 import dev.speakeasyapi.javaclientsdk.models.operations.PreflightRequestBuilder;
 import dev.speakeasyapi.javaclientsdk.models.operations.PreflightResponse;
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.models.shared.Manifest;
 import dev.speakeasyapi.javaclientsdk.models.shared.OASSummary;
 import dev.speakeasyapi.javaclientsdk.models.shared.PreflightRequest;

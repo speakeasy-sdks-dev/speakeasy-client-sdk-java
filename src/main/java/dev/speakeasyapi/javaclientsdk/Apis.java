@@ -5,7 +5,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequestBuilder;
@@ -27,6 +26,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiRequestBuilder;
 import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Api;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.models.shared.GenerateOpenApiSpecDiff;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;

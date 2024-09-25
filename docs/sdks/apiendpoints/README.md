@@ -42,9 +42,9 @@ public class Application {
             .build();
 
         DeleteApiEndpointRequest req = DeleteApiEndpointRequest.builder()
-                .apiEndpointID("<value>")
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiEndpointID("<id>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         DeleteApiEndpointResponse res = sdk.apiEndpoints().deleteApiEndpoint()
@@ -100,9 +100,9 @@ public class Application {
             .build();
 
         FindApiEndpointRequest req = FindApiEndpointRequest.builder()
-                .apiID("<value>")
+                .apiID("<id>")
                 .displayName("Don_Kihn39")
-                .versionID("<value>")
+                .versionID("<id>")
                 .build();
 
         FindApiEndpointResponse res = sdk.apiEndpoints().findApiEndpoint()
@@ -160,9 +160,9 @@ public class Application {
             .build();
 
         GenerateOpenApiSpecForApiEndpointRequest req = GenerateOpenApiSpecForApiEndpointRequest.builder()
-                .apiEndpointID("<value>")
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiEndpointID("<id>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GenerateOpenApiSpecForApiEndpointResponse res = sdk.apiEndpoints().generateOpenApiSpecForApiEndpoint()
@@ -219,9 +219,9 @@ public class Application {
             .build();
 
         GeneratePostmanCollectionForApiEndpointRequest req = GeneratePostmanCollectionForApiEndpointRequest.builder()
-                .apiEndpointID("<value>")
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiEndpointID("<id>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GeneratePostmanCollectionForApiEndpointResponse res = sdk.apiEndpoints().generatePostmanCollectionForApiEndpoint()
@@ -278,7 +278,7 @@ public class Application {
             .build();
 
         GetAllApiEndpointsRequest req = GetAllApiEndpointsRequest.builder()
-                .apiID("<value>")
+                .apiID("<id>")
                 .build();
 
         GetAllApiEndpointsResponse res = sdk.apiEndpoints().getAllApiEndpoints()
@@ -335,8 +335,8 @@ public class Application {
             .build();
 
         GetAllForVersionApiEndpointsRequest req = GetAllForVersionApiEndpointsRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GetAllForVersionApiEndpointsResponse res = sdk.apiEndpoints().getAllForVersionApiEndpoints()
@@ -393,9 +393,9 @@ public class Application {
             .build();
 
         GetApiEndpointRequest req = GetApiEndpointRequest.builder()
-                .apiEndpointID("<value>")
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiEndpointID("<id>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GetApiEndpointResponse res = sdk.apiEndpoints().getApiEndpoint()
@@ -454,16 +454,16 @@ public class Application {
 
         UpsertApiEndpointRequest req = UpsertApiEndpointRequest.builder()
                 .apiEndpoint(ApiEndpointInput.builder()
-                    .apiEndpointId("<value>")
-                    .description("Public-key background productivity")
-                    .displayName("Jailyn_Turner")
+                    .apiEndpointId("<id>")
+                    .description("commandeer equate pish psst hoot ugh frankly supposing")
+                    .displayName("Eliseo.Little15")
                     .method("<value>")
-                    .path("/home/user")
-                    .versionId("<value>")
+                    .path("/etc/defaults")
+                    .versionId("<id>")
                     .build())
-                .apiEndpointID("<value>")
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiEndpointID("<id>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         UpsertApiEndpointResponse res = sdk.apiEndpoints().upsertApiEndpoint()

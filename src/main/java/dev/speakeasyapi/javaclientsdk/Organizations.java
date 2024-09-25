@@ -5,7 +5,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.CreateFreeTrialRequestBuilder;
 import dev.speakeasyapi.javaclientsdk.models.operations.CreateFreeTrialResponse;
@@ -17,6 +16,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationUsageResp
 import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationsRequestBuilder;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationsResponse;
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.models.shared.Organization;
 import dev.speakeasyapi.javaclientsdk.models.shared.OrganizationUsageResponse;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;

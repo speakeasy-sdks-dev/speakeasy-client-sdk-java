@@ -42,9 +42,9 @@ public class Application {
             .build();
 
         DeleteSchemaRequest req = DeleteSchemaRequest.builder()
-                .apiID("<value>")
-                .revisionID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .revisionID("<id>")
+                .versionID("<id>")
                 .build();
 
         DeleteSchemaResponse res = sdk.schemas().deleteSchema()
@@ -99,8 +99,8 @@ public class Application {
             .build();
 
         DownloadSchemaRequest req = DownloadSchemaRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         DownloadSchemaResponse res = sdk.schemas().downloadSchema()
@@ -157,9 +157,9 @@ public class Application {
             .build();
 
         DownloadSchemaRevisionRequest req = DownloadSchemaRevisionRequest.builder()
-                .apiID("<value>")
-                .revisionID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .revisionID("<id>")
+                .versionID("<id>")
                 .build();
 
         DownloadSchemaRevisionResponse res = sdk.schemas().downloadSchemaRevision()
@@ -217,8 +217,8 @@ public class Application {
             .build();
 
         GetSchemaRequest req = GetSchemaRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GetSchemaResponse res = sdk.schemas().getSchema()
@@ -275,10 +275,10 @@ public class Application {
             .build();
 
         GetSchemaDiffRequest req = GetSchemaDiffRequest.builder()
-                .apiID("<value>")
-                .baseRevisionID("<value>")
-                .targetRevisionID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .baseRevisionID("<id>")
+                .targetRevisionID("<id>")
+                .versionID("<id>")
                 .build();
 
         GetSchemaDiffResponse res = sdk.schemas().getSchemaDiff()
@@ -336,9 +336,9 @@ public class Application {
             .build();
 
         GetSchemaRevisionRequest req = GetSchemaRevisionRequest.builder()
-                .apiID("<value>")
-                .revisionID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .revisionID("<id>")
+                .versionID("<id>")
                 .build();
 
         GetSchemaRevisionResponse res = sdk.schemas().getSchemaRevision()
@@ -396,8 +396,8 @@ public class Application {
             .build();
 
         GetSchemasRequest req = GetSchemasRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GetSchemasResponse res = sdk.schemas().getSchemas()
@@ -464,8 +464,8 @@ public class Application {
                         .fileName("example.file")
                         .build())
                     .build())
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         RegisterSchemaResponse res = sdk.schemas().registerSchema()

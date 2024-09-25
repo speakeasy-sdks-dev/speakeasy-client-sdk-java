@@ -176,6 +176,8 @@ generatedFiles:
   - docs/models/shared/Annotations.md
   - docs/models/shared/Api.md
   - docs/models/shared/ApiEndpoint.md
+  - docs/models/shared/ApiEndpointInput.md
+  - docs/models/shared/ApiInput.md
   - docs/models/shared/ApiKeyDetails.md
   - docs/models/shared/Auth.md
   - docs/models/shared/BoundedRequest.md
@@ -184,6 +186,7 @@ generatedFiles:
   - docs/models/shared/Diagnostic.md
   - docs/models/shared/EmbedAccessTokenResponse.md
   - docs/models/shared/EmbedToken.md
+  - docs/models/shared/Error.md
   - docs/models/shared/FeatureFlag.md
   - docs/models/shared/Filter.md
   - docs/models/shared/Filters.md
@@ -234,6 +237,7 @@ generatedFiles:
   - docs/models/shared/V2Descriptor.md
   - docs/models/shared/ValueChange.md
   - docs/models/shared/VersionMetadata.md
+  - docs/models/shared/VersionMetadataInput.md
   - docs/models/shared/WorkflowDocument.md
   - docs/models/shared/Workspace.md
   - docs/models/shared/WorkspaceFeatureFlagResponse.md
@@ -503,6 +507,7 @@ generatedFiles:
   - src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/Diagnostic.java
   - src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/EmbedAccessTokenResponse.java
   - src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/EmbedToken.java
+  - src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/Error.java
   - src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/FeatureFlag.java
   - src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/Filter.java
   - src/main/java/dev/speakeasyapi/javaclientsdk/models/shared/Filters.java

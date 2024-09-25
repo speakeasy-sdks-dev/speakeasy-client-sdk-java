@@ -5,7 +5,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.CheckAccessRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.CheckAccessRequestBuilder;
@@ -30,6 +29,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.GithubStorePublishingSec
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.models.operations.TriggerActionRequestBuilder;
 import dev.speakeasyapi.javaclientsdk.models.operations.TriggerActionResponse;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureCodeSamplesResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest;

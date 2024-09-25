@@ -39,7 +39,7 @@ public class Application {
             .build();
 
         GetWorkspaceEventsByTargetRequest req = GetWorkspaceEventsByTargetRequest.builder()
-                .targetID("<value>")
+                .targetID("<id>")
                 .build();
 
         GetWorkspaceEventsByTargetResponse res = sdk.events().getWorkspaceEventsByTarget()
@@ -163,14 +163,14 @@ public class Application {
                 .requestBody(List.of(
                     CliEvent.builder()
                         .createdAt(OffsetDateTime.parse("2024-11-21T06:58:41.592Z"))
-                        .executionId("<value>")
+                        .executionId("<id>")
                         .id("<id>")
                         .interactionType(InteractionType.RUN)
                         .localStartedAt(OffsetDateTime.parse("2023-02-23T15:36:59.809Z"))
                         .speakeasyApiKeyName("<value>")
                         .speakeasyVersion("<value>")
                         .success(false)
-                        .workspaceId("<value>")
+                        .workspaceId("<id>")
                         .build()))
                 .build();
 

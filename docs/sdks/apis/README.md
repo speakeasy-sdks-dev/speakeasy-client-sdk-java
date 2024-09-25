@@ -40,8 +40,8 @@ public class Application {
             .build();
 
         DeleteApiRequest req = DeleteApiRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         DeleteApiResponse res = sdk.apis().deleteApi()
@@ -97,8 +97,8 @@ public class Application {
             .build();
 
         GenerateOpenApiSpecRequest req = GenerateOpenApiSpecRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GenerateOpenApiSpecResponse res = sdk.apis().generateOpenApiSpec()
@@ -155,8 +155,8 @@ public class Application {
             .build();
 
         GeneratePostmanCollectionRequest req = GeneratePostmanCollectionRequest.builder()
-                .apiID("<value>")
-                .versionID("<value>")
+                .apiID("<id>")
+                .versionID("<id>")
                 .build();
 
         GeneratePostmanCollectionResponse res = sdk.apis().generatePostmanCollection()
@@ -214,7 +214,7 @@ public class Application {
             .build();
 
         GetAllApiVersionsRequest req = GetAllApiVersionsRequest.builder()
-                .apiID("<value>")
+                .apiID("<id>")
                 .build();
 
         GetAllApiVersionsResponse res = sdk.apis().getAllApiVersions()
@@ -331,11 +331,11 @@ public class Application {
 
         UpsertApiRequest req = UpsertApiRequest.builder()
                 .api(ApiInput.builder()
-                    .apiId("<value>")
-                    .description("Synchronised leading edge utilisation")
-                    .versionId("<value>")
+                    .apiId("<id>")
+                    .description("consequently brr happily yowza however gosh investigate joyfully direct")
+                    .versionId("<id>")
                     .build())
-                .apiID("<value>")
+                .apiID("<id>")
                 .build();
 
         UpsertApiResponse res = sdk.apis().upsertApi()

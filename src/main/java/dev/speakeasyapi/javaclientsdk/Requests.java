@@ -5,7 +5,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequestBuilder;
@@ -18,6 +17,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequestBuil
 import dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse;
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.BoundedRequest;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.models.shared.UnboundedRequest;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;

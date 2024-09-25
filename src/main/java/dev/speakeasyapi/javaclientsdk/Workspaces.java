@@ -5,7 +5,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceFeatureFlagsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceFeatureFlagsRequestBuilder;
@@ -14,6 +13,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceRequestBuilder;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceResponse;
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.models.shared.Workspace;
 import dev.speakeasyapi.javaclientsdk.models.shared.WorkspaceFeatureFlagResponse;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
@@ -283,9 +283,9 @@ public class Workspaces implements
         }
         if (Utils.statusCodeMatches(_httpRes.statusCode(), "5XX")) {
             if (Utils.contentTypeMatches(_contentType, "application/json")) {
-                Error _out = Utils.mapper().readValue(
+                dev.speakeasyapi.javaclientsdk.models.errors.Error _out = Utils.mapper().readValue(
                     Utils.toUtf8AndClose(_httpRes.body()),
-                    new TypeReference<Error>() {});
+                    new TypeReference<dev.speakeasyapi.javaclientsdk.models.errors.Error>() {});
                 throw _out;
             } else {
                 throw new SDKError(

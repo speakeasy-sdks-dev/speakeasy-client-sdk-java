@@ -55,7 +55,7 @@ public class Application {
                             .build()))
                     .oasSummary(OASSummary.builder()
                         .info(OASInfo.builder()
-                            .description("Programmable fault-tolerant hierarchy")
+                            .description("kielbasa psst stitcher cannon devoted blindly apropos low")
                             .license(License.builder()
                                 .build())
                             .summary("<value>")
@@ -64,17 +64,17 @@ public class Application {
                             .build())
                         .operations(List.of(
                             OASOperation.builder()
-                                .description("De-engineered system-worthy task-force")
+                                .description("via apparatus gray whether opposite what")
                                 .method("<value>")
-                                .operationId("<value>")
-                                .path("/sbin")
+                                .operationId("<id>")
+                                .path("/sys")
                                 .tags(List.of(
                                     "<value>"))
                                 .build()))
                         .build())
                     .suggestionType(SuggestRequestBodySuggestionType.METHOD_NAMES)
                     .build())
-                .xSessionId("<value>")
+                .xSessionId("<id>")
                 .build();
 
         SuggestResponse res = sdk.suggest().suggest()
@@ -140,7 +140,7 @@ public class Application {
                         .fileName("example.file")
                         .build())
                     .build())
-                .xSessionId("<value>")
+                .xSessionId("<id>")
                 .build();
 
         SuggestOpenAPIResponse res = sdk.suggest().suggestOpenAPI()
@@ -199,7 +199,7 @@ public class Application {
         SuggestOpenAPIRegistryRequest req = SuggestOpenAPIRegistryRequest.builder()
                 .namespaceName("<value>")
                 .revisionReference("<value>")
-                .xSessionId("<value>")
+                .xSessionId("<id>")
                 .build();
 
         SuggestOpenAPIRegistryResponse res = sdk.suggest().suggestOpenAPIRegistry()

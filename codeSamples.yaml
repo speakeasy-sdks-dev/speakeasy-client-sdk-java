@@ -64,7 +64,7 @@ actions:
                         .build();
 
                     GetAllApiVersionsRequest req = GetAllApiVersionsRequest.builder()
-                            .apiID("<value>")
+                            .apiID("<id>")
                             .build();
 
                     GetAllApiVersionsResponse res = sdk.apis().getAllApiVersions()
@@ -102,11 +102,11 @@ actions:
                         .build();
 
                     UpsertApiRequest req = UpsertApiRequest.builder()
-                            .apiID("<value>")
+                            .apiID("<id>")
                             .api(ApiInput.builder()
-                                .apiId("<value>")
-                                .description("Synchronised leading edge utilisation")
-                                .versionId("<value>")
+                                .apiId("<id>")
+                                .description("consequently brr happily yowza however gosh investigate joyfully direct")
+                                .versionId("<id>")
                                 .build())
                             .build();
 
@@ -144,7 +144,7 @@ actions:
                         .build();
 
                     GetAllApiEndpointsRequest req = GetAllApiEndpointsRequest.builder()
-                            .apiID("<value>")
+                            .apiID("<id>")
                             .build();
 
                     GetAllApiEndpointsResponse res = sdk.apiEndpoints().getAllApiEndpoints()
@@ -181,8 +181,8 @@ actions:
                         .build();
 
                     DeleteApiRequest req = DeleteApiRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     DeleteApiResponse res = sdk.apis().deleteApi()
@@ -217,8 +217,8 @@ actions:
                         .build();
 
                     GetAllForVersionApiEndpointsRequest req = GetAllForVersionApiEndpointsRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     GetAllForVersionApiEndpointsResponse res = sdk.apiEndpoints().getAllForVersionApiEndpoints()
@@ -255,8 +255,8 @@ actions:
                         .build();
 
                     FindApiEndpointRequest req = FindApiEndpointRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .displayName("Don_Kihn39")
                             .build();
 
@@ -294,9 +294,9 @@ actions:
                         .build();
 
                     DeleteApiEndpointRequest req = DeleteApiEndpointRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .apiEndpointID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .apiEndpointID("<id>")
                             .build();
 
                     DeleteApiEndpointResponse res = sdk.apiEndpoints().deleteApiEndpoint()
@@ -331,9 +331,9 @@ actions:
                         .build();
 
                     GetApiEndpointRequest req = GetApiEndpointRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .apiEndpointID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .apiEndpointID("<id>")
                             .build();
 
                     GetApiEndpointResponse res = sdk.apiEndpoints().getApiEndpoint()
@@ -371,16 +371,16 @@ actions:
                         .build();
 
                     UpsertApiEndpointRequest req = UpsertApiEndpointRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .apiEndpointID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .apiEndpointID("<id>")
                             .apiEndpoint(ApiEndpointInput.builder()
-                                .apiEndpointId("<value>")
-                                .description("Public-key background productivity")
-                                .displayName("Jailyn_Turner")
+                                .apiEndpointId("<id>")
+                                .description("commandeer equate pish psst hoot ugh frankly supposing")
+                                .displayName("Eliseo.Little15")
                                 .method("<value>")
-                                .path("/home/user")
-                                .versionId("<value>")
+                                .path("/etc/defaults")
+                                .versionId("<id>")
                                 .build())
                             .build();
 
@@ -418,9 +418,9 @@ actions:
                         .build();
 
                     GenerateOpenApiSpecForApiEndpointRequest req = GenerateOpenApiSpecForApiEndpointRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .apiEndpointID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .apiEndpointID("<id>")
                             .build();
 
                     GenerateOpenApiSpecForApiEndpointResponse res = sdk.apiEndpoints().generateOpenApiSpecForApiEndpoint()
@@ -457,9 +457,9 @@ actions:
                         .build();
 
                     GeneratePostmanCollectionForApiEndpointRequest req = GeneratePostmanCollectionForApiEndpointRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .apiEndpointID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .apiEndpointID("<id>")
                             .build();
 
                     GeneratePostmanCollectionForApiEndpointResponse res = sdk.apiEndpoints().generatePostmanCollectionForApiEndpoint()
@@ -496,8 +496,8 @@ actions:
                         .build();
 
                     GenerateOpenApiSpecRequest req = GenerateOpenApiSpecRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     GenerateOpenApiSpecResponse res = sdk.apis().generateOpenApiSpec()
@@ -534,8 +534,8 @@ actions:
                         .build();
 
                     GeneratePostmanCollectionRequest req = GeneratePostmanCollectionRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     GeneratePostmanCollectionResponse res = sdk.apis().generatePostmanCollection()
@@ -572,8 +572,8 @@ actions:
                         .build();
 
                     GetVersionMetadataRequest req = GetVersionMetadataRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     GetVersionMetadataResponse res = sdk.metadata().getVersionMetadata()
@@ -611,8 +611,8 @@ actions:
                         .build();
 
                     InsertVersionMetadataRequest req = InsertVersionMetadataRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .versionMetadata(VersionMetadataInput.builder()
                                 .metaKey("<value>")
                                 .metaValue("<value>")
@@ -653,8 +653,8 @@ actions:
                         .build();
 
                     DeleteVersionMetadataRequest req = DeleteVersionMetadataRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .metaKey("<value>")
                             .metaValue("<value>")
                             .build();
@@ -691,8 +691,8 @@ actions:
                         .build();
 
                     GetSchemaRequest req = GetSchemaRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     GetSchemaResponse res = sdk.schemas().getSchema()
@@ -732,8 +732,8 @@ actions:
                         .build();
 
                     RegisterSchemaRequest req = RegisterSchemaRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .requestBody(RegisterSchemaRequestBody.builder()
                                 .file(File.builder()
                                     .fileName("example.file")
@@ -774,8 +774,8 @@ actions:
                         .build();
 
                     DownloadSchemaRequest req = DownloadSchemaRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     DownloadSchemaResponse res = sdk.schemas().downloadSchema()
@@ -812,10 +812,10 @@ actions:
                         .build();
 
                     GetSchemaDiffRequest req = GetSchemaDiffRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .baseRevisionID("<value>")
-                            .targetRevisionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .baseRevisionID("<id>")
+                            .targetRevisionID("<id>")
                             .build();
 
                     GetSchemaDiffResponse res = sdk.schemas().getSchemaDiff()
@@ -852,9 +852,9 @@ actions:
                         .build();
 
                     DeleteSchemaRequest req = DeleteSchemaRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .revisionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .revisionID("<id>")
                             .build();
 
                     DeleteSchemaResponse res = sdk.schemas().deleteSchema()
@@ -889,9 +889,9 @@ actions:
                         .build();
 
                     GetSchemaRevisionRequest req = GetSchemaRevisionRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .revisionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .revisionID("<id>")
                             .build();
 
                     GetSchemaRevisionResponse res = sdk.schemas().getSchemaRevision()
@@ -928,9 +928,9 @@ actions:
                         .build();
 
                     DownloadSchemaRevisionRequest req = DownloadSchemaRevisionRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
-                            .revisionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
+                            .revisionID("<id>")
                             .build();
 
                     DownloadSchemaRevisionResponse res = sdk.schemas().downloadSchemaRevision()
@@ -967,8 +967,8 @@ actions:
                         .build();
 
                     GetSchemasRequest req = GetSchemasRequest.builder()
-                            .apiID("<value>")
-                            .versionID("<value>")
+                            .apiID("<id>")
+                            .versionID("<id>")
                             .build();
 
                     GetSchemasResponse res = sdk.schemas().getSchemas()
@@ -1216,7 +1216,7 @@ actions:
                         .build();
 
                     GetAccessTokenRequest req = GetAccessTokenRequest.builder()
-                            .workspaceId("<value>")
+                            .workspaceId("<id>")
                             .build();
 
                     GetAccessTokenResponse res = sdk.auth().getAccessToken()
@@ -1320,7 +1320,7 @@ actions:
                         .build();
 
                     GetRequestFromEventLogRequest req = GetRequestFromEventLogRequest.builder()
-                            .requestID("<value>")
+                            .requestID("<id>")
                             .build();
 
                     GetRequestFromEventLogResponse res = sdk.requests().getRequestFromEventLog()
@@ -1357,7 +1357,7 @@ actions:
                         .build();
 
                     GenerateRequestPostmanCollectionRequest req = GenerateRequestPostmanCollectionRequest.builder()
-                            .requestID("<value>")
+                            .requestID("<id>")
                             .build();
 
                     GenerateRequestPostmanCollectionResponse res = sdk.requests().generateRequestPostmanCollection()
@@ -1583,7 +1583,7 @@ actions:
                         .build();
 
                     FetchPublishingPRsRequest req = FetchPublishingPRsRequest.builder()
-                            .generateGenLockId("<value>")
+                            .generateGenLockId("<id>")
                             .org("<value>")
                             .repo("<value>")
                             .build();
@@ -1622,7 +1622,7 @@ actions:
                         .build();
 
                     GithubCheckPublishingSecretsRequest req = GithubCheckPublishingSecretsRequest.builder()
-                            .generateGenLockId("<value>")
+                            .generateGenLockId("<id>")
                             .build();
 
                     GithubCheckPublishingSecretsResponse res = sdk.github().githubCheckPublishingSecrets()
@@ -1659,7 +1659,7 @@ actions:
                         .build();
 
                     GithubStorePublishingSecretsRequest req = GithubStorePublishingSecretsRequest.builder()
-                            .generateGenLockId("<value>")
+                            .generateGenLockId("<id>")
                             .build();
 
                     GithubStorePublishingSecretsResponse res = sdk.github().githubStorePublishingSecrets()
@@ -1696,7 +1696,7 @@ actions:
                     GithubTriggerActionRequest req = GithubTriggerActionRequest.builder()
                             .org("<value>")
                             .repoName("<value>")
-                            .genLockId("<value>")
+                            .genLockId("<id>")
                             .build();
 
                     TriggerActionResponse res = sdk.github().triggerAction()
@@ -1902,7 +1902,7 @@ actions:
                         .build();
 
                     GetOrganizationRequest req = GetOrganizationRequest.builder()
-                            .organizationID("<value>")
+                            .organizationID("<id>")
                             .build();
 
                     GetOrganizationResponse res = sdk.organizations().getOrganization()
@@ -2098,7 +2098,7 @@ actions:
                         .build();
 
                     SuggestOpenAPIRequest req = SuggestOpenAPIRequest.builder()
-                            .xSessionId("<value>")
+                            .xSessionId("<id>")
                             .requestBody(SuggestOpenAPIRequestBody.builder()
                                 .schema(Schema.builder()
                                     .fileName("example.file")
@@ -2143,7 +2143,7 @@ actions:
                     SuggestOpenAPIRegistryRequest req = SuggestOpenAPIRegistryRequest.builder()
                             .namespaceName("<value>")
                             .revisionReference("<value>")
-                            .xSessionId("<value>")
+                            .xSessionId("<id>")
                             .build();
 
                     SuggestOpenAPIRegistryResponse res = sdk.suggest().suggestOpenAPIRegistry()
@@ -2188,13 +2188,13 @@ actions:
                         .build();
 
                     SuggestRequest req = SuggestRequest.builder()
-                            .xSessionId("<value>")
+                            .xSessionId("<id>")
                             .suggestRequestBody(SuggestRequestBody.builder()
                                 .oasSummary(OASSummary.builder()
                                     .info(OASInfo.builder()
                                         .title("<value>")
                                         .summary("<value>")
-                                        .description("Operative multi-tasking framework")
+                                        .description("ugh which garrote ashamed sarong fiddle really")
                                         .version("<value>")
                                         .license(License.builder()
                                             .build())
@@ -2202,19 +2202,19 @@ actions:
                                     .operations(List.of(
                                         OASOperation.builder()
                                             .method("<value>")
-                                            .path("/opt/share")
-                                            .operationId("<value>")
-                                            .description("De-engineered system-worthy task-force")
+                                            .path("/etc/ppp")
+                                            .operationId("<id>")
+                                            .description("meanwhile via apparatus gray whether opposite what down blah")
                                             .tags(List.of(
                                                 "<value>"))
                                             .build()))
                                     .build())
-                                .suggestionType(SuggestRequestBodySuggestionType.DIAGNOSTICS_ONLY)
+                                .suggestionType(SuggestRequestBodySuggestionType.METHOD_NAMES)
                                 .diagnostics(List.of(
                                     Diagnostic.builder()
                                         .message("<value>")
                                         .path(List.of(
-                                            "/private/var"))
+                                            "/etc/mail"))
                                         .type("<value>")
                                         .build()))
                                 .build())
@@ -2388,7 +2388,7 @@ actions:
                         .build();
 
                     RevokeEmbedAccessTokenRequest req = RevokeEmbedAccessTokenRequest.builder()
-                            .tokenID("<value>")
+                            .tokenID("<id>")
                             .build();
 
                     RevokeEmbedAccessTokenResponse res = sdk.embeds().revokeEmbedAccessToken()
@@ -2504,8 +2504,8 @@ actions:
                             .requestBody(List.of(
                                 CliEvent.builder()
                                     .id("<id>")
-                                    .executionId("<value>")
-                                    .workspaceId("<value>")
+                                    .executionId("<id>")
+                                    .workspaceId("<id>")
                                     .speakeasyApiKeyName("<value>")
                                     .interactionType(InteractionType.PUBLISH)
                                     .localStartedAt(OffsetDateTime.parse("2024-05-07T12:35:47.500Z"))
@@ -2585,7 +2585,7 @@ actions:
                         .build();
 
                     GetWorkspaceEventsByTargetRequest req = GetWorkspaceEventsByTargetRequest.builder()
-                            .targetID("<value>")
+                            .targetID("<id>")
                             .build();
 
                     GetWorkspaceEventsByTargetResponse res = sdk.events().getWorkspaceEventsByTarget()

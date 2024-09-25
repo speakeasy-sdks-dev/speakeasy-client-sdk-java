@@ -5,7 +5,6 @@
 package dev.speakeasyapi.javaclientsdk;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetEmbedAccessTokenRequestBuilder;
@@ -18,6 +17,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.RevokeEmbedAccessTokenRe
 import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.models.shared.EmbedAccessTokenResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.EmbedToken;
+import dev.speakeasyapi.javaclientsdk.models.shared.Error;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPRequest;
 import dev.speakeasyapi.javaclientsdk.utils.Hook.AfterErrorContextImpl;
