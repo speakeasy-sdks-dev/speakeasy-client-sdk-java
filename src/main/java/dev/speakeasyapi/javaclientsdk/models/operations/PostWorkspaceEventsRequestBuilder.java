@@ -19,19 +19,19 @@ public class PostWorkspaceEventsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public PostWorkspaceEventsRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.operations.PostWorkspaceEventsRequest request) {
+    public PostWorkspaceEventsRequestBuilder request(PostWorkspaceEventsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;
     }
                 
-    public PostWorkspaceEventsRequestBuilder retryConfig(dev.speakeasyapi.javaclientsdk.utils.RetryConfig retryConfig) {
+    public PostWorkspaceEventsRequestBuilder retryConfig(RetryConfig retryConfig) {
         Utils.checkNotNull(retryConfig, "retryConfig");
         this.retryConfig = Optional.of(retryConfig);
         return this;
     }
 
-    public PostWorkspaceEventsRequestBuilder retryConfig(java.util.Optional<dev.speakeasyapi.javaclientsdk.utils.RetryConfig> retryConfig) {
+    public PostWorkspaceEventsRequestBuilder retryConfig(Optional<RetryConfig> retryConfig) {
         Utils.checkNotNull(retryConfig, "retryConfig");
         this.retryConfig = retryConfig;
         return this;

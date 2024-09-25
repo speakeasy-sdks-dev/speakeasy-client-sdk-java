@@ -18,7 +18,6 @@ Get information about a particular workspace.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -27,31 +26,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetWorkspaceRequest req = GetWorkspaceRequest.builder()
                 .build();
 
-            GetWorkspaceRequest req = GetWorkspaceRequest.builder()
-                .build();
-
-            GetWorkspaceResponse res = sdk.workspaces().getWorkspace()
+        GetWorkspaceResponse res = sdk.workspaces().getWorkspace()
                 .request(req)
                 .call();
 
-            if (res.workspace().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.workspace().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -83,7 +74,7 @@ Get workspace feature flags
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceFeatureFlagsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceFeatureFlagsResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -91,35 +82,24 @@ import java.lang.Exception;
 
 public class Application {
 
-    public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+    public static void main(String[] args) throws Error, Exception {
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetWorkspaceFeatureFlagsRequest req = GetWorkspaceFeatureFlagsRequest.builder()
                 .build();
 
-            GetWorkspaceFeatureFlagsRequest req = GetWorkspaceFeatureFlagsRequest.builder()
-                .build();
-
-            GetWorkspaceFeatureFlagsResponse res = sdk.workspaces().getWorkspaceFeatureFlags()
+        GetWorkspaceFeatureFlagsResponse res = sdk.workspaces().getWorkspaceFeatureFlags()
                 .request(req)
                 .call();
 
-            if (res.workspaceFeatureFlagResponse().isPresent()) {
-                // handle response
-            }
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.Error e) {
-            // handle exception
-            throw e;
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.workspaceFeatureFlagResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

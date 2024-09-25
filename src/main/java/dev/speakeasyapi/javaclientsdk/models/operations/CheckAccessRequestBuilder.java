@@ -15,7 +15,7 @@ public class CheckAccessRequestBuilder {
         this.sdk = sdk;
     }
 
-    public CheckAccessRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.operations.CheckAccessRequest request) {
+    public CheckAccessRequestBuilder request(CheckAccessRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

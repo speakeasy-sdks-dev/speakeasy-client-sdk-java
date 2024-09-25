@@ -23,7 +23,6 @@
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.CheckAccessRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.CheckAccessResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -32,31 +31,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            CheckAccessRequest req = CheckAccessRequest.builder()
+        CheckAccessRequest req = CheckAccessRequest.builder()
                 .org("<value>")
                 .repo("<value>")
                 .build();
 
-            CheckAccessResponse res = sdk.github().checkAccess()
+        CheckAccessResponse res = sdk.github().checkAccess()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -86,7 +77,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.ConfigureCodeSamplesResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -95,34 +85,26 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GithubConfigureCodeSamplesRequest req = GithubConfigureCodeSamplesRequest.builder()
+        GithubConfigureCodeSamplesRequest req = GithubConfigureCodeSamplesRequest.builder()
                 .org("<value>")
                 .repo("<value>")
                 .targetName("<value>")
                 .build();
 
-            ConfigureCodeSamplesResponse res = sdk.github().configureCodeSamples()
+        ConfigureCodeSamplesResponse res = sdk.github().configureCodeSamples()
                 .request(req)
                 .call();
 
-            if (res.githubConfigureCodeSamplesResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.githubConfigureCodeSamplesResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -152,7 +134,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.ConfigureMintlifyRepoResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -162,14 +143,14 @@ import java.util.List;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GithubConfigureMintlifyRepoRequest req = GithubConfigureMintlifyRepoRequest.builder()
+        GithubConfigureMintlifyRepoRequest req = GithubConfigureMintlifyRepoRequest.builder()
                 .input("<value>")
                 .org("<value>")
                 .overlays(List.of(
@@ -177,19 +158,11 @@ public class Application {
                 .repo("<value>")
                 .build();
 
-            ConfigureMintlifyRepoResponse res = sdk.github().configureMintlifyRepo()
+        ConfigureMintlifyRepoResponse res = sdk.github().configureMintlifyRepo()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -219,7 +192,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.ConfigureTargetResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureTargetRequest;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -228,31 +200,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GithubConfigureTargetRequest req = GithubConfigureTargetRequest.builder()
+        GithubConfigureTargetRequest req = GithubConfigureTargetRequest.builder()
                 .org("<value>")
                 .repoName("<value>")
                 .build();
 
-            ConfigureTargetResponse res = sdk.github().configureTarget()
+        ConfigureTargetResponse res = sdk.github().configureTarget()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -282,7 +246,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.FetchPublishingPRsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.FetchPublishingPRsResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -291,34 +254,26 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            FetchPublishingPRsRequest req = FetchPublishingPRsRequest.builder()
+        FetchPublishingPRsRequest req = FetchPublishingPRsRequest.builder()
                 .generateGenLockId("<value>")
                 .org("<value>")
                 .repo("<value>")
                 .build();
 
-            FetchPublishingPRsResponse res = sdk.github().fetchPublishingPRs()
+        FetchPublishingPRsResponse res = sdk.github().fetchPublishingPRs()
                 .request(req)
                 .call();
 
-            if (res.githubPublishingPRResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.githubPublishingPRResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -348,7 +303,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetActionRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetActionResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -357,33 +311,25 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GetActionRequest req = GetActionRequest.builder()
+        GetActionRequest req = GetActionRequest.builder()
                 .org("<value>")
                 .repo("<value>")
                 .build();
 
-            GetActionResponse res = sdk.github().getAction()
+        GetActionResponse res = sdk.github().getAction()
                 .request(req)
                 .call();
 
-            if (res.githubGetActionResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.githubGetActionResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -413,7 +359,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GithubCheckPublishingSecretsResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -422,32 +367,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GithubCheckPublishingSecretsRequest req = GithubCheckPublishingSecretsRequest.builder()
+        GithubCheckPublishingSecretsRequest req = GithubCheckPublishingSecretsRequest.builder()
                 .generateGenLockId("<value>")
                 .build();
 
-            GithubCheckPublishingSecretsResponse res = sdk.github().githubCheckPublishingSecrets()
+        GithubCheckPublishingSecretsResponse res = sdk.github().githubCheckPublishingSecrets()
                 .request(req)
                 .call();
 
-            if (res.githubMissingPublishingSecretsResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.githubMissingPublishingSecretsResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -477,7 +414,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GithubStorePublishingSecretsResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubStorePublishingSecretsRequest;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -486,30 +422,22 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GithubStorePublishingSecretsRequest req = GithubStorePublishingSecretsRequest.builder()
+        GithubStorePublishingSecretsRequest req = GithubStorePublishingSecretsRequest.builder()
                 .generateGenLockId("<value>")
                 .build();
 
-            GithubStorePublishingSecretsResponse res = sdk.github().githubStorePublishingSecrets()
+        GithubStorePublishingSecretsResponse res = sdk.github().githubStorePublishingSecrets()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -539,7 +467,6 @@ public class Application {
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.TriggerActionResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.GithubTriggerActionRequest;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -548,32 +475,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GithubTriggerActionRequest req = GithubTriggerActionRequest.builder()
+        GithubTriggerActionRequest req = GithubTriggerActionRequest.builder()
                 .genLockId("<value>")
                 .org("<value>")
                 .repoName("<value>")
                 .build();
 
-            TriggerActionResponse res = sdk.github().triggerAction()
+        TriggerActionResponse res = sdk.github().triggerAction()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```

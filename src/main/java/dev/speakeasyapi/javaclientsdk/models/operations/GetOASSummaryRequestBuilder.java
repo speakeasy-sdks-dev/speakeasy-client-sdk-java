@@ -15,7 +15,7 @@ public class GetOASSummaryRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetOASSummaryRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.operations.GetOASSummaryRequest request) {
+    public GetOASSummaryRequestBuilder request(GetOASSummaryRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

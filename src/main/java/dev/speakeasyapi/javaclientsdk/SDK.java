@@ -8,6 +8,7 @@ import dev.speakeasyapi.javaclientsdk.models.operations.SDKMethodInterfaces.*;
 import dev.speakeasyapi.javaclientsdk.utils.HTTPClient;
 import dev.speakeasyapi.javaclientsdk.utils.RetryConfig;
 import dev.speakeasyapi.javaclientsdk.utils.SpeakeasyHTTPClient;
+import dev.speakeasyapi.javaclientsdk.utils.Utils;
 import java.lang.String;
 import java.util.HashMap;
 import java.util.Map;
@@ -269,7 +270,7 @@ public class SDK {
          * @return The builder instance.
          */
         public Builder serverURL(String serverUrl, Map<String, String> params) {
-            this.sdkConfiguration.serverUrl = dev.speakeasyapi.javaclientsdk.utils.Utils.templateUrl(serverUrl, params);
+            this.sdkConfiguration.serverUrl = Utils.templateUrl(serverUrl, params);
             return this;
         }
         

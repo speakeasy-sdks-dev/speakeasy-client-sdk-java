@@ -16,7 +16,7 @@ public class TriggerActionRequestBuilder {
         this.sdk = sdk;
     }
 
-    public TriggerActionRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.shared.GithubTriggerActionRequest request) {
+    public TriggerActionRequestBuilder request(GithubTriggerActionRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

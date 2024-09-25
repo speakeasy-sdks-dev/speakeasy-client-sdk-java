@@ -1,4 +1,4 @@
-speakeasyVersion: 1.398.0
+speakeasyVersion: internal
 sources:
     first-source: {}
     my-source:
@@ -14,8 +14,6 @@ targets:
         sourceNamespace: my-source
         sourceRevisionDigest: sha256:4c9fe70264bc2b3f168bc76941a3039bca46c64afc0420e059a4727454e4834f
         sourceBlobDigest: sha256:33237bbe2d3634722cd7716eb6ec31d9791f75b4f39402f6f164ad4dd9629e9e
-        codeSamplesNamespace: code-samples-java-java-target
-        codeSamplesRevisionDigest: sha256:445c36af030aae9716f966e719692e987d34df328768e40e728bd967968135c1
     py:
         source: first-source
     ts:

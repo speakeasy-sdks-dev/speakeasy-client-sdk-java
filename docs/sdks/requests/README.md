@@ -22,7 +22,6 @@ Allowing it to be replayed with the same inputs that were captured by the SDK.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateRequestPostmanCollectionResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -31,32 +30,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GenerateRequestPostmanCollectionRequest req = GenerateRequestPostmanCollectionRequest.builder()
+        GenerateRequestPostmanCollectionRequest req = GenerateRequestPostmanCollectionRequest.builder()
                 .requestID("<value>")
                 .build();
 
-            GenerateRequestPostmanCollectionResponse res = sdk.requests().generateRequestPostmanCollection()
+        GenerateRequestPostmanCollectionResponse res = sdk.requests().generateRequestPostmanCollection()
                 .request(req)
                 .call();
 
-            if (res.postmanCollection().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.postmanCollection().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -88,7 +79,6 @@ Get information about a particular request.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetRequestFromEventLogResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -97,32 +87,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GetRequestFromEventLogRequest req = GetRequestFromEventLogRequest.builder()
+        GetRequestFromEventLogRequest req = GetRequestFromEventLogRequest.builder()
                 .requestID("<value>")
                 .build();
 
-            GetRequestFromEventLogResponse res = sdk.requests().getRequestFromEventLog()
+        GetRequestFromEventLogResponse res = sdk.requests().getRequestFromEventLog()
                 .request(req)
                 .call();
 
-            if (res.unboundedRequest().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.unboundedRequest().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -155,7 +137,6 @@ Allows the filtering of requests on a number of criteria such as ApiID, VersionI
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.QueryEventLogResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -164,31 +145,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        QueryEventLogRequest req = QueryEventLogRequest.builder()
                 .build();
 
-            QueryEventLogRequest req = QueryEventLogRequest.builder()
-                .build();
-
-            QueryEventLogResponse res = sdk.requests().queryEventLog()
+        QueryEventLogResponse res = sdk.requests().queryEventLog()
                 .request(req)
                 .call();
 
-            if (res.boundedRequests().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.boundedRequests().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

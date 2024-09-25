@@ -24,7 +24,6 @@ Delete a particular version of an Api. The will also delete all associated ApiEn
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -33,31 +32,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            DeleteApiRequest req = DeleteApiRequest.builder()
+        DeleteApiRequest req = DeleteApiRequest.builder()
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();
 
-            DeleteApiResponse res = sdk.apis().deleteApi()
+        DeleteApiResponse res = sdk.apis().deleteApi()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -90,7 +81,6 @@ Returns the original document and the newly generated document allowing a diff t
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GenerateOpenApiSpecResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -99,33 +89,25 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GenerateOpenApiSpecRequest req = GenerateOpenApiSpecRequest.builder()
+        GenerateOpenApiSpecRequest req = GenerateOpenApiSpecRequest.builder()
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();
 
-            GenerateOpenApiSpecResponse res = sdk.apis().generateOpenApiSpec()
+        GenerateOpenApiSpecResponse res = sdk.apis().generateOpenApiSpec()
                 .request(req)
                 .call();
 
-            if (res.generateOpenApiSpecDiff().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.generateOpenApiSpecDiff().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -157,7 +139,6 @@ Generates a postman collection containing all endpoints for a particular API. In
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GeneratePostmanCollectionResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -166,33 +147,25 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GeneratePostmanCollectionRequest req = GeneratePostmanCollectionRequest.builder()
+        GeneratePostmanCollectionRequest req = GeneratePostmanCollectionRequest.builder()
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();
 
-            GeneratePostmanCollectionResponse res = sdk.apis().generatePostmanCollection()
+        GeneratePostmanCollectionResponse res = sdk.apis().generatePostmanCollection()
                 .request(req)
                 .call();
 
-            if (res.postmanCollection().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.postmanCollection().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -225,7 +198,6 @@ Supports filtering the versions based on metadata attributes.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAllApiVersionsResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -234,32 +206,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GetAllApiVersionsRequest req = GetAllApiVersionsRequest.builder()
+        GetAllApiVersionsRequest req = GetAllApiVersionsRequest.builder()
                 .apiID("<value>")
                 .build();
 
-            GetAllApiVersionsResponse res = sdk.apis().getAllApiVersions()
+        GetAllApiVersionsResponse res = sdk.apis().getAllApiVersions()
                 .request(req)
                 .call();
 
-            if (res.apis().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.apis().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -292,7 +256,6 @@ Supports filtering the APIs based on metadata attributes.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -301,31 +264,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetApisRequest req = GetApisRequest.builder()
                 .build();
 
-            GetApisRequest req = GetApisRequest.builder()
-                .build();
-
-            GetApisResponse res = sdk.apis().getApis()
+        GetApisResponse res = sdk.apis().getApis()
                 .request(req)
                 .call();
 
-            if (res.apis().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.apis().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -358,7 +313,6 @@ If the Api exists, it will be updated.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.UpsertApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.ApiInput;
@@ -368,37 +322,29 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            UpsertApiRequest req = UpsertApiRequest.builder()
+        UpsertApiRequest req = UpsertApiRequest.builder()
                 .api(ApiInput.builder()
                     .apiId("<value>")
-                    .description("Synchronised 5th generation knowledge user")
+                    .description("Synchronised leading edge utilisation")
                     .versionId("<value>")
                     .build())
                 .apiID("<value>")
                 .build();
 
-            UpsertApiResponse res = sdk.apis().upsertApi()
+        UpsertApiResponse res = sdk.apis().upsertApi()
                 .request(req)
                 .call();
 
-            if (res.api().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.api().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

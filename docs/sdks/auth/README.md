@@ -22,7 +22,6 @@ Get or refresh an access token for the current workspace.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAccessTokenRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetAccessTokenResponse;
 import java.lang.Exception;
@@ -30,29 +29,21 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
-                .build();
 
-            GetAccessTokenRequest req = GetAccessTokenRequest.builder()
+        SDK sdk = SDK.builder()
+            .build();
+
+        GetAccessTokenRequest req = GetAccessTokenRequest.builder()
                 .workspaceId("<value>")
                 .build();
 
-            GetAccessTokenResponse res = sdk.auth().getAccessToken()
+        GetAccessTokenResponse res = sdk.auth().getAccessToken()
                 .request(req)
                 .call();
 
-            if (res.accessToken().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.accessToken().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -84,7 +75,6 @@ Get information about the current user.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetUserResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
@@ -92,27 +82,19 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GetUserResponse res = sdk.auth().getUser()
+        GetUserResponse res = sdk.auth().getUser()
                 .call();
 
-            if (res.user().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.user().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -138,7 +120,6 @@ Checks if generation is permitted for a particular run of the CLI
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -147,31 +128,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
                 .build();
 
-            GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
-                .build();
-
-            GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
+        GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
                 .request(req)
                 .call();
 
-            if (res.accessDetails().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.accessDetails().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -203,7 +176,6 @@ Validate the current api key.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.ValidateApiKeyResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
@@ -211,27 +183,19 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            ValidateApiKeyResponse res = sdk.auth().validateApiKey()
+        ValidateApiKeyResponse res = sdk.auth().validateApiKey()
                 .call();
 
-            if (res.apiKeyDetails().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.apiKeyDetails().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

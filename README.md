@@ -68,7 +68,6 @@ gradlew.bat publishToMavenLocal -Pskip.signing
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetApisResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -77,31 +76,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetApisRequest req = GetApisRequest.builder()
                 .build();
 
-            GetApisRequest req = GetApisRequest.builder()
-                .build();
-
-            GetApisResponse res = sdk.apis().getApis()
+        GetApisResponse res = sdk.apis().getApis()
                 .request(req)
                 .call();
 
-            if (res.apis().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.apis().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -250,7 +241,6 @@ You can override the default server globally by passing a server name to the `se
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -259,32 +249,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
-                .server(SDK.AvailableServers.PROD)
+
+        SDK sdk = SDK.builder()
+                .serverIndex(0)
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            DeleteApiRequest req = DeleteApiRequest.builder()
+        DeleteApiRequest req = DeleteApiRequest.builder()
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();
 
-            DeleteApiResponse res = sdk.apis().deleteApi()
+        DeleteApiResponse res = sdk.apis().deleteApi()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -297,7 +279,6 @@ The default server can also be overridden globally by passing a URL to the `serv
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -306,32 +287,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .serverURL("https://api.prod.speakeasyapi.dev")
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            DeleteApiRequest req = DeleteApiRequest.builder()
+        DeleteApiRequest req = DeleteApiRequest.builder()
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();
 
-            DeleteApiResponse res = sdk.apis().deleteApi()
+        DeleteApiResponse res = sdk.apis().deleteApi()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -353,7 +326,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
+import dev.speakeasyapi.javaclientsdk.models.errors.Error;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceFeatureFlagsRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceFeatureFlagsResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -361,35 +334,24 @@ import java.lang.Exception;
 
 public class Application {
 
-    public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+    public static void main(String[] args) throws Error, Exception {
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetWorkspaceFeatureFlagsRequest req = GetWorkspaceFeatureFlagsRequest.builder()
                 .build();
 
-            GetWorkspaceFeatureFlagsRequest req = GetWorkspaceFeatureFlagsRequest.builder()
-                .build();
-
-            GetWorkspaceFeatureFlagsResponse res = sdk.workspaces().getWorkspaceFeatureFlags()
+        GetWorkspaceFeatureFlagsResponse res = sdk.workspaces().getWorkspaceFeatureFlags()
                 .request(req)
                 .call();
 
-            if (res.workspaceFeatureFlagResponse().isPresent()) {
-                // handle response
-            }
-        } catch (dev.speakeasyapi.javaclientsdk.models.errors.Error e) {
-            // handle exception
-            throw e;
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.workspaceFeatureFlagResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -412,7 +374,6 @@ You can set the security parameters through the `security` builder method when i
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -421,31 +382,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            DeleteApiRequest req = DeleteApiRequest.builder()
+        DeleteApiRequest req = DeleteApiRequest.builder()
                 .apiID("<value>")
                 .versionID("<value>")
                 .build();
 
-            DeleteApiResponse res = sdk.apis().deleteApi()
+        DeleteApiResponse res = sdk.apis().deleteApi()
                 .request(req)
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -474,7 +427,6 @@ The following global parameter is available.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -483,31 +435,23 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetWorkspaceRequest req = GetWorkspaceRequest.builder()
                 .build();
 
-            GetWorkspaceRequest req = GetWorkspaceRequest.builder()
-                .build();
-
-            GetWorkspaceResponse res = sdk.workspaces().getWorkspace()
+        GetWorkspaceResponse res = sdk.workspaces().getWorkspace()
                 .request(req)
                 .call();
 
-            if (res.workspace().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.workspace().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -523,7 +467,6 @@ To change the default retry strategy for a single API call, you can provide a `R
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -535,17 +478,17 @@ import java.util.concurrent.TimeUnit;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
                 .build();
 
-            GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
-                .build();
-
-            GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
+        GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
                 .request(req)
                 .retryConfig(RetryConfig.builder()
                     .backoff(BackoffStrategy.builder()
@@ -559,17 +502,9 @@ public class Application {
                     .build())
                 .call();
 
-            if (res.accessDetails().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.accessDetails().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -579,7 +514,6 @@ If you'd like to override the default retry strategy for all operations that sup
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetWorkspaceAccessResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -591,8 +525,8 @@ import java.util.concurrent.TimeUnit;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .retryConfig(RetryConfig.builder()
                     .backoff(BackoffStrategy.builder()
                         .initialInterval(1L, TimeUnit.MILLISECONDS)
@@ -606,26 +540,18 @@ public class Application {
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
+            .build();
+
+        GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
                 .build();
 
-            GetWorkspaceAccessRequest req = GetWorkspaceAccessRequest.builder()
-                .build();
-
-            GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
+        GetWorkspaceAccessResponse res = sdk.auth().getWorkspaceAccess()
                 .request(req)
                 .call();
 
-            if (res.accessDetails().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.accessDetails().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

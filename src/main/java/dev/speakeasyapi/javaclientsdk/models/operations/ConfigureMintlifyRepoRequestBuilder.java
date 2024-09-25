@@ -16,7 +16,7 @@ public class ConfigureMintlifyRepoRequestBuilder {
         this.sdk = sdk;
     }
 
-    public ConfigureMintlifyRepoRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureMintlifyRepoRequest request) {
+    public ConfigureMintlifyRepoRequestBuilder request(GithubConfigureMintlifyRepoRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

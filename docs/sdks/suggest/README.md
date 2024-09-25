@@ -21,7 +21,6 @@ Get suggestions from an LLM model for improving an OpenAPI document.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Diagnostic;
@@ -38,14 +37,14 @@ import java.util.List;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            SuggestRequest req = SuggestRequest.builder()
+        SuggestRequest req = SuggestRequest.builder()
                 .suggestRequestBody(SuggestRequestBody.builder()
                     .diagnostics(List.of(
                         Diagnostic.builder()
@@ -56,7 +55,7 @@ public class Application {
                             .build()))
                     .oasSummary(OASSummary.builder()
                         .info(OASInfo.builder()
-                            .description("Object-based multi-state pricing structure")
+                            .description("Programmable fault-tolerant hierarchy")
                             .license(License.builder()
                                 .build())
                             .summary("<value>")
@@ -65,10 +64,10 @@ public class Application {
                             .build())
                         .operations(List.of(
                             OASOperation.builder()
-                                .description("Innovative tangible hierarchy")
+                                .description("De-engineered system-worthy task-force")
                                 .method("<value>")
                                 .operationId("<value>")
-                                .path("/usr/include")
+                                .path("/sbin")
                                 .tags(List.of(
                                     "<value>"))
                                 .build()))
@@ -78,21 +77,13 @@ public class Application {
                 .xSessionId("<value>")
                 .build();
 
-            SuggestResponse res = sdk.suggest().suggest()
+        SuggestResponse res = sdk.suggest().suggest()
                 .request(req)
                 .call();
 
-            if (res.schema().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.schema().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -124,49 +115,41 @@ Get suggestions from an LLM model for improving an OpenAPI document.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.Schema;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRequestBody;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
+import java.nio.charset.StandardCharsets;
 
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            SuggestOpenAPIRequest req = SuggestOpenAPIRequest.builder()
+        SuggestOpenAPIRequest req = SuggestOpenAPIRequest.builder()
                 .requestBody(SuggestOpenAPIRequestBody.builder()
                     .schema(Schema.builder()
-                        .content("0x0FbfeAEcc8".getBytes())
+                        .content("0x0beEcB7cF6".getBytes(StandardCharsets.UTF_8))
                         .fileName("example.file")
                         .build())
                     .build())
                 .xSessionId("<value>")
                 .build();
 
-            SuggestOpenAPIResponse res = sdk.suggest().suggestOpenAPI()
+        SuggestOpenAPIResponse res = sdk.suggest().suggestOpenAPI()
                 .request(req)
                 .call();
 
-            if (res.schema().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.schema().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -198,7 +181,6 @@ Get suggestions from an LLM model for improving an OpenAPI document stored in th
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRegistryRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.SuggestOpenAPIRegistryResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -207,34 +189,26 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            SuggestOpenAPIRegistryRequest req = SuggestOpenAPIRegistryRequest.builder()
+        SuggestOpenAPIRegistryRequest req = SuggestOpenAPIRegistryRequest.builder()
                 .namespaceName("<value>")
                 .revisionReference("<value>")
                 .xSessionId("<value>")
                 .build();
 
-            SuggestOpenAPIRegistryResponse res = sdk.suggest().suggestOpenAPIRegistry()
+        SuggestOpenAPIRegistryResponse res = sdk.suggest().suggestOpenAPIRegistry()
                 .request(req)
                 .call();
 
-            if (res.schema().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.schema().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

@@ -16,7 +16,7 @@ public class ConfigureCodeSamplesRequestBuilder {
         this.sdk = sdk;
     }
 
-    public ConfigureCodeSamplesRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureCodeSamplesRequest request) {
+    public ConfigureCodeSamplesRequestBuilder request(GithubConfigureCodeSamplesRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

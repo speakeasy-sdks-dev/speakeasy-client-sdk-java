@@ -15,7 +15,7 @@ public class FetchPublishingPRsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public FetchPublishingPRsRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.operations.FetchPublishingPRsRequest request) {
+    public FetchPublishingPRsRequestBuilder request(FetchPublishingPRsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

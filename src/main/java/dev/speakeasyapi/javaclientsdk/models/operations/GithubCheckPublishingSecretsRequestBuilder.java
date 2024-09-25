@@ -15,7 +15,7 @@ public class GithubCheckPublishingSecretsRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GithubCheckPublishingSecretsRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.operations.GithubCheckPublishingSecretsRequest request) {
+    public GithubCheckPublishingSecretsRequestBuilder request(GithubCheckPublishingSecretsRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

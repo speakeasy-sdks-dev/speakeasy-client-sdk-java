@@ -20,7 +20,6 @@ Creates a free trial for an organization
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.CreateFreeTrialResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
@@ -28,25 +27,17 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            CreateFreeTrialResponse res = sdk.organizations().createFreeTrial()
+        CreateFreeTrialResponse res = sdk.organizations().createFreeTrial()
                 .call();
 
-            // handle response
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
-        }
-
+        // handle response
     }
 }
 ```
@@ -72,7 +63,6 @@ Get information about a particular organization.
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationRequest;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
@@ -81,32 +71,24 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GetOrganizationRequest req = GetOrganizationRequest.builder()
+        GetOrganizationRequest req = GetOrganizationRequest.builder()
                 .organizationID("<value>")
                 .build();
 
-            GetOrganizationResponse res = sdk.organizations().getOrganization()
+        GetOrganizationResponse res = sdk.organizations().getOrganization()
                 .request(req)
                 .call();
 
-            if (res.organization().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.organization().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -138,7 +120,6 @@ Returns a billing usage summary by target languages for a particular organizatio
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationUsageResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
@@ -146,27 +127,19 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GetOrganizationUsageResponse res = sdk.organizations().getOrganizationUsage()
+        GetOrganizationUsageResponse res = sdk.organizations().getOrganizationUsage()
                 .call();
 
-            if (res.organizationUsageResponse().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.organizationUsageResponse().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```
@@ -192,7 +165,6 @@ Returns a list of organizations a user has access too
 package hello.world;
 
 import dev.speakeasyapi.javaclientsdk.SDK;
-import dev.speakeasyapi.javaclientsdk.models.errors.SDKError;
 import dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationsResponse;
 import dev.speakeasyapi.javaclientsdk.models.shared.Security;
 import java.lang.Exception;
@@ -200,27 +172,19 @@ import java.lang.Exception;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-        try {
-            SDK sdk = SDK.builder()
+
+        SDK sdk = SDK.builder()
                 .security(Security.builder()
                     .apiKey("<YOUR_API_KEY_HERE>")
                     .build())
-                .build();
+            .build();
 
-            GetOrganizationsResponse res = sdk.organizations().getOrganizations()
+        GetOrganizationsResponse res = sdk.organizations().getOrganizations()
                 .call();
 
-            if (res.organizations().isPresent()) {
-                // handle response
-            }
-        } catch (SDKError e) {
-            // handle exception
-            throw e;
-        } catch (Exception e) {
-            // handle exception
-            throw e;
+        if (res.organizations().isPresent()) {
+            // handle response
         }
-
     }
 }
 ```

@@ -15,7 +15,7 @@ public class GetOrganizationRequestBuilder {
         this.sdk = sdk;
     }
 
-    public GetOrganizationRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.operations.GetOrganizationRequest request) {
+    public GetOrganizationRequestBuilder request(GetOrganizationRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;

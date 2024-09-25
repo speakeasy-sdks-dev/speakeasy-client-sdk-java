@@ -16,7 +16,7 @@ public class ConfigureTargetRequestBuilder {
         this.sdk = sdk;
     }
 
-    public ConfigureTargetRequestBuilder request(dev.speakeasyapi.javaclientsdk.models.shared.GithubConfigureTargetRequest request) {
+    public ConfigureTargetRequestBuilder request(GithubConfigureTargetRequest request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;
